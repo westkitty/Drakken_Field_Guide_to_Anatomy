@@ -45,13 +45,15 @@ function selectedAnnotations(record: SpecimenRecord, selectedAnnotationIds: stri
 }
 
 export function exportRecordJson(record: SpecimenRecord, selectedAnnotationIds: string[]): string {
+  const selected = selectedAnnotations(record, selectedAnnotationIds);
   return JSON.stringify(
     {
       ...record,
+      selectedAnnotations: selected,
       exportMetadata: {
         exportTimestamp: new Date().toISOString(),
         selectedAnnotationIds,
-        selectedAnnotations: selectedAnnotations(record, selectedAnnotationIds),
+        selectedAnnotations: selected,
         scaleNotice:
           'Procedural chamber geometry is normalized for examination. Visualization-height metadata is not a proven world-unit calibration.',
       },
