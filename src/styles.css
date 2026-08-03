@@ -1058,6 +1058,116 @@ input[type="range"] {
   .diagnostics-panel {
     width: 100%;
   }
+
+  .chamber-hud-bar {
+    display: none;
+  }
+}
+
+/* Keyboard Shortcut HUD Bar */
+.chamber-hud-bar {
+  position: absolute;
+  left: 0.85rem;
+  bottom: 0.85rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  background: rgba(5, 8, 15, 0.85);
+  backdrop-filter: blur(12px);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
+.chamber-hud-bar span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Vault 9 Orientation Briefing Modal */
+.orientation-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(3, 5, 10, 0.82);
+  backdrop-filter: blur(12px);
+  animation: fadeIn 200ms ease;
+}
+
+.orientation-card {
+  max-width: 520px;
+  width: 100%;
+  border: 1px solid var(--line-glow);
+  border-radius: 6px;
+  padding: 1.8rem;
+  background: var(--panel-solid);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8), 0 0 32px rgba(126, 214, 248, 0.15);
+}
+
+.orientation-card h2 {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  color: var(--text-bright);
+  margin: 0.3rem 0 0.8rem;
+}
+
+.orientation-card p {
+  color: var(--text);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin-bottom: 1.2rem;
+}
+
+.orientation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.orientation-item {
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: rgba(18, 25, 41, 0.6);
+}
+
+.orientation-item strong {
+  display: block;
+  color: var(--cyan-frost);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  margin-bottom: 0.2rem;
+}
+
+.orientation-item small {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+.orientation-card button {
+  width: 100%;
+  padding: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -101,6 +101,7 @@ export default function App() {
   const [diagnosticsOpen, setDiagnosticsOpen] = useState(false);
   const [registryOpen, setRegistryOpen] = useState(false);
   const [recordOpen, setRecordOpen] = useState(false);
+  const [orientationOpen, setOrientationOpen] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [diagnostics, setDiagnostics] = useState<DiagnosticsSnapshot>({
     specimenId: 'skymourn',
@@ -193,6 +194,7 @@ export default function App() {
         setRegistryOpen(false);
         setRecordOpen(false);
         setDiagnosticsOpen(false);
+        setOrientationOpen(false);
         return;
       }
       if (editable) return;
@@ -232,6 +234,7 @@ export default function App() {
           <h1>Drakken Field Anatomy Archive</h1>
         </div>
         <div className="header-status">
+          <button type="button" onClick={() => setOrientationOpen(true)}>Briefing</button>
           <span>{specimens.length} records</span>
           <span>One meter per world unit</span>
           <EvidenceBadge state={activeRecord.evidenceStatus} />
@@ -612,6 +615,37 @@ export default function App() {
           </dl>
         )}
       </section>
+
+      {orientationOpen && (
+        <div className="orientation-overlay" role="dialog" aria-labelledby="briefing-heading" aria-modal="true">
+          <div className="orientation-card">
+            <p className="eyebrow">Classified Directive / Vault 9</p>
+            <h2 id="briefing-heading">Examiner Orientation Briefing</h2>
+            <p>
+              Welcome to the Zentrum Vault 9 Drakken Field Anatomy Archive. This interface provides 3D anatomical examination of all 59 canonical Drakken entities.
+            </p>
+            <div className="orientation-grid">
+              <div className="orientation-item">
+                <strong>Camera Control</strong>
+                <small><kbd>Click + Drag</kbd> orbit. <kbd>R</kbd> resets camera. Perspective and Orthographic modes supported.</small>
+              </div>
+              <div className="orientation-item">
+                <strong>Anatomy Layers</strong>
+                <small>Toggle surface, structure, internal, and functional biological layers independently.</small>
+              </div>
+              <div className="orientation-item">
+                <strong>Sectioning Planes</strong>
+                <small>Enable X/Y/Z clipping planes to cut through deep internal organ cores and furnace maws.</small>
+              </div>
+              <div className="orientation-item">
+                <strong>Scale References</strong>
+                <small>Compare colossal specimen heights against 1.8m Human, 1.5m Vehicle, and 10m markers.</small>
+              </div>
+            </div>
+            <button type="button" onClick={() => setOrientationOpen(false)}>Acknowledge & Proceed</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -329,6 +329,16 @@ export function ExaminationChamber(props: ChamberProps) {
         onCreated={({ gl }) => {
           gl.localClippingEnabled = true;
           gl.setClearColor('#05080f');
+          const canvas = gl.domElement;
+          const handleContextLost = (event: Event) => {
+            event.preventDefault();
+            console.warn('[Vault 9 Examination System] WebGL Context Lost. Retaining state for restoration...');
+          };
+          const handleContextRestored = () => {
+            console.info('[Vault 9 Examination System] WebGL Context Restored successfully.');
+          };
+          canvas.addEventListener('webglcontextlost', handleContextLost, false);
+          canvas.addEventListener('webglcontextrestored', handleContextRestored, false);
         }}
       >
         <color attach="background" args={['#05080f']} />
@@ -383,6 +393,12 @@ export function ExaminationChamber(props: ChamberProps) {
         />
       </Canvas>
       <div className="chamber-crosshair" aria-hidden="true" />
+      <div className="chamber-hud-bar" aria-label="Keyboard shortcut guide">
+        <span><kbd>R</kbd> Reset camera</span>
+        <span><kbd>Space</kbd> Play / Pause</span>
+        <span><kbd>Esc</kbd> Close drawers</span>
+        <span><kbd>Drag</kbd> Orbit 3D</span>
+      </div>
       <div className="chamber-scale-note">
         Reconstruction scale: {props.record.dimensions.visualizationHeightMeters} m. {props.record.dimensions.visualizationNote}
       </div>
