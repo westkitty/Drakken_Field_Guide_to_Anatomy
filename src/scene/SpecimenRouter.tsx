@@ -8,6 +8,14 @@ import {
   StratosChoristerModel,
 } from './models/AtmosEngineModels';
 import {
+  DemographicPlannerModel,
+  FoundryCantorModel,
+  PowerLatticeRegulatorModel,
+  RecordDevourerModel,
+  SkylineMoulterModel,
+  TransitImpalerModel,
+} from './models/CiviformerBatchModels';
+import {
   NebularStreamHerderModel,
   OrbitalExtrusionEngineModel,
   StellarPlasmaSwimmerModel,
@@ -19,6 +27,12 @@ import {
   SalinityConductorModel,
   TrenchSovereignModel,
 } from './models/FluxborneModels';
+import {
+  CivicTimeRewriterModel,
+  OneiricEcologistModel,
+  SovereigntyEaterModel,
+  SyntaxBreakerModel,
+} from './models/NoosphereBatchModels';
 import {
   DeepsongCarrierModel,
   GravityImpalerModel,
@@ -90,6 +104,26 @@ export function SpecimenModel(props: SpecimenModelProps) {
       return <BurnlineReaperModel {...props} />;
     case 'data-core-unbinder':
       return <DataCoreUnbinderModel {...props} />;
+    case 'foundry-cantor':
+      return <FoundryCantorModel {...props} />;
+    case 'power-lattice-regulator':
+      return <PowerLatticeRegulatorModel {...props} />;
+    case 'skyline-moulter':
+      return <SkylineMoulterModel {...props} />;
+    case 'transit-impaler':
+      return <TransitImpalerModel {...props} />;
+    case 'demographic-planner':
+      return <DemographicPlannerModel {...props} />;
+    case 'record-devourer':
+      return <RecordDevourerModel {...props} />;
+    case 'syntax-breaker':
+      return <SyntaxBreakerModel {...props} />;
+    case 'civic-time-rewriter':
+      return <CivicTimeRewriterModel {...props} />;
+    case 'oneiric-ecologist':
+      return <OneiricEcologistModel {...props} />;
+    case 'sovereignty-eater':
+      return <SovereigntyEaterModel {...props} />;
     default:
       return <LegacySpecimenModel {...props} />;
   }
