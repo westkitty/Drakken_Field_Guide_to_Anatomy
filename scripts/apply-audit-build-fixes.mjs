@@ -1,5 +1,15 @@
-import { readFile, writeFile, rm } from 'node:fs/promises';
+import { access, readFile, writeFile } from 'node:fs/promises';
 import { glob } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
+
+const seedcarrierPath = 'src/scene/models/SeedcarrierModels.tsx';
+try {
+  await access(seedcarrierPath);
+} catch {
+  const source = execFileSync('git', ['show', `origin/build-skymourn:${seedcarrierPath}`], { encoding: 'utf8' });
+  await writeFile(seedcarrierPath, source);
+  console.log('Restored SeedcarrierModels.tsx because canon-correct wrappers import three compatibility bases.');
+}
 
 const curvePattern = /(class\s+\w+\s+extends\s+THREE\.Curve<THREE\.Vector3>\s*\{\n)(\s*getPoint\s*\()/g;
 let constructorCount = 0;
@@ -20,7 +30,5 @@ const packageJson = JSON.parse(await readFile(packagePath, 'utf8'));
 packageJson.engines = { ...packageJson.engines, node: '>=22.13.0' };
 await writeFile(packagePath, `${JSON.stringify(packageJson, null, 2)}\n`);
 
-await rm('src/scene/models/SeedcarrierModels.tsx', { force: true });
-
-console.log(`Added ${constructorCount} explicit curve constructors.`);
-console.log('Removed obsolete SeedcarrierModels.tsx and updated the declared Node floor.');
+console.log(`Added ${constructorCount} missing explicit curve constructors.`);
+console.log('Updated the declared Node floor.');
