@@ -7,10 +7,10 @@
   "project_name": "Drakken Field Anatomy Archive",
   "project_root": ".",
   "artifact_path": "",
-  "state_revision": 14,
-  "last_updated": "2026-08-03T09:26:00-04:00",
+  "state_revision": 15,
+  "last_updated": "2026-08-03T09:47:00-04:00",
   "current_baseline": {
-    "identity": "build-skymourn source commit 6959c889528bff22b897636394d45939bb5a48f8",
+    "identity": "build-skymourn source commit 5a050777dccb5a2a287c10a9d0bb837cfdc35d87",
     "state": "implemented-unverified",
     "last_verified": "No retrievable current-branch build or browser evidence"
   },
@@ -31,18 +31,17 @@ The Drakken Field Anatomy Archive is a responsive React Three Fiber forensic com
 
 ## 2. Current Baseline
 
-The active model-source baseline is `build-skymourn` commit `6959c889528bff22b897636394d45939bb5a48f8`.
+The active model-source baseline is `build-skymourn` commit `5a050777dccb5a2a287c10a9d0bb837cfdc35d87`.
 
 Current source includes:
 
 - all 59 records and the legacy fallback router;
 - original dedicated models for Skymourn, Gorevault, and Blood Ring;
-- Batches 1–5 recorded below;
-- Batch 6 containing exactly ten newly routed dedicated models;
-- a repaired split between industrial and occupation Civiformer model modules;
+- Batches 1–6 recorded below;
+- Batch 7 containing exactly ten newly routed dedicated models;
 - branch-scoped GitHub Actions validation configuration.
 
-The connector reports no status checks for the current source commit. Browser execution is unavailable. Batch 6 is implemented but unverified.
+The connector reports no status checks or workflow runs for the current source commit. Browser execution is unavailable. Batch 7 is implemented but unverified.
 
 ## 3. Artifact Contract
 
@@ -87,10 +86,16 @@ A record is not complete merely because it has unique configuration values. It r
 - **Rule:** Batch 5 begins at `nebular-stream-herder` and ends at `data-core-unbinder`.
 - **Status:** active
 
-### INV-006 — Batch 6 contains exactly ten records
+### INV-006 — Batch 6 exact boundary
 
 - **State:** `requested`
-- **Rule:** Batch 6 begins immediately after `data-core-unbinder`, starts with `foundry-cantor`, ends with `sovereignty-eater`, and must not begin `hymnlock`.
+- **Rule:** Batch 6 begins at `foundry-cantor` and ends at `sovereignty-eater`.
+- **Status:** active
+
+### INV-007 — Batch 7 contains exactly ten records
+
+- **State:** `requested`
+- **Rule:** Batch 7 begins immediately after `sovereignty-eater`, starts with `hymnlock`, ends with `viral-bastion`, and must not begin `mother` or any other Origin Node.
 - **Evidence:** `src/scene/SpecimenRouter.tsx`
 - **Validation:** Exact route-case and diff inspection.
 - **Status:** active
@@ -131,29 +136,33 @@ Dedicated routes exist for Veilcurrent, Coronaxis, Ringthroat, Solnexus, Nulltho
 
 ### UNV-007 — Batch 6 exact ten-model implementation
 
-Source commit `6959c889528bff22b897636394d45939bb5a48f8` routes exactly these ten records to dedicated models:
+Dedicated routes exist for Ironcant, Gridsaint, Spiremolt, Roadthorn, Habitarch, Archivore, Lexiclast, Calendarion, Dreamtaxon, and Crownmute.
 
-1. `foundry-cantor` — Ironcant
-2. `power-lattice-regulator` — Gridsaint
-3. `skyline-moulter` — Spiremolt
-4. `transit-impaler` — Roadthorn
-5. `demographic-planner` — Habitarch
-6. `record-devourer` — Archivore
-7. `syntax-breaker` — Lexiclast
-8. `civic-time-rewriter` — Calendarion
-9. `oneiric-ecologist` — Dreamtaxon
-10. `sovereignty-eater` — Crownmute
+### UNV-008 — Batch 7 exact ten-model implementation
+
+Source commit `5a050777dccb5a2a287c10a9d0bb837cfdc35d87` routes exactly these ten records to dedicated models:
+
+1. `hymnlock` — Hymnlock
+2. `memorialvein` — Memorialvein
+3. `shrinehunger` — Shrinehunger
+4. `redacted-grin` — Redacted Grin
+5. `spinal-loop` — Spinal Loop
+6. `cradle-exe` — Cradle.exe
+7. `foldhowl` — Foldhowl
+8. `manifest-discord` — Manifest.Discord
+9. `gloryfail` — Gloryfail
+10. `viral-bastion` — Viral Bastion
 
 Implementation files:
 
-- `src/scene/models/CiviformerIndustrialModels.tsx`
-- `src/scene/models/CiviformerOccupationModels.tsx`
-- `src/scene/models/NoosphereBatchModels.tsx`
+- `src/scene/models/NoosphereRitualModels.tsx`
+- `src/scene/models/GlitchEmbodiedModels.tsx`
+- `src/scene/models/GlitchSemanticModels.tsx`
 - `src/scene/SpecimenRouter.tsx`
 
-The initial combined Civiformer module was superseded and removed during one bounded repair pass after source inspection identified an avoidable callback/lint risk. The final split preserves the same six model routes while keeping file ownership clearer.
+The ten constructions preserve the dossier body-plan distinctions: suspended bell anatomy, reliquary-vein anatomy, pilgrimage-gate anatomy, a disembodied censored mouth, a recursive geological ouroboros, an eternally hatching shelter egg, a phase-failing lupine, a hosted symbol swarm around a hollow mask, failed angelic ascension, and walking siege architecture.
 
-Missing evidence: TypeScript, lint, tests, production build, browser rendering, layer and clipping behavior, measurement, animations, camera framing, sibling comparison, and repeated switching.
+Missing evidence: TypeScript, lint, tests, production build, browser rendering, layer and clipping behavior, measurement, animations, camera framing, sibling comparison, lifecycle disposal, and repeated switching.
 
 ## 8. Unknown or Evidence-Stale State
 
@@ -163,7 +172,7 @@ Pointer, touch, keyboard, narrow viewport, reduced motion, WebGL clipping, measu
 
 ### UNK-002 — Current dependency-backed build state
 
-A validation workflow exists, but no status is attached or retrievable for source commit `6959c889528bff22b897636394d45939bb5a48f8`.
+A validation workflow exists, but no status or workflow run is attached or retrievable for source commit `5a050777dccb5a2a287c10a9d0bb837cfdc35d87`.
 
 ## 9. Pending Work
 
@@ -175,17 +184,17 @@ A validation workflow exists, but no status is attached or retrievable for sourc
 
 ### PND-002 — Perform browser model and lifecycle checks
 
-Exercise the 35 records from Batches 2–6 plus representative fallback records through camera controls, layers, clipping, animations, measurement, annotations, and repeated switching.
+Exercise the 45 records from Batches 2–7 plus representative earlier and fallback records through camera controls, layers, clipping, animations, measurement, annotations, and repeated switching.
 
 - **Priority:** critical
 - **Blocks verified completion:** yes
 
 ### PND-003 — Continue bounded model batches
 
-The next archive record after Batch 6 is `hymnlock`. Do not treat it as part of Batch 6.
+The next archive record after Batch 7 is `mother`. Do not treat it as part of Batch 7.
 
 - **Priority:** high
-- **Blocks Batch 6 source implementation:** no
+- **Blocks Batch 7 source implementation:** no
 
 ## 10. Active Decisions and Prohibitions
 
@@ -200,15 +209,15 @@ The next archive record after Batch 6 is `hymnlock`. Do not treat it as part of 
 | Claim | State | Evidence | Required proof |
 |---|---|---|---|
 | Full 59-record archive remains intact | requested | Registry and fallback route retained | Record-count test and browser navigation |
-| Batch 6 has exactly ten sequential routes | implemented-unverified | Router and compare inspection | Build plus direct route exercise |
-| Batch 6 models are dossier-grounded | implemented-unverified | Dossier comparison and dedicated source | Visual canon audit |
-| No Batch 6 spillover into Hymnlock | implemented-unverified | Router ends at `sovereignty-eater` | Direct route exercise |
+| Batch 7 has exactly ten sequential routes | implemented-unverified | Router and compare inspection | Build plus direct route exercise |
+| Batch 7 models are dossier-grounded | implemented-unverified | Dossier comparison and dedicated source | Visual canon audit |
+| No Batch 7 spillover into Origin Nodes | implemented-unverified | Router ends at `viral-bastion` | Direct route exercise |
 | Examination workflow remains functional | unknown | Source compatibility retained | Browser smoke path |
-| Current branch compiles and builds | evidence-stale | No retrievable current status | Full npm suite |
+| Current branch compiles and builds | evidence-stale | No retrievable current status or workflow run | Full npm suite |
 
 ## 12. Current Change Scope and Impact Radius
 
-Batch 6 changes three new final model modules and the model router. The impact radius includes Three.js geometry ownership, transparent and emissive materials, frame animation transforms, clipping, layer visibility, measurement events, annotations, camera framing, performance, and record switching. No dependencies, application UI, archive records, or post-`sovereignty-eater` routes changed.
+Batch 7 changes three new model modules and the model router. The impact radius includes Three.js geometry ownership, transparent and emissive materials, frame animation transforms, clipping, layer visibility, measurement events, annotations, camera framing, performance, and record switching. No dependencies, application UI, archive records, or Origin Node routes changed.
 
 ## 13. Compact Revision Log
 
@@ -218,4 +227,5 @@ Batch 6 changes three new final model modules and the model router. The impact r
 - **Revision 11:** Reconciled the 59-record contract and corrected Batch 3 Seedcarriers.
 - **Revision 12:** Added Batch 4 Fluxborne models and branch validation workflow.
 - **Revision 13:** Added Batch 5: exactly ten sequential Fluxborne and Orbital-Wyrm models ending at Singulararch.
-- **Revision 14:** Added Batch 6: exactly ten sequential Civiformer and Noosphere-Cantor models ending at Crownmute. Performed one bounded repair by splitting the Civiformer source and removing the superseded combined module. Current state remains implemented-unverified pending build and browser evidence.
+- **Revision 14:** Added Batch 6: exactly ten sequential Civiformer and Noosphere-Cantor models ending at Crownmute.
+- **Revision 15:** Added Batch 7: exactly ten sequential Noosphere-Cantor and Glitch-Touched models ending at Viral Bastion. Stopped before Mother. Current state remains implemented-unverified pending build and browser evidence.
