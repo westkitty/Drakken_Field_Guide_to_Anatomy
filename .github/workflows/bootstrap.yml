@@ -23,7 +23,7 @@ jobs:
           cat .bootstrap/chunk-* > /tmp/dfaa.b64
           base64 --decode /tmp/dfaa.b64 > /tmp/dfaa.tar.gz
           tar -xzf /tmp/dfaa.tar.gz -C .
-          rm -rf .bootstrap
+          rm -rf .bootstrap .github/workflows/validate.yml
 
       - name: Apply bounded source repair
         shell: bash
@@ -63,7 +63,6 @@ jobs:
         if: github.event_name == 'pull_request'
         shell: bash
         run: |
-          rm -f .github/workflows/bootstrap.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
