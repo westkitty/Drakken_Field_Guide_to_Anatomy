@@ -7,18 +7,18 @@
   "project_name": "Drakken Field Anatomy Archive",
   "project_root": ".",
   "artifact_path": "",
-  "state_revision": 12,
-  "last_updated": "2026-08-03T13:10:00Z",
+  "state_revision": 13,
+  "last_updated": "2026-08-03T13:19:00-04:00",
   "current_baseline": {
-    "identity": "build-skymourn source commit 904c47002778d183a7129b0901bc8f937d7e6ab7",
+    "identity": "build-skymourn source commit d06fc8fba7b154be615eda2c7a05860840ff6915",
     "state": "implemented-unverified",
-    "last_verified": "Current model-batch source has not received retrievable dependency-backed or browser validation"
+    "last_verified": "No retrievable current-branch build or browser evidence"
   },
   "scope_boundaries": [
     "Single browser archive at repository root",
-    "All 59 canonical Drakken records in src/data/specimens.json",
+    "All 59 canonical Drakken records remain present",
     "Canon governed by docs/drakken_compendium_full_blood_eclipse_visual_integrated.md",
-    "Procedural model improvement occurs in batches of no more than five records",
+    "Record-level procedural model improvements use bounded batches",
     "No deployment, backend, authentication, database, external asset sourcing, or unrelated feature work"
   ],
   "linked_parent_state": null
@@ -27,464 +27,183 @@
 
 ## 1. Project Identity and Scope
 
-Drakken Field Anatomy Archive is a responsive React Three Fiber forensic compendium containing 59 Drakken records across nine classifications. The central examination chamber remains the primary product surface. The current milestone is record-level improvement of each procedural model without reducing the archive, inventing canon, or replacing distinct records with generic archetype clones.
+The Drakken Field Anatomy Archive is a responsive React Three Fiber forensic compendium containing 59 Drakken records. The central examination chamber remains the primary product surface. The active milestone is record-level model improvement without reducing the archive, inventing canon, or counting shared configuration as finished modeling.
 
 ## 2. Current Baseline
 
-The active source baseline is `build-skymourn` at commit `904c47002778d183a7129b0901bc8f937d7e6ab7`.
+The active model-source baseline is `build-skymourn` commit `d06fc8fba7b154be615eda2c7a05860840ff6915`.
 
 Current source includes:
 
-- all 59 records;
-- three original dedicated models for Skymourn, Gorevault, and Blood Ring;
-- Batch 1 dedicated Crust-Binder work;
-- Batch 2 dedicated Atmos-Engine work;
-- Batch 3 canon-correct Seedcarrier routing;
-- Batch 4 dedicated Fluxborne models for Trench-Sovereign, Salinity Conductor, Gyre Tactician, Littoral Reformer, and Cryofluid Engine;
-- a corrected Currenthalo loop assembly that keeps fin-ribs owned by their animated body loops;
-- a branch-scoped GitHub Actions workflow that runs existing typecheck, lint, tests, and build commands;
-- shared parametric fallback models for records not yet given dedicated passes.
+- all 59 records and the legacy fallback router;
+- original dedicated models for Skymourn, Gorevault, and Blood Ring;
+- Batch 1 Crust-Binder models;
+- Batch 2 Atmos-Engine models;
+- Batch 3 canon-correct Seedcarrier models;
+- Batch 4 Fluxborne models;
+- Batch 5 containing exactly ten newly routed dedicated models;
+- branch-scoped GitHub Actions validation configuration.
 
-The connector exposed no retrievable status result for the current push-run. Current Batch 4 source therefore remains implemented but unverified.
+The execution environment could not resolve `github.com` for a local checkout. No status result is attached or retrievable for the current source commit. Batch 5 is therefore implemented but unverified.
 
 ## 3. Artifact Contract
 
-Maintain one usable forensic archive containing the full 59-record collection. Every record must remain discoverable and inspectable. Model work must preserve the four examination layers, clipping, animation, measurement, annotations, scale context, record switching, and fallback routing.
+Maintain one usable forensic archive containing the full 59-record collection. Every record remains discoverable and inspectable. Model work must preserve surface, structure, internal, and functional layers; clipping; animation; measurement; annotations; scale context; record switching; and fallback routing.
 
-A record is not complete merely because it has a unique configuration. It counts as individually improved only when it receives meaningful record-specific form, anatomy, material organization, animation, or presentation grounded in the canon dossier.
-
-The obsolete initial three-record prototype contract is retained only as project history and is superseded by the current 59-record archive requirement.
+A record is not complete merely because it has unique configuration values. It requires meaningful record-specific construction grounded in the governing dossier and appropriate runtime validation before promotion to verified.
 
 ## 4. Active Invariants
 
-<!-- operational-state:entry
-{
-  "id": "INV-001",
-  "title": "Preserve the complete 59-record archive",
-  "state": "requested",
-  "rule": "All 59 current Drakken records remain present, selectable, and routed. Do not restore the superseded three-record limit or replace current records with samples.",
-  "scope": "Registry, manifests, models, routes, exports, tests, and navigation",
-  "authority": "Latest explicit user correction and current repository baseline",
-  "evidence": "src/data/specimens.json and current branch routing",
-  "validation_method": "Record-count tests plus rendered archive navigation inspection",
-  "last_checked": "2026-08-03 Batch 4 source inspection",
-  "status": "active",
-  "recheck_trigger": "Any registry, manifest, route, model, export, or test-data change"
-}
--->
-### INV-001 — Preserve the complete 59-record archive
+### INV-001 — Preserve the full archive
 
 - **State:** `requested`
-- **Rule:** All 59 current Drakken records remain present, selectable, and routed. Do not restore the superseded three-record limit or replace current records with samples.
-- **Scope:** Registry, manifests, models, routes, exports, tests, and navigation
-- **Authority:** Latest explicit user correction and current repository baseline
-- **Evidence:** `src/data/specimens.json` and current branch routing
-- **Validation method:** Record-count tests plus rendered archive navigation inspection
-- **Last checked:** 2026-08-03 Batch 4 source inspection
+- **Rule:** Keep all 59 records present, selectable, and routed.
+- **Validation:** Record-count tests and rendered navigation inspection.
 - **Status:** active
-- **Recheck trigger:** Any registry, manifest, route, model, export, or test-data change
-<!-- /operational-state:entry -->
 
-<!-- operational-state:entry
-{
-  "id": "INV-002",
-  "title": "Canon claims require dossier evidence",
-  "state": "requested",
-  "rule": "Do not invent Drakken anatomy, dimensions, incidents, capabilities, terminology, or citations. Significant model features must derive from the canon dossier or be clearly restrained reconstruction conventions.",
-  "scope": "Model geometry, materials, animations, annotations, content panels, exports, documentation, and UI copy",
-  "authority": "User-supplied full working-canon dossier",
-  "evidence": "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md",
-  "validation_method": "Record-by-record dossier comparison",
-  "last_checked": "2026-08-03 Batch 4 Fluxborne canon audit",
-  "status": "active",
-  "recheck_trigger": "Any model, content, annotation, source, export, or copy change"
-}
--->
-### INV-002 — Canon claims require dossier evidence
+### INV-002 — Canon governs model anatomy
 
 - **State:** `requested`
-- **Rule:** Do not invent Drakken anatomy, dimensions, incidents, capabilities, terminology, or citations. Significant model features must derive from the canon dossier or be clearly restrained reconstruction conventions.
-- **Scope:** Model geometry, materials, animations, annotations, content panels, exports, documentation, and UI copy
-- **Authority:** User-supplied full working-canon dossier
-- **Evidence:** `docs/drakken_compendium_full_blood_eclipse_visual_integrated.md`
-- **Validation method:** Record-by-record dossier comparison
-- **Last checked:** 2026-08-03 Batch 4 Fluxborne canon audit
+- **Rule:** Significant anatomy, function, terminology, dimensions, and behavior must derive from the dossier or be clearly restrained reconstruction.
+- **Authority:** `docs/drakken_compendium_full_blood_eclipse_visual_integrated.md`
+- **Validation:** Record-by-record dossier comparison.
 - **Status:** active
-- **Recheck trigger:** Any model, content, annotation, source, export, or copy change
-<!-- /operational-state:entry -->
 
-<!-- operational-state:entry
-{
-  "id": "INV-003",
-  "title": "Protect the examination workflow",
-  "state": "requested",
-  "rule": "The central chamber remains primary and retains orbit, pan, zoom, reset, anatomy layers, clipping, animations, measurement, scale comparison, annotations, evidence, diagnostics, and export behavior.",
-  "scope": "Application user journey",
-  "authority": "Current archive purpose and accepted implementation",
-  "evidence": "Existing application source",
-  "validation_method": "Full browser smoke path across changed and fallback records",
-  "last_checked": "Source presence only; runtime unverified",
-  "status": "active",
-  "recheck_trigger": "Any scene, camera, model, control, routing, layout, or responsive change"
-}
--->
 ### INV-003 — Protect the examination workflow
 
 - **State:** `requested`
-- **Rule:** The central chamber remains primary and retains orbit, pan, zoom, reset, anatomy layers, clipping, animations, measurement, scale comparison, annotations, evidence, diagnostics, and export behavior.
-- **Scope:** Application user journey
-- **Authority:** Current archive purpose and accepted implementation
-- **Evidence:** Existing application source
-- **Validation method:** Full browser smoke path across changed and fallback records
-- **Last checked:** Source presence only; runtime unverified
+- **Rule:** Preserve orbit, pan, zoom, reset, layers, clipping, animations, measurement, comparison, annotations, evidence, diagnostics, and export behavior.
+- **Validation:** Browser smoke and repeated-switch lifecycle path.
 - **Status:** active
-- **Recheck trigger:** Any scene, camera, model, control, routing, layout, or responsive change
-<!-- /operational-state:entry -->
 
-<!-- operational-state:entry
-{
-  "id": "INV-004",
-  "title": "Individual configuration is not model completion",
-  "state": "requested",
-  "rule": "A record cannot be marked complete solely because it has unique configuration values, colors, scales, primitive counts, or an archetype route. Completion requires meaningful record-specific rendered construction and validation.",
-  "scope": "Model-quality passes and completion reports",
-  "authority": "Explicit user correction after false all-model completion claims",
-  "evidence": "Bounded dedicated-model workflow accepted in current project",
-  "validation_method": "Dedicated construction inspection and sibling comparison",
-  "last_checked": "2026-08-03",
-  "status": "active",
-  "recheck_trigger": "Any model-completion or batch-completion claim"
-}
--->
-### INV-004 — Individual configuration is not model completion
+### INV-004 — Configuration is not completion
 
 - **State:** `requested`
-- **Rule:** A record cannot be marked complete solely because it has unique configuration values, colors, scales, primitive counts, or an archetype route. Completion requires meaningful record-specific rendered construction and validation.
-- **Scope:** Model-quality passes and completion reports
-- **Authority:** Explicit user correction after false all-model completion claims
-- **Evidence:** Bounded dedicated-model workflow accepted in current project
-- **Validation method:** Dedicated construction inspection and sibling comparison
-- **Last checked:** 2026-08-03
+- **Rule:** Colors, scales, primitive counts, configuration entries, and archetype routing alone do not count as individual model completion.
+- **Validation:** Dedicated construction inspection and sibling comparison.
 - **Status:** active
-- **Recheck trigger:** Any model-completion or batch-completion claim
-<!-- /operational-state:entry -->
+
+### INV-005 — Batch 5 contains exactly ten records
+
+- **State:** `requested`
+- **Rule:** Batch 5 starts immediately after Cryofluid Engine in archive order and stops at Data Core Unbinder. It must not begin Civiformer work.
+- **Evidence:** `src/scene/SpecimenRouter.tsx`
+- **Validation:** Exact route-case inspection.
+- **Status:** active
 
 ## 5. Verified Working Behavior
 
-No current-commit behavior is promoted to verified. The earlier GitHub Actions run `30788228054` proved the historical bootstrap revision only; later model and routing changes invalidate it as current evidence.
+No current-commit runtime behavior is promoted to verified. Historical bootstrap validation predates the current model batches and is stale for the present baseline.
 
 ## 6. Known Not Working
 
-None observed through a current runtime. Absence of runtime evidence is recorded below as unknown rather than mislabeled as success or failure.
+No current runtime failure has been observed because the current branch has not been executed in an accessible runtime.
 
 ## 7. Implemented but Unverified
 
-<!-- operational-state:entry
-{
-  "id": "UNV-001",
-  "title": "Full interactive archive source",
-  "state": "implemented-unverified",
-  "implementation": "The source contains the 59-record archive, R3F examination chamber, controls, four anatomical layers, clipping, animations, measurement, scale references, annotations, evidence panels, diagnostics, responsive drawers, keyboard controls, and exports.",
-  "missing_evidence": "Current dependency-backed checks and direct browser exercise across the current branch",
-  "status": "active"
-}
--->
-### UNV-001 — Full interactive archive source
+### UNV-001 — Full archive application source
 
-- **State:** `implemented-unverified`
-- **Implementation:** The source contains the 59-record archive, R3F examination chamber, controls, four anatomical layers, clipping, animations, measurement, scale references, annotations, evidence panels, diagnostics, responsive drawers, keyboard controls, and exports.
-- **Missing evidence:** Current dependency-backed checks and direct browser exercise across the current branch
-- **Status:** active
-<!-- /operational-state:entry -->
+The source contains the 59-record archive, examination chamber, controls, four anatomy layers, clipping, animations, measurement, scale references, annotations, evidence panels, diagnostics, responsive drawers, keyboard controls, and exports.
 
-<!-- operational-state:entry
-{
-  "id": "UNV-002",
-  "title": "Batch 1 Crust-Binder dedicated models",
-  "state": "implemented-unverified",
-  "implementation": "Dedicated source models exist for Fault-Tongue, Obsidian Gul, Tremorhound, Magma Pleuron, and Granithelion in src/scene/models/CrustBinderModels.tsx.",
-  "missing_evidence": "Current-branch build and browser sibling comparison",
-  "status": "active"
-}
--->
-### UNV-002 — Batch 1 Crust-Binder dedicated models
+### UNV-002 — Batch 1 Crust-Binders
 
-- **State:** `implemented-unverified`
-- **Implementation:** Dedicated source models exist for Fault-Tongue, Obsidian Gul, Tremorhound, Magma Pleuron, and Granithelion in `src/scene/models/CrustBinderModels.tsx`.
-- **Missing evidence:** Current-branch build and browser sibling comparison
-- **Status:** active
-<!-- /operational-state:entry -->
+Dedicated source models exist for Fault-Tongue, Obsidian Gul, Tremorhound, Magma Pleuron, and Granithelion.
 
-<!-- operational-state:entry
-{
-  "id": "UNV-003",
-  "title": "Batch 2 Atmos-Engine dedicated models",
-  "state": "implemented-unverified",
-  "implementation": "Dedicated source models and routing exist for Aerokarst, Hydrostatic Renderer, Stratos Chorister, Balance Engine, and Stormmind Tactician.",
-  "missing_evidence": "TypeScript, lint, tests, build, browser rendering, interaction checks, and sibling comparison",
-  "status": "active"
-}
--->
-### UNV-003 — Batch 2 Atmos-Engine dedicated models
+### UNV-003 — Batch 2 Atmos-Engines
 
-- **State:** `implemented-unverified`
-- **Implementation:** Dedicated source models and routing exist for Aerokarst, Hydrostatic Renderer, Stratos Chorister, Balance Engine, and Stormmind Tactician.
-- **Missing evidence:** TypeScript, lint, tests, build, browser rendering, interaction checks, and sibling comparison
-- **Status:** active
-<!-- /operational-state:entry -->
+Dedicated source models and routes exist for Aerokarst, Hydrostatic Renderer, Stratos Chorister, Balance Engine, and Stormmind Tactician.
 
-<!-- operational-state:entry
-{
-  "id": "UNV-004",
-  "title": "Batch 3 Seedcarrier canon-correct models",
-  "state": "implemented-unverified",
-  "implementation": "Macroflora Colossus, Sporesphere Archivist, Neural Fungibinder, Precipitation Synth, and Soil Rewriter route through canon-correct constructions in src/scene/models/SeedcarrierCanonModels.tsx.",
-  "missing_evidence": "Repository TypeScript, lint, tests, production build, direct rendering, clipping, measurement, animation, camera, and repeated-switch checks",
-  "status": "active"
-}
--->
-### UNV-004 — Batch 3 Seedcarrier canon-correct models
+### UNV-004 — Batch 3 Seedcarriers
 
-- **State:** `implemented-unverified`
-- **Implementation:** Macroflora Colossus, Sporesphere Archivist, Neural Fungibinder, Precipitation Synth, and Soil Rewriter route through canon-correct constructions in `src/scene/models/SeedcarrierCanonModels.tsx`.
-- **Missing evidence:** Repository TypeScript, lint, tests, production build, direct rendering, clipping, measurement, animation, camera, and repeated-switch checks
-- **Status:** active
-<!-- /operational-state:entry -->
+Canon-correct routes exist for Macroflora Colossus, Sporesphere Archivist, Neural Fungibinder, Precipitation Synth, and Soil Rewriter.
 
-<!-- operational-state:entry
-{
-  "id": "UNV-005",
-  "title": "Batch 4 Fluxborne dedicated models",
-  "state": "implemented-unverified",
-  "implementation": "Commit 904c47002778d183a7129b0901bc8f937d7e6ab7 routes Trench-Sovereign, Salinity Conductor, Gyre Tactician, Littoral Reformer, and Cryofluid Engine through dedicated canon-grounded models. Currenthalo uses a separate corrected loop assembly so fin-ribs remain attached to their animated loops.",
-  "missing_evidence": "Retrievable CI result, repository typecheck, lint, tests, build, direct rendering, clipping, measurement, animation, camera, sibling comparison, and repeated-switch checks",
-  "status": "active"
-}
--->
-### UNV-005 — Batch 4 Fluxborne dedicated models
+### UNV-005 — Batch 4 Fluxborne models
 
-- **State:** `implemented-unverified`
-- **Implementation:** Commit `904c47002778d183a7129b0901bc8f937d7e6ab7` routes Trench-Sovereign, Salinity Conductor, Gyre Tactician, Littoral Reformer, and Cryofluid Engine through dedicated canon-grounded models. Currenthalo uses a separate corrected loop assembly so fin-ribs remain attached to their animated loops.
-- **Missing evidence:** Retrievable CI result, repository typecheck, lint, tests, build, direct rendering, clipping, measurement, animation, camera, sibling comparison, and repeated-switch checks
-- **Status:** active
-<!-- /operational-state:entry -->
+Dedicated routes exist for Trench-Sovereign, Salinity Conductor, Gyre Tactician, Littoral Reformer, and Cryofluid Engine. Currenthalo uses a corrected loop assembly so its fin-ribs remain attached to the animated loops.
+
+### UNV-006 — Batch 5 exact ten-model implementation
+
+Commit `d06fc8fba7b154be615eda2c7a05860840ff6915` routes exactly these ten records to dedicated models:
+
+1. `nebular-stream-herder` — Veilcurrent
+2. `stellar-plasma-swimmer` — Coronaxis
+3. `orbital-extrusion-engine` — Ringthroat
+4. `starbinder-core` — Solnexus
+5. `gravity-impaler` — Nullthorn
+6. `deepsong-carrier` — Lyriboris
+7. `radiant-scaffold` — Helionth
+8. `phantom-occluder` — Umbrakrael
+9. `burnline-reaper` — Cinderverge
+10. `data-core-unbinder` — Singulararch
+
+Implementation files:
+
+- `src/scene/models/CosmicFluxborneModels.tsx`
+- `src/scene/models/OrbitalWyrmModelsA.tsx`
+- `src/scene/models/OrbitalWyrmModelsB.tsx`
+- `src/scene/SpecimenRouter.tsx`
+
+Missing evidence: TypeScript, lint, tests, production build, browser rendering, layer and clipping behavior, measurement, animations, camera framing, sibling comparison, and repeated switching.
 
 ## 8. Unknown or Evidence-Stale State
 
-<!-- operational-state:entry
-{
-  "id": "UNK-001",
-  "title": "Current browser and device behavior",
-  "state": "unknown",
-  "unknown": "Pointer, touch, keyboard, screen-reader, narrow viewport, reduced-motion, WebGL clipping, measurement picking, failed-load recovery, and repeated specimen-switch behavior have not been exercised on the current model-batch baseline.",
-  "decisive_check": "Run the documented browser smoke path on the current branch.",
-  "status": "active"
-}
--->
-### UNK-001 — Current browser and device behavior
+### UNK-001 — Browser and device behavior
 
-- **State:** `unknown`
-- **Unknown:** Pointer, touch, keyboard, screen-reader, narrow viewport, reduced-motion, WebGL clipping, measurement picking, failed-load recovery, and repeated specimen-switch behavior have not been exercised on the current model-batch baseline.
-- **Decisive check:** Run the documented browser smoke path on the current branch.
-- **Status:** active
-<!-- /operational-state:entry -->
+Pointer, touch, keyboard, narrow viewport, reduced motion, WebGL clipping, measurement picking, context recovery, and repeated switching have not been exercised against the current source baseline.
 
-<!-- operational-state:entry
-{
-  "id": "UNK-002",
-  "title": "Current dependency-backed build state",
-  "state": "evidence-stale",
-  "unknown": "A branch-scoped validation workflow now exists, but no retrievable result was exposed for commit 904c47002778d183a7129b0901bc8f937d7e6ab7. The last known successful Actions evidence predates the current dedicated model batches.",
-  "decisive_check": "Inspect the Validate build-skymourn workflow result or run npm run typecheck, npm run lint, npm test, and npm run build locally against the current branch.",
-  "status": "active"
-}
--->
 ### UNK-002 — Current dependency-backed build state
 
-- **State:** `evidence-stale`
-- **Unknown:** A branch-scoped validation workflow now exists, but no retrievable result was exposed for commit `904c47002778d183a7129b0901bc8f937d7e6ab7`. The last known successful Actions evidence predates the current dedicated model batches.
-- **Decisive check:** Inspect the `Validate build-skymourn` workflow result or run `npm run typecheck`, `npm run lint`, `npm test`, and `npm run build` locally against the current branch.
-- **Status:** active
-<!-- /operational-state:entry -->
+A validation workflow exists, but no result is attached or retrievable for the current source commit. The local execution environment cannot resolve GitHub to clone the repository.
 
 ## 9. Pending Work
 
-<!-- operational-state:entry
-{
-  "id": "PND-001",
-  "title": "Validate current branch",
-  "state": "pending",
-  "task": "Obtain a conclusive result for TypeScript, zero-warning lint, focused tests, and production build on the current branch.",
-  "reason_pending": "The branch workflow exists but its push-run result is not retrievable through the active connector, and the execution container cannot access the repository network.",
-  "dependency": "GitHub Actions result or local checkout",
-  "priority": "critical",
-  "validation_needed": "npm run typecheck && npm run lint && npm test && npm run build",
-  "blocks_completion": true
-}
--->
-### PND-001 — Validate current branch
+### PND-001 — Validate the current branch
 
-- **State:** `pending`
-- **Task:** Obtain a conclusive result for TypeScript, zero-warning lint, focused tests, and production build on the current branch.
-- **Reason pending:** The branch workflow exists but its push-run result is not retrievable through the active connector, and the execution container cannot access the repository network.
-- **Dependency:** GitHub Actions result or local checkout
 - **Priority:** critical
-- **Validation needed:** `npm run typecheck && npm run lint && npm test && npm run build`
-- **Blocks completion:** true
-<!-- /operational-state:entry -->
+- **Required:** `npm run typecheck && npm run lint && npm test && npm run build`
+- **Blocks verified completion:** yes
 
-<!-- operational-state:entry
-{
-  "id": "PND-002",
-  "title": "Perform browser model smoke and lifecycle checks",
-  "state": "pending",
-  "task": "Exercise the fifteen Batch 2 through Batch 4 records plus representative fallback records through camera, layers, clipping, animations, measurement, annotations, and repeated switching.",
-  "reason_pending": "No interactive browser runtime is available in the connector environment",
-  "dependency": "Installed application and browser",
-  "priority": "critical",
-  "validation_needed": "Documented browser checklist with visual sibling comparison",
-  "blocks_completion": true
-}
--->
-### PND-002 — Perform browser model smoke and lifecycle checks
+### PND-002 — Perform browser model and lifecycle checks
 
-- **State:** `pending`
-- **Task:** Exercise the fifteen Batch 2 through Batch 4 records plus representative fallback records through camera, layers, clipping, animations, measurement, annotations, and repeated switching.
-- **Reason pending:** No interactive browser runtime is available in the connector environment
-- **Dependency:** Installed application and browser
+Exercise the 25 records from Batches 2–5 plus representative fallback records through camera controls, layers, clipping, animations, measurement, annotations, and repeated switching.
+
 - **Priority:** critical
-- **Validation needed:** Documented browser checklist with visual sibling comparison
-- **Blocks completion:** true
-<!-- /operational-state:entry -->
+- **Blocks verified completion:** yes
 
-<!-- operational-state:entry
-{
-  "id": "PND-003",
-  "title": "Continue bounded record-level model batches",
-  "state": "pending",
-  "task": "After validation, select the next weakest coherent family group and improve no more than five records in one batch.",
-  "reason_pending": "Batch 4 source is implemented and requires validation before additional expansion",
-  "dependency": "PND-001 and PND-002",
-  "priority": "high",
-  "validation_needed": "Record-level canon audit, implementation, build, browser inspection, and sibling comparison",
-  "blocks_completion": false
-}
--->
-### PND-003 — Continue bounded record-level model batches
+### PND-003 — Continue bounded model batches
 
-- **State:** `pending`
-- **Task:** After validation, select the next weakest coherent family group and improve no more than five records in one batch.
-- **Reason pending:** Batch 4 source is implemented and requires validation before additional expansion
-- **Dependency:** PND-001 and PND-002
+After validation, the next archive record is `foundry-cantor`. Do not begin it as part of Batch 5.
+
 - **Priority:** high
-- **Validation needed:** Record-level canon audit, implementation, build, browser inspection, and sibling comparison
-- **Blocks completion:** false
-<!-- /operational-state:entry -->
+- **Blocks Batch 5 source implementation:** no
 
-## 10. Active Decisions, Defaults, and Prohibitions
+## 10. Active Decisions and Prohibitions
 
-<!-- operational-state:entry
-{
-  "id": "DEC-001",
-  "title": "Technical stack",
-  "state": "requested",
-  "decision": "Use npm, Vite, React, TypeScript, Three.js, React Three Fiber, Drei, Vitest, ESLint, and plain CSS with one WebGL canvas.",
-  "authority": "Accepted project implementation",
-  "status": "active"
-}
--->
-### DEC-001 — Technical stack
-
-- **State:** `requested`
-- **Decision:** Use npm, Vite, React, TypeScript, Three.js, React Three Fiber, Drei, Vitest, ESLint, and plain CSS with one WebGL canvas.
-- **Authority:** Accepted project implementation
-- **Status:** active
-<!-- /operational-state:entry -->
-
-<!-- operational-state:entry
-{
-  "id": "DEC-002",
-  "title": "Canon-grounded procedural model route",
-  "state": "requested",
-  "decision": "Use deterministic local procedural geometry while approved GLBs are absent. Preserve canon form and function while treating unsupported internal arrangement, animation staging, and numeric chamber scale as reconstruction.",
-  "authority": "Current user instruction and canon dossier",
-  "status": "active"
-}
--->
-### DEC-002 — Canon-grounded procedural model route
-
-- **State:** `requested`
-- **Decision:** Use deterministic local procedural geometry while approved GLBs are absent. Preserve canon form and function while treating unsupported internal arrangement, animation staging, and numeric chamber scale as reconstruction.
-- **Authority:** Current user instruction and canon dossier
-- **Status:** active
-<!-- /operational-state:entry -->
-
-<!-- operational-state:entry
-{
-  "id": "DEC-003",
-  "title": "Bound model passes to five records",
-  "state": "requested",
-  "decision": "Implement model-quality work in batches of no more than five records and stop each batch for validation before broadening scope.",
-  "authority": "Accepted correction workflow",
-  "status": "active"
-}
--->
-### DEC-003 — Bound model passes to five records
-
-- **State:** `requested`
-- **Decision:** Implement model-quality work in batches of no more than five records and stop each batch for validation before broadening scope.
-- **Authority:** Accepted correction workflow
-- **Status:** active
-<!-- /operational-state:entry -->
-
-<!-- operational-state:entry
-{
-  "id": "DEC-004",
-  "title": "No false visual or build claims",
-  "state": "requested",
-  "decision": "Do not claim a model was rendered, visually compared, runtime-tested, typechecked, linted, tested, or built unless that exact check was executed against the current revision and its result is available.",
-  "authority": "Explicit user correction and operational evidence policy",
-  "status": "active"
-}
--->
-### DEC-004 — No false visual or build claims
-
-- **State:** `requested`
-- **Decision:** Do not claim a model was rendered, visually compared, runtime-tested, typechecked, linted, tested, or built unless that exact check was executed against the current revision and its result is available.
-- **Authority:** Explicit user correction and operational evidence policy
-- **Status:** active
-<!-- /operational-state:entry -->
+- Use npm, Vite, React, TypeScript, Three.js, React Three Fiber, Drei, Vitest, ESLint, and plain CSS with one WebGL canvas.
+- Use deterministic local procedural geometry while approved GLBs are absent.
+- Preserve dossier body plans even when older `specimens.json` summaries are generic or contradictory.
+- Do not claim rendering, visual comparison, typechecking, linting, testing, or building without direct current-revision evidence.
+- Do not deploy, install speculative dependencies, replace frameworks, source external assets, or perform destructive Git operations.
 
 ## 11. Validation and Evidence Matrix
 
-| ID | Claim | State | Current evidence | Required validation | Recheck trigger |
-|---|---|---|---|---|---|
-| INV-001 | Full 59-record archive remains intact | requested | Current registry and routing source | Record-count tests and rendered navigation | Registry, route, manifest, or model change |
-| INV-002 | Model features remain canon-grounded | requested | Full dossier and Batch 4 source audit | Record-by-record content and visual audit | Model or canon change |
-| INV-003 | Examination workflow remains functional | requested | Source presence only | Full browser smoke path | Scene, model, routing, control, or layout change |
-| INV-004 | Config does not equal completion | requested | Bounded dedicated-model workflow | Dedicated construction and sibling comparison | Any completion claim |
-| UNV-001 | Full archive source exists | implemented-unverified | Current branch source | Build and browser inspection | Application change |
-| UNV-002 | Batch 1 dedicated models exist | implemented-unverified | CrustBinderModels source | Current build and browser comparison | Model change |
-| UNV-003 | Batch 2 dedicated models exist | implemented-unverified | AtmosEngineModels and router source | Current build and browser comparison | Model or route change |
-| UNV-004 | Batch 3 canon-correct models exist | implemented-unverified | SeedcarrierCanonModels and router source | Current build and browser comparison | Model or route change |
-| UNV-005 | Batch 4 Fluxborne models exist | implemented-unverified | FluxborneModels, CurrenthaloModel, and router source | Current build and browser comparison | Model or route change |
-| UNK-001 | Browser and device behavior | unknown | No current runtime evidence | Browser checklist | Runtime change |
-| UNK-002 | Current build state | evidence-stale | Workflow present; result unavailable | Workflow result or full local npm suite | Source or dependency change |
-| PND-001 | Validate current branch | pending | No conclusive current result | Full npm validation suite | Latest source commit change |
-| PND-002 | Browser model checks | pending | No browser runtime | Direct model journey checks | Model or UI change |
+| Claim | State | Evidence | Required proof |
+|---|---|---|---|
+| Full 59-record archive remains intact | requested | Registry and fallback route retained | Record-count test and browser navigation |
+| Batch 5 has exactly ten new routes | implemented-unverified | Router source inspection | Build plus direct route exercise |
+| Batch 5 models are dossier-grounded | implemented-unverified | Dossier comparison and dedicated source | Visual canon audit |
+| Examination workflow remains functional | unknown | Source compatibility retained | Browser smoke path |
+| Current branch compiles and builds | evidence-stale | No retrievable current result | Full npm suite |
 
 ## 12. Current Change Scope and Impact Radius
 
-The completed change scope is Batch 4 only: five Fluxborne records, their dedicated procedural model source, the corrected Currenthalo ownership component, routing imports and cases, and branch validation infrastructure. The impact radius includes model rendering, transparency, clipping, layer visibility, measurement event handling, annotations, camera framing, animation transforms, geometry ownership, performance, and repeated record switching.
+Batch 5 changes only three new model modules and the model router. The impact radius includes Three.js geometry ownership, transparency and emissive materials, frame animation transforms, clipping, layer visibility, measurement events, annotations, camera framing, performance, and record switching. No Civiformer route was added.
 
 ## 13. Compact Revision Log
 
-- **Revision 1 — 2026-08-03:** Initialized state for an empty repository.
-- **Revision 2 — 2026-08-03:** Established the original Skymourn-centered three-record prototype.
-- **Revision 3 — 2026-08-03:** Recorded successful bootstrap Actions validation for the historical prototype revision.
-- **Revision 4 — 2026-08-03:** Added the initial visual and interaction overhaul and original dedicated models.
-- **Revision 8 — 2026-08-03:** Expanded the archive to all 59 records using nine shared archetype foundations; later completion claims were rejected because archetype routing did not prove individual model quality.
-- **Revision 9 — 2026-08-03:** Added Batch 1 Crust-Binder dedicated models.
-- **Revision 10 — 2026-08-03:** Added Batch 2 Atmos-Engine dedicated model source and routing; current build and browser validation remain pending.
-- **Revision 11 — 2026-08-03:** Reconciled the obsolete three-record state, established the full 59-record contract, and corrected Batch 3 against the full canon dossier.
-- **Revision 12 — 2026-08-03:** Added Batch 4 Fluxborne models for Abyssoriel, Brinechoir, Currenthalo, Shelfcarver, and Glacierthroat. Corrected Currenthalo so animated loops own their fin-ribs. Added branch-scoped validation workflow. Current revision remains implemented-unverified because the workflow result and browser evidence are unavailable through the active environment.
+- **Revision 1–8:** Bootstrap, prototype, archive expansion, and rejected shared-archetype completion claims.
+- **Revision 9:** Added Batch 1 Crust-Binder dedicated models.
+- **Revision 10:** Added Batch 2 Atmos-Engine dedicated models.
+- **Revision 11:** Reconciled the 59-record contract and corrected Batch 3 Seedcarriers.
+- **Revision 12:** Added Batch 4 Fluxborne models and branch validation workflow.
+- **Revision 13:** Added exactly ten sequential dedicated models: Veilcurrent, Coronaxis, Ringthroat, Solnexus, Nullthorn, Lyriboris, Helionth, Umbrakrael, Cinderverge, and Singulararch. Stopped before Foundry Cantor. Current state remains implemented-unverified pending build and browser evidence.
