@@ -60,6 +60,14 @@ jobs:
       - name: Install locked dependencies
         run: npm ci --ignore-scripts
 
+      - name: Static audit snapshot
+        run: |
+          if [ -f scripts/audit-static.mjs ]; then
+            node scripts/audit-static.mjs
+          else
+            echo "No static audit script present."
+          fi
+
       - name: Typecheck
         run: npm run typecheck
 
