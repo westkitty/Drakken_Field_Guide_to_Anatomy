@@ -13,7 +13,7 @@ import {
   PrecipitationSynthModel,
   SoilRewriterModel,
   SporesphereArchivistModel,
-} from './models/SeedcarrierModels';
+} from './models/SeedcarrierCanonModels';
 
 export function SpecimenModel(props: SpecimenModelProps) {
   switch (props.record.id) {
