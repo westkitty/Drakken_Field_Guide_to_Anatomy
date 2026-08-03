@@ -7,6 +7,11 @@ import {
   StormmindTacticianModel,
   StratosChoristerModel,
 } from './models/AtmosEngineModels';
+import {
+  NebularStreamHerderModel,
+  OrbitalExtrusionEngineModel,
+  StellarPlasmaSwimmerModel,
+} from './models/CosmicFluxborneModels';
 import { GyreTacticianModel } from './models/CurrenthaloModel';
 import {
   CryofluidEngineModel,
@@ -14,6 +19,17 @@ import {
   SalinityConductorModel,
   TrenchSovereignModel,
 } from './models/FluxborneModels';
+import {
+  DeepsongCarrierModel,
+  GravityImpalerModel,
+  RadiantScaffoldModel,
+  StarbinderCoreModel,
+} from './models/OrbitalWyrmModelsA';
+import {
+  BurnlineReaperModel,
+  DataCoreUnbinderModel,
+  PhantomOccluderModel,
+} from './models/OrbitalWyrmModelsB';
 import {
   MacrofloraColossusModel,
   NeuralFungibinderModel,
@@ -54,6 +70,26 @@ export function SpecimenModel(props: SpecimenModelProps) {
       return <LittoralReformerModel {...props} />;
     case 'cryofluid-engine':
       return <CryofluidEngineModel {...props} />;
+    case 'nebular-stream-herder':
+      return <NebularStreamHerderModel {...props} />;
+    case 'stellar-plasma-swimmer':
+      return <StellarPlasmaSwimmerModel {...props} />;
+    case 'orbital-extrusion-engine':
+      return <OrbitalExtrusionEngineModel {...props} />;
+    case 'starbinder-core':
+      return <StarbinderCoreModel {...props} />;
+    case 'gravity-impaler':
+      return <GravityImpalerModel {...props} />;
+    case 'deepsong-carrier':
+      return <DeepsongCarrierModel {...props} />;
+    case 'radiant-scaffold':
+      return <RadiantScaffoldModel {...props} />;
+    case 'phantom-occluder':
+      return <PhantomOccluderModel {...props} />;
+    case 'burnline-reaper':
+      return <BurnlineReaperModel {...props} />;
+    case 'data-core-unbinder':
+      return <DataCoreUnbinderModel {...props} />;
     default:
       return <LegacySpecimenModel {...props} />;
   }
