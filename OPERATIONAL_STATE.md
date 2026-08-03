@@ -7,12 +7,12 @@
   "project_name": "Drakken Field Anatomy Archive",
   "project_root": ".",
   "artifact_path": "",
-  "state_revision": 18,
-  "last_updated": "2026-08-03T10:56:00-04:00",
+  "state_revision": 19,
+  "last_updated": "2026-08-03T12:24:00-04:00",
   "current_baseline": {
-    "identity": "build-skymourn after squash merge of PR #2; source merge commit 60273d0eaf267914ea66d686da8aa9aa4c6a951c",
+    "identity": "build-skymourn model-first viewport source through commit ada1257453d228ef9d5e6c8d85a27aadf39c0bc0; validated by PR #3 run 30831484791",
     "state": "partially-verified",
-    "last_verified": "Exact PR head dae18a23829b6e26cdb800f97e70354e3ef6ac44 passed GitHub Actions run 30824699663 before content-identical squash merge"
+    "last_verified": "GitHub Actions run 30831484791: strict static audit, typecheck, zero-warning lint, 17 tests, and production build passed"
   },
   "scope_boundaries": [
     "Single browser archive at repository root",
@@ -20,7 +20,8 @@
     "Canon governed by docs/drakken_compendium_full_blood_eclipse_visual_integrated.md",
     "The 59-record inventory is closed; do not fabricate, duplicate, or wrap records",
     "No deployment, backend, authentication, database, external asset sourcing, framework migration, or unrelated feature work",
-    "Automated verification does not substitute for browser, visual-canon, device, or long-session performance evidence"
+    "Automated verification does not substitute for browser, visual-canon, device, or long-session performance evidence",
+    "Global lighting and layout polish must not be misrepresented as record-level model reconstruction"
   ],
   "linked_parent_state": null
 }
@@ -30,35 +31,33 @@
 
 The Drakken Field Anatomy Archive is a React Three Fiber forensic compendium for 59 canonical records. Its protected user journey is: find a record, inspect a record-specific 3D reconstruction, manipulate the camera, toggle four anatomy layers, section the reconstruction, use animation and measurement tools, review evidence and incidents, and export the complete dossier.
 
+The model is the primary product surface. Registry, record text, diagnostics, and technical controls must support examination rather than permanently consume most of the window.
+
 ## 2. Current Baseline
 
-PR #2, `Exhaustive project bug sweep and bounded repairs`, was squash-merged into `build-skymourn` as source merge commit `60273d0eaf267914ea66d686da8aa9aa4c6a951c`.
+The active source baseline is `build-skymourn` through commit `ada1257453d228ef9d5e6c8d85a27aadf39c0bc0`.
 
-The merged repair pass established and repaired:
+The model-first presentation pass added:
 
-- explicit dedicated routing for all 59 records;
-- four previously omitted models: Glassspine, Quarrymind, Toxic Veil Engine, and Hive Floramother;
-- build-blocking Three.js curve constructors and Node engine metadata;
-- section clipping across meshes and functional Drei line overlays;
-- Skymourn animation ownership when optional layers are hidden;
-- reduced-motion playback behavior;
-- pending record-switch cancellation;
-- modal focus containment and restoration;
-- hidden mobile drawer interaction state;
-- remote runtime font removal;
-- complete Markdown and JSON exports;
-- WebGL quality remount and context-listener cleanup;
-- honest reconstruction-unit and scale language;
-- complete 59-entry asset, provenance, and license ledgers;
-- current project, design, architecture, pipeline, and validation documentation;
-- permanent registry, source-reference, export, and governance tests;
-- permanent strict static auditing in CI.
+- a full-height examination viewport;
+- off-canvas registry and record drawers instead of permanent desktop columns;
+- compact translucent title, camera, render, anatomy, sectioning, animation, and measurement overlays;
+- a brighter neutral chamber background and floor;
+- closer camera presets and narrower perspective field of view;
+- ACES filmic tone mapping and increased exposure;
+- hemisphere, key, fill, rim, front, and low warm illumination;
+- local light-former reflections for physical and transmissive materials;
+- soft contact shadows and higher-resolution standard-tier shadows;
+- brighter containment grid and family accent rings;
+- local-only source with no new runtime dependency or remote asset.
 
-The merge authorizes the repaired source as the active `build-skymourn` baseline. It does not promote browser, visual-canon, device, lifecycle, or performance behavior to verified.
+PR #3 exists only to run the permanent pull-request validation workflow against this exact updated tree and carry the presentation-pass report. GitHub Actions run `30831484791` passed.
 
 ## 3. Artifact Contract
 
 Maintain one usable archive containing all 59 canonical records. Every record must remain searchable, selectable, and explicitly routed. Each model must preserve surface, structure, internal, and functional examination layers; section clipping; animation; measurement; annotations; evidence status; camera controls; diagnostics; and complete dossier export.
+
+The chamber must prioritize model visibility. Persistent interface chrome must not reduce the model to a secondary dashboard tile.
 
 Procedural chamber geometry is normalized for examination. Record visualization-height fields are metadata and are not a proven meter-per-world-unit calibration.
 
@@ -68,7 +67,7 @@ Procedural chamber geometry is normalized for examination. Record visualization-
 
 - **State:** `verified` at registry/source level
 - **Rule:** Keep exactly 59 unique record IDs, archive IDs, and model asset IDs. Do not invent additional records.
-- **Evidence:** strict static audit and integrity tests in run `30824699663`
+- **Evidence:** strict static audit and integrity tests
 - **Runtime gap:** browser navigation through all 59 remains unverified
 
 ### INV-002 — Every record has a dedicated route
@@ -81,7 +80,6 @@ Procedural chamber geometry is normalized for examination. Record visualization-
 
 - **State:** `implemented-unverified`
 - **Rule:** Significant form and function derive from the dossier or remain explicitly reconstructive.
-- **Evidence:** dedicated source components and record source references
 - **Missing proof:** visual sibling comparison and rendered canon audit
 
 ### INV-004 — Protect the examination workflow
@@ -94,111 +92,146 @@ Procedural chamber geometry is normalized for examination. Record visualization-
 ### INV-005 — Keep runtime assets local and governed
 
 - **State:** `verified` at source/ledger level
-- **Rule:** No remote runtime fonts, models, textures, audio, or shaders. Every `modelAssetRef` must have asset, provenance, and license entries.
+- **Rule:** No remote runtime fonts, models, textures, audio, shaders, or environment maps. Every `modelAssetRef` must have asset, provenance, and license entries.
 - **Evidence:** zero remote application references; 59/59/59 ledger coverage
 
 ### INV-006 — Do not overclaim scale
 
 - **State:** `verified` at source/copy level
 - **Rule:** Measurements use reconstruction units. Visualization-height metadata does not establish physical calibration.
-- **Evidence:** UI, exports, manifests, design, architecture, and validation documentation
 
 ### INV-007 — Completion claims require current evidence
 
 - **State:** `active`
-- **Rule:** Source presence is not browser proof. A successful build is not visual, interaction, performance, or lifecycle verification.
+- **Rule:** Source presence and successful builds are not visual, interaction, performance, lifecycle, or model-quality proof.
+
+### INV-008 — Model-first viewport
+
+- **State:** `implemented-unverified`
+- **Rule:** At ordinary desktop widths, the chamber occupies nearly the entire working window; registry and dossier remain accessible as temporary drawers.
+- **Evidence:** layout source and successful build
+- **Missing proof:** rendered desktop and laptop viewport inspection
+
+### INV-009 — Presentation is not anatomy quality
+
+- **State:** `active`
+- **Rule:** Lighting, tone mapping, shadows, camera framing, and interface reduction may improve readability but cannot be counted as record-level model reconstruction.
 
 ## 5. Verified Automated Behavior
 
-GitHub Actions run `30824699663` passed on exact PR head `dae18a23829b6e26cdb800f97e70354e3ef6ac44` immediately before its content-identical squash merge:
+GitHub Actions run `30831484791` passed against the model-first viewport tree:
 
 - locked dependency installation;
 - strict static audit: zero issues;
 - TypeScript project build;
 - ESLint with `--max-warnings 0`;
 - Vitest: 17/17 tests across two files;
-- Vite production build: 592 transformed modules.
+- Vite production build.
 
-The strict audit specifically verified:
+Previously verified source contracts remain intact:
 
 - 59 specimen records;
 - 59 dedicated routes;
 - zero fallback record IDs;
-- zero missing line clipping assignments;
-- zero missing material clipping assignments;
+- zero missing line or material clipping assignments;
 - zero remote application runtime references;
 - 59 asset entries;
 - 59 provenance entries;
 - 59 license entries.
 
-## 6. Known Remaining Risk
+## 6. Known Problems and Risks
+
+### KNOWN-001 — Rendered model quality was rejected by the user
+
+- **State:** `known-broken` for the pre-pass browser presentation; current pass requires re-evaluation
+- **User evidence:** the running archive was described as too dark, dominated by UI, and containing very poor models
+- **Interpretation:** darkness and framing were shared presentation failures; record anatomy and silhouette quality may also be independently weak
+- **Guardrail:** do not close this issue based only on CI or shared lighting changes
 
 ### RISK-001 — Oversized production JavaScript chunk
 
 - **State:** `known-risk`
-- **Evidence:** production build emitted a 1,574.68 kB minified / 389.13 kB gzip main JavaScript chunk and Vite's `>500 kB` warning
-- **Impact:** initial parsing and loading may be expensive, especially on lower-tier mobile hardware
-- **Why not blindly repaired:** meaningful improvement likely requires record-family or per-model dynamic loading and browser performance comparison; suppressing the warning or arbitrary manual chunking would not prove a faster user path
+- **Evidence:** the production bundle remains above Vite's 500 kB warning threshold
+- **Impact:** initial parsing and loading may be expensive on lower-tier hardware
+- **Required repair method:** measured lazy loading, not warning suppression
+
+### RISK-002 — Brighter presentation may expose weak geometry more clearly
+
+- **State:** `known-risk`
+- **Meaning:** the new studio rig improves inspection truthfulness; models with weak silhouettes, generic primitives, poor topology, or inadequate detail may look worse rather than better
+- **Required response:** record-level visual audit and bounded reconstruction
 
 ## 7. Implemented but Unverified Runtime Behavior
 
-The following repairs compile and pass source-level checks but still require direct browser observation:
-
+- model-first desktop layout and off-canvas drawers;
+- compact viewport overlays at laptop and mobile breakpoints;
+- brighter background, floor, lighting, reflections, shadows, and closer cameras;
+- Skymourn material readability under the new studio rig;
 - reduced-motion startup and manual resume;
-- cancellation of a pending record switch by reselecting the active record;
-- keyboard focus trapping and restoration for the briefing dialog;
+- pending record-switch cancellation;
+- keyboard focus trapping and restoration;
 - mobile drawer visibility and focus behavior;
-- quality-tier renderer recreation;
+- renderer recreation between quality tiers;
 - WebGL context loss and restoration handling;
-- sectioning of all functional lines in rendered models;
-- measurement interactions and reconstruction-unit labels;
-- complete file downloads across supported browsers;
-- repeated model switching and resource stabilization;
+- rendered sectioning of all functional lines;
+- measurement interactions and file downloads;
+- repeated switching and resource stabilization;
 - visual framing and canon fidelity for all 59 models.
 
 ## 8. Pending Work
 
-### PND-001 — Browser acceptance sweep
+### PND-001 — Immediate browser re-evaluation
 
-Exercise representative records from every family and every repaired path using mouse, keyboard, touch, a narrow viewport, and reduced motion.
+Reload the merged source locally and inspect the default Skymourn record at the actual MacBook window size.
 
-- **Priority:** critical before release
-- **Blocks source handoff:** no
-- **Blocks runtime completion claim:** yes
+Required observations:
 
-### PND-002 — Performance and lifecycle profile
+- model is clearly visible without squinting;
+- model occupies the majority of the window;
+- registry and record drawers open and close correctly;
+- tool overlays remain usable without dominating the chamber;
+- transparent and emissive surfaces remain distinguishable;
+- camera reset and preset views frame Skymourn adequately.
 
-Measure first load, record switching, `renderer.info` stabilization, memory growth, and target-device responsiveness. Compare any code-splitting candidate against this baseline.
+- **Priority:** critical
+- **Blocks presentation completion claim:** yes
+
+### PND-002 — Record-level model quality audit
+
+Review all 59 rendered models by family. Classify each as pass, presentation-only repair, moderate reconstruction, or replacement-level reconstruction.
+
+- **Priority:** critical
+- **Blocks full model-quality claim:** yes
+
+### PND-003 — Performance and lifecycle profile
+
+Measure first load, record switching, `renderer.info` stabilization, memory growth, and target-device responsiveness under the richer chamber lighting.
 
 - **Priority:** high
-- **Blocks source correctness claim:** no
-- **Blocks performance readiness claim:** yes
 
-### PND-003 — Visual canon review
+### PND-004 — Visual canon review
 
 Rotate and compare every record against its dossier and closest sibling, including hidden-layer combinations and section planes.
 
 - **Priority:** high
-- **Blocks build claim:** no
-- **Blocks full model-quality completion claim:** yes
 
-### PND-004 — Delete merged audit branch
+### PND-005 — Delete validation branch after PR #3 closes
 
-The merged branch `audit/exhaustive-bug-sweep-20260803` is obsolete. Delete it when a branch-deletion-capable GitHub client is available.
+Delete `qa/model-first-viewport-20260803` after the presentation-pass record is merged or otherwise reconciled.
 
 - **Priority:** low repository hygiene
-- **Blocks development:** no
 
 ## 9. Active Decisions and Prohibitions
 
 - Keep React 19, Vite, TypeScript, Three.js, R3F, Drei, Vitest, ESLint, and plain CSS.
 - Keep one WebGL canvas and DOM-owned interface controls.
 - Keep dependencies pinned.
-- Do not restore remote font loading.
-- Do not claim meter calibration without a real model-bounds normalization system and evidence.
+- Do not restore remote font or environment-map loading.
+- Do not claim meter calibration without a proven bounds-normalization system.
 - Do not suppress the chunk warning as a substitute for performance work.
-- Do not describe the merged branch as a verified runtime release without browser evidence.
-- Do not begin another specimen batch unless the canon registry is intentionally expanded.
+- Do not describe the archive as visually repaired until the user rechecks the running browser.
+- Do not count shared lighting or CSS as completed model reconstruction.
+- Do not begin new canon records unless the registry is intentionally expanded.
 
 ## 10. Validation Matrix
 
@@ -209,16 +242,18 @@ The merged branch `audit/exhaustive-bug-sweep-20260803` is obsolete. Delete it w
 | Source compiles | verified | TypeScript pass | none |
 | Lint is clean | verified | zero-warning ESLint pass | none |
 | Tests pass | verified | 17/17 Vitest | browser E2E |
-| Production bundle builds | verified | Vite build pass | deployment/browser load |
+| Production bundle builds | verified | Vite build pass | browser load |
 | No remote runtime references | verified at source level | strict static audit | network-panel confirmation |
-| Section clipping is assigned consistently | verified at source level | zero clipping gaps | rendered clipping behavior |
-| Examination workflow is usable | unverified | source and build evidence only | complete browser journey |
-| Visual canon fidelity | unverified | dossier-grounded source | rendered comparison |
-| Performance readiness | unverified / at risk | chunk warning | target-device profile |
+| Model-first layout is usable | implemented-unverified | source + build | actual browser inspection |
+| Chamber is bright enough | implemented-unverified | new studio source | user/browser confirmation |
+| Skymourn presentation is improved | implemented-unverified | camera and lighting source | rendered comparison |
+| All model anatomy is good | known false / unverified | user rejection | 59-record model audit |
+| Performance readiness | unverified / at risk | bundle warning and richer lighting | target-device profile |
 
 ## 11. Compact Revision Log
 
 - **Revision 1–8:** Bootstrap, prototype, archive expansion, and rejection of shared-archetype completion claims.
 - **Revision 9–16:** Bounded dedicated-model batches completed the closed 59-record source inventory.
-- **Revision 17 — 2026-08-03:** Exhaustive repository bug sweep. Repaired build blockers, four missing model routes, cross-cutting interaction/accessibility/export/lifecycle defects, clipping consistency, governance ledgers, documentation, and automated integrity coverage.
-- **Revision 18 — 2026-08-03:** Squash-merged PR #2 into `build-skymourn` as commit `60273d0eaf267914ea66d686da8aa9aa4c6a951c`. Promoted the merged source to the active baseline while preserving browser, visual-canon, device, lifecycle, and performance limitations. Recorded the obsolete audit branch as pending deletion because the active connector cannot delete branch refs.
+- **Revision 17:** Exhaustive repository bug sweep and automated source/build verification.
+- **Revision 18:** Squash-merged the bug-sweep repairs into `build-skymourn` and preserved runtime evidence gaps.
+- **Revision 19 — 2026-08-03:** Recorded the user's visual rejection and implemented the model-first viewport and brighter studio chamber. Automated validation passed in run `30831484791`; browser presentation and record-level model quality remain unverified.
