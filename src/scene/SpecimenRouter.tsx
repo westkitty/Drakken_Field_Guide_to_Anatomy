@@ -64,6 +64,12 @@ import {
   PhantomOccluderModel,
 } from './models/OrbitalWyrmModelsB';
 import {
+  GlassspineModel,
+  HiveFloramotherModel,
+  QuarrymindModel,
+  ToxicVeilEngineModel,
+} from './models/RemainingCanonicalModels';
+import {
   MacrofloraColossusModel,
   NeuralFungibinderModel,
   PrecipitationSynthModel,
@@ -83,6 +89,12 @@ export function SpecimenModel(props: SpecimenModelProps) {
       return <BalanceEngineModel {...props} />;
     case 'stormmind-tactician':
       return <StormmindTacticianModel {...props} />;
+    case 'toxic-veil-engine':
+      return <ToxicVeilEngineModel {...props} />;
+    case 'glassspine':
+      return <GlassspineModel {...props} />;
+    case 'quarrymind':
+      return <QuarrymindModel {...props} />;
     case 'macroflora-colossus':
       return <MacrofloraColossusModel {...props} />;
     case 'sporesphere-archivist':
@@ -93,6 +105,8 @@ export function SpecimenModel(props: SpecimenModelProps) {
       return <PrecipitationSynthModel {...props} />;
     case 'soil-rewriter':
       return <SoilRewriterModel {...props} />;
+    case 'hive-floramother':
+      return <HiveFloramotherModel {...props} />;
     case 'trench-sovereign':
       return <TrenchSovereignModel {...props} />;
     case 'salinity-conductor':
