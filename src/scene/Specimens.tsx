@@ -1,46 +1,16 @@
 import { Html, Line } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { useEffect, useMemo, useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import * as THREE from 'three';
-import type { AnimationState, LayerId, SpecimenRecord } from '../types';
 
-interface SpecimenModelProps {
-  record: SpecimenRecord;
-  layers: Record<LayerId, boolean>;
-  animation: AnimationState;
-  clipPlane: THREE.Plane | null;
-  wireframe: boolean;
-  silhouette: boolean;
-  measurementMode: boolean;
-  onMeasurePoint: (point: [number, number, number]) => void;
-  selectedAnnotationId: string | null;
-  onSelectAnnotation: (id: string) => void;
-}
+import {
+  materialColor,
+  clipArray,
+  useAnimationClock,
+  type SpecimenModelProps,
+} from './SpecimenCommon';
 
-function materialColor(base: string, silhouette: boolean): string {
-  return silhouette ? '#05070a' : base;
-}
-
-function clipArray(plane: THREE.Plane | null): THREE.Plane[] {
-  return plane ? [plane] : [];
-}
-
-function useAnimationClock(animation: AnimationState) {
-  const elapsed = useRef(0);
-  useEffect(() => {
-    elapsed.current = 0;
-  }, [animation.restartToken, animation.name]);
-
-  useFrame((_, delta) => {
-    if (!animation.playing) return;
-    if (!animation.loop && elapsed.current >= 6) return;
-    elapsed.current += delta * animation.speed;
-    if (animation.loop && elapsed.current > 6) elapsed.current %= 6;
-  });
-  return elapsed;
-}
-
-function AnnotationMarkers({
+export function AnnotationMarkers({
   record,
   layers,
   selectedAnnotationId,
@@ -869,201 +839,195 @@ function BloodRingModel(props: SpecimenModelProps) {
   );
 }
 
-function GenericDrakkenModel(props: SpecimenModelProps) {
+import { SPECIMEN_CONFIGS } from './specimenConfigs';
+
+function RecordParametricModel(props: SpecimenModelProps) {
   const groupRef = useRef<THREE.Group>(null);
+  const coreRef = useRef<THREE.Mesh>(null);
   const elapsed = useAnimationClock(props.animation);
   const clippingPlanes = useMemo(() => clipArray(props.clipPlane), [props.clipPlane]);
 
+  const cfg = useMemo(() => {
+    return (
+      SPECIMEN_CONFIGS[props.record.id] ?? {
+        scale: [3, 3, 3] as [number, number, number],
+        primaryColor: '#3b4856',
+        emissiveColor: '#7ed6f8',
+        accentColor: '#7ed6f8',
+        metalness: 0.3,
+        roughness: 0.5,
+        transmission: 0,
+        geometryType: 'basalt-pylon' as const,
+        featureCount: 6,
+        animSpeed: 1,
+        animStyle: 'drift' as const,
+      }
+    );
+  }, [props.record.id]);
+
+  const featureItems = useMemo(() => {
+    return Array.from({ length: cfg.featureCount }, (_, i) => {
+      const angle = (i / cfg.featureCount) * Math.PI * 2;
+      return {
+        pos: [
+          Math.cos(angle) * (cfg.scale[0] * 0.95),
+          i % 2 === 0 ? 0.8 : -0.8,
+          Math.sin(angle) * (cfg.scale[2] * 0.95),
+        ] as [number, number, number],
+        rot: [0.25 * (i % 2 ? 1 : -1), -angle, 0.15] as [number, number, number],
+        scale: 0.4 + (i % 3) * 0.15,
+      };
+    });
+  }, [cfg]);
+
   useFrame(() => {
     if (!groupRef.current) return;
-    const t = elapsed.current;
-    if (props.record.category === 'mobile organism') {
-      groupRef.current.rotation.y = t * 0.25;
+    const t = elapsed.current * cfg.animSpeed;
+    if (cfg.animStyle === 'seismic') {
+      groupRef.current.rotation.y = t * 0.14;
+      groupRef.current.position.y = Math.sin(t * 1.8) * 0.15;
+    } else if (cfg.animStyle === 'undulate') {
+      groupRef.current.rotation.y = Math.sin(t * 0.7) * 0.3;
       groupRef.current.position.y = Math.sin(t * 1.4) * 0.35;
-    } else if (props.record.category === 'siege or processing entity') {
-      groupRef.current.rotation.y = Math.sin(t * 0.5) * 0.2;
-      groupRef.current.position.y = Math.cos(t * 0.9) * 0.15;
+    } else if (cfg.animStyle === 'spin') {
+      groupRef.current.rotation.z = t * 0.2;
+      groupRef.current.rotation.y = t * 0.1;
+    } else if (cfg.animStyle === 'glitch') {
+      groupRef.current.rotation.y = t * 0.35;
+      groupRef.current.position.x = Math.sin(t * 9.0) * 0.04;
+    } else if (cfg.animStyle === 'breathe') {
+      groupRef.current.rotation.y = t * 0.1;
+      if (coreRef.current) coreRef.current.scale.setScalar(1 + Math.sin(t * 2.0) * 0.08);
     } else {
-      groupRef.current.rotation.y = t * 0.12;
-      groupRef.current.rotation.z = Math.sin(t * 0.3) * 0.04;
+      groupRef.current.rotation.y = t * 0.22;
+      groupRef.current.position.y = Math.sin(t * 1.1) * 0.2;
     }
   });
-
-  const isCrust = props.record.archetype.includes('Crust-Binder');
-  const isAtmos = props.record.archetype.includes('Atmos-Engine');
-  const isSeed = props.record.archetype.includes('Seedcarrier');
-  const isFlux = props.record.archetype.includes('Fluxborne');
-  const isWyrm = props.record.archetype.includes('Orbital-Wyrm');
-  const isCivi = props.record.archetype.includes('Civiformer');
-  const isNoo = props.record.archetype.includes('Noosphere-Cantor');
-  const isGlit = props.record.archetype.includes('Glitch-Touched');
-  const isOri = props.record.archetype.includes('Origin');
 
   return (
     <group
       ref={groupRef}
-      onClick={(e) => {
+      onPointerDown={(e) => {
         if (!props.measurementMode) return;
         e.stopPropagation();
         props.onMeasurePoint([e.point.x, e.point.y, e.point.z]);
       }}
     >
-      {/* SURFACE LAYER */}
+      {/* SURFACE LAYER: Record-Specific Proportions & Primary Shell */}
       {props.layers.surface && (
         <group>
-          {isCrust && (
-            <mesh position={[0, 0, 0]}>
-              <cylinderGeometry args={[2.2, 3.6, 5.8, 8, 16]} />
-              <meshStandardMaterial
-                color={materialColor('#2c2420', props.silhouette)}
-                roughness={0.7}
-                wireframe={props.wireframe}
-                clippingPlanes={clippingPlanes}
-              />
-            </mesh>
-          )}
-          {isAtmos && (
-            <mesh position={[0, 0, 0]}>
-              <torusKnotGeometry args={[3.0, 0.75, 128, 32, 2, 3]} />
+          {/* Main Body Hull */}
+          <mesh scale={cfg.scale} castShadow receiveShadow>
+            {cfg.geometryType === 'basalt-pylon' && <cylinderGeometry args={[0.7, 1.3, 1, 8]} />}
+            {cfg.geometryType === 'tectonic-slab' && <dodecahedronGeometry args={[1, 1]} />}
+            {cfg.geometryType === 'storm-knot' && <torusKnotGeometry args={[1, 0.3, 96, 24]} />}
+            {cfg.geometryType === 'siphon-bell' && <coneGeometry args={[1.2, 1.8, 24]} />}
+            {cfg.geometryType === 'spore-pod' && <dodecahedronGeometry args={[1, 2]} />}
+            {cfg.geometryType === 'mycelial-tendrils' && <icosahedronGeometry args={[1, 2]} />}
+            {cfg.geometryType === 'abyssal-hull' && <icosahedronGeometry args={[1, 3]} />}
+            {cfg.geometryType === 'fin-serpent' && <cylinderGeometry args={[0.5, 0.9, 2, 16]} />}
+            {cfg.geometryType === 'wyrm-ring' && <torusGeometry args={[1.2, 0.3, 16, 96]} />}
+            {cfg.geometryType === 'star-scaffold' && <octahedronGeometry args={[1.2, 1]} />}
+            {cfg.geometryType === 'furnace-crucible' && <boxGeometry args={[1.1, 1.3, 0.9]} />}
+            {cfg.geometryType === 'city-moulter' && <cylinderGeometry args={[1.2, 1.4, 1.6, 6]} />}
+            {cfg.geometryType === 'psionic-obelisk' && <octahedronGeometry args={[1.1, 0]} />}
+            {cfg.geometryType === 'lattice-spire' && <octahedronGeometry args={[1.2, 2]} />}
+            {cfg.geometryType === 'glitch-matrix' && <boxGeometry args={[1, 1, 1]} />}
+            {cfg.geometryType === 'null-void' && <boxGeometry args={[1.2, 1.2, 1.2]} />}
+            {cfg.geometryType === 'genesis-egg' && <sphereGeometry args={[1, 48, 36]} />}
+            {cfg.geometryType === 'prime-matriarch' && <sphereGeometry args={[1.2, 64, 48]} />}
+
+            {cfg.transmission > 0 ? (
               <meshPhysicalMaterial
-                color={materialColor('#7ed6f8', props.silhouette)}
-                roughness={0.25}
-                transmission={0.4}
-                thickness={1.2}
+                color={materialColor(cfg.primaryColor, props.silhouette)}
+                emissive={props.silhouette ? '#000000' : cfg.emissiveColor}
+                emissiveIntensity={0.4}
+                roughness={cfg.roughness}
+                metalness={cfg.metalness}
+                transmission={props.silhouette ? 0 : cfg.transmission}
+                thickness={1.5}
+                transparent
+                opacity={props.silhouette ? 1 : 0.88}
                 wireframe={props.wireframe}
                 clippingPlanes={clippingPlanes}
               />
-            </mesh>
-          )}
-          {isSeed && (
-            <mesh position={[0, 0, 0]}>
-              <dodecahedronGeometry args={[3.2, 2]} />
+            ) : (
               <meshStandardMaterial
-                color={materialColor('#4a6b38', props.silhouette)}
-                roughness={0.5}
+                color={materialColor(cfg.primaryColor, props.silhouette)}
+                emissive={props.silhouette ? '#000000' : cfg.emissiveColor}
+                emissiveIntensity={0.35}
+                roughness={cfg.roughness}
+                metalness={cfg.metalness}
                 wireframe={props.wireframe}
                 clippingPlanes={clippingPlanes}
               />
-            </mesh>
-          )}
-          {isFlux && (
-            <mesh position={[0, 0, 0]}>
-              <icosahedronGeometry args={[3.8, 3]} />
+            )}
+          </mesh>
+
+          {/* Record-Specific Sub-Appendages (Spines, Tendrils, Fins, Plates, Rings) */}
+          {featureItems.map((item, idx) => (
+            <mesh key={idx} position={item.pos} rotation={item.rot} scale={item.scale}>
+              {cfg.hasUniqueSpines && <octahedronGeometry args={[0.6, 0]} />}
+              {cfg.hasUniqueTendrils && <cylinderGeometry args={[0.2, 0.5, 2.2, 8]} />}
+              {cfg.hasUniqueFins && <coneGeometry args={[0.8, 1.8, 6]} />}
+              {cfg.hasUniqueRings && <torusGeometry args={[1.1, 0.1, 8, 32]} />}
+              {cfg.hasUniqueMaw && <boxGeometry args={[0.8, 1.2, 0.8]} />}
+              {!cfg.hasUniqueSpines &&
+                !cfg.hasUniqueTendrils &&
+                !cfg.hasUniqueFins &&
+                !cfg.hasUniqueRings &&
+                !cfg.hasUniqueMaw && <dodecahedronGeometry args={[0.6, 0]} />}
               <meshStandardMaterial
-                color={materialColor('#1e405b', props.silhouette)}
-                roughness={0.3}
+                color={materialColor(cfg.primaryColor, props.silhouette)}
+                emissive={props.silhouette ? '#000' : cfg.emissiveColor}
+                emissiveIntensity={0.2}
+                roughness={cfg.roughness}
+                metalness={cfg.metalness}
                 wireframe={props.wireframe}
                 clippingPlanes={clippingPlanes}
               />
             </mesh>
-          )}
-          {isWyrm && (
-            <mesh position={[0, 0, 0]}>
-              <torusGeometry args={[3.6, 0.8, 16, 100]} />
-              <meshStandardMaterial
-                color={materialColor('#c4a359', props.silhouette)}
-                roughness={0.2}
-                metalness={0.8}
-                wireframe={props.wireframe}
-                clippingPlanes={clippingPlanes}
-              />
-            </mesh>
-          )}
-          {isCivi && (
-            <mesh position={[0, 0, 0]}>
-              <boxGeometry args={[4.2, 5.0, 3.2]} />
-              <meshStandardMaterial
-                color={materialColor('#5c121c', props.silhouette)}
-                roughness={0.6}
-                wireframe={props.wireframe}
-                clippingPlanes={clippingPlanes}
-              />
-            </mesh>
-          )}
-          {isNoo && (
-            <mesh position={[0, 0, 0]}>
-              <octahedronGeometry args={[3.4, 3]} />
-              <meshStandardMaterial
-                color={materialColor('#8a85b6', props.silhouette)}
-                roughness={0.2}
-                wireframe={props.wireframe}
-                clippingPlanes={clippingPlanes}
-              />
-            </mesh>
-          )}
-          {isGlit && (
-            <mesh position={[0, 0, 0]}>
-              <boxGeometry args={[3.6, 3.6, 3.6]} />
-              <meshStandardMaterial
-                color={materialColor('#e05a2b', props.silhouette)}
-                wireframe
-                clippingPlanes={clippingPlanes}
-              />
-            </mesh>
-          )}
-          {isOri && (
-            <mesh position={[0, 0, 0]}>
-              <sphereGeometry args={[4.0, 64, 64]} />
-              <meshPhysicalMaterial
-                color={materialColor('#f0f8ff', props.silhouette)}
-                roughness={0.1}
-                transmission={0.7}
-                thickness={2.0}
-                wireframe={props.wireframe}
-                clippingPlanes={clippingPlanes}
-              />
-            </mesh>
-          )}
-          {!isCrust && !isAtmos && !isSeed && !isFlux && !isWyrm && !isCivi && !isNoo && !isGlit && !isOri && (
-            <mesh position={[0, 0, 0]}>
-              <octahedronGeometry args={[3.6, 2]} />
-              <meshStandardMaterial
-                color={materialColor('#3b4856', props.silhouette)}
-                roughness={0.4}
-                wireframe={props.wireframe}
-                clippingPlanes={clippingPlanes}
-              />
-            </mesh>
-          )}
+          ))}
         </group>
       )}
 
-      {/* STRUCTURE LAYER */}
+      {/* STRUCTURE LAYER: Reconstructed Load Path Frame */}
       {props.layers.structure && (
-        <mesh position={[0, 0, 0]}>
-          <cylinderGeometry args={[2.6, 2.6, 7.0, 12, 1, true]} />
+        <mesh position={[0, 0, 0]} scale={[cfg.scale[0] * 1.05, cfg.scale[1] * 1.05, cfg.scale[2] * 1.05]}>
+          <cylinderGeometry args={[0.8, 0.8, 1.1, 12, 1, true]} />
           <meshStandardMaterial
             color={materialColor('#a2b0bc', props.silhouette)}
+            metalness={0.5}
+            roughness={0.4}
             wireframe
             clippingPlanes={clippingPlanes}
           />
         </mesh>
       )}
 
-      {/* INTERNAL LAYER */}
+      {/* INTERNAL LAYER: Record-Specific Organ Core */}
       {props.layers.internal && (
-        <mesh position={[0, 0, 0]}>
-          <sphereGeometry args={[1.7, 24, 24]} />
-          <meshBasicMaterial
-            color={materialColor(
-              isCrust ? '#e05a2b' : isAtmos ? '#7ed6f8' : isSeed ? '#8a85b6' : '#c4a359',
-              props.silhouette,
-            )}
-            transparent
-            opacity={0.8}
+        <mesh ref={coreRef} position={[0, 0, 0]} scale={[cfg.scale[0] * 0.5, cfg.scale[1] * 0.5, cfg.scale[2] * 0.5]}>
+          <icosahedronGeometry args={[1, 2]} />
+          <meshStandardMaterial
+            color={materialColor(cfg.emissiveColor, props.silhouette)}
+            emissive={props.silhouette ? '#000000' : cfg.emissiveColor}
+            emissiveIntensity={1.8}
+            roughness={0.2}
+            wireframe={props.wireframe}
             clippingPlanes={clippingPlanes}
           />
         </mesh>
       )}
 
-      {/* FUNCTIONAL LAYER */}
+      {/* FUNCTIONAL LAYER: Vector Field & Resonance Rings */}
       {props.layers.functional && (
-        <mesh position={[0, 0, 0]}>
-          <torusGeometry args={[4.8, 0.05, 8, 96]} />
+        <mesh rotation={[Math.PI / 3, 0, 0]}>
+          <torusGeometry args={[cfg.scale[0] * 1.3, 0.045, 8, 96]} />
           <meshBasicMaterial
-            color={materialColor('#7ed6f8', props.silhouette)}
+            color={props.silhouette ? '#000000' : cfg.accentColor}
             transparent
-            opacity={0.5}
+            opacity={0.6}
             clippingPlanes={clippingPlanes}
           />
         </mesh>
@@ -1079,9 +1043,24 @@ function GenericDrakkenModel(props: SpecimenModelProps) {
   );
 }
 
+import {
+  FaultTongueModel,
+  ObsidianGulModel,
+  TremorhoundModel,
+  MagmaPleuronModel,
+  GranithelionModel,
+} from './models/CrustBinderModels';
+
 export function SpecimenModel(props: SpecimenModelProps) {
   if (props.record.id === 'skymourn') return <SkymournModel {...props} />;
   if (props.record.id === 'gorevault') return <GorevaultModel {...props} />;
   if (props.record.id === 'blood-ring') return <BloodRingModel {...props} />;
-  return <GenericDrakkenModel {...props} />;
+
+  if (props.record.id === 'magma-pleuron') return <MagmaPleuronModel {...props} />;
+  if (props.record.id === 'granithelion') return <GranithelionModel {...props} />;
+  if (props.record.id === 'fault-tongue') return <FaultTongueModel {...props} />;
+  if (props.record.id === 'obsidian-gul') return <ObsidianGulModel {...props} />;
+  if (props.record.id === 'tremorhound') return <TremorhoundModel {...props} />;
+
+  return <RecordParametricModel {...props} />;
 }
