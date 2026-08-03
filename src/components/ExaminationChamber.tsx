@@ -262,6 +262,47 @@ function ClippingIndicator({ clip }: { clip: ClipState }) {
   );
 }
 
+function getSpecimenAccentColor(archetype: string): string {
+  if (archetype.includes('Atmos-Engine')) return '#7ed6f8';
+  if (archetype.includes('Crust-Binder')) return '#e05a2b';
+  if (archetype.includes('Seedcarrier')) return '#4a6b38';
+  if (archetype.includes('Fluxborne')) return '#1e405b';
+  if (archetype.includes('Orbital-Wyrm')) return '#c4a359';
+  if (archetype.includes('Civiformer')) return '#9e1a1e';
+  if (archetype.includes('Noosphere')) return '#8a85b6';
+  if (archetype.includes('Glitch-Touched')) return '#e05a2b';
+  return '#f0f8ff';
+}
+
+function ArchivalContainmentPlatform({ archetype }: { archetype: string }) {
+  const ringColor = getSpecimenAccentColor(archetype);
+
+  return (
+    <group position={[0, -5, 0]}>
+      {/* Containment Obsidian Base */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.02, 0]} receiveShadow>
+        <planeGeometry args={[48, 48]} />
+        <meshStandardMaterial color="#06090e" roughness={0.92} metalness={0.08} />
+      </mesh>
+
+      {/* Grid Floor */}
+      <gridHelper args={[48, 48, '#1e2d3d', '#0f1722']} position={[0, 0.01, 0]} />
+
+      {/* Inner Glowing Containment Ring */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.03, 0]}>
+        <ringGeometry args={[6.8, 7.0, 64]} />
+        <meshBasicMaterial color={ringColor} transparent opacity={0.45} side={THREE.DoubleSide} />
+      </mesh>
+
+      {/* Outer Concentric Data Ring */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.02, 0]}>
+        <ringGeometry args={[11.8, 12.0, 64]} />
+        <meshBasicMaterial color="#50667a" transparent opacity={0.25} side={THREE.DoubleSide} />
+      </mesh>
+    </group>
+  );
+}
+
 export function ExaminationChamber(props: ChamberProps) {
   const clipPlane = useMemo(() => {
     const direction = props.clip.inverted ? -1 : 1;
@@ -274,6 +315,8 @@ export function ExaminationChamber(props: ChamberProps) {
     return new THREE.Plane(normal, constant);
   }, [props.clip.axis, props.clip.inverted, props.clip.position]);
 
+  const accentLightColor = getSpecimenAccentColor(props.record.archetype);
+
   return (
     <div className="chamber-canvas" aria-label={`Three-dimensional examination chamber for ${props.record.designation}`}>
       <Canvas
@@ -285,20 +328,24 @@ export function ExaminationChamber(props: ChamberProps) {
         }}
         onCreated={({ gl }) => {
           gl.localClippingEnabled = true;
-          gl.setClearColor('#070a0f');
+          gl.setClearColor('#05080f');
         }}
       >
-        <color attach="background" args={['#070a0f']} />
-        <fog attach="fog" args={['#070a0f', 24, 56]} />
-        <ambientLight intensity={0.72} />
-        <directionalLight position={[9, 13, 10]} intensity={2.4} castShadow />
-        <directionalLight position={[-12, 4, -8]} color="#5c7893" intensity={1.1} />
-        <pointLight position={[0, -7, 5]} color="#8c2731" intensity={1.05} />
-        <gridHelper args={[44, 44, '#243341', '#141c25']} position={[0, -5, 0]} />
-        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5.02, 0]} receiveShadow>
-          <planeGeometry args={[44, 44]} />
-          <meshStandardMaterial color="#0b1017" roughness={0.96} metalness={0.04} />
-        </mesh>
+        <color attach="background" args={['#05080f']} />
+        <fog attach="fog" args={['#05080f', 26, 62]} />
+
+        {/* Mythic Focal Light Hierarchy */}
+        <ambientLight intensity={0.65} />
+        {/* Main Moonlit Key Light */}
+        <directionalLight position={[10, 15, 12]} color="#dceaf5" intensity={2.6} castShadow />
+        {/* Deep Indigo Fill Light */}
+        <directionalLight position={[-14, 6, -10]} color="#283b54" intensity={1.3} />
+        {/* Restrained Gold Specular Rim Light */}
+        <directionalLight position={[0, -10, -12]} color="#c4a359" intensity={0.7} />
+        {/* Specimen Thermal Accent Point Light */}
+        <pointLight position={[0, 0, 4]} color={accentLightColor} intensity={1.8} distance={20} />
+
+        <ArchivalContainmentPlatform archetype={props.record.archetype} />
 
         <Suspense fallback={null}>
           <SpecimenModel
@@ -337,8 +384,9 @@ export function ExaminationChamber(props: ChamberProps) {
       </Canvas>
       <div className="chamber-crosshair" aria-hidden="true" />
       <div className="chamber-scale-note">
-        Visualization scale: {props.record.dimensions.visualizationHeightMeters} m. {props.record.dimensions.visualizationNote}
+        Reconstruction scale: {props.record.dimensions.visualizationHeightMeters} m. {props.record.dimensions.visualizationNote}
       </div>
     </div>
   );
 }
+

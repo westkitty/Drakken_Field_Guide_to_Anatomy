@@ -232,7 +232,7 @@ export default function App() {
           <h1>Drakken Field Anatomy Archive</h1>
         </div>
         <div className="header-status">
-          <span>Three records</span>
+          <span>{specimens.length} records</span>
           <span>One meter per world unit</span>
           <EvidenceBadge state={activeRecord.evidenceStatus} />
         </div>

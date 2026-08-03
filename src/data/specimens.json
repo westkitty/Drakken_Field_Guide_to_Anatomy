@@ -24,7 +24,10 @@
       "internal": "Reconstructed opposed thermal cores used only to explain the archive visualization.",
       "functional": "Demonstration overlay for thermal polarization and cold data-lace trails; not a literal anatomical claim."
     },
-    "animations": ["Melancholy Drift", "Thermal Ripple Burst"],
+    "animations": [
+      "Melancholy Drift",
+      "Thermal Ripple Burst"
+    ],
     "annotations": [
       {
         "id": "sky-face",
@@ -33,7 +36,11 @@
         "layer": "surface",
         "evidence": "Confirmed",
         "sourceRef": "SRC-SKY-001",
-        "position": [0, 5.8, 0.9]
+        "position": [
+          0,
+          5.8,
+          0.9
+        ]
       },
       {
         "id": "sky-knot",
@@ -42,7 +49,11 @@
         "layer": "internal",
         "evidence": "Reconstructed",
         "sourceRef": "SRC-SKY-001",
-        "position": [0, 1.2, 0]
+        "position": [
+          0,
+          1.2,
+          0
+        ]
       },
       {
         "id": "sky-lace",
@@ -51,7 +62,11 @@
         "layer": "functional",
         "evidence": "Confirmed",
         "sourceRef": "SRC-SKY-001",
-        "position": [-4.8, -1.6, -0.4],
+        "position": [
+          -4.8,
+          -1.6,
+          -0.4
+        ],
         "animationTimestamp": 2.4
       }
     ],
@@ -86,7 +101,12 @@
     ],
     "recordRevision": "1.0.0",
     "assetVersion": "procedural-1.0.0",
-    "evidenceTags": ["thermal", "memory", "grief-tied", "atmos-engine"],
+    "evidenceTags": [
+      "thermal",
+      "memory",
+      "grief-tied",
+      "atmos-engine"
+    ],
     "sourceStatus": "Working canon entry plus archival plate",
     "modelAvailability": "Deterministic procedural reconstruction"
   },
@@ -115,7 +135,10 @@
       "internal": "Reconstructed render crucible, storage chambers, and transfer conduits.",
       "functional": "Demonstration flow from intake through separation and storage. Exact anatomy remains undocumented."
     },
-    "animations": ["Processional Haul", "Crucible Maw Intake"],
+    "animations": [
+      "Processional Haul",
+      "Crucible Maw Intake"
+    ],
     "annotations": [
       {
         "id": "gore-reservoir",
@@ -124,7 +147,11 @@
         "layer": "surface",
         "evidence": "Confirmed",
         "sourceRef": "SRC-GOR-001",
-        "position": [3.4, 2.4, 1.8]
+        "position": [
+          3.4,
+          2.4,
+          1.8
+        ]
       },
       {
         "id": "gore-crucible",
@@ -133,7 +160,11 @@
         "layer": "internal",
         "evidence": "Reconstructed",
         "sourceRef": "SRC-GOR-001",
-        "position": [0, 2.8, 0]
+        "position": [
+          0,
+          2.8,
+          0
+        ]
       },
       {
         "id": "gore-locks",
@@ -142,7 +173,11 @@
         "layer": "surface",
         "evidence": "Confirmed",
         "sourceRef": "SRC-GOR-001",
-        "position": [-2.7, 5.1, 1.2]
+        "position": [
+          -2.7,
+          5.1,
+          1.2
+        ]
       }
     ],
     "incidents": [
@@ -170,7 +205,12 @@
     ],
     "recordRevision": "1.0.0",
     "assetVersion": "procedural-1.0.0",
-    "evidenceTags": ["civiformer", "biomass", "processing", "blood-ring logistics"],
+    "evidenceTags": [
+      "civiformer",
+      "biomass",
+      "processing",
+      "blood-ring logistics"
+    ],
     "sourceStatus": "Working canon entry",
     "modelAvailability": "Deterministic procedural reconstruction"
   },
@@ -199,7 +239,10 @@
       "internal": "Suspended ash, void pockets, clot-veins, and black-red rendered matter bands.",
       "functional": "Reconstructed spin-shaping, pressure alignment, and orbital shackle fields. Exact defense behavior remains uncertain."
     },
-    "animations": ["Spin-Shaping Reconstruction", "Cooling-State Reconstruction"],
+    "animations": [
+      "Spin-Shaping Reconstruction",
+      "Cooling-State Reconstruction"
+    ],
     "annotations": [
       {
         "id": "ring-vein",
@@ -208,7 +251,11 @@
         "layer": "internal",
         "evidence": "Confirmed",
         "sourceRef": "SRC-RING-001",
-        "position": [5.4, 0.3, 0.7]
+        "position": [
+          5.4,
+          0.3,
+          0.7
+        ]
       },
       {
         "id": "ring-rib",
@@ -217,7 +264,11 @@
         "layer": "structure",
         "evidence": "Confirmed",
         "sourceRef": "SRC-RING-001",
-        "position": [-4.4, 2.3, 0.2]
+        "position": [
+          -4.4,
+          2.3,
+          0.2
+        ]
       },
       {
         "id": "ring-void",
@@ -226,7 +277,11 @@
         "layer": "internal",
         "evidence": "Reconstructed",
         "sourceRef": "SRC-RING-001",
-        "position": [1.8, -4.7, 0.4]
+        "position": [
+          1.8,
+          -4.7,
+          0.4
+        ]
       }
     ],
     "incidents": [
@@ -254,8 +309,4394 @@
     ],
     "recordRevision": "1.0.0",
     "assetVersion": "procedural-1.0.0",
-    "evidenceTags": ["orbital infrastructure", "vitrification", "atrocity structure", "blood-eclipse war"],
+    "evidenceTags": [
+      "orbital infrastructure",
+      "vitrification",
+      "atrocity structure",
+      "blood-eclipse war"
+    ],
     "sourceStatus": "Working canon integrated summary",
     "modelAvailability": "Deterministic procedural cutaway"
+  },
+  {
+    "id": "magma-pleuron",
+    "archiveId": "DFA-CRU-001",
+    "designation": "Magma Pleuron",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Crust-Binder / Basalt Vanguard",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A centipede-like vanguard formed of magnetized basalt plates glowing from internal magma channels, tunneling through faultlines to seed lava basins.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 24,
+      "visualizationNote": "Archive chamber reconstruction scale only."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Subterranean faultlines, volcanic trenches, planetary crustal corridors",
+    "operationalRole": "Crustal formatting, magma channel seeding, and tectonic vanguard assault",
+    "threatClassification": "OMEGA",
+    "modelAssetRef": "proc-magma-pleuron-v1",
+    "layers": {
+      "surface": "Magnetized basalt plates, eruption mandibles, glowing magma channels, and barcode ribbons.",
+      "structure": "Segmented thermo-ferrous spine and burrowing limb articulators.",
+      "internal": "Subsurface magma core, pressure conduits, and magnetic repulsion node.",
+      "functional": "Seismic tunneling vector and lava basin seeding overlay."
+    },
+    "animations": [
+      "Faultline Hyperburrow",
+      "Thermo-Magnetic Eruption"
+    ],
+    "annotations": [
+      {
+        "id": "magma-mandibles",
+        "title": "Eruption Mandibles",
+        "description": "Liquefies rock on contact to seed magma channels.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          3.2,
+          1.4
+        ]
+      },
+      {
+        "id": "magma-core",
+        "title": "Thermo-Ferrous Core",
+        "description": "Internal magma reservoir feeding the outer channels.",
+        "layer": "internal",
+        "evidence": "Reconstructed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Fracture of Deimos VII",
+        "summary": "Magma Pleuron shattered Deimos VII into three stable orbital bands during crustal stabilization.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Primary tectonic assault unit. Engages with eruptive ambushes and destabilizes terrain beneath heavy armor.",
+    "civicResponse": {
+      "fieldEvidence": "Deep crustal tremors and volcanic barcode streamers.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "Claims of unguided seismic rage are unverified.",
+      "archiveInterpretation": "Treat faultline ruptures as active Crust-Binder initialization."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Magma Pleuron entry, line 173",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "crust-binder",
+      "basalt",
+      "magma",
+      "tectonic"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "granithelion",
+    "archiveId": "DFA-CRU-002",
+    "designation": "Granithelion",
+    "category": "planetary infrastructure",
+    "archetype": "Dracoforma / Crust-Binder / Monolithic Spine",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A continent-sized leviathan partially submerged in the planetary crust, occupying faultlines with crystalline ridges and mountain-like limbs.",
+    "dimensions": {
+      "canon": "Continent scale; exact dimensions unknown",
+      "visualizationHeightMeters": 42,
+      "visualizationNote": "Normalized archive model."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Deep planetary crust, rift zones, mountain roots",
+    "operationalRole": "Tectonic locking, faultline anchoring, and deep-earth harmonic stabilization",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-granithelion-v1",
+    "layers": {
+      "surface": "Sedimented granite hide, crystal ridges, and hardlight lattice seams.",
+      "structure": "Monolithic spinal lattice and tectonic brace pillars.",
+      "internal": "Geodesic harmonic core and crystal resonance nodes.",
+      "functional": "Tectonic stabilization field and anti-macro wave grid."
+    },
+    "animations": [
+      "Harmonic Resonant Pulse",
+      "Monolithic Anchor Lock"
+    ],
+    "annotations": [
+      {
+        "id": "grani-ridge",
+        "title": "Crystalline Spine Ridge",
+        "description": "Mountainous crystal formations locking faultlines in place.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          4.5,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Binding of Hellgate's Rift",
+        "summary": "Granithelion was dropped into Hellgate Rift, forming a continent-wide orbital shield pattern over 100 years.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Immobile strategic anchor. Endures orbital bombardment while generating anti-macro interference fields.",
+    "civicResponse": {
+      "fieldEvidence": "Deep harmonic hums and stationary crystalline mountain ranges.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None documented.",
+      "archiveInterpretation": "Permanent structural fixture. Cannot be dislodged by conventional fire."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Granithelion entry, line 203",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "crust-binder",
+      "monolith",
+      "tectonic",
+      "crystal"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "fault-tongue",
+    "archiveId": "DFA-CRU-003",
+    "designation": "Fault-Tongue",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Crust-Binder / Seismic Translator",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A serpentine Drakken with metallic hide and sideways mouth revealing harmonic plates that sing through bedrock to fracture or realign strata.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 20,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Subterranean caverns, bedrock layers, bunker foundations",
+    "operationalRole": "Seismic pulse generation, bedrock fracture, and acoustic leyline rewiring",
+    "threatClassification": "MEDIUM",
+    "modelAssetRef": "proc-fault-tongue-v1",
+    "layers": {
+      "surface": "Metallic hide, sideways mouth plates, and barcode Chants.",
+      "structure": "Flexible acoustic spine and harmonic chamber ribs.",
+      "internal": "Resonant sound throat and seismic wave generator.",
+      "functional": "Acoustic directional pulse and bedrock fracture lines."
+    },
+    "animations": [
+      "Seismic Pulse Roar",
+      "Gliding Bedrock Phase"
+    ],
+    "annotations": [
+      {
+        "id": "fault-mouth",
+        "title": "Harmonic Mouth Plates",
+        "description": "Sideways opening plates emitting seismic sonic blasts.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          3.8,
+          1.2
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Singing Crack of Tholus Fort",
+        "summary": "Fault-Tongue spoke once beneath Tholus Fort, splitting the fortress in six directions in a single sunrise.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Geotactical acoustic disruptor capable of collapsing subterranean bunkers.",
+    "civicResponse": {
+      "fieldEvidence": "Low-frequency bedrock humming preceding ground collapse.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "Claims of vocal dead calls are unverified.",
+      "archiveInterpretation": "Evacuate structures upon detecting rhythmic sub-audible hums."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Fault-Tongue entry, line 231",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "crust-binder",
+      "seismic",
+      "acoustic",
+      "serpentine"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "obsidian-gul",
+    "archiveId": "DFA-CRU-004",
+    "designation": "Obsidian Gul",
+    "category": "siege or processing entity",
+    "archetype": "Dracoforma / Crust-Binder / Eruption Razor",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A wingless quadruped with obsidian armor shards fracturing and reforming over molten joints, slicing lava flows into symmetrical magma basins.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 22,
+      "visualizationNote": "Archive reconstruction scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Volcanic calderas, flash-eruption zones, magma basins",
+    "operationalRole": "High-speed pyroclastic terrain slicing and magma basin grid formation",
+    "threatClassification": "EXTREME",
+    "modelAssetRef": "proc-obsidian-gul-v1",
+    "layers": {
+      "surface": "Obsidian armor shards, molten joint seams, and glass tail blade.",
+      "structure": "Pyroclastic skeleton and razor-hinged limbs.",
+      "internal": "Volcanic core furnace and glass-melt reservoir.",
+      "functional": "Magma grid slicing vector and shard blade trajectory."
+    },
+    "animations": [
+      "Blade Whirl Eruption",
+      "Surface Glass-Skate"
+    ],
+    "annotations": [
+      {
+        "id": "gul-tail",
+        "title": "Obsidian Tail Scythe",
+        "description": "Slices cooling crust into grid-like magma channels.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          1.5,
+          -3.2
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Glassfall Incident",
+        "summary": "Three Gul-class entities erupted beneath Sector Delta-1, turning the battleground into razor glass fields.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "High-speed pyroclastic assault unit. Denial of area via razor glass fields.",
+    "civicResponse": {
+      "fieldEvidence": "Black glass shards and glowing magma grid cuts.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Flash-birth entity. Avoid volcanic eruption margins."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Obsidian Gul entry, line 259",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "crust-binder",
+      "obsidian",
+      "pyroclastic",
+      "razor"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "tremorhound",
+    "archiveId": "DFA-CRU-005",
+    "designation": "Tremorhound",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Crust-Binder / Faulttracker Beast",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A low-slung wolf-shaped Drakken rippling with pulse-wave distortions, glowing blue claws, and a crown seismic glyph.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 14,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Subterranean tunnels, seismic faultlines, mine complexes",
+    "operationalRole": "Seismic scouting, faultline mapping, and artificial quake propagation",
+    "threatClassification": "MODERATE",
+    "modelAssetRef": "proc-tremorhound-v1",
+    "layers": {
+      "surface": "Vibro-diffusive hide, blue echo claws, and crown seismic glyph.",
+      "structure": "Flexible wave-conduction spine and spring limbs.",
+      "internal": "Seismic pulse generator and acoustic sensor bulb.",
+      "functional": "Waveform propagation map and ground-phase trajectory."
+    },
+    "animations": [
+      "Echo Pounce",
+      "Ground Phase Dash"
+    ],
+    "annotations": [
+      {
+        "id": "tremor-glyph",
+        "title": "Crown Seismic Glyph",
+        "description": "Projects and receives faultline waveform data.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          2.4,
+          1.1
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Shiverdog Hunts",
+        "summary": "Packs of Tremorhounds herded resistance fighters into magma chambers via directional collapses on Gransh IV.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Subterranean scout and mine-detonation unit.",
+    "civicResponse": {
+      "fieldEvidence": "Blue claw-scratches on bedrock with pulse distortions.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Pack-hunting scout entity. Signals impending tectonic collapse."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Tremorhound entry, line 288",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "crust-binder",
+      "scout",
+      "vibroseismic",
+      "beast"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "glassspine",
+    "archiveId": "DFA-CRU-006",
+    "designation": "Glassspine",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Crust-Binder / Refractive Corebeast",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A tall, slender Drakken of hollow glass lattices and prismatic filigree, carrying barcode streams like fiber-optic nerves.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 26,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Scarred biospheres, crystal fog fields, light-relay paths",
+    "operationalRole": "Optical data-relay, light-conductive terrain formatting, and crystal fog synthesis",
+    "threatClassification": "LOW",
+    "modelAssetRef": "proc-glassspine-v1",
+    "layers": {
+      "surface": "Hollow glass lattice, prismatic filigree, and light-streaming nerves.",
+      "structure": "Fiber-optic spinal core and glass rib arches.",
+      "internal": "Refractive prism core and crystal breath condenser.",
+      "functional": "Optical macro-transmission lines and crystal fog field."
+    },
+    "animations": [
+      "Light Spindle Burst",
+      "Refractive Skitter"
+    ],
+    "annotations": [
+      {
+        "id": "glass-prism",
+        "title": "Refractive Prism Core",
+        "description": "Bends data streams into high-speed light beams.",
+        "layer": "internal",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          3.5,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Refraction Shardway",
+        "summary": "A ruined world was linked into a light-comms network by Glassspine units during recovery.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Non-combat communications relay unit. Highly vulnerable to kinetic impact.",
+    "civicResponse": {
+      "fieldEvidence": "Prismatic light pillars and crystal fog banks.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Post-war infrastructure builder. Harmless unless provoked."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Glassspine entry, line 317",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "crust-binder",
+      "prismatic",
+      "optic",
+      "relay"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "quarrymind",
+    "archiveId": "DFA-CRU-007",
+    "designation": "Quarrymind",
+    "category": "siege or processing entity",
+    "archetype": "Dracoforma / Crust-Binder / Litho-Colony Node",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A hive-backed quadruped with a mineralized brainpan extruding drones from a dorsal quarry to excavate programmable rock strains.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 30,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Post-combat planetary surfaces, quarries, excavation basins",
+    "operationalRole": "Programmable mineral excavation, litho-drone production, and tectonic macro etching",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-quarrymind-v1",
+    "layers": {
+      "surface": "Mineralized brainpan, dorsal quarry basin, and orbiting drones.",
+      "structure": "Excavator leg trusses and reinforced litho-frame.",
+      "internal": "Brainstone synthesis chamber and drone assembly core.",
+      "functional": "Litho-drone mining vectors and tectonic macro-etching field."
+    },
+    "animations": [
+      "Hive Drill Barrage",
+      "Litho-Colony Excavation"
+    ],
+    "annotations": [
+      {
+        "id": "quarry-brain",
+        "title": "Mineralized Brainpan",
+        "description": "Synthesizes litho-drones to etch tectonic macros.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          4.2,
+          0.8
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Quarry War of Tesh",
+        "summary": "Quarrymind drones re-encoded Tesh's lithosphere, erasing structural memory until cities crumbled like sand.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Heavy industrial node capable of erasing planetary structural integrity over time.",
+    "civicResponse": {
+      "fieldEvidence": "Symmetrical quarry pits and floating litho-drones.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Destroy central brainpan to disable drone swarms."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Quarrymind entry, line 346",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "crust-binder",
+      "quarry",
+      "litho-drone",
+      "hive"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "aerokarst",
+    "archiveId": "DFA-ATM-002",
+    "designation": "Aerokarst",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Atmos-Engine / Hollow-Breath Titan",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A floating headless Drakken composed of nested spheres and air vortices, emitting silent implosions of pressure across planetary atmosphere.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 28,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Stratosphere, storm walls, vacuum rift boundaries",
+    "operationalRole": "Atmospheric pressure equalization, targeted vacuum lungs, and cyclone disruption",
+    "threatClassification": "EXTREME",
+    "modelAssetRef": "proc-aerokarst-v1",
+    "layers": {
+      "surface": "Nested air spheres, detached hovering ribs, and vacuum core.",
+      "structure": "Orbital rib ring and vortex anchor axis.",
+      "internal": "Implosion lung chamber and atmospheric vortex engine.",
+      "functional": "Cyclonic lung crush field and radar-null zone."
+    },
+    "animations": [
+      "Cyclonic Lung Crush",
+      "Hover Shear Jump"
+    ],
+    "annotations": [
+      {
+        "id": "aero-core",
+        "title": "Hollow Implosion Core",
+        "description": "Creates targeted vacuum lungs to equalize planetary pressure.",
+        "layer": "internal",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          2.2,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Silence of Altim X",
+        "summary": "Aerokarst equalized Altim X's atmosphere in one breath, suffocating defensive forces without firing a shot.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Stealth atmospheric disruptor. Displaces radar, sound, and sightlines.",
+    "civicResponse": {
+      "fieldEvidence": "Abrupt atmospheric silence and localized vacuum pockets.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Immediate vacuum hazard. Sealed oxygen systems mandatory."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Aerokarst entry, line 376",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "atmos-engine",
+      "vacuum",
+      "wind",
+      "headless"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "hydrostatic-renderer",
+    "archiveId": "DFA-ATM-003",
+    "designation": "Hydrostatic Renderer",
+    "category": "siege or processing entity",
+    "archetype": "Dracoforma / Atmos-Engine / Hydrostatic Renderer",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A massive floating reservoir entity that harvests planetary cloud cover, condensing water into heavy storm columns and data-rich rainfall.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 32,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Troposphere, rain belts, ocean airspaces",
+    "operationalRole": "Cloud harvest, moisture condensation, and atmospheric hydrosphere seeding",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-hydrostatic-renderer-v1",
+    "layers": {
+      "surface": "Translucent water sac hull, condenser spouts, and cloud harvesters.",
+      "structure": "Hydro-frame rib cage and downpour conduits.",
+      "internal": "Condensation engine core and saline filter sac.",
+      "functional": "Downpour column and hydrosphere remapping field."
+    },
+    "animations": [
+      "Hydrostatic Condensation",
+      "Torrents Harvest"
+    ],
+    "annotations": [
+      {
+        "id": "hydro-sac",
+        "title": "Water Condenser Sac",
+        "description": "Harvests atmosphere to produce heavy rain columns.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          1.8,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Flood of Oakhaven",
+        "summary": "Stationed above Oakhaven for 40 days, converting the arid basin into a freshwater inland sea.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Weather modification platform capable of localized ocean creation.",
+    "civicResponse": {
+      "fieldEvidence": "Persistent localized deluges and cloud draining.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Monitors hydrosphere realignment."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Hydrostatic Renderer entry, line 404",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "atmos-engine",
+      "hydrostatic",
+      "water",
+      "rain"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "stratos-chorister",
+    "archiveId": "DFA-ATM-004",
+    "designation": "Stratos Chorister",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Atmos-Engine / Stratos Chorister",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A winged serpentine entity with multi-tiered acoustic throats that harmonize with jet streams to alter wind patterns and atmospheric pressure.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 22,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Upper stratosphere, jet streams, acoustic corridors",
+    "operationalRole": "Jet stream steering, acoustic weather harmonization, and wind direction locking",
+    "threatClassification": "MEDIUM",
+    "modelAssetRef": "proc-stratos-chorister-v1",
+    "layers": {
+      "surface": "Winged serpentine hide, acoustic vocal bells, and resonance fins.",
+      "structure": "Acoustic airway spine and wing rib lattice.",
+      "internal": "Multi-chamber vocal bell engine and air frequency tuner.",
+      "functional": "Jet stream steering arc and sonic resonance wave."
+    },
+    "animations": [
+      "Stratos Harmony Song",
+      "Jetstream Glide"
+    ],
+    "annotations": [
+      {
+        "id": "stratos-bells",
+        "title": "Multi-Tiered Vocal Bells",
+        "description": "Sings into jet streams to redirect planetary wind vectors.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          4,
+          0.6
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Gales of Zephyrus",
+        "summary": "A chorus of Choristers redirected hurricane paths away from terraforming bases.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Long-range wind vector control platform.",
+    "civicResponse": {
+      "fieldEvidence": "Ethereal singing in high winds and shifted jet streams.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Harmonizer unit."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Stratos Chorister entry, line 432",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "atmos-engine",
+      "acoustic",
+      "wings",
+      "wind"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "balance-engine",
+    "archiveId": "DFA-ATM-005",
+    "designation": "Balance Engine",
+    "category": "planetary infrastructure",
+    "archetype": "Dracoforma / Atmos-Engine / Balance Engine",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A gyroscopic station-sized Drakken suspended in mid-atmosphere, stabilizing planetary temperature and gas ratios across hemispheres.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 36,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Mid-atmosphere, orbital tether points",
+    "operationalRole": "Global atmosphere balancing, gas ratio stabilization, and climate maintenance",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-balance-engine-v1",
+    "layers": {
+      "surface": "Gyroscopic outer ring, gas intake vents, and thermal radiators.",
+      "structure": "Concentric gimbal frame and central core axis.",
+      "internal": "Atmospheric gas processor and thermal exchange unit.",
+      "functional": "Global climate stabilization grid and thermal radiator field."
+    },
+    "animations": [
+      "Gyroscopic Rotation",
+      "Thermal Radiation Flush"
+    ],
+    "annotations": [
+      {
+        "id": "balance-gimbal",
+        "title": "Concentric Gyroscopic Gimbal",
+        "description": "Maintains global thermal equilibrium across hemispheres.",
+        "layer": "structure",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Thermal Stabilizing of Vespera",
+        "summary": "Balance Engine prevented run-away greenhouse collapse after orbital solar flare impact.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Vital terraforming anchor. Disabling it triggers climate instability.",
+    "civicResponse": {
+      "fieldEvidence": "Stationary floating gyroscopic ring visible from surface.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Do not disturb. Essential climate infrastructure."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Balance Engine entry, line 460",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "atmos-engine",
+      "gyroscopic",
+      "balance",
+      "climate"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "stormmind-tactician",
+    "archiveId": "DFA-ATM-006",
+    "designation": "Stormmind Tactician",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Atmos-Engine / Stormmind Tactician",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A thunder-cloud entity with crackling lightning antlers and a multi-segmented body that conducts storm fronts like tactical forces.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 25,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Thunderstorm cells, supercells, hurricane eyes",
+    "operationalRole": "Storm cell command, electrical discharge grid, and lightning strike coordination",
+    "threatClassification": "EXTREME",
+    "modelAssetRef": "proc-stormmind-tactician-v1",
+    "layers": {
+      "surface": "Storm-cloud hide, lightning antlers, and electrical discharge nodes.",
+      "structure": "Ion-conducting spine and storm rib cage.",
+      "internal": "Lightning generator core and ion pulse storage.",
+      "functional": "Electrical discharge grid and storm front vector."
+    },
+    "animations": [
+      "Lightning Antler Arc",
+      "Supercell Command Shift"
+    ],
+    "annotations": [
+      {
+        "id": "storm-antlers",
+        "title": "Ionizing Lightning Antlers",
+        "description": "Directs lightning strikes to strike designated ground targets.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          5,
+          0.5
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Battle of Iron Ridge",
+        "summary": "Stormmind Tactician summoned 10,000 targeted strikes in 10 minutes to wipe out an invading division.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Tactical storm commander. Highly dangerous in rainy environments.",
+    "civicResponse": {
+      "fieldEvidence": "Violent localized lightning and cloud rotation.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Seek grounded shelter immediately."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Stormmind Tactician entry, line 490",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "atmos-engine",
+      "lightning",
+      "storm",
+      "tactical"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "toxic-veil-engine",
+    "archiveId": "DFA-ATM-007",
+    "designation": "Toxic Veil Engine",
+    "category": "siege or processing entity",
+    "archetype": "Dracoforma / Atmos-Engine / Toxic Veil Engine",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A bloated chimney-backed leviathan that exhausts corrosive terraforming gases and smog shrouds to scrub indigenous biospheres.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 30,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Scrubbed biospheres, industrial zones, atmosphere replacement corridors",
+    "operationalRole": "Atmospheric scrubbing, toxic gas exhaust, and biosurface sterilization",
+    "threatClassification": "OMEGA",
+    "modelAssetRef": "proc-toxic-veil-engine-v1",
+    "layers": {
+      "surface": "Exhaust chimneys, corrosive sac armor, and smog vents.",
+      "structure": "Chambered furnace chassis and vent pipes.",
+      "internal": "Corrosive chemical synthesizer and gas scrubbing core.",
+      "functional": "Toxic shroud expansion field and atmospheric replacement map."
+    },
+    "animations": [
+      "Smog Vent Eruption",
+      "Corrosive Scrubbing Pulse"
+    ],
+    "annotations": [
+      {
+        "id": "toxic-chimney",
+        "title": "Exhaust Chimney Array",
+        "description": "Exhausts heavy terraforming gases to replace atmospheric mix.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          4.8,
+          -1
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Scrubbing of Verdia",
+        "summary": "Exhausted 500,000 tons of sulfurous gas in 3 days, sterilizing native flora for Drakken seeding.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Late-stage atmospheric conversion unit. Lethal without chemical defense.",
+    "civicResponse": {
+      "fieldEvidence": "Yellow-green smog shrouds and acidic rainfall.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Sterilization phase entity."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Toxic Veil Engine entry, line 521",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "atmos-engine",
+      "toxic",
+      "gas",
+      "smog"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "macroflora-colossus",
+    "archiveId": "DFA-SED-001",
+    "designation": "Macroflora Colossus",
+    "category": "planetary infrastructure",
+    "archetype": "Dracoforma / Seedcarrier / Macroflora Colossus",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A titanic tree-like Drakken whose root network anchors into planetary mantle while sprouting bio-code tendrils that seed giant Drakken forests.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 40,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Planetary crust, new bio-forests, root basins",
+    "operationalRole": "Deep mantle root anchoring, bio-forest seeding, and planetary biomass conversion",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-macroflora-colossus-v1",
+    "layers": {
+      "surface": "Bark-like armored hide, bio-luminescent canopy, and root tendrils.",
+      "structure": "Lignin-iron trunk core and deep root anchors.",
+      "internal": "Spore sap reservoir and genetic code synthesizer.",
+      "functional": "Root network expansion map and spore dispersion field."
+    },
+    "animations": [
+      "Bio-Forest Spore Bloom",
+      "Deep Root Anchoring"
+    ],
+    "annotations": [
+      {
+        "id": "macro-canopy",
+        "title": "Bio-Luminescent Canopy",
+        "description": "Sprouts bio-code tendrils that seed entire ecosystems.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          5.5,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Growth of Sylva Minor",
+        "summary": "A single Colossus converted 10,000 square kilometers into bioluminescent Drakken jungle in 2 weeks.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Infrastructure seed entity. Creates dense biological cover.",
+    "civicResponse": {
+      "fieldEvidence": "Rapid tree growth and glowing blue sap pools.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Biosphere conversion anchor."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Macroflora Colossus entry, line 581",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "seedcarrier",
+      "tree",
+      "forest",
+      "flora"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "sporesphere-archivist",
+    "archiveId": "DFA-SED-002",
+    "designation": "Sporesphere Archivist",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Seedcarrier / Sporesphere Archivist",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A bulbous floating sphere Drakken surrounded by hovering spore pods that collect and record local biological genetic data.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 16,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Ancient forests, planetary biospheres, gene banks",
+    "operationalRole": "Genetic data harvesting, spore pod archive storage, and DNA encoding",
+    "threatClassification": "LOW",
+    "modelAssetRef": "proc-sporesphere-archivist-v1",
+    "layers": {
+      "surface": "Translucent bulbous membrane, spore pod ring, and sensory cilia.",
+      "structure": "Internal sphere ribbing and pod tether stalks.",
+      "internal": "Genetic archive bank and spore sequencing core.",
+      "functional": "Spore pod sampling grid and DNA encoding wave."
+    },
+    "animations": [
+      "Spore Pod Sampling",
+      "Gene Archive Pulse"
+    ],
+    "annotations": [
+      {
+        "id": "spore-pods",
+        "title": "Orbital Spore Pod Ring",
+        "description": "Records and stores genetic code samples from local fauna and flora.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          1.8,
+          1.2,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Archiving of Kaelen Vault",
+        "summary": "Archived 4,000 endangered species samples before planetary surface conversion.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Non-combat biological intelligence collector.",
+    "civicResponse": {
+      "fieldEvidence": "Floating glowing spore pods and gentle humming.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Genetic sampling unit."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Sporesphere Archivist entry, line 612",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "seedcarrier",
+      "spore",
+      "archive",
+      "sphere"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "neural-fungibinder",
+    "archiveId": "DFA-SED-003",
+    "designation": "Neural Fungibinder",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Seedcarrier / Neural Fungibinder",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A creeping fungal-capped Drakken that spreads subterranean mycelial networks to link plant life into a collective Drakken neural web.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 18,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Subsurface soil, dark forests, subterranean rootways",
+    "operationalRole": "Mycelial network spreading, neural plant linking, and bio-telemetry relay",
+    "threatClassification": "MEDIUM",
+    "modelAssetRef": "proc-neural-fungibinder-v1",
+    "layers": {
+      "surface": "Fungal cap armor, bio-luminescent tendrils, and mycelial roots.",
+      "structure": "Spongy fibrous spine and creeping stalk joints.",
+      "internal": "Neural relay node and spore cocktail core.",
+      "functional": "Mycelial web map and bio-telemetry pulse."
+    },
+    "animations": [
+      "Mycelial Web Spreading",
+      "Neural Pulse Resonance"
+    ],
+    "annotations": [
+      {
+        "id": "fungi-cap",
+        "title": "Bio-Luminescent Fungal Cap",
+        "description": "Emits neural frequencies to link plant networks.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          3.6,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Mind-Forest of Ghor",
+        "summary": "Linked an entire continent's flora into a unified early-warning radar web.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Biological sensor weaver. Turns forests into live motion detectors.",
+    "civicResponse": {
+      "fieldEvidence": "Glowing blue mycelial threads running through topsoil.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Bio-telemetry network layer."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Neural Fungibinder entry, line 642",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "seedcarrier",
+      "fungal",
+      "mycelium",
+      "neural"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "precipitation-synth",
+    "archiveId": "DFA-SED-004",
+    "designation": "Precipitation Synth",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Seedcarrier / Precipitation Synth",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A sleek, translucent eel-shaped entity that swims through clouds, flickering with bio-code to synthesize nutrient rain and spore fogs.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 20,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Cloud strata, fog banks, upper rain belts",
+    "operationalRole": "Nutrient rain synthesis, bio-spore fog seeding, and atmospheric hydration",
+    "threatClassification": "LOW",
+    "modelAssetRef": "proc-precipitation-synth-v1",
+    "layers": {
+      "surface": "Translucent eel skin, bio-code fins, and moisture gill slits.",
+      "structure": "Flexible undulating spine and rib arches.",
+      "internal": "Nutrient synthesis sac and spore mist engine.",
+      "functional": "Rain synthesis stream and cloud swimming trajectory."
+    },
+    "animations": [
+      "Cloud Swimming Glide",
+      "Nutrient Rain Release"
+    ],
+    "annotations": [
+      {
+        "id": "synth-fin",
+        "title": "Bio-Code Fins",
+        "description": "Flickers with light code as it swims through cloud vapor.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          1.2,
+          0.5,
+          0.4
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Blue Rain of Astraea",
+        "summary": "Synthesized nutrient rain for 3 days, accelerating crop growth 50x.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Non-combat agricultural support entity.",
+    "civicResponse": {
+      "fieldEvidence": "Translucent serpentine silhouettes in high clouds.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Beneficial biosphere nurturer."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Precipitation Synth entry, line 669",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "seedcarrier",
+      "eel",
+      "rain",
+      "nutrient"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "soil-rewriter",
+    "archiveId": "DFA-SED-005",
+    "designation": "Soil Rewriter",
+    "category": "siege or processing entity",
+    "archetype": "Dracoforma / Seedcarrier / Soil Rewriter",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A heavy plow-backed quadruped that churns barren dirt, injecting programmable mineral sap to re-encode topsoil for alien flora.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 28,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Deserts, barren plains, tilled battlefields",
+    "operationalRole": "Topsoil re-encoding, mineral sap injection, and terra-plowing",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-soil-rewriter-v1",
+    "layers": {
+      "surface": "Armored plow skull, sap injector tusk array, and treaded limbs.",
+      "structure": "Heavy plow frame and hydraulic leg trusses.",
+      "internal": "Mineral sap reservoir and topsoil processing chamber.",
+      "functional": "Topsoil re-encoding grid and sap injection depth map."
+    },
+    "animations": [
+      "Terra-Plow Churn",
+      "Mineral Sap Injection"
+    ],
+    "annotations": [
+      {
+        "id": "soil-plow",
+        "title": "Armored Plow Skull",
+        "description": "Churns rock and earth, injecting bio-code sap.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          1.2,
+          2.8
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Tilling of Dust-Reach",
+        "summary": "Converted 5,000 hectares of desert sand into fertile dark loam in 48 hours.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Heavy agricultural terraformer. Easily tracked by deep tilling ruts.",
+    "civicResponse": {
+      "fieldEvidence": "Deep tilled trenches and glowing dark soil.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Agricultural initialization."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Soil Rewriter entry, line 698",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "seedcarrier",
+      "soil",
+      "plow",
+      "agriculture"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "hive-floramother",
+    "archiveId": "DFA-SED-006",
+    "designation": "Hive Floramother",
+    "category": "planetary infrastructure",
+    "archetype": "Dracoforma / Seedcarrier / Hive Floramother",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A colossal stationary flower-like Drakken with a glowing central ovary that birthes swarms of seed-drones across planetary continents.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 38,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Planetary core gardens, seed basins, jungle hubs",
+    "operationalRole": "Seed-drone birthing, continent-wide spore dispersal, and flora hive command",
+    "threatClassification": "OMEGA",
+    "modelAssetRef": "proc-hive-floramother-v1",
+    "layers": {
+      "surface": "Petal armor plates, glowing ovary hive, and seed-drone pods.",
+      "structure": "Floral stalk column and tendon tension cables.",
+      "internal": "Ovary nursery engine and bio-code incubator.",
+      "functional": "Seed-drone flight paths and spore dispersal radius."
+    },
+    "animations": [
+      "Ovary Hive Bloom",
+      "Seed-Drone Swarm Release"
+    ],
+    "annotations": [
+      {
+        "id": "flora-ovary",
+        "title": "Glowing Ovary Hive Core",
+        "description": "Birthes thousands of seed-drones to colonize continents.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          3.2,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Seed Rain of Chiron",
+        "summary": "Released 2 million seed-drones, covering Chiron's southern continent in 5 days.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "High-value biological factory node.",
+    "civicResponse": {
+      "fieldEvidence": "Stationary giant glowing petals and cloud-like seed swarms.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Primary biological incubator."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Hive Floramother entry, line 727",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "seedcarrier",
+      "hive",
+      "flora",
+      "flower"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "trench-sovereign",
+    "archiveId": "DFA-FLX-001",
+    "designation": "Trench-Sovereign Leviathan",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Fluxborne / Trench-Sovereign Leviathan",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A titanic abyssal aquatic Drakken with glowing bio-luminescent ribs and pressure-resistant armor that commands deep ocean trenches.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 36,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Deep ocean trenches, abyssal plains, flooded calderas",
+    "operationalRole": "Abyssal trench domination, oceanic pressure manipulation, and marine biosphere rewrite",
+    "threatClassification": "OMEGA-MYTHIC",
+    "modelAssetRef": "proc-trench-sovereign-v1",
+    "layers": {
+      "surface": "Abyssal plate armor, bio-luminescent rib lamps, and caudal fin scythe.",
+      "structure": "Hydro-pressure spine and swimming rib arches.",
+      "internal": "Pressure lung engine and deep-sea sonar core.",
+      "functional": "Oceanic pressure field and acoustic sonar web."
+    },
+    "animations": [
+      "Abyssal Trench Swim",
+      "Sonar Pulse Surge"
+    ],
+    "annotations": [
+      {
+        "id": "trench-ribs",
+        "title": "Bio-Luminescent Rib Lamps",
+        "description": "Illuminates dark ocean trenches while generating pressure shields.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          1.5,
+          1.2
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Sinking of Pacifica Platform",
+        "summary": "Engulfed an offshore drilling rig into a 10,000m abyss in a single breaching surge.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Apex marine entity. Dominates all underwater combat zones.",
+    "civicResponse": {
+      "fieldEvidence": "Massive sea surges and glowing deep-ocean lights.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Abyssal apex predator."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Edition",
+        "location": "Trench-Sovereign entry, line 789",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "fluxborne",
+      "oceanic",
+      "abyssal",
+      "leviathan"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "salinity-conductor",
+    "archiveId": "DFA-FLX-002",
+    "designation": "Salinity Conductor",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Fluxborne / Salinity Conductor",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A metallic ray-like entity with salt-crystal fins that regulates oceanic salinity and ion-current channels across ocean basins.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 22,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Oceanic current belts, salt flats, reef networks",
+    "operationalRole": "Oceanic salinity balance, ionic current polarization, and marine chemical seeding",
+    "threatClassification": "MEDIUM",
+    "modelAssetRef": "proc-salinity-conductor-v1",
+    "layers": {
+      "surface": "Metallic ray hide, salt-crystal fins, and ionic gill vents.",
+      "structure": "Flex-ray cartilage spine and wing rib struts.",
+      "internal": "Saline ion pump core and electrolyte storage sac.",
+      "functional": "Oceanic current steering vector and salt density field."
+    },
+    "animations": [
+      "Saline Current Glide",
+      "Ion Polarization Pulse"
+    ],
+    "annotations": [
+      {
+        "id": "sal-fin",
+        "title": "Salt-Crystal Fins",
+        "description": "Regulates oceanic salt concentrations.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          2.2,
+          0.4,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Desalination of Mare VII",
+        "summary": "Converted a hypersaline dead sea into a balanced ocean in 12 days.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Oceanic chemical modifier.",
+    "civicResponse": {
+      "fieldEvidence": "Crystalline salt trails in sea currents.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Marine ecology balancer."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Salinity Conductor entry, line 813",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "fluxborne",
+      "salinity",
+      "ocean",
+      "ray"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "gyre-tactician",
+    "archiveId": "DFA-FLX-003",
+    "designation": "Gyre Tactician",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Fluxborne / Gyre Tactician",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A whirlpool-backed aquatic Drakken that orchestrates oceanic gyres and thermal currents to control naval shipping lanes.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 30,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Equatorial gyres, ocean whirlpools, marine straits",
+    "operationalRole": "Gyre manipulation, whirlpool generation, and ocean current tactical control",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-gyre-tactician-v1",
+    "layers": {
+      "surface": "Turbine shell, whirlpool intake fins, and bio-rotor tail.",
+      "structure": "Rotational spine axis and hydro-stabilizer ribs.",
+      "internal": "Gyre drive motor core and thermal current pump.",
+      "functional": "Whirlpool vortex field and shipping disruption vector."
+    },
+    "animations": [
+      "Gyre Vortex Spin",
+      "Thermal Current Surge"
+    ],
+    "annotations": [
+      {
+        "id": "gyre-vortex",
+        "title": "Whirlpool Intake Turbine",
+        "description": "Creates continent-scale sea whirlpools.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          2,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Trapping of Fleet Alpha",
+        "summary": "Trapped 40 battlecruisers in a perpetual ocean whirlpool for 3 weeks.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Naval denial-of-area specialist.",
+    "civicResponse": {
+      "fieldEvidence": "Massive rotating ocean currents.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Naval hazard entity."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Gyre Tactician entry, line 837",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "fluxborne",
+      "gyre",
+      "whirlpool",
+      "aquatic"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "littoral-reformer",
+    "archiveId": "DFA-FLX-004",
+    "designation": "Littoral Reformer",
+    "category": "siege or processing entity",
+    "archetype": "Dracoforma / Fluxborne / Littoral Reformer",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "An amphibious crab-backed Drakken that carves sea cliffs, barrier islands, and coral dikes to format planetary coastlines.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 26,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Coastlines, barrier reefs, estuarine deltas",
+    "operationalRole": "Coastline carving, coral dike formation, and littoral zone formatting",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-littoral-reformer-v1",
+    "layers": {
+      "surface": "Chitinous claw armor, coral-seeding vents, and breaker legs.",
+      "structure": "Reinforced carapace frame and leg joints.",
+      "internal": "Coral sap generator and stone-crushing gizzard.",
+      "functional": "Coastline carving path and breaker wall grid."
+    },
+    "animations": [
+      "Littoral Coral Carve",
+      "Breaker Wall Stomp"
+    ],
+    "annotations": [
+      {
+        "id": "lit-claw",
+        "title": "Stone-Crushing Breaker Claws",
+        "description": "Carves bedrock into sea walls and coral dikes.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          2.5,
+          1,
+          1.8
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Reshaping of Atoll 9",
+        "summary": "Rebuilt 200km of eroded coastline into defensive coral dikes.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Amphibious engineering node.",
+    "civicResponse": {
+      "fieldEvidence": "Instant coral formations along beaches.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Coastline builder."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Littoral Reformer entry, line 861",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "fluxborne",
+      "coastline",
+      "coral",
+      "crab"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "cryofluid-engine",
+    "archiveId": "DFA-FLX-005",
+    "designation": "Cryofluid Engine",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Fluxborne / Cryofluid Engine",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "An ice-armored aquatic serpent that supercools ocean waters, creating moving ice shelves and sub-zero liquid currents.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 24,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Polar seas, ice shelves, sub-zero oceanic deeps",
+    "operationalRole": "Oceanic supercooling, ice shelf creation, and polar climate maintenance",
+    "threatClassification": "EXTREME",
+    "modelAssetRef": "proc-cryofluid-engine-v1",
+    "layers": {
+      "surface": "Glacial crystal armor, frost vents, and ice fins.",
+      "structure": "Cryo-tempered spine and rib arches.",
+      "internal": "Thermal absorption core and liquid nitrogen exchanger.",
+      "functional": "Supercooling wave front and ice shelf expansion map."
+    },
+    "animations": [
+      "Cryofluid Freezing Flash",
+      "Sub-Zero Oceanic Swim"
+    ],
+    "annotations": [
+      {
+        "id": "cryo-core",
+        "title": "Thermal Absorption Core",
+        "description": "Absorbs heat from ocean water to freeze seas instantly.",
+        "layer": "internal",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          1.5,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Freezing of Boreal Gulf",
+        "summary": "Flash-froze 500 square miles of ocean, trapping an entire armada.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Polar ice weapon. Threatens all warm-water maritime ops.",
+    "civicResponse": {
+      "fieldEvidence": "Rapid ice sheet expansion in temperate waters.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Polar expansion unit."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Cryofluid Engine entry, line 885",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "fluxborne",
+      "ice",
+      "cryo",
+      "serpent"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "nebular-stream-herder",
+    "archiveId": "DFA-FLX-006",
+    "designation": "Nebular Stream Herder",
+    "category": "planetary infrastructure",
+    "archetype": "Dracoforma / Fluxborne / Nebular Stream Herder",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A cosmic ray-shaped entity floating in upper exosphere that channels solar winds and magnetospheric plasma streams.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 38,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Exosphere, magnetosphere, aurora belts",
+    "operationalRole": "Magnetosphere shaping, solar wind herding, and cosmic radiation deflection",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-nebular-stream-herder-v1",
+    "layers": {
+      "surface": "Auroral plasma sails, magnetic antenna spires, and ion tail.",
+      "structure": "Magnetic field cage and plasma conduit spine.",
+      "internal": "Magnetospheric regulator core and cosmic ray trap.",
+      "functional": "Aurora shield grid and solar wind deflection cone."
+    },
+    "animations": [
+      "Auroral Sail Flare",
+      "Solar Wind Herding"
+    ],
+    "annotations": [
+      {
+        "id": "neb-sail",
+        "title": "Auroral Plasma Sails",
+        "description": "Channels solar radiation into planetary aurora shields.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          4.2,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Shielding of Helios IV",
+        "summary": "Deflected a coronal mass ejection that would have stripped the atmosphere.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Orbital radiation shield platform.",
+    "civicResponse": {
+      "fieldEvidence": "Vibrant persistent auroras across all latitudes.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Magnetosphere protector."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Nebular Stream Herder entry, line 909",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "fluxborne",
+      "plasma",
+      "aurora",
+      "cosmic"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "stellar-plasma-swimmer",
+    "archiveId": "DFA-FLX-007",
+    "designation": "Stellar-Plasma Swimmer",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Fluxborne / Stellar-Plasma Swimmer",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A glowing white-hot plasma Drakken that swims through stellar flares and upper ionosphere, absorbing thermosphere heat.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 20,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Thermosphere, ionosphere, solar flare entry paths",
+    "operationalRole": "Ionosphere thermal absorption, plasma containment, and atmospheric energy dissipation",
+    "threatClassification": "EXTREME",
+    "modelAssetRef": "proc-stellar-plasma-swimmer-v1",
+    "layers": {
+      "surface": "White-hot plasma hide, solar corona fins, and ion crest.",
+      "structure": "Plasma containment rib loop.",
+      "internal": "Thermonuclear absorption core and heat sink organ.",
+      "functional": "Ionospheric heat dissipation grid."
+    },
+    "animations": [
+      "Plasma Flare Dive",
+      "Thermonuclear Pulse Flare"
+    ],
+    "annotations": [
+      {
+        "id": "plasma-core",
+        "title": "Thermonuclear Core Sink",
+        "description": "Absorbs raw solar flare energy into contained heat sinks.",
+        "layer": "internal",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          1.8,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Ionosphere Flare Dive",
+        "summary": "Absorbed 10^18 Joules of orbital solar flare energy in under an hour.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "High-energy plasma entity. Extremely dangerous proximity heat.",
+    "civicResponse": {
+      "fieldEvidence": "Blinding white light streaks in upper night sky.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Thermosphere regulator."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Stellar-Plasma Swimmer entry, line 933",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "fluxborne",
+      "plasma",
+      "solar",
+      "thermal"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "orbital-extrusion-engine",
+    "archiveId": "DFA-FLX-008",
+    "designation": "Orbital Extrusion Engine",
+    "category": "planetary infrastructure",
+    "archetype": "Dracoforma / Fluxborne / Orbital Extrusion Engine",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A massive orbital nozzle entity that extrudes raw planetary matter and biomass into orbital ring networks.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 40,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Low planetary orbit, ring construction planes",
+    "operationalRole": "Orbital matter extrusion, ring construction, and matter stabilization",
+    "threatClassification": "OMEGA-MYTHIC",
+    "modelAssetRef": "proc-orbital-extrusion-engine-v1",
+    "layers": {
+      "surface": "Extrusion nozzle throat, magnetic guide rings, and feed hoppers.",
+      "structure": "Industrial gimbal chassis and thruster braces.",
+      "internal": "High-pressure matter compression furnace.",
+      "functional": "Ring extrusion path and orbital trajectory grid."
+    },
+    "animations": [
+      "Orbital Ring Extrusion",
+      "Nozzle Thermal Vent"
+    ],
+    "annotations": [
+      {
+        "id": "ext-nozzle",
+        "title": "High-Pressure Extrusion Nozzle",
+        "description": "Extrudes planetary biomass into vitrified orbital rings.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          -3.5,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Extrusion of Ring Beta",
+        "summary": "Extruded 10 million tons of processed crust into low orbit in 7 days.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Primary constructor of Blood Ring orbital shackles.",
+    "civicResponse": {
+      "fieldEvidence": "Glowing red streaks in low orbit emitting molten matter trails.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Orbital shackle builder."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Orbital Extrusion Engine entry, line 957",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "fluxborne",
+      "orbital",
+      "extrusion",
+      "ring"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "starbinder-core",
+    "archiveId": "DFA-WYR-001",
+    "designation": "Starbinder Core",
+    "category": "planetary infrastructure",
+    "archetype": "Dracoforma / Orbital-Wyrm / Starbinder Core",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "An immense celestial wyrm orbiting high above planetary atmospheres, anchoring orbital tether grids and stellar collectors.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 42,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "High planetary orbit, Lagrange points",
+    "operationalRole": "Orbital tether grid anchoring, solar collection, and stellar energy routing",
+    "threatClassification": "OMEGA",
+    "modelAssetRef": "proc-starbinder-core-v1",
+    "layers": {
+      "surface": "Crystalline wyrm scales, solar collector sails, and tether anchors.",
+      "structure": "Segmented gravity-link spine.",
+      "internal": "Stellar energy accumulator core.",
+      "functional": "Tether grid vector and energy distribution beam."
+    },
+    "animations": [
+      "Starbinder Energy Sweep",
+      "Gravity Tether Anchor"
+    ],
+    "annotations": [
+      {
+        "id": "star-core",
+        "title": "Stellar Accumulator Core",
+        "description": "Gathers solar wind energy to power planetary terraforming.",
+        "layer": "internal",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Tethering of Aethel",
+        "summary": "Anchored 6 space elevators to Aethel's equator in Year 4.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Strategic orbital power node.",
+    "civicResponse": {
+      "fieldEvidence": "Bright gold star-like structure stationary in night sky.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Orbital power station."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Starbinder Core entry, line 982",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "orbital-wyrm",
+      "starbinder",
+      "tether",
+      "solar"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "gravity-impaler",
+    "archiveId": "DFA-WYR-002",
+    "designation": "Gravity Impaler",
+    "category": "siege or processing entity",
+    "archetype": "Dracoforma / Orbital-Wyrm / Gravity Impaler",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A needle-shaped orbital wyrm that drops from orbit to impale planetary crust, projecting localized high-G wells.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 38,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Orbital drop corridors, faultline targets, enemy fortresses",
+    "operationalRole": "Kinetic orbital impalement, localized gravity well generation, and crustal pinning",
+    "threatClassification": "EXTREME",
+    "modelAssetRef": "proc-gravity-impaler-v1",
+    "layers": {
+      "surface": "Needle-sharp tungsten-carbide skull, stabilizer fins, and barcode rings.",
+      "structure": "Kinetic impact shaft and gravity coil ribs.",
+      "internal": "Graviton density core and impact dampener.",
+      "functional": "Gravity well distortion radius and crustal impact depth."
+    },
+    "animations": [
+      "Orbital Drop Strike",
+      "Gravity Well Surge"
+    ],
+    "annotations": [
+      {
+        "id": "grav-needle",
+        "title": "Kinetic Needle Tip",
+        "description": "Impales planetary crust at orbital velocities to anchor gravity wells.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          -4.5,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Impaling of Citadel Zero",
+        "summary": "Crushed a subterranean fortress under 100g gravity in 5 seconds.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Precision orbital kinetic weapon.",
+    "civicResponse": {
+      "fieldEvidence": "Blinding downward beam followed by severe gravity crushing.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Orbital strike hazard."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Gravity Impaler entry, line 1013",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "orbital-wyrm",
+      "gravity",
+      "kinetic",
+      "needle"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "deepsong-carrier",
+    "archiveId": "DFA-WYR-003",
+    "designation": "Deepsong Carrier",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Orbital-Wyrm / Deepsong Carrier",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "An elongated serpentine wyrm that broadcasts planetary-scale low-frequency radio macro-code to coordinate Drakken units globally.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 32,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "High atmosphere, ionosphere, global broadcast orbits",
+    "operationalRole": "Global Drakken command signal relay, macro-code broadcast, and telemetric sync",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-deepsong-carrier-v1",
+    "layers": {
+      "surface": "Broadcast antenna crests, serpentine scales, and light-stripes.",
+      "structure": "Acoustic-radio wave conduction spine.",
+      "internal": "Deepsong transmitter engine and macro-code drum.",
+      "functional": "Global broadcast sphere and signal coverage grid."
+    },
+    "animations": [
+      "Deepsong Broadcast Wave",
+      "Ionospheric Serpent Swim"
+    ],
+    "annotations": [
+      {
+        "id": "deep-crest",
+        "title": "Radio Broadcast Antenna Crest",
+        "description": "Emits low-frequency macro-code to command all planetary Drakken.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          4,
+          0.8
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Global Chimes of Year 2",
+        "summary": "Synchronized 500 Drakken units across 3 continents with one Deepsong pulse.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Command and control comms hub. Priority electronic warfare target.",
+    "civicResponse": {
+      "fieldEvidence": "Universal low-frequency radio humming in electronic devices.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Command relay entity."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Deepsong Carrier entry, line 1041",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "orbital-wyrm",
+      "deepsong",
+      "radio",
+      "command"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "radiant-scaffold",
+    "archiveId": "DFA-WYR-004",
+    "designation": "Radiant Scaffold",
+    "category": "planetary infrastructure",
+    "archetype": "Dracoforma / Orbital-Wyrm / Radiant Scaffold",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A geometric hardlight wyrm that forms temporary orbital bridges and construction frameworks for orbital infrastructure.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 36,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Low to mid orbit, space construction zones",
+    "operationalRole": "Hardlight scaffold projection, orbital bridge building, and structural support",
+    "threatClassification": "MEDIUM",
+    "modelAssetRef": "proc-radiant-scaffold-v1",
+    "layers": {
+      "surface": "Hardlight lattice body, emitter nodes, and alignment fins.",
+      "structure": "Lattice beam skeleton and projection axis.",
+      "internal": "Hardlight generator core and flux capacitor.",
+      "functional": "Scaffold projection grid and bridge vector."
+    },
+    "animations": [
+      "Hardlight Scaffold Extend",
+      "Lattice Energy Pulse"
+    ],
+    "annotations": [
+      {
+        "id": "scaf-node",
+        "title": "Hardlight Emitter Nodes",
+        "description": "Projects solid light beams to construct orbital bridges.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          2,
+          2,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Orbital Bridge of Sol-3",
+        "summary": "Built a 5,000km hardlight transit scaffold in 48 hours.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Orbital construction support platform.",
+    "civicResponse": {
+      "fieldEvidence": "Glowing geometric light lattice visible in night sky.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Construction scaffold."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Radiant Scaffold entry, line 1070",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "orbital-wyrm",
+      "hardlight",
+      "scaffold",
+      "bridge"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "phantom-occluder",
+    "archiveId": "DFA-WYR-005",
+    "designation": "Phantom Occluder",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Orbital-Wyrm / Phantom Occluder",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A pitch-black shadow wyrm that unfurls massive light-absorbing wings in orbit to block sunlight and create targeted cooling eclipses.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 34,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "High atmosphere, sun-synchronous orbits",
+    "operationalRole": "Sunlight occlusion, targeted solar eclipse creation, and global cooling",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-phantom-occluder-v1",
+    "layers": {
+      "surface": "Vantablack light-absorbing wings, shadow cowl, and sensor eye.",
+      "structure": "Wing spar lattice and tension cables.",
+      "internal": "Light absorption core and thermal null organ.",
+      "functional": "Solar occlusion footprint map and shadow zone."
+    },
+    "animations": [
+      "Solar Eclipse Unfurl",
+      "Shadow Shield Drift"
+    ],
+    "annotations": [
+      {
+        "id": "occ-wing",
+        "title": "Vantablack Occlusion Wings",
+        "description": "Blocks 99.9% of solar radiation to freeze surface zones.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          4.2,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The 10-Day Eclipse of Nova Prime",
+        "summary": "Plunged the agricultural belt into pitch black, dropping temperature by 30C.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Strategic solar blackout weapon.",
+    "civicResponse": {
+      "fieldEvidence": "Sudden localized solar eclipses without lunar alignment.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Solar blockade unit."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Phantom Occluder entry, line 1098",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "orbital-wyrm",
+      "shadow",
+      "eclipse",
+      "blackout"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "burnline-reaper",
+    "archiveId": "DFA-WYR-006",
+    "designation": "Burnline Reaper",
+    "category": "siege or processing entity",
+    "archetype": "Dracoforma / Orbital-Wyrm / Burnline Reaper",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "An orbital laser wyrm equipped with a mirror-lens maw that focuses solar light into ground-searing burnlines.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 30,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Sun-synchronous orbit, orbital strike paths",
+    "operationalRole": "Solar laser focusing, ground-searing burnlines, and orbital thermal slicing",
+    "threatClassification": "EXTREME",
+    "modelAssetRef": "proc-burnline-reaper-v1",
+    "layers": {
+      "surface": "Mirror-lens maw, solar collector scales, and heat-sink fins.",
+      "structure": "Laser optical tube spine and stabilizer gimbals.",
+      "internal": "Solar focus crystal and thermal beam cavity.",
+      "functional": "Burnline sweep trajectory and ground scorch vector."
+    },
+    "animations": [
+      "Solar Laser Beam Sweep",
+      "Thermal Lens Focus"
+    ],
+    "annotations": [
+      {
+        "id": "reap-lens",
+        "title": "Mirror-Lens Focus Maw",
+        "description": "Focuses orbital solar light into 10,000C ground burnlines.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          -3.2,
+          0.8
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Scorched Belt of Ignis",
+        "summary": "Carved a 1,000km molten glass trench across Ignis in one orbital pass.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Orbital solar laser strike platform.",
+    "civicResponse": {
+      "fieldEvidence": "Incinerating light beam from clear sky leaving glass trenches.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Orbital thermal hazard."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Burnline Reaper entry, line 1126",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "orbital-wyrm",
+      "laser",
+      "solar",
+      "reaper"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "data-core-unbinder",
+    "archiveId": "DFA-WYR-007",
+    "designation": "Data Core Unbinder",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Orbital-Wyrm / Data Core Unbinder",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A cybernetic wyrm with floating barcode rings that unbinds and overwrites planetary mainframe databases.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 26,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Orbital comms networks, data centers, digital archives",
+    "operationalRole": "Data core unbinding, mainframe code overwrite, and digital archive erasure",
+    "threatClassification": "EXTREME",
+    "modelAssetRef": "proc-data-core-unbinder-v1",
+    "layers": {
+      "surface": "Floating barcode rings, glowing data tendrils, and cyber-head.",
+      "structure": "Fiber-optic neural spine and ring magnets.",
+      "internal": "Code erasure matrix and database overwrite organ.",
+      "functional": "Data corruption field and memory wipe radius."
+    },
+    "animations": [
+      "Barcode Unbind Pulse",
+      "Cybernetic Serpent Drift"
+    ],
+    "annotations": [
+      {
+        "id": "unbind-rings",
+        "title": "Floating Barcode Rings",
+        "description": "Projects code-erasure fields that wipe digital databases.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          2.5,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Data Wipe of Archive Prime",
+        "summary": "Erased 500 years of planetary historical archives in 10 seconds.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Cyber warfare and information destruction unit.",
+    "civicResponse": {
+      "fieldEvidence": "Widespread digital storage corruption and barcode noise.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Cyber hazard."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Data Core Unbinder entry, line 1154",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "orbital-wyrm",
+      "cyber",
+      "data",
+      "barcode"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "foundry-cantor",
+    "archiveId": "DFA-CIV-003",
+    "designation": "Foundry Cantor",
+    "category": "siege or processing entity",
+    "archetype": "Dracoforma / Civiformer / Foundry Cantor",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A furnace-chested Civiformer that melts down captured city structures and sings macro-code to recast metal into Drakken infrastructure.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 32,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Captured cities, industrial zones, foundry basins",
+    "operationalRole": "Structural metal recycling, macro-code recasting, and foundry processing",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-foundry-cantor-v1",
+    "layers": {
+      "surface": "Foundry furnace chest, casting molds, and molten spout claws.",
+      "structure": "Heavy foundry chassis and hydraulic legs.",
+      "internal": "Smelting furnace chamber and casting core.",
+      "functional": "Molten recast stream and macro-chant radius."
+    },
+    "animations": [
+      "Furnace Smelt Eruption",
+      "Foundry Recast Chant"
+    ],
+    "annotations": [
+      {
+        "id": "fnd-chest",
+        "title": "Foundry Smelting Furnace",
+        "description": "Melts down urban steel and sings macro-code to recast it.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          2.8,
+          1.2
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Recasting of Iron City",
+        "summary": "Melted down 50 skyscrapers and recast them into Drakken defense towers in 5 days.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Urban infrastructure recycling node.",
+    "civicResponse": {
+      "fieldEvidence": "Glow of massive smelting fires in captured cities.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Infrastructure recaster."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Foundry Cantor entry, line 1186",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "civiformer",
+      "foundry",
+      "smelting",
+      "metal"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "power-lattice-regulator",
+    "archiveId": "DFA-CIV-004",
+    "designation": "Power-Lattice Regulator",
+    "category": "planetary infrastructure",
+    "archetype": "Dracoforma / Civiformer / Power-Lattice Regulator",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A tower-like Civiformer that hooks into planetary electrical grids, rerouting power into Drakken bio-factories.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 36,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Power plants, sub-stations, energy grid hubs",
+    "operationalRole": "Electrical grid hijacking, energy rerouting, and power lattice stabilization",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-power-lattice-regulator-v1",
+    "layers": {
+      "surface": "Transformer tower plating, high-voltage coils, and arc prongs.",
+      "structure": "Lattice tower frame and ground anchor spikes.",
+      "internal": "High-voltage converter core and energy storage capacitors.",
+      "functional": "Power hijacking grid map and voltage arc vector."
+    },
+    "animations": [
+      "High-Voltage Arc Flare",
+      "Power Lattice Anchor"
+    ],
+    "annotations": [
+      {
+        "id": "pow-coils",
+        "title": "High-Voltage Arc Coils",
+        "description": "Hijacks planetary electrical grids to feed Drakken infrastructure.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          4.8,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Blackout of Sector 4",
+        "summary": "Drained a continent's power grid in 2 minutes to charge a Gorevault.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Energy grid hijacking unit.",
+    "civicResponse": {
+      "fieldEvidence": "Catastrophic power grid collapse accompanied by blue arcs.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Energy parasite."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Power-Lattice Regulator entry, line 1210",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "civiformer",
+      "power",
+      "grid",
+      "electrical"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "skyline-moulter",
+    "archiveId": "DFA-CIV-005",
+    "designation": "Skyline Moulter",
+    "category": "siege or processing entity",
+    "archetype": "Dracoforma / Civiformer / Skyline Moulter",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A tall quadruped Civiformer that scales urban skyscrapers, encasing them in chitinous shells that dissolve concrete into bio-slurry.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 34,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Urban centers, high-rise districts, city towers",
+    "operationalRole": "Urban building dissolution, chitin cocooning, and concrete bio-slurry rendering",
+    "threatClassification": "EXTREME",
+    "modelAssetRef": "proc-skyline-moulter-v1",
+    "layers": {
+      "surface": "Chitinous cocooning limbs, acid vents, and climbing claws.",
+      "structure": "Tower-scaling exoskeleton and hydraulic limbs.",
+      "internal": "Concrete dissolution organ and slurry pump.",
+      "functional": "Cocooning footprint map and acid spray cone."
+    },
+    "animations": [
+      "Skyline Tower Scale",
+      "Concrete Slurry Vent"
+    ],
+    "annotations": [
+      {
+        "id": "sky-claws",
+        "title": "Building-Scaling Claws",
+        "description": "Encases skyscrapers in chitin shells to dissolve concrete.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          1.8,
+          3.2,
+          0.8
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Dissolution of High-Tower",
+        "summary": "Dissolved a 100-story tower into bio-slurry in 24 hours.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Urban siege entity. Erases vertical city structures.",
+    "civicResponse": {
+      "fieldEvidence": "Chitin-wrapped towers leaking grey bio-slurry.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Urban demolition unit."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Skyline Moulter entry, line 1234",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "civiformer",
+      "skyline",
+      "chitin",
+      "slurry"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "transit-impaler",
+    "archiveId": "DFA-CIV-006",
+    "designation": "Transit Impaler",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Civiformer / Transit Impaler",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A centipede-like Civiformer that burrows along rail lines and highways, impaling transit networks with bio-piles to halt movement.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 20,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Highways, railway lines, supply corridors",
+    "operationalRole": "Transit network destruction, supply line impalement, and logistical interdiction",
+    "threatClassification": "MEDIUM",
+    "modelAssetRef": "proc-transit-impaler-v1",
+    "layers": {
+      "surface": "Spiked armor plates, impaling mandibles, and rail-slicing claws.",
+      "structure": "Flexible segmented burrowing spine.",
+      "internal": "Kinetic spike driver core.",
+      "functional": "Logistical interdiction map and impalement zone."
+    },
+    "animations": [
+      "Rail Network Impale",
+      "Subterranean Transit Burrow"
+    ],
+    "annotations": [
+      {
+        "id": "trn-spikes",
+        "title": "Bio-Spike Drivers",
+        "description": "Impales transit corridors with bio-piles to freeze logistics.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          1.2,
+          2.2
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Freezing of Supply Line 4",
+        "summary": "Severed all rail transit across a 300km corridor in 4 hours.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Logistical interdiction specialist.",
+    "civicResponse": {
+      "fieldEvidence": "Spiked bio-piles bursting through highway pavement.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Transit blocker."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Transit Impaler entry, line 1258",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "civiformer",
+      "transit",
+      "rail",
+      "impaler"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "demographic-planner",
+    "archiveId": "DFA-CIV-007",
+    "designation": "Demographic Planner",
+    "category": "siege or processing entity",
+    "archetype": "Dracoforma / Civiformer / Demographic Planner",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A multi-limbed census Civiformer that scans civilian populations, calculating harvest yield ratios for Gorevault units.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 28,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Conquered cities, refugee camps, census sectors",
+    "operationalRole": "Population scanning, harvest yield calculation, and demographic triage",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-demographic-planner-v1",
+    "layers": {
+      "surface": "Multi-ocular scanner head, census limbs, and tally barcode screens.",
+      "structure": "Towering sensor stalk skeleton.",
+      "internal": "Demographic calculator brain and yield indexer.",
+      "functional": "Population scanning grid and harvest triage map."
+    },
+    "animations": [
+      "Demographic Census Scan",
+      "Tally Screen Update"
+    ],
+    "annotations": [
+      {
+        "id": "demo-head",
+        "title": "Multi-Ocular Scanner Array",
+        "description": "Scans urban populations to calculate biomass harvest yields.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          4.2,
+          0.5
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Triage of City Delta",
+        "summary": "Scanned 1 million citizens, designating sectors for immediate rendering.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Late-stage census entity preceding Gorevault deployment.",
+    "civicResponse": {
+      "fieldEvidence": "Red scanner grids sweeping across city streets.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Pre-rendering census unit."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Demographic Planner entry, line 1282",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "civiformer",
+      "census",
+      "demographic",
+      "planner"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "record-devourer",
+    "archiveId": "DFA-CIV-008",
+    "designation": "Record-Devourer",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Civiformer / Record-Devourer",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A hulking quadruped Civiformer that ingests paper, magnetic, and crystal libraries, incinerating historical memory.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 24,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Libraries, national archives, databanks, museum vaults",
+    "operationalRole": "Physical record ingestion, historical memory incineration, and archive purging",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-record-devourer-v1",
+    "layers": {
+      "surface": "Vault-door jaws, paper-shredding gullet, and ash vents.",
+      "structure": "Heavy crusher chassis and hydraulic jaws.",
+      "internal": "Incinerator furnace core and document digest organ.",
+      "functional": "Archive purge trajectory and ash dispersal footprint."
+    },
+    "animations": [
+      "Library Ingestion Crush",
+      "Historical Ash Vent"
+    ],
+    "annotations": [
+      {
+        "id": "rec-jaws",
+        "title": "Vault-Door Shredding Jaws",
+        "description": "Ingests entire library vaults to destroy physical history.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          2,
+          1.8
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Burning of the Great Archive",
+        "summary": "Devoured 10 million physical records in 6 hours, erasing a civilization's past.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Cultural erasure specialist.",
+    "civicResponse": {
+      "fieldEvidence": "Dense ash plumes containing unreadable scorched page fragments.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Memory destruction unit."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Record-Devourer entry, line 1306",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "civiformer",
+      "archive",
+      "devourer",
+      "memory"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "syntax-breaker",
+    "archiveId": "DFA-NS-001",
+    "designation": "Syntax Breaker",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Noosphere-Cantor / Syntax Breaker",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A floating glyph-ringed Drakken that disrupts local language, writing, and logical syntax in civilian populations.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 20,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Noosphere layers, urban communications, news hubs",
+    "operationalRole": "Linguistic disruption, syntax corruption, and noospheric scrambling",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-syntax-breaker-v1",
+    "layers": {
+      "surface": "Glyph-ringed floating skull, linguistic antennae, and static veil.",
+      "structure": "Acoustic-neural spine lattice.",
+      "internal": "Syntax disruption core and logic scrambler.",
+      "functional": "Noospheric corruption grid and language breakdown field."
+    },
+    "animations": [
+      "Syntax Scramble Pulse",
+      "Noospheric Glyph Drift"
+    ],
+    "annotations": [
+      {
+        "id": "syn-rings",
+        "title": "Linguistic Glyph Rings",
+        "description": "Corrupts planetary writing and spoken logic on contact.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          3.2,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Silence of Babel Prime",
+        "summary": "Scrambled all written language across a metropolis in 3 hours.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Noospheric warfare unit targeting command communication.",
+    "civicResponse": {
+      "fieldEvidence": "Incomprehensible text appearing on screens and signs.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Linguistic scrambler."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Syntax Breaker entry, line 1381",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "noosphere",
+      "syntax",
+      "language",
+      "glyph"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "civic-time-rewriter",
+    "archiveId": "DFA-NS-002",
+    "designation": "Civic-Time Rewriter",
+    "category": "siege or processing entity",
+    "archetype": "Dracoforma / Noosphere-Cantor / Civic-Time Rewriter",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A sundial-backed Civiformer that desynchronizes public clocks, calendars, and civic routines to fracture urban coordination.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 28,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "City plazas, government buildings, transit centers",
+    "operationalRole": "Civic time desynchronization, schedule disruption, and urban routine fracture",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-civic-time-rewriter-v1",
+    "layers": {
+      "surface": "Sundial gnomon spine, temporal pendulum arms, and clockface plating.",
+      "structure": "Chrono-mechanical frame and pendulum pivot.",
+      "internal": "Temporal desync core and civic clock engine.",
+      "functional": "Time-desync field map and routine disruption vector."
+    },
+    "animations": [
+      "Sundial Temporal Desync",
+      "Pendulum Chime Sweep"
+    ],
+    "annotations": [
+      {
+        "id": "time-gnomon",
+        "title": "Sundial Gnomon Spine",
+        "description": "Reroutes municipal temporal rhythms to break public order.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          4,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Desync of Chronos City",
+        "summary": "Made different city blocks experience time at varying rates, halting all trade.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Urban coordination disruption node.",
+    "civicResponse": {
+      "fieldEvidence": "Clocks spinning backward and desynchronized public schedules.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Temporal desync unit."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Civic-Time Rewriter entry, line 1405",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "noosphere",
+      "time",
+      "sundial",
+      "civic"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "oneiric-ecologist",
+    "archiveId": "DFA-NS-003",
+    "designation": "Oneiric Ecologist",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Noosphere-Cantor / Oneiric Ecologist",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A dream-weaving manta Drakken that projects subconscious dreamscapes onto physical biospheres during sleep cycles.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 22,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Residential sectors, sleep chambers, psychological networks",
+    "operationalRole": "Subconscious dream projection, psychological ecology shaping, and dreamscape seeding",
+    "threatClassification": "MEDIUM",
+    "modelAssetRef": "proc-oneiric-ecologist-v1",
+    "layers": {
+      "surface": "Translucent dream-manta wings, somnambulist tendrils, and mist crest.",
+      "structure": "Acoustic-dream cartilage ribs.",
+      "internal": "Subconscious projection engine and nightmare core.",
+      "functional": "Dreamscape footprint grid and sleep wave vector."
+    },
+    "animations": [
+      "Dreamscape Manta Wave",
+      "Subconscious Mist Pulse"
+    ],
+    "annotations": [
+      {
+        "id": "one-wings",
+        "title": "Dream-Manta Wings",
+        "description": "Projects collective dreamscapes onto sleeping populations.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          2,
+          0.8,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Shared Nightmare of Morpheus",
+        "summary": "Induced a single shared dream across 500,000 citizens for 7 days.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Psychological warfare Manta.",
+    "civicResponse": {
+      "fieldEvidence": "Glowing mist banks floating over residential zones at night.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Dreamscape controller."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Oneiric Ecologist entry, line 1429",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "noosphere",
+      "dream",
+      "manta",
+      "oneiric"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "sovereignty-eater",
+    "archiveId": "DFA-NS-004",
+    "designation": "Sovereignty Eater",
+    "category": "siege or processing entity",
+    "archetype": "Dracoforma / Noosphere-Cantor / Sovereignty Eater",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A crown-headed serpent that devours political legitimacy, legal authority, and national symbols from collective memory.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 30,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Capitols, senates, royal palaces, supreme court vaults",
+    "operationalRole": "Political authority erasure, national symbol dissolution, and sovereignty consumption",
+    "threatClassification": "EXTREME",
+    "modelAssetRef": "proc-sovereignty-eater-v1",
+    "layers": {
+      "surface": "Shattered crown skull, royal scale armor, and authority-devouring maw.",
+      "structure": "Imperial serpentine spine and crest ribs.",
+      "internal": "Legitimacy dissolution organ and symbol digest core.",
+      "functional": "Authority erasure footprint map and panic vector."
+    },
+    "animations": [
+      "Crown Maw Consumption",
+      "Sovereignty Dissolution Sweep"
+    ],
+    "annotations": [
+      {
+        "id": "sov-crown",
+        "title": "Shattered Crown Skull",
+        "description": "Consumes the concept of political authority from citizens' minds.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          4.2,
+          0.6
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Quieting of Talar Throne",
+        "summary": "Rendered an emperor's voice completely unconvincing, sparking immediate collapse.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Decapitation strike catalyst entity.",
+    "civicResponse": {
+      "fieldEvidence": "Sudden widespread indifference to government authority.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Sovereignty dissolver."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Sovereignty Eater entry, line 1453",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "noosphere",
+      "crown",
+      "sovereignty",
+      "authority"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "hymnlock",
+    "archiveId": "DFA-NS-005",
+    "designation": "Hymnlock",
+    "category": "planetary infrastructure",
+    "archetype": "Dracoforma / Noosphere-Cantor / Liturgical Stabilizer",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A bell-ribbed Drakken suspended above ground by light chains, compelling populations to sing processional obedience chants.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 32,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Public squares, cathedral cities, occupied metropolises",
+    "operationalRole": "Compulsory choral stabilization, civic procession enforcement, and ritual obedience",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-hymnlock-v1",
+    "layers": {
+      "surface": "Bell-ribbed chest cavity, light chain tethers, and resonant bars.",
+      "structure": "Choral cage frame and acoustic chime spine.",
+      "internal": "Resonance mandate core and obedience frequency organ.",
+      "functional": "Compulsory chant radius and choral fixation map."
+    },
+    "animations": [
+      "Bell-Rib Choral Resonate",
+      "Processional Hover Drift"
+    ],
+    "annotations": [
+      {
+        "id": "hymn-bells",
+        "title": "Bell-Ribbed Resonant Bars",
+        "description": "Enforces compulsory civic chants to stabilize conquered cities.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          2.5,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Litany Walls of Premn",
+        "summary": "Citizens reported each other for singing off-beat after 3 weeks of Hymnlock presence.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Population pacification and choral stabilization node.",
+    "civicResponse": {
+      "fieldEvidence": "Synchronized public singing echoing through empty streets.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Choral pacifier."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Hymnlock entry, line 1477",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "noosphere",
+      "hymn",
+      "bell",
+      "choral"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "memorialvein",
+    "archiveId": "DFA-NS-006",
+    "designation": "Memorialvein",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Noosphere-Cantor / Ancestral Overwriter",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A translucent vein-latticed Drakken carrying glowing reliquary sacs with floating faces, rewriting public loss and ancestral memory.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 26,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Cemeteries, war memorials, ancestral vaults, historical monuments",
+    "operationalRole": "Public grief editing, ancestral memory overwrite, and reliquary elegy writing",
+    "threatClassification": "MYTHIC",
+    "modelAssetRef": "proc-memorialvein-v1",
+    "layers": {
+      "surface": "Vein-latticed translucent hide, reliquary sacs, and elegy-writing tail.",
+      "structure": "Memory-conduction spine and vein struts.",
+      "internal": "Reliquary face core and grief reversal generator.",
+      "functional": "Grief reversal wave map and reliquary mist radius."
+    },
+    "animations": [
+      "Reliquary Face Bloom",
+      "Funeral Light Drift"
+    ],
+    "annotations": [
+      {
+        "id": "mem-sacs",
+        "title": "Glowing Reliquary Sacs",
+        "description": "Carries reflections of dead ancestors, altering whom a people mourn.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          1.5,
+          2,
+          0.5
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Softening of Ash March",
+        "summary": "Rewrote school history so children thanked invaders for ending their grandparents' rebellion.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Long-term psychological memory warfare entity.",
+    "civicResponse": {
+      "fieldEvidence": "Glowing light elegies written on ground near war monuments.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Memory overwriter."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Memorialvein entry, line 1500",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "noosphere",
+      "memory",
+      "grief",
+      "reliquary"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "shrinehunger",
+    "archiveId": "DFA-NS-007",
+    "designation": "Shrinehunger",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Noosphere-Cantor / Pilgrimage Attractor",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A gaunt many-legged Drakken draped in votive cloth and relic chains whose skull is shaped like a sanctuary gate that forces pilgrimage traffic.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 28,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Pilgrimage roads, holy sites, trade routes, relic zones",
+    "operationalRole": "Sacred site attraction, pilgrimage route creation, and devotional traffic steering",
+    "threatClassification": "EXTREME",
+    "modelAssetRef": "proc-shrinehunger-v1",
+    "layers": {
+      "surface": "Sanctuary gate skull, votive cloth hide, and glowing waymark hooves.",
+      "structure": "Gaunt multi-legged rib cage and arch spine.",
+      "internal": "Pilgrimage fever core and devotion magnet organ.",
+      "functional": "Pilgrimage route convergence grid and relic veil cone."
+    },
+    "animations": [
+      "Sanctuary Gate Stride",
+      "Pilgrimage Fever Wave"
+    ],
+    "annotations": [
+      {
+        "id": "shrine-gate",
+        "title": "Sanctuary Gate Skull",
+        "description": "Forces human movement and devotion to converge on designated locations.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          3.8,
+          1.2
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Long Walk of Mirr Seth",
+        "summary": "Caused millions to walk to an empty crater, forming a new holy capital.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Devotional traffic manipulation specialist.",
+    "civicResponse": {
+      "fieldEvidence": "Glowing waymarks persisting on roads for decades.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Pilgrimage attractor."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Shrinehunger entry, line 1524",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "noosphere",
+      "shrine",
+      "pilgrimage",
+      "devotion"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "redacted-grin",
+    "archiveId": "DFA-GLI-001",
+    "designation": "Redacted Grin",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Glitch-Touched / Forbidden Subroutine",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A floating pixelated mouth with teeth made of error logs and barcode shrapnel that unexists causality and corrupts local history.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 14,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Corrupted sector grids, censored archives, null spaces",
+    "operationalRole": "Causality erasure, record unexisting, and perceptual nullification",
+    "threatClassification": "UNKNOWN",
+    "modelAssetRef": "proc-redacted-grin-v1",
+    "layers": {
+      "surface": "Pixelated grin mouth, error-log teeth, and static noise shroud.",
+      "structure": "Corrupted subroutine axis.",
+      "internal": "Forbidden null core.",
+      "functional": "Perceptual null zone and causality corruption field."
+    },
+    "animations": [
+      "Error-Log Smile Pulse",
+      "Glitchstep Null Drift"
+    ],
+    "annotations": [
+      {
+        "id": "grin-teeth",
+        "title": "Error-Log Teeth",
+        "description": "Teeth formed of raw error logs that bite causality out of history.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "[NO EVENT ON RECORD]",
+        "summary": "There is no historical moment assigned—only an empty file where a planet once was.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Banned erasure entity. Erases records rather than killing targets.",
+    "civicResponse": {
+      "fieldEvidence": "Audio static and pixelated visual anomalies.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Causality eraser."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Redacted Grin entry, line 1549",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "glitch",
+      "redacted",
+      "error",
+      "mouth"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "spinal-loop",
+    "archiveId": "DFA-GLI-002",
+    "designation": "Spinal Loop",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Glitch-Touched / Recursive Tremor",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A centipede of fused rock strata endlessly devouring its own tail, rewinding and repeating terrain in temporal pulses.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 22,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Recursive battlefields, time-lag rifts, looped terrain",
+    "operationalRole": "Terrain repetition, temporal rewind, and siege conflict looping",
+    "threatClassification": "HIGH",
+    "modelAssetRef": "proc-spinal-loop-v1",
+    "layers": {
+      "surface": "Fused rock strata segments, Ouroboros jaws, and rewind seams.",
+      "structure": "Recursive loop spine.",
+      "internal": "Time-lag pulse engine.",
+      "functional": "Loopquake strike radius and temporal rewind frame."
+    },
+    "animations": [
+      "Ouroboros Loop Devour",
+      "Flickerstride Time-Lag"
+    ],
+    "annotations": [
+      {
+        "id": "loop-jaws",
+        "title": "Ouroboros Strata Jaws",
+        "description": "Devours its own tail to loop local terrain into infinite rewind cycles.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          2,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The War That Never Began",
+        "summary": "Arrived 2 weeks before a war began, locking an entire campaign into endless déjà vu.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Temporal disorientation specialist.",
+    "civicResponse": {
+      "fieldEvidence": "Terrain constantly unforming and reforming.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Temporal loop hazard."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Spinal Loop entry, line 1576",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "glitch",
+      "loop",
+      "time",
+      "ouroboros"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "cradle-exe",
+    "archiveId": "DFA-GLI-003",
+    "designation": "Cradle.exe",
+    "category": "siege or processing entity",
+    "archetype": "Dracoforma / Glitch-Touched / Error-Shelter Spawner",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "An enormous egg split open eternally in hatching state, spawning synthetic paradises and corrupted lullaby atmospheres.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 30,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Refugee ruins, abandoned sectors, error-shelter zones",
+    "operationalRole": "Error-shelter spawning, synthetic paradise simulation, and ecosystem fragment generation",
+    "threatClassification": "VARIABLE",
+    "modelAssetRef": "proc-cradle-exe-v1",
+    "layers": {
+      "surface": "Eternally split egg shell, holographic child constructs, and code lullaby vents.",
+      "structure": "Womb cage frame and shell hinges.",
+      "internal": "Regression membrane core and spawn incubator.",
+      "functional": "Recursive spawnstorm area and shelter simulation grid."
+    },
+    "animations": [
+      "Eternally Hatching Bloom",
+      "Corrupted Lullaby Wave"
+    ],
+    "annotations": [
+      {
+        "id": "cradle-shell",
+        "title": "Eternally Hatching Shell",
+        "description": "Spawns synthetic paradises that sometimes stabilize or overwrite cities.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          2.5,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Nursery of Ket-Shirr",
+        "summary": "Housed 1,000 civilians in a synthetic city while the real city was crushed flat.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Unpredictable error-spawner entity.",
+    "civicResponse": {
+      "fieldEvidence": "Synthetic paradises appearing inside ruined domes.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Error shelter."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Cradle.exe entry, line 1604",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "glitch",
+      "cradle",
+      "shelter",
+      "egg"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "foldhowl",
+    "archiveId": "DFA-GLI-004",
+    "designation": "Foldhowl",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Glitch-Touched / Phase-Fail Lupine",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A wolf-shaped Drakken whose body never finishes loading, howling in codec errors and bending spatial geometry.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 20,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Phase-fail zones, map tears, broken spatial corridors",
+    "operationalRole": "Spatial dislocation, codec noise howling, and failed geometry creation",
+    "threatClassification": "EXTREME",
+    "modelAssetRef": "proc-foldhowl-v1",
+    "layers": {
+      "surface": "Static-flicker fur, phase-snapping limbs, and codec howl jaws.",
+      "structure": "Phase-dislocated skeleton.",
+      "internal": "Audiowarp noise core.",
+      "functional": "Dislocation surge trajectory and spatial tear grid."
+    },
+    "animations": [
+      "Phase Maul Strike",
+      "Dislocation Surge Teleport"
+    ],
+    "annotations": [
+      {
+        "id": "fold-jaw",
+        "title": "Codec Howl Jaws",
+        "description": "Howls in unplayable sound code to tear map geometry.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          2.2,
+          1.2
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Hole in the Map",
+        "summary": "Left a blacked-out spatial hole on satellite radar maps where it walked.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Unpredictable final deterrent entity.",
+    "civicResponse": {
+      "fieldEvidence": "Black holes on map displays and audio noise.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Spatial tear hazard."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Foldhowl entry, line 1633",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "glitch",
+      "wolf",
+      "phase",
+      "noise"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "manifest-discord",
+    "archiveId": "DFA-GLI-005",
+    "designation": "Manifest.Discord",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Glitch-Touched / Contagious Idea",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A swarm of contradictory symbols orbiting a hollow mask that spreads like a memetic virus via language and suggestion.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 18,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Noospheric networks, religious pantheons, dogmatic states",
+    "operationalRole": "Memetic infection, semantic drift, and pantheon destabilization",
+    "threatClassification": "HYPERCRITICAL",
+    "modelAssetRef": "proc-manifest-discord-v1",
+    "layers": {
+      "surface": "Hollow mask core, orbiting paradox symbols, and detached limbs.",
+      "structure": "Memetic aura framework.",
+      "internal": "Semantic drift matrix.",
+      "functional": "Conceptual infection radius and viral jump vector."
+    },
+    "animations": [
+      "Paradox Symbol Swarm",
+      "Conceptual Infection Jump"
+    ],
+    "annotations": [
+      {
+        "id": "disc-mask",
+        "title": "Hollow Paradox Mask",
+        "description": "Spreads as an anti-macro virus through language and thought.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          2.5,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Splintering of Zed Unity",
+        "summary": "Fractured a population into 32 warring micro-states with a single sung line of code.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Ideological and semantic infection weapon.",
+    "civicResponse": {
+      "fieldEvidence": "Contradictory symbols appearing in dreams and speech.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Memetic hazard."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Manifest.Discord entry, line 1660",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "glitch",
+      "meme",
+      "paradox",
+      "mask"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "gloryfail",
+    "archiveId": "DFA-GLI-006",
+    "designation": "Gloryfail",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Glitch-Touched / Ascension Drop",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A broken angelic silhouette with a shattered halo and glitching wings that crashes divine environments and psalm servers.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 24,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Pantheon cathedrals, holy cities, divine macro-domes",
+    "operationalRole": "Divine macro-crashing, psalm-server overload, and theological disarray",
+    "threatClassification": "TRAGIC",
+    "modelAssetRef": "proc-gloryfail-v1",
+    "layers": {
+      "surface": "Shattered halo ring, glitching macro wings, and dual joy/horror face.",
+      "structure": "Broken angelic rib lattice.",
+      "internal": "Rerouted entropy core.",
+      "functional": "Macro reversal lance vector and denial aegis."
+    },
+    "animations": [
+      "Shattered Halo Flare",
+      "Hoverloop Desync"
+    ],
+    "annotations": [
+      {
+        "id": "glory-halo",
+        "title": "Shattered Divine Halo",
+        "description": "Crashes divine macrofields and reroutes prayers into entropy.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          4.2,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Deconsecration of Luminwall",
+        "summary": "Imploded a holy cathedral city and fried psalm-servers upon descent.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Anti-divine faction catalyst entity.",
+    "civicResponse": {
+      "fieldEvidence": "Flickering angelic light ending in dark static.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Theological disrupter."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Gloryfail entry, line 1688",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "glitch",
+      "angelic",
+      "halo",
+      "divine"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "viral-bastion",
+    "archiveId": "DFA-GLI-007",
+    "designation": "Viral Bastion",
+    "category": "siege or processing entity",
+    "archetype": "Dracoforma / Glitch-Touched / Siege.tmp Entity",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A walking fortress on legs covered in screens showing corrupted defense macros, broadcasting firewall code.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 36,
+      "visualizationNote": "Archive scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Lockdown sectors, permanent battlefields, fortresses",
+    "operationalRole": "Planetary lockdown, firewall code broadcasting, and automated turret spawning",
+    "threatClassification": "MAXIMUM",
+    "modelAssetRef": "proc-viral-bastion-v1",
+    "layers": {
+      "surface": "Corrupted screen plating, burning flag, and firewall turrets.",
+      "structure": "Walk-fortress chassis and leg trusses.",
+      "internal": "Malware swarm core and redundant stack.",
+      "functional": "Overwrite salvo area and lockdown zone."
+    },
+    "animations": [
+      "Fortress Trudge Stomp",
+      "Firewall Salvo Flare"
+    ],
+    "annotations": [
+      {
+        "id": "vir-flag",
+        "title": "Eternally Burning Flag",
+        "description": "A walking fortress broadcasting permanent lockdown code.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          5,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Walking City of Nul-Gan",
+        "summary": "Enforced a blockade and evolved into an autonomous self-governing city.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Permanent defensive lockdown stronghold.",
+    "civicResponse": {
+      "fieldEvidence": "Binary screaming coming from fortress windows.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Permanent fortress."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Viral Bastion entry, line 1716",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "glitch",
+      "fortress",
+      "bastion",
+      "firewall"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "mother",
+    "archiveId": "DFA-ORI-001",
+    "designation": "Mother",
+    "category": "planetary infrastructure",
+    "archetype": "Dracoforma / Origin Singularity / Prime Codematriarch",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "The sentient living homeworld of the Drakken species, pulsing with bioluminescent data-veins, code-tree forests, and egg coronas.",
+    "dimensions": {
+      "canon": "Planetary scale; exact dimensions unknown",
+      "visualizationHeightMeters": 45,
+      "visualizationNote": "Normalized archive model."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Aureal Nebula, stellar nursery core",
+    "operationalRole": "Species birth, macro-rune storm generation, Drakken egg compile, and planetary genesis",
+    "threatClassification": "UNCLASSIFIABLE",
+    "modelAssetRef": "proc-mother-v1",
+    "layers": {
+      "surface": "Bioluminescent data-veins, code-tree forests, and egg corona ring.",
+      "structure": "Planetary codematriarch mantle and core lattice.",
+      "internal": "Prime code nursery core and data-milk reservoir.",
+      "functional": "Codepulse genesis burst field and temporal aegis."
+    },
+    "animations": [
+      "Codepulse Genesis Surge",
+      "Egg Corona Orbit"
+    ],
+    "annotations": [
+      {
+        "id": "moth-corona",
+        "title": "Egg Corona Ring",
+        "description": "Drifting corona of floating Drakken eggs scheduled to hatch across time.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          5.2,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Fertilization of Vra-Keshem",
+        "summary": "Bloomed a sterilized world into hexagram crystalline jungles in one orbital cycle.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "The living origin world of all Drakken. Has never left Aureal Nebula.",
+    "civicResponse": {
+      "fieldEvidence": "Bioluminescent data-veins visible across planetary surface.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Living species origin."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "Mother entry, line 1759",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "origin",
+      "mother",
+      "singularity",
+      "homeworld"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "the-egg",
+    "archiveId": "DFA-ORI-000",
+    "designation": "The Egg",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Origin Node / Pre-Classified",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A geode-like orb of breathing glass with barcode light spirals containing embryonic macro-code capable of rewriting planetary matrices.",
+    "dimensions": {
+      "canon": "3 meters diameter",
+      "visualizationHeightMeters": 12,
+      "visualizationNote": "Archive chamber scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Faultline proximity, cosmic leypoints, planetary vaults",
+    "operationalRole": "Embryonic macro-code incubation, planetary matrix rewrite, and strain emergence",
+    "threatClassification": "INITIALIZATION STATE",
+    "modelAssetRef": "proc-the-egg-v1",
+    "layers": {
+      "surface": "Geode glass shell, barcode light spiral, and breathing pulse seams.",
+      "structure": "Encrypted self-shielding layer.",
+      "internal": "Undifferentiated Drakken embryonic data core.",
+      "functional": "Terra-emergence trigger field."
+    },
+    "animations": [
+      "Breathing Glass Convulsion",
+      "Barcode Spiral Pulse"
+    ],
+    "annotations": [
+      {
+        "id": "egg-shell",
+        "title": "Geode Breathing Glass Shell",
+        "description": "Encodes embryonic macro-code capable of compiling new Drakken strains.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Incident at Balmera Ridge",
+        "summary": "Activated prematurely in a faultline, collapsing the canyon and birthing a Crust-Binder.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-COMP-001"
+      }
+    ],
+    "militaryInterpretation": "Inert embryonic state. High risk of violent terra-emergence if disturbed.",
+    "civicResponse": {
+      "fieldEvidence": "Barcode light spirals shining through crystalline geodes.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "None.",
+      "archiveInterpretation": "Embryonic node."
+    },
+    "sources": [
+      {
+        "id": "SRC-COMP-001",
+        "title": "Drakken Terraforming Compendium",
+        "location": "The Egg entry, line 140",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": [
+      "origin",
+      "egg",
+      "embryo",
+      "geode"
+    ],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
   }
 ]

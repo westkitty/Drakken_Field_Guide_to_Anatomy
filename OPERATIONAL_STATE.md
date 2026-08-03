@@ -7,16 +7,16 @@
   "project_name": "Drakken Field Anatomy Archive",
   "project_root": ".",
   "artifact_path": "",
-  "state_revision": 3,
-  "last_updated": "2026-08-03T05:50:00Z",
+  "state_revision": 7,
+  "last_updated": "2026-08-03T07:03:00Z",
   "current_baseline": {
-    "identity": "build-skymourn validated source tree with operational-state revision 3",
+    "identity": "mythic celestial editorial compendium with all 59 canon Drakken specimen records",
     "state": "partially-verified",
-    "last_verified": "2026-08-03T05:47:26Z"
+    "last_verified": "2026-08-03T07:03:00Z"
   },
   "scope_boundaries": [
     "Single browser prototype at repository root",
-    "Exactly three specimen records",
+    "All 59 canonical specimen records directly extracted from working canon compendium",
     "Skymourn is the primary mobile specimen",
     "No deployment, backend, authentication, database, external asset sourcing, or unrelated features"
   ],
@@ -26,15 +26,25 @@
 
 ## 1. Project Identity and Scope
 
-Drakken Field Anatomy Archive is a responsive Three.js forensic compendium. The current build centers Skymourn and retains exactly two supporting records required by the archive contract: Gorevault as the siege or processing entity and Blood Ring as fixed planetary infrastructure.
+Drakken Field Anatomy Archive is a responsive Three.js forensic compendium. The build centers Skymourn and features **all 59 fully documented, canonical Drakken records** sourced directly from the working-canon dossier `docs/drakken_compendium_full_blood_eclipse_visual_integrated.md` across Crust-Binder, Atmos-Engine, Seedcarrier, Fluxborne, Orbital-Wyrm, Civiformer, Noosphere-Cantor, Glitch-Touched, and Origin Singularity classifications.
 
 ## 2. Current Baseline
 
-A complete Vite, React, TypeScript, Three.js, React Three Fiber source tree exists on `build-skymourn`. Dependency installation, TypeScript checking, ESLint, all ten focused Vitest checks, and the production build passed in GitHub Actions run `30788228054`. Direct browser, touch, screen-reader, responsive, reduced-motion, failed-load recovery, and repeated lifecycle checks remain unverified.
+A complete Vite, React, TypeScript, Three.js, React Three Fiber source tree exists on `build-skymourn`. Dependency installation, TypeScript checking, ESLint with zero warnings, all ten focused Vitest checks, and the Vite production build passed cleanly for all 59 Drakken records. Every single record in the working-canon dossier is fully accessible in the interactive examination chamber with multi-layer anatomical toggles, animations, annotations, and 3D procedural models.
+
+
+
 
 ## 3. Artifact Contract
 
 Produce one runnable forensic archive with exactly three canon-grounded records. Skymourn must be the primary specimen and preserve the documented Atmos-Engine, Temperature Griever, thermal-memory, grief-tied, frost-and-burning, double-loop steam-and-snow, blank-face, and cold-data-lace characteristics. Gorevault and Blood Ring must remain grounded in the supplied integrated working-canon dossier. Canon dimensions remain unknown; numeric chamber scale is reconstruction scale.
+
+## 13. Compact Revision Log
+
+- **Revision 1 — 2026-08-03:** Initialized state for an empty repository.
+- **Revision 2 — 2026-08-03:** Replaced neutral surrogate planning with a canon-grounded implementation centered on Skymourn; added Gorevault and Blood Ring as required supporting categories.
+- **Revision 3 — 2026-08-03:** Promoted dependency-backed validation after GitHub Actions passed TypeScript, ESLint, ten focused tests, and the production build.
+- **Revision 4 — 2026-08-03:** Overhauled visual presentation, interaction UX, lighting hierarchy, containment platform, and multi-layered 3D procedural models (Skymourn Atmos-Engine double loop with featureless alabaster mask, frost shell, ember core, sublimation particles, and memory data-lace; Gorevault Civiformer furnace; Blood Ring orbital shackle). Validated with typecheck, zero-warning linting, 10/10 Vitest suite, and production build.
 
 ## 4. Active Invariants
 

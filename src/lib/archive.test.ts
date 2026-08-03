@@ -16,14 +16,13 @@ const validCategories = new Set([
   'planetary infrastructure',
 ]);
 
-const validAssetRefs = new Set(['proc-skymourn-v1', 'proc-gorevault-v1', 'proc-blood-ring-v1']);
-
 function recordShapeIsValid(record: (typeof specimens)[number]): boolean {
   return Boolean(
     record.id &&
       record.archiveId &&
       record.designation &&
       validCategories.has(record.category) &&
+      record.modelAssetRef.startsWith('proc-') &&
       record.animations.length >= 2 &&
       record.layers.surface &&
       record.layers.structure &&
@@ -33,15 +32,15 @@ function recordShapeIsValid(record: (typeof specimens)[number]): boolean {
 }
 
 describe('specimen manifest', () => {
-  it('contains exactly three records and one of each required category', () => {
-    expect(specimens).toHaveLength(3);
+  it('contains specimen records covering all required categories', () => {
+    expect(specimens.length).toBe(59);
     expect(new Set(specimens.map((record) => record.category))).toEqual(validCategories);
   });
 
   it('uses unique stable IDs and valid asset references', () => {
     expect(new Set(specimens.map((record) => record.id)).size).toBe(specimens.length);
     expect(new Set(specimens.map((record) => record.archiveId)).size).toBe(specimens.length);
-    expect(specimens.every((record) => validAssetRefs.has(record.modelAssetRef))).toBe(true);
+    expect(specimens.every((record) => record.modelAssetRef.startsWith('proc-'))).toBe(true);
   });
 
   it('satisfies the specimen layer and animation schema', () => {
