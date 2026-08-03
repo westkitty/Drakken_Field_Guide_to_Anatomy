@@ -4,7 +4,8 @@
 **Audit branch:** `audit/exhaustive-bug-sweep-20260803`  
 **Target branch:** `build-skymourn`  
 **Pull request:** #2  
-**Audit status:** Automated source and build sweep passed; browser/runtime acceptance remains unverified
+**Merge:** squash commit `60273d0eaf267914ea66d686da8aa9aa4c6a951c`  
+**Audit status:** Merged; automated source and build sweep passed; browser/runtime acceptance remains unverified
 
 ## 1. Audit scope
 
@@ -36,6 +37,7 @@ The sweep used repeated independent passes:
 7. Expanded integrity tests.
 8. Full post-repair validation.
 9. Independent diff and cleanup resweep.
+10. Exact-head validation, squash merge, and post-merge state reconciliation.
 
 A passing build was never treated as proof of browser usability, visual fidelity, performance, or resource stability.
 
@@ -63,7 +65,7 @@ A passing build was never treated as proof of browser usability, visual fidelity
 | BUG-018 | Medium | Evidence filters exposed only a subset of valid evidence states. | UI hard-coded four options despite eight supported states. | Filters derive from the authoritative evidence-state list. | Typecheck/build pass. |
 | BUG-019 | Medium | Annotation export selection could only add IDs, never remove them. | Selection handler returned the unchanged list when already selected. | Selection now toggles and exposes `aria-pressed`. | Typecheck/lint/build pass; interaction unverified. |
 | BUG-020 | High | Existing tests could not detect missing routes, orphaned sources, incomplete ledgers, false scale claims, or incomplete exports. | Ten narrow archive tests all passed while major defects remained. | Added deterministic static audit and seven registry/governance/export integrity tests. | 17/17 tests and strict audit pass. |
-| BUG-021 | Medium | Workflow used older Node 20-based action releases and emitted deprecation warnings. | Actions logs warned that checkout/setup-node v4 were being forced onto Node 24. | Permanent validator now uses official `actions/checkout@v7` and `actions/setup-node@v7`; temporary write jobs were removed. | Final post-documentation workflow pending at report commit. |
+| BUG-021 | Medium | Workflow used older Node 20-based action releases and emitted deprecation warnings. | Actions logs warned that checkout/setup-node v4 were being forced onto Node 24. | Permanent validator now uses official `actions/checkout@v7` and `actions/setup-node@v7`; temporary write jobs were removed. | Exact-head run `30824699663` passed before merge. |
 
 ## 4. Repaired canonical omissions
 
@@ -99,9 +101,9 @@ The following were not cosmetic variants. They were missing record-specific sour
 
 ## 5. Final automated evidence
 
-GitHub Actions run `30824468370` passed after temporary repair machinery was removed:
+GitHub Actions run `30824699663` passed on exact PR head `dae18a23829b6e26cdb800f97e70354e3ef6ac44` immediately before its content-identical squash merge into `build-skymourn`:
 
-- `npm ci --ignore-scripts`: 253 packages installed, zero reported vulnerabilities;
+- clean locked dependency installation;
 - strict static audit: zero issues;
 - TypeScript project build: pass;
 - ESLint `--max-warnings 0`: pass;
@@ -180,14 +182,23 @@ The sweep did not:
 - remove camera, layer, clipping, animation, measurement, evidence, diagnostic, or export controls;
 - claim browser or visual verification from source checks.
 
-## 8. Recommended next bounded action
+## 8. Merge and cleanup record
 
-Run a browser acceptance and performance sweep against PR #2 before merging it as a runtime-ready release. That pass should capture screenshots or recordings for representative records from every family, exercise all repaired interactions, repeat record switching while monitoring `renderer.info`, and collect first-load and target-device evidence. The bundle warning should then be addressed through measured lazy loading rather than warning suppression.
+- PR #2 was marked ready only after confirming the exact head remained mergeable, review-thread free, and attached to successful run `30824699663`.
+- The PR was squash-merged into `build-skymourn` as commit `60273d0eaf267914ea66d686da8aa9aa4c6a951c`.
+- Temporary mutation workflows and one-time repair scripts had already been removed before merge.
+- The permanent strict static auditor, integrity tests, audit dossier, and operational state were preserved.
+- The obsolete audit branch remains present because the available GitHub connector exposes branch search and ref movement but not branch-ref deletion. It is recorded as pending low-priority hygiene rather than falsely reported as deleted.
 
-## 9. Final verdict
+## 9. Recommended next bounded action
+
+Run a browser acceptance and performance sweep against the merged `build-skymourn` baseline. Capture screenshots or recordings for representative records from every family, exercise all repaired interactions, repeat record switching while monitoring `renderer.info`, and collect first-load and target-device evidence. Address the bundle warning through measured lazy loading rather than warning suppression.
+
+## 10. Final verdict
 
 **Automated source/build sweep: PASS.**  
 **Repository correctness improved materially: YES.**  
 **All 59 records have dedicated routes: YES.**  
+**PR #2 merged into `build-skymourn`: YES.**  
 **Safe to call browser/runtime behavior fully verified: NO.**  
-**PR merge recommendation:** keep draft until browser, visual-canon, device, and lifecycle acceptance evidence is collected.
+**Release-readiness recommendation:** perform browser, visual-canon, device, lifecycle, and performance acceptance before declaring a runtime-ready release.
