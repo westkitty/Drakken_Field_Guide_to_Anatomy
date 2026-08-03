@@ -1,0 +1,38 @@
+name: Apply audit build fixes
+
+on:
+  push:
+    branches:
+      - audit/exhaustive-bug-sweep-20260803
+    paths:
+      - .github/workflows/apply-audit-build-fixes.yml
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out audit branch
+        uses: actions/checkout@v4
+        with:
+          ref: audit/exhaustive-bug-sweep-20260803
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.13.0'
+
+      - name: Apply bounded build repairs
+        run: node scripts/apply-audit-build-fixes.mjs
+
+      - name: Commit bounded repairs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "Repair build-blocking curve and toolchain defects"
+          git push origin HEAD:audit/exhaustive-bug-sweep-20260803
