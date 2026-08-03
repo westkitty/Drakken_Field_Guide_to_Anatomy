@@ -217,7 +217,11 @@ export function HymnlockModel(props: SpecimenModelProps) {
 }
 
 class MemorialCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     return target.set(
       Math.sin(t * Math.PI * 2.4) * 0.62,
       Math.sin(t * Math.PI * 3.4) * 0.26,

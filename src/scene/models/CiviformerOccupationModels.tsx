@@ -45,7 +45,11 @@ function Markers(props: SpecimenModelProps) {
 }
 
 class RoadthornCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     return target.set(
       Math.sin(t * Math.PI * 2.2) * 0.35,
       Math.cos(t * Math.PI * 3.3) * 0.18,

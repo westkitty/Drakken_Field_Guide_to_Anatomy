@@ -101,7 +101,11 @@ function Markers(props: SpecimenModelProps) {
 }
 
 class AbyssorielCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     const z = (t - 0.5) * 11;
     return target.set(
       Math.sin(t * Math.PI * 2.2) * 0.65,
@@ -603,7 +607,11 @@ export function LittoralReformerModel(props: SpecimenModelProps) {
 }
 
 class GlacierthroatCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     return target.set(
       Math.sin(t * Math.PI * 2.15) * 0.85,
       Math.sin(t * Math.PI * 3.1) * 0.42,

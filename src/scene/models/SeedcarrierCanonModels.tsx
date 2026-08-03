@@ -445,7 +445,11 @@ export function PrecipitationSynthModel(props: SpecimenModelProps) {
 }
 
 class TerragulletCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     return target.set(Math.sin(t * Math.PI * 2.4) * 0.55, Math.sin(t * Math.PI * 3) * 0.32, (t - 0.5) * 10.5);
   }
 }

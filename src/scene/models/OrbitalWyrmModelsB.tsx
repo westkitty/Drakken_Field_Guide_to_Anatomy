@@ -101,7 +101,11 @@ function Markers(props: SpecimenModelProps) {
 }
 
 class UmbrakraelCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     return target.set(
       Math.sin(t * Math.PI * 2.5) * 0.88,
       Math.cos(t * Math.PI * 3.8) * 0.4,
@@ -209,7 +213,11 @@ export function PhantomOccluderModel(props: SpecimenModelProps) {
 }
 
 class CindervergeCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     return target.set(
       Math.sin(t * Math.PI * 3.0) * 0.76,
       Math.sin(t * Math.PI * 4.4) * 0.34,

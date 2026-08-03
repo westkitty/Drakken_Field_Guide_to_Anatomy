@@ -101,7 +101,11 @@ function Markers(props: SpecimenModelProps) {
 }
 
 class SolnexusCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     const angle = t * Math.PI * 2;
     const radius = 3.35 + Math.sin(angle * 3) * 0.38;
     return target.set(
@@ -221,7 +225,11 @@ export function StarbinderCoreModel(props: SpecimenModelProps) {
 }
 
 class NullthornCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     return target.set(
       Math.sin(t * Math.PI * 5.2) * 0.72,
       Math.cos(t * Math.PI * 4.1) * 0.42,
@@ -342,7 +350,11 @@ export function GravityImpalerModel(props: SpecimenModelProps) {
 }
 
 class LyriborisCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     return target.set(
       Math.sin(t * Math.PI * 2.4) * 0.82,
       Math.sin(t * Math.PI * 3.7) * 0.38,

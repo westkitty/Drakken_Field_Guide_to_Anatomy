@@ -240,7 +240,11 @@ export function HydrostaticRendererModel(props: SpecimenModelProps) {
 }
 
 class ChoristerCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     const angle = t * Math.PI * 2;
     return target.set(Math.sin(angle) * 2.3, (t - 0.5) * 8.5, Math.sin(angle * 2) * 1.15);
   }

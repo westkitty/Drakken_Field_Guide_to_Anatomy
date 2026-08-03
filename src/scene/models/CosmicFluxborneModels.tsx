@@ -101,7 +101,11 @@ function Markers(props: SpecimenModelProps) {
 }
 
 class VeilcurrentCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     return target.set(
       Math.sin(t * Math.PI * 2.2) * 0.72,
       Math.cos(t * Math.PI * 3.4) * 0.36,
@@ -228,7 +232,11 @@ export function NebularStreamHerderModel(props: SpecimenModelProps) {
 }
 
 class CoronaxisCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     return target.set(
       Math.sin(t * Math.PI * 2.6) * 0.9,
       Math.sin(t * Math.PI * 4.2) * 0.52,
