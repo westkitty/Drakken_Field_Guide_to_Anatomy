@@ -7,9 +7,9 @@ import {
   StormmindTacticianModel,
   StratosChoristerModel,
 } from './models/AtmosEngineModels';
+import { GyreTacticianModel } from './models/CurrenthaloModel';
 import {
   CryofluidEngineModel,
-  GyreTacticianModel,
   LittoralReformerModel,
   SalinityConductorModel,
   TrenchSovereignModel,
