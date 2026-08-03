@@ -7,6 +7,13 @@ import {
   StormmindTacticianModel,
   StratosChoristerModel,
 } from './models/AtmosEngineModels';
+import {
+  MacrofloraColossusModel,
+  NeuralFungibinderModel,
+  PrecipitationSynthModel,
+  SoilRewriterModel,
+  SporesphereArchivistModel,
+} from './models/SeedcarrierModels';
 
 export function SpecimenModel(props: SpecimenModelProps) {
   switch (props.record.id) {
@@ -20,6 +27,16 @@ export function SpecimenModel(props: SpecimenModelProps) {
       return <BalanceEngineModel {...props} />;
     case 'stormmind-tactician':
       return <StormmindTacticianModel {...props} />;
+    case 'macroflora-colossus':
+      return <MacrofloraColossusModel {...props} />;
+    case 'sporesphere-archivist':
+      return <SporesphereArchivistModel {...props} />;
+    case 'neural-fungibinder':
+      return <NeuralFungibinderModel {...props} />;
+    case 'precipitation-synth':
+      return <PrecipitationSynthModel {...props} />;
+    case 'soil-rewriter':
+      return <SoilRewriterModel {...props} />;
     default:
       return <LegacySpecimenModel {...props} />;
   }
