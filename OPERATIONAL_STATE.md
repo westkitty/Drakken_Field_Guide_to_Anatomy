@@ -7,12 +7,12 @@
   "project_name": "Drakken Field Anatomy Archive",
   "project_root": ".",
   "artifact_path": "",
-  "state_revision": 17,
-  "last_updated": "2026-08-03T10:50:00-04:00",
+  "state_revision": 18,
+  "last_updated": "2026-08-03T10:56:00-04:00",
   "current_baseline": {
-    "identity": "audit/exhaustive-bug-sweep-20260803 PR #2",
+    "identity": "build-skymourn after squash merge of PR #2; source merge commit 60273d0eaf267914ea66d686da8aa9aa4c6a951c",
     "state": "partially-verified",
-    "last_verified": "GitHub Actions run 30824468370: strict static audit, typecheck, zero-warning lint, 17 tests, and production build passed"
+    "last_verified": "Exact PR head dae18a23829b6e26cdb800f97e70354e3ef6ac44 passed GitHub Actions run 30824699663 before content-identical squash merge"
   },
   "scope_boundaries": [
     "Single browser archive at repository root",
@@ -32,9 +32,9 @@ The Drakken Field Anatomy Archive is a React Three Fiber forensic compendium for
 
 ## 2. Current Baseline
 
-The current repair candidate is draft PR #2 from `audit/exhaustive-bug-sweep-20260803` into `build-skymourn`.
+PR #2, `Exhaustive project bug sweep and bounded repairs`, was squash-merged into `build-skymourn` as source merge commit `60273d0eaf267914ea66d686da8aa9aa4c6a951c`.
 
-The exhaustive sweep established and repaired:
+The merged repair pass established and repaired:
 
 - explicit dedicated routing for all 59 records;
 - four previously omitted models: Glassspine, Quarrymind, Toxic Veil Engine, and Hive Floramother;
@@ -54,6 +54,8 @@ The exhaustive sweep established and repaired:
 - permanent registry, source-reference, export, and governance tests;
 - permanent strict static auditing in CI.
 
+The merge authorizes the repaired source as the active `build-skymourn` baseline. It does not promote browser, visual-canon, device, lifecycle, or performance behavior to verified.
+
 ## 3. Artifact Contract
 
 Maintain one usable archive containing all 59 canonical records. Every record must remain searchable, selectable, and explicitly routed. Each model must preserve surface, structure, internal, and functional examination layers; section clipping; animation; measurement; annotations; evidence status; camera controls; diagnostics; and complete dossier export.
@@ -66,7 +68,7 @@ Procedural chamber geometry is normalized for examination. Record visualization-
 
 - **State:** `verified` at registry/source level
 - **Rule:** Keep exactly 59 unique record IDs, archive IDs, and model asset IDs. Do not invent additional records.
-- **Evidence:** strict static audit and integrity tests in run `30824468370`
+- **Evidence:** strict static audit and integrity tests in run `30824699663`
 - **Runtime gap:** browser navigation through all 59 remains unverified
 
 ### INV-002 — Every record has a dedicated route
@@ -86,7 +88,7 @@ Procedural chamber geometry is normalized for examination. Record visualization-
 
 - **State:** `partially-verified`
 - **Rule:** Preserve orbit, pan, zoom, reset, projection modes, layers, clipping, animations, measurement, annotations, diagnostics, exports, and responsive access.
-- **Evidence:** typecheck, lint, tests, build, static source checks
+- **Evidence:** typecheck, lint, tests, build, and static source checks
 - **Missing proof:** direct browser journey across pointer, keyboard, touch, and narrow layouts
 
 ### INV-005 — Keep runtime assets local and governed
@@ -108,9 +110,9 @@ Procedural chamber geometry is normalized for examination. Record visualization-
 
 ## 5. Verified Automated Behavior
 
-GitHub Actions run `30824468370` passed on the cleaned audit branch:
+GitHub Actions run `30824699663` passed on exact PR head `dae18a23829b6e26cdb800f97e70354e3ef6ac44` immediately before its content-identical squash merge:
 
-- locked dependency installation: 253 packages, zero reported vulnerabilities;
+- locked dependency installation;
 - strict static audit: zero issues;
 - TypeScript project build;
 - ESLint with `--max-warnings 0`;
@@ -180,6 +182,13 @@ Rotate and compare every record against its dossier and closest sibling, includi
 - **Blocks build claim:** no
 - **Blocks full model-quality completion claim:** yes
 
+### PND-004 — Delete merged audit branch
+
+The merged branch `audit/exhaustive-bug-sweep-20260803` is obsolete. Delete it when a branch-deletion-capable GitHub client is available.
+
+- **Priority:** low repository hygiene
+- **Blocks development:** no
+
 ## 9. Active Decisions and Prohibitions
 
 - Keep React 19, Vite, TypeScript, Three.js, R3F, Drei, Vitest, ESLint, and plain CSS.
@@ -188,7 +197,7 @@ Rotate and compare every record against its dossier and closest sibling, includi
 - Do not restore remote font loading.
 - Do not claim meter calibration without a real model-bounds normalization system and evidence.
 - Do not suppress the chunk warning as a substitute for performance work.
-- Do not merge PR #2 as a verified runtime release without browser evidence.
+- Do not describe the merged branch as a verified runtime release without browser evidence.
 - Do not begin another specimen batch unless the canon registry is intentionally expanded.
 
 ## 10. Validation Matrix
@@ -211,4 +220,5 @@ Rotate and compare every record against its dossier and closest sibling, includi
 
 - **Revision 1–8:** Bootstrap, prototype, archive expansion, and rejection of shared-archetype completion claims.
 - **Revision 9–16:** Bounded dedicated-model batches completed the closed 59-record source inventory.
-- **Revision 17 — 2026-08-03:** Exhaustive repository bug sweep. Repaired build blockers, four missing model routes, cross-cutting interaction/accessibility/export/lifecycle defects, clipping consistency, governance ledgers, documentation, and automated integrity coverage. Promoted automated source/build claims to verified. Browser, visual-canon, device, lifecycle, and performance claims remain explicitly unverified.
+- **Revision 17 — 2026-08-03:** Exhaustive repository bug sweep. Repaired build blockers, four missing model routes, cross-cutting interaction/accessibility/export/lifecycle defects, clipping consistency, governance ledgers, documentation, and automated integrity coverage.
+- **Revision 18 — 2026-08-03:** Squash-merged PR #2 into `build-skymourn` as commit `60273d0eaf267914ea66d686da8aa9aa4c6a951c`. Promoted the merged source to the active baseline while preserving browser, visual-canon, device, lifecycle, and performance limitations. Recorded the obsolete audit branch as pending deletion because the active connector cannot delete branch refs.
