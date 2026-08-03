@@ -1,4 +1,13 @@
-import { Html, Line, OrbitControls, OrthographicCamera, PerspectiveCamera } from '@react-three/drei';
+import {
+  ContactShadows,
+  Environment,
+  Html,
+  Lightformer,
+  Line,
+  OrbitControls,
+  OrthographicCamera,
+  PerspectiveCamera,
+} from '@react-three/drei';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Suspense, useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
@@ -37,11 +46,11 @@ interface ChamberProps {
 }
 
 const cameraPositions: Record<CameraPreset, [number, number, number]> = {
-  front: [0, 1.5, 18],
-  side: [18, 1.5, 0],
-  dorsal: [0, 18, 0.1],
-  ventral: [0, -18, 0.1],
-  'three-quarter': [12, 9, 14],
+  front: [0, 1.2, 14],
+  side: [14, 1.2, 0],
+  dorsal: [0, 14, 0.1],
+  ventral: [0, -14, 0.1],
+  'three-quarter': [9.4, 7.2, 11.2],
 };
 
 function CameraController({
@@ -65,12 +74,10 @@ function CameraController({
     const position = cameraPositions[preset];
     camera.position.set(...position);
     camera.up.set(0, 1, 0);
-    camera.lookAt(0, 0.7, 0);
+    camera.lookAt(0, 0.55, 0);
     camera.updateProjectionMatrix();
-    if (controls.current) {
-      controls.current.target.set(0, 0.7, 0);
-      controls.current.update();
-    }
+    controls.current?.target.set(0, 0.55, 0);
+    controls.current?.update();
   }, [mode, preset, commandToken, resetToken]);
 
   return (
@@ -79,7 +86,7 @@ function CameraController({
         ref={perspective}
         makeDefault={mode === 'perspective'}
         position={cameraPositions[preset]}
-        fov={42}
+        fov={36}
         near={0.1}
         far={1000}
       />
@@ -87,7 +94,7 @@ function CameraController({
         ref={orthographic}
         makeDefault={mode === 'orthographic'}
         position={cameraPositions[preset]}
-        zoom={48}
+        zoom={58}
         near={0.1}
         far={1000}
       />
@@ -95,13 +102,14 @@ function CameraController({
         ref={controls}
         makeDefault
         enableDamping
-        dampingFactor={0.08}
-        minDistance={5}
-        maxDistance={70}
-        panSpeed={0.75}
-        rotateSpeed={0.65}
-        zoomSpeed={0.75}
-        target={[0, 0.7, 0]}
+        dampingFactor={0.075}
+        minDistance={3.5}
+        maxDistance={60}
+        panSpeed={0.8}
+        rotateSpeed={0.68}
+        zoomSpeed={0.82}
+        screenSpacePanning
+        target={[0, 0.55, 0]}
       />
     </>
   );
@@ -110,26 +118,25 @@ function CameraController({
 function MeasurementDisplay({ points }: { points: [number, number, number][] }) {
   if (points.length === 0) return null;
   const distance = points.length === 2 ? distanceMeters(points[0], points[1]) : 0;
-  const midpoint: [number, number, number] =
-    points.length === 2
-      ? [
-          (points[0][0] + points[1][0]) / 2,
-          (points[0][1] + points[1][1]) / 2,
-          (points[0][2] + points[1][2]) / 2,
-        ]
-      : points[0];
+  const midpoint: [number, number, number] = points.length === 2
+    ? [
+        (points[0][0] + points[1][0]) / 2,
+        (points[0][1] + points[1][1]) / 2,
+        (points[0][2] + points[1][2]) / 2,
+      ]
+    : points[0];
 
   return (
     <group>
       {points.map((point, index) => (
         <mesh key={`${point.join('-')}-${index}`} position={point}>
           <sphereGeometry args={[0.13, 18, 12]} />
-          <meshBasicMaterial color="#73c7ee" depthTest={false} />
+          <meshBasicMaterial color="#a6e7ff" depthTest={false} />
         </mesh>
       ))}
       {points.length === 2 && (
         <>
-          <Line points={points} color="#73c7ee" lineWidth={2} depthTest={false} />
+          <Line points={points} color="#a6e7ff" lineWidth={2} depthTest={false} />
           <Html position={midpoint} center distanceFactor={12}>
             <output className="measurement-label" aria-live="polite">
               {formatMeters(distance)}
@@ -147,16 +154,16 @@ function ScaleReference({ type }: { type: ChamberProps['scaleReference'] }) {
   if (type === 'human') {
     return (
       <group position={[x, -4.6, 0]}>
-        <mesh position={[0, 1.55, 0]}>
+        <mesh position={[0, 1.55, 0]} castShadow>
           <sphereGeometry args={[0.18, 18, 12]} />
-          <meshStandardMaterial color="#c1cad0" roughness={0.8} />
+          <meshStandardMaterial color="#e4edf2" roughness={0.72} />
         </mesh>
-        <mesh position={[0, 0.78, 0]}>
+        <mesh position={[0, 0.78, 0]} castShadow>
           <capsuleGeometry args={[0.22, 1.12, 8, 12]} />
-          <meshStandardMaterial color="#89959d" roughness={0.8} />
+          <meshStandardMaterial color="#a9b7c0" roughness={0.72} />
         </mesh>
         <Html position={[0, -0.15, 0]} center distanceFactor={12}>
-          <span className="scale-label">Human 1.8 m</span>
+          <span className="scale-label">Illustrative human marker</span>
         </Html>
       </group>
     );
@@ -164,30 +171,30 @@ function ScaleReference({ type }: { type: ChamberProps['scaleReference'] }) {
   if (type === 'vehicle') {
     return (
       <group position={[x, -4.15, 0]}>
-        <mesh scale={[2.25, 0.75, 0.95]}>
+        <mesh scale={[2.25, 0.75, 0.95]} castShadow>
           <boxGeometry args={[1, 1, 1]} />
-          <meshStandardMaterial color="#7f8a91" roughness={0.72} />
+          <meshStandardMaterial color="#9baab3" roughness={0.68} />
         </mesh>
         {[-1.4, 1.4].map((wheelX) => (
-          <mesh key={wheelX} position={[wheelX, -0.75, 0.74]} rotation={[Math.PI / 2, 0, 0]}>
+          <mesh key={wheelX} position={[wheelX, -0.75, 0.74]} rotation={[Math.PI / 2, 0, 0]} castShadow>
             <cylinderGeometry args={[0.36, 0.36, 0.28, 20]} />
-            <meshStandardMaterial color="#1b1f22" roughness={0.86} />
+            <meshStandardMaterial color="#303940" roughness={0.82} />
           </mesh>
         ))}
         <Html position={[0, -1.35, 0]} center distanceFactor={12}>
-          <span className="scale-label">Ground vehicle 1.5 m</span>
+          <span className="scale-label">Illustrative vehicle marker</span>
         </Html>
       </group>
     );
   }
   return (
     <group position={[x, 0.4, 0]}>
-      <Line points={[[0, -5, 0], [0, 5, 0]]} color="#a3aeb5" lineWidth={2} />
+      <Line points={[[0, -5, 0], [0, 5, 0]]} color="#c0ccd3" lineWidth={2} />
       {[-5, 5].map((y) => (
-        <Line key={y} points={[[-0.55, y, 0], [0.55, y, 0]]} color="#a3aeb5" lineWidth={2} />
+        <Line key={y} points={[[-0.55, y, 0], [0.55, y, 0]]} color="#c0ccd3" lineWidth={2} />
       ))}
       <Html position={[0, -5.65, 0]} center distanceFactor={12}>
-        <span className="scale-label">10 m marker</span>
+        <span className="scale-label">Illustrative height marker</span>
       </Html>
     </group>
   );
@@ -248,51 +255,76 @@ function ClippingIndicator({ clip }: { clip: ClipState }) {
     clip.axis === 'y' ? clip.position : 0,
     clip.axis === 'z' ? clip.position : 0,
   ];
-  const rotation: [number, number, number] =
-    clip.axis === 'x'
-      ? [0, Math.PI / 2, 0]
-      : clip.axis === 'y'
-        ? [Math.PI / 2, 0, 0]
-        : [0, 0, 0];
+  const rotation: [number, number, number] = clip.axis === 'x'
+    ? [0, Math.PI / 2, 0]
+    : clip.axis === 'y'
+      ? [Math.PI / 2, 0, 0]
+      : [0, 0, 0];
   return (
     <mesh position={position} rotation={rotation}>
-      <planeGeometry args={[16, 16, 1, 1]} />
-      <meshBasicMaterial color="#d2a24c" transparent opacity={0.16} wireframe side={THREE.DoubleSide} depthWrite={false} />
+      <planeGeometry args={[18, 18, 1, 1]} />
+      <meshBasicMaterial color="#f0c46f" transparent opacity={0.17} wireframe side={THREE.DoubleSide} depthWrite={false} />
     </mesh>
   );
 }
 
 function getSpecimenAccentColor(archetype: string): string {
-  if (archetype.includes('Atmos-Engine')) return '#7ed6f8';
-  if (archetype.includes('Crust-Binder')) return '#e05a2b';
-  if (archetype.includes('Seedcarrier')) return '#4a6b38';
-  if (archetype.includes('Fluxborne')) return '#1e405b';
-  if (archetype.includes('Orbital-Wyrm')) return '#c4a359';
-  if (archetype.includes('Civiformer')) return '#9e1a1e';
-  if (archetype.includes('Noosphere')) return '#8a85b6';
-  if (archetype.includes('Glitch-Touched')) return '#e05a2b';
-  return '#f0f8ff';
+  if (archetype.includes('Atmos-Engine')) return '#91e2ff';
+  if (archetype.includes('Crust-Binder')) return '#ff7b4d';
+  if (archetype.includes('Seedcarrier')) return '#86b96d';
+  if (archetype.includes('Fluxborne')) return '#65b8eb';
+  if (archetype.includes('Orbital-Wyrm')) return '#e0bd70';
+  if (archetype.includes('Civiformer')) return '#e24a50';
+  if (archetype.includes('Noosphere')) return '#b8afff';
+  if (archetype.includes('Glitch-Touched')) return '#ff7b4d';
+  return '#f2f8fb';
 }
 
 function ArchivalContainmentPlatform({ archetype }: { archetype: string }) {
   const ringColor = getSpecimenAccentColor(archetype);
-
   return (
     <group position={[0, -5, 0]}>
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.02, 0]} receiveShadow>
-        <planeGeometry args={[48, 48]} />
-        <meshStandardMaterial color="#06090e" roughness={0.92} metalness={0.08} />
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.03, 0]} receiveShadow>
+        <planeGeometry args={[52, 52]} />
+        <meshStandardMaterial color="#3a4650" roughness={0.88} metalness={0.06} />
       </mesh>
-      <gridHelper args={[48, 48, '#1e2d3d', '#0f1722']} position={[0, 0.01, 0]} />
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.03, 0]}>
-        <ringGeometry args={[6.8, 7.0, 64]} />
-        <meshBasicMaterial color={ringColor} transparent opacity={0.45} side={THREE.DoubleSide} />
+      <gridHelper args={[52, 52, '#8aa2b1', '#526570']} position={[0, 0.01, 0]} />
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.035, 0]}>
+        <ringGeometry args={[6.8, 7.04, 96]} />
+        <meshBasicMaterial color={ringColor} transparent opacity={0.72} side={THREE.DoubleSide} />
       </mesh>
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.02, 0]}>
-        <ringGeometry args={[11.8, 12.0, 64]} />
-        <meshBasicMaterial color="#50667a" transparent opacity={0.25} side={THREE.DoubleSide} />
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.025, 0]}>
+        <ringGeometry args={[11.8, 12.04, 96]} />
+        <meshBasicMaterial color="#b7c8d2" transparent opacity={0.36} side={THREE.DoubleSide} />
       </mesh>
     </group>
+  );
+}
+
+function StudioLighting({ accent, qualityTier }: { accent: string; qualityTier: ChamberProps['qualityTier'] }) {
+  return (
+    <>
+      <hemisphereLight color="#ffffff" groundColor="#61717c" intensity={2.25} />
+      <ambientLight intensity={0.85} />
+      <directionalLight
+        position={[10, 15, 12]}
+        color="#fffaf2"
+        intensity={4.4}
+        castShadow={qualityTier === 'standard'}
+        shadow-mapSize-width={qualityTier === 'standard' ? 2048 : 512}
+        shadow-mapSize-height={qualityTier === 'standard' ? 2048 : 512}
+        shadow-bias={-0.0002}
+      />
+      <directionalLight position={[-12, 8, 8]} color="#b9e9ff" intensity={2.4} />
+      <spotLight position={[0, 10, -13]} color={accent} intensity={3.2} angle={0.52} penumbra={1} distance={42} />
+      <pointLight position={[0, -1, 7]} color="#ffffff" intensity={2.1} distance={24} decay={1.5} />
+      <pointLight position={[0, -4, -4]} color="#f1c77b" intensity={1.25} distance={18} />
+      <Environment resolution={qualityTier === 'standard' ? 256 : 128} frames={1}>
+        <Lightformer form="rect" intensity={3.2} color="#ffffff" position={[0, 8, -12]} scale={[12, 6, 1]} />
+        <Lightformer form="rect" intensity={2.2} color="#a7ddff" position={[-10, 2, 4]} rotation={[0, Math.PI / 2, 0]} scale={[8, 8, 1]} />
+        <Lightformer form="rect" intensity={1.8} color={accent} position={[10, 1, 2]} rotation={[0, -Math.PI / 2, 0]} scale={[6, 8, 1]} />
+      </Environment>
+    </>
   );
 }
 
@@ -327,8 +359,7 @@ export function ExaminationChamber(props: ChamberProps) {
       props.clip.axis === 'y' ? direction : 0,
       props.clip.axis === 'z' ? direction : 0,
     );
-    const constant = -direction * props.clip.position;
-    return new THREE.Plane(normal, constant);
+    return new THREE.Plane(normal, -direction * props.clip.position);
   }, [props.clip.axis, props.clip.inverted, props.clip.position]);
 
   const accentLightColor = getSpecimenAccentColor(props.record.archetype);
@@ -338,21 +369,21 @@ export function ExaminationChamber(props: ChamberProps) {
       <Canvas
         key={props.qualityTier}
         shadows={props.qualityTier === 'standard'}
-        dpr={props.qualityTier === 'standard' ? [1, 1.6] : 1}
-        gl={{ antialias: props.qualityTier === 'standard', powerPreference: 'high-performance' }}
+        dpr={props.qualityTier === 'standard' ? [1, 1.75] : 1}
+        gl={{ antialias: props.qualityTier === 'standard', powerPreference: 'high-performance', alpha: false }}
         onCreated={({ gl }) => {
           gl.localClippingEnabled = true;
-          gl.setClearColor('#05080f');
+          gl.setClearColor('#26343f');
+          gl.toneMapping = THREE.ACESFilmicToneMapping;
+          gl.toneMappingExposure = 1.22;
+          gl.outputColorSpace = THREE.SRGBColorSpace;
+          gl.shadowMap.type = THREE.PCFSoftShadowMap;
         }}
       >
         <ContextLifecycle />
-        <color attach="background" args={['#05080f']} />
-        <fog attach="fog" args={['#05080f', 26, 62]} />
-        <ambientLight intensity={0.65} />
-        <directionalLight position={[10, 15, 12]} color="#dceaf5" intensity={2.6} castShadow />
-        <directionalLight position={[-14, 6, -10]} color="#283b54" intensity={1.3} />
-        <directionalLight position={[0, -10, -12]} color="#c4a359" intensity={0.7} />
-        <pointLight position={[0, 0, 4]} color={accentLightColor} intensity={1.8} distance={20} />
+        <color attach="background" args={['#26343f']} />
+        <fog attach="fog" args={['#26343f', 38, 92]} />
+        <StudioLighting accent={accentLightColor} qualityTier={props.qualityTier} />
         <ArchivalContainmentPlatform archetype={props.record.archetype} />
         <Suspense fallback={null}>
           <SpecimenModel
@@ -367,6 +398,15 @@ export function ExaminationChamber(props: ChamberProps) {
             onMeasurePoint={props.onMeasurePoint}
             selectedAnnotationId={props.selectedAnnotationId}
             onSelectAnnotation={props.onSelectAnnotation}
+          />
+          <ContactShadows
+            position={[0, -4.93, 0]}
+            opacity={0.5}
+            scale={28}
+            blur={2.6}
+            far={18}
+            resolution={props.qualityTier === 'standard' ? 512 : 256}
+            frames={1}
           />
           <ScaleReference type={props.scaleReference} />
           <MeasurementDisplay points={props.measurementPoints} />
