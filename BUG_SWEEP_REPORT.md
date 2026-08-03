@@ -35,6 +35,8 @@ The sweep covers all repository-controlled application source, model modules, ro
 
 ## Current findings
 
-The first dependency-backed run installed 253 packages with zero reported vulnerabilities, then failed typecheck before lint, tests, or build could run. Fourteen custom `THREE.Curve` subclasses inherited a protected constructor; one occurred in an obsolete duplicate Seedcarrier module. The workflow also used Node 22.12.0 while a locked ESLint dependency requires at least 22.13.0.
+The first dependency-backed run installed 253 packages with zero reported vulnerabilities, then failed typecheck before lint, tests, or build could run. Fourteen custom `THREE.Curve` subclasses inherited a protected constructor. The repair added explicit constructors to active and compatibility curve classes and raised the Node floor from 22.12 to 22.13.
 
-Additional confirmed clusters under repair include reduced-motion behavior, remote runtime font loading, model animation ownership, mobile hidden-panel focusability, modal focus containment, incomplete exports, stale three-record documentation/manifests, and missing current-revision browser evidence.
+A second typecheck established that `SeedcarrierModels.tsx` was not wholly obsolete: the canon-correct Seedcarrier module imports three reusable base components from it. The compatibility module has therefore been restored with its curve constructor repaired. This correction prevents the audit itself from deleting a live dependency.
+
+Additional confirmed clusters under repair include reduced-motion behavior, remote runtime font loading, model animation ownership, mobile hidden-panel focusability, modal focus containment, incomplete exports, stale three-record documentation/manifests, non-dedicated fallback records, inconsistent clipping of functional overlays, and missing current-revision browser evidence.
