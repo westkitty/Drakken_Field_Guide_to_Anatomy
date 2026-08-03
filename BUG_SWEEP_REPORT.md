@@ -28,10 +28,13 @@ The sweep covers all repository-controlled application source, model modules, ro
 - [ ] All procedural model modules
 - [ ] Specimen registry and configuration reconciliation
 - [ ] Runtime manifests and documentation reconciliation
-- [ ] Automated validation
+- [x] First automated validation attempt
+- [ ] Corrected automated validation
 - [ ] Browser and device validation
 - [ ] Independent resweep
 
 ## Current findings
 
-The complete defect ledger will be finalized after automated validation and the second sweep. Current confirmed clusters include reduced-motion behavior, remote runtime font loading, model animation ownership, mobile hidden-panel focusability, modal focus containment, stale three-record documentation/manifests, and missing current-revision validation evidence.
+The first dependency-backed run installed 253 packages with zero reported vulnerabilities, then failed typecheck before lint, tests, or build could run. Fourteen custom `THREE.Curve` subclasses inherited a protected constructor; one occurred in an obsolete duplicate Seedcarrier module. The workflow also used Node 22.12.0 while a locked ESLint dependency requires at least 22.13.0.
+
+Additional confirmed clusters under repair include reduced-motion behavior, remote runtime font loading, model animation ownership, mobile hidden-panel focusability, modal focus containment, incomplete exports, stale three-record documentation/manifests, and missing current-revision browser evidence.
