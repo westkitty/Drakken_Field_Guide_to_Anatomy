@@ -51,6 +51,7 @@ import {
   MemorialveinModel,
   ShrinehungerModel,
 } from './models/NoosphereRitualModels';
+import { MotherModel, TheEggModel } from './models/OriginModels';
 import {
   DeepsongCarrierModel,
   GravityImpalerModel,
@@ -162,6 +163,10 @@ export function SpecimenModel(props: SpecimenModelProps) {
       return <GloryfailModel {...props} />;
     case 'viral-bastion':
       return <ViralBastionModel {...props} />;
+    case 'mother':
+      return <MotherModel {...props} />;
+    case 'the-egg':
+      return <TheEggModel {...props} />;
     default:
       return <LegacySpecimenModel {...props} />;
   }
