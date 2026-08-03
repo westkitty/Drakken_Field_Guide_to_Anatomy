@@ -1,0 +1,261 @@
+[
+  {
+    "id": "skymourn",
+    "archiveId": "DFA-ATM-001",
+    "designation": "Skymourn",
+    "category": "mobile organism",
+    "archetype": "Dracoforma / Atmos-Engine / Temperature Griever",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A ribbonlike Atmos-Engine whose thermal behavior is tied to memory and grief. Its looping body weeps frost and burns simultaneously, leaving cold data-lace in its wake.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 18,
+      "visualizationNote": "Archive chamber reconstruction scale only. Canon dimensions are not documented."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Upper atmosphere, post-battle airspace, climate-disrupted biospheres",
+    "operationalRole": "Psychological warfare and atmospheric temperature polarization",
+    "threatClassification": "MYTHIC",
+    "modelAssetRef": "proc-skymourn-v1",
+    "layers": {
+      "surface": "Steam, snow, frost shell, burning thermal seams, and blank facial mask.",
+      "structure": "Reconstructed looping load path and tension spine inferred from the visible infinity-form silhouette.",
+      "internal": "Reconstructed opposed thermal cores used only to explain the archive visualization.",
+      "functional": "Demonstration overlay for thermal polarization and cold data-lace trails; not a literal anatomical claim."
+    },
+    "animations": ["Melancholy Drift", "Thermal Ripple Burst"],
+    "annotations": [
+      {
+        "id": "sky-face",
+        "title": "Blank facial mask",
+        "description": "The compendium describes the face as blank as a forgotten child's drawing.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-SKY-001",
+        "position": [0, 5.8, 0.9]
+      },
+      {
+        "id": "sky-knot",
+        "title": "Opposed thermal knot",
+        "description": "A reconstructed visualization of simultaneous frost and burn behavior. Internal arrangement is undocumented.",
+        "layer": "internal",
+        "evidence": "Reconstructed",
+        "sourceRef": "SRC-SKY-001",
+        "position": [0, 1.2, 0]
+      },
+      {
+        "id": "sky-lace",
+        "title": "Cold data-lace wake",
+        "description": "Persistent lace-like residue described along Skymourn's trail.",
+        "layer": "functional",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-SKY-001",
+        "position": [-4.8, -1.6, -0.4],
+        "animationTimestamp": 2.4
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Snowing of Bar-Khel",
+        "summary": "After orbital bombardment, Skymourn appeared above Bar-Khel. Within one week, the remaining citizens had frozen or entered exile; the snow did not melt.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-SKY-001"
+      }
+    ],
+    "militaryInterpretation": "A post-battle psychological weapon that turns grief into persistent climate collapse. The documented combat profile names Thermal Ripple Burst, Sadness-Stasis Veil, and Melancholy Drift.",
+    "civicResponse": {
+      "fieldEvidence": "Extreme temperature divergence and persistent snowfall are documented around the Bar-Khel incident.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "Claims that it sings the names of the dead are explicitly presented as unverified testimony.",
+      "archiveInterpretation": "Treat grief-correlated thermal events as a detection signal, not proof of intent or range."
+    },
+    "sources": [
+      {
+        "id": "SRC-SKY-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Integrated Edition",
+        "location": "Skymourn entry, lines 548-576 in supplied working canon dossier",
+        "reliability": "Confirmed"
+      },
+      {
+        "id": "SRC-SKY-002",
+        "title": "Drakken Archive Metadata Contact Sheet",
+        "location": "Page 10, Skymourn archival plate",
+        "reliability": "Corroborated"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": ["thermal", "memory", "grief-tied", "atmos-engine"],
+    "sourceStatus": "Working canon entry plus archival plate",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "gorevault",
+    "archiveId": "DFA-CIV-002",
+    "designation": "Gorevault",
+    "category": "siege or processing entity",
+    "archetype": "Dracoforma / Civiformer / Biomass Render Crucible",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A colossal vault-backed processing entity with a swollen furnace body, pressure-sealed ribs, hanging reservoirs, extraction claws, storage chambers, barcode locks, and ash vents.",
+    "dimensions": {
+      "canon": "Unknown",
+      "visualizationHeightMeters": 36,
+      "visualizationNote": "Archive chamber reconstruction scale only. Canon dimensions are not documented."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Secured conquered worlds, render fields, planetary biomass processing corridors",
+    "operationalRole": "Harvest, separation, stabilization, storage, and pre-processing of planetary biomass",
+    "threatClassification": "OMEGA",
+    "modelAssetRef": "proc-gorevault-v1",
+    "layers": {
+      "surface": "Vault hull, extraction claws, sealed rib armor, reservoir sacs, ash vents, and barcode locks.",
+      "structure": "Reconstructed pressure frame and processional limb supports.",
+      "internal": "Reconstructed render crucible, storage chambers, and transfer conduits.",
+      "functional": "Demonstration flow from intake through separation and storage. Exact anatomy remains undocumented."
+    },
+    "animations": ["Processional Haul", "Crucible Maw Intake"],
+    "annotations": [
+      {
+        "id": "gore-reservoir",
+        "title": "Reservoir sacs",
+        "description": "Hanging reservoirs are described as dark with internal motion.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-GOR-001",
+        "position": [3.4, 2.4, 1.8]
+      },
+      {
+        "id": "gore-crucible",
+        "title": "Render crucible",
+        "description": "Internal chamber reconstructed from the documented biomass render and stabilization role.",
+        "layer": "internal",
+        "evidence": "Reconstructed",
+        "sourceRef": "SRC-GOR-001",
+        "position": [0, 2.8, 0]
+      },
+      {
+        "id": "gore-locks",
+        "title": "Barcode locks",
+        "description": "Segmented storage chambers are ringed with barcode locks.",
+        "layer": "surface",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-GOR-001",
+        "position": [-2.7, 5.1, 1.2]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "The Tally Fields of Rhem Vor",
+        "summary": "After Rhem Vor fell, Gorevaults crossed the continents while the seas receded into storage.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-GOR-001"
+      }
+    ],
+    "militaryInterpretation": "Gorevault arrives after resistance is broken. Its presence indicates that a world is being inventoried rather than contested.",
+    "civicResponse": {
+      "fieldEvidence": "Large-scale liquid and biomass withdrawal, ash settling fields, sealed render basins, and storage organs are consistent with documented operations.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "No specific propaganda claim is documented in the source entry.",
+      "archiveInterpretation": "The entity marks a late-stage conversion zone. Evacuation guidance is absent from the supplied canon and is therefore not fabricated here."
+    },
+    "sources": [
+      {
+        "id": "SRC-GOR-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Integrated Edition",
+        "location": "Gorevault entry, lines 1353-1375 in supplied working canon dossier",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": ["civiformer", "biomass", "processing", "blood-ring logistics"],
+    "sourceStatus": "Working canon entry",
+    "modelAvailability": "Deterministic procedural reconstruction"
+  },
+  {
+    "id": "blood-ring",
+    "archiveId": "DFA-INF-003",
+    "designation": "Blood Ring",
+    "category": "planetary infrastructure",
+    "archetype": "Vitrified orbital atrocity-structure",
+    "canonStatus": "Working canon",
+    "evidenceStatus": "Confirmed",
+    "description": "A macro-stabilized orbital band formed from rendered population matter, bone ash, ocean fats, biosphere oils, mineral residue, and Drakken terraforming compounds.",
+    "dimensions": {
+      "canon": "Planetary orbital scale; exact dimensions unknown",
+      "visualizationHeightMeters": 10,
+      "visualizationNote": "Normalized cutaway model. It is not displayed at planetary scale."
+    },
+    "estimatedMass": "Unknown",
+    "environment": "Low orbit around conquered worlds",
+    "operationalRole": "Propaganda, territorial seal, orbital shackle, massacre score, recovery scar, and possible defense platform",
+    "threatClassification": "OMEGA-MYTHIC INFRASTRUCTURE",
+    "modelAssetRef": "proc-blood-ring-v1",
+    "layers": {
+      "surface": "Vitrified crimson shell with pitting, sealed fractures, translucent edges, and dark core bands.",
+      "structure": "Stabilization ribs, spin-alignment braces, and hardened macro-ribs.",
+      "internal": "Suspended ash, void pockets, clot-veins, and black-red rendered matter bands.",
+      "functional": "Reconstructed spin-shaping, pressure alignment, and orbital shackle fields. Exact defense behavior remains uncertain."
+    },
+    "animations": ["Spin-Shaping Reconstruction", "Cooling-State Reconstruction"],
+    "annotations": [
+      {
+        "id": "ring-vein",
+        "title": "Clot-vein band",
+        "description": "Dark internal veins remain visible through the vitrified shell.",
+        "layer": "internal",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-RING-001",
+        "position": [5.4, 0.3, 0.7]
+      },
+      {
+        "id": "ring-rib",
+        "title": "Stabilization rib",
+        "description": "Scar-like ribs and hardened macro-ribs persist after cooling.",
+        "layer": "structure",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-RING-001",
+        "position": [-4.4, 2.3, 0.2]
+      },
+      {
+        "id": "ring-void",
+        "title": "Void pocket",
+        "description": "A reconstructed cutaway of documented internal void pockets.",
+        "layer": "internal",
+        "evidence": "Reconstructed",
+        "sourceRef": "SRC-RING-001",
+        "position": [1.8, -4.7, 0.4]
+      }
+    ],
+    "incidents": [
+      {
+        "title": "Fallenstar Prime",
+        "summary": "The corrected war ledger places the first Blood Rings at Fallenstar Prime in Year 3, establishing the structure as a standard of conquest.",
+        "evidence": "Confirmed",
+        "sourceRef": "SRC-RING-001"
+      }
+    ],
+    "militaryInterpretation": "Blood Rings are functional military ecology, not decoration. Documented roles include territorial marking, orbital shackling, demoralization, massacre scoring, and possible fortress or macro-defense functions.",
+    "civicResponse": {
+      "fieldEvidence": "Ground observers describe a red wound across the sky; orbital views reveal clot-veins, spin-striations, sealed fractures, ash plumes, and stabilization ribs.",
+      "administrationGuidance": "Source unavailable.",
+      "suspectedPropaganda": "The structure itself is a Drakken propaganda weapon. Any official reassurance must be evaluated separately from physical evidence.",
+      "archiveInterpretation": "Treat the ring as active infrastructure until proven inert. The supplied source does not define a safe approach distance."
+    },
+    "sources": [
+      {
+        "id": "SRC-RING-001",
+        "title": "Drakken Terraforming Compendium - Blood-Eclipse War Full Integrated Edition",
+        "location": "Corrected Blood Ring summary and formation sequence, lines 92-127",
+        "reliability": "Confirmed"
+      }
+    ],
+    "recordRevision": "1.0.0",
+    "assetVersion": "procedural-1.0.0",
+    "evidenceTags": ["orbital infrastructure", "vitrification", "atrocity structure", "blood-eclipse war"],
+    "sourceStatus": "Working canon integrated summary",
+    "modelAvailability": "Deterministic procedural cutaway"
+  }
+]

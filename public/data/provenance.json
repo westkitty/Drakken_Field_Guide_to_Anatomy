@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "assetId": "proc-skymourn-v1",
+      "sourceFiles": [
+        "drakken_compendium_full_blood_eclipse_visual_integrated.md",
+        "drakken-archive-metadata-contact-sheet.pdf",
+        "drakken-archive-contact-sheet.pdf"
+      ],
+      "sourceLocations": [
+        "Skymourn entry, lines 548-576",
+        "Metadata contact sheet page 10",
+        "Archive contact sheet page 7"
+      ],
+      "processing": [
+        "Mapped confirmed visible features to procedural tube, mask, particle, and trail geometry",
+        "Separated structure, internal, and functional reconstruction layers",
+        "Kept canonical dimensions unknown and declared chamber visualization scale"
+      ],
+      "runtimeOutput": "Generated at runtime from src/scene/Specimens.tsx",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-gorevault-v1",
+      "sourceFiles": ["drakken_compendium_full_blood_eclipse_visual_integrated.md"],
+      "sourceLocations": ["Gorevault entry, lines 1353-1375"],
+      "processing": [
+        "Mapped vault body, pressure ribs, reservoir sacs, extraction limbs, storage chambers, barcode locks, and ash vents to procedural geometry",
+        "Marked internal process geometry as reconstructed"
+      ],
+      "runtimeOutput": "Generated at runtime from src/scene/Specimens.tsx",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-blood-ring-v1",
+      "sourceFiles": ["drakken_compendium_full_blood_eclipse_visual_integrated.md"],
+      "sourceLocations": ["Corrected Blood Ring summary and formation process, lines 92-127"],
+      "processing": [
+        "Mapped vitrified shell, clot-vein bands, void pockets, and stabilization ribs to a normalized cutaway",
+        "Separated spin-shaping and cooling as reconstructed operational states"
+      ],
+      "runtimeOutput": "Generated at runtime from src/scene/Specimens.tsx",
+      "sourceHash": null,
+      "runtimeHash": null
+    }
+  ]
+}

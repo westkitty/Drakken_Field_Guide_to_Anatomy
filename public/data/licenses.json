@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "releaseIntent": "Prototype",
+  "records": [
+    {
+      "assetId": "proc-skymourn-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; no source binary is distributed",
+      "attribution": "Internal canon source citation retained",
+      "reviewState": "Owner-supplied source"
+    },
+    {
+      "assetId": "proc-gorevault-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; no source binary is distributed",
+      "attribution": "Internal canon source citation retained",
+      "reviewState": "Owner-supplied source"
+    },
+    {
+      "assetId": "proc-blood-ring-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; no source binary is distributed",
+      "attribution": "Internal canon source citation retained",
+      "reviewState": "Owner-supplied source"
+    }
+  ]
+}

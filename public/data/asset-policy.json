@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "runtimeRoot": "/",
+  "preferred3DFormat": "GLB for future production assets; procedural geometry for this prototype",
+  "remoteAssetsAllowed": false,
+  "externalGltfReferencesAllowed": false,
+  "units": "meters unless explicitly marked normalized",
+  "orientation": "Y-up",
+  "devicePixelRatioMax": 1.6,
+  "requiredLedgers": ["assets.json", "provenance.json", "licenses.json", "ATTRIBUTION.md"],
+  "releaseBlocks": [
+    "Unknown third-party ownership",
+    "Remote runtime asset URL",
+    "Undeclared decoder requirement",
+    "Canonical measurement presented without source support",
+    "Missing disposal policy"
+  ]
+}
