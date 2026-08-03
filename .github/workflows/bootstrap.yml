@@ -1,10 +1,9 @@
 name: Bootstrap Skymourn Archive
 
 on:
-  push:
-    branches: [build-skymourn]
-    paths:
-      - ".github/workflows/bootstrap.yml"
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -47,6 +46,7 @@ jobs:
         run: npm run build
 
       - name: Commit validated source
+        if: github.event_name == 'pull_request'
         shell: bash
         run: |
           rm -f .github/workflows/bootstrap.yml
