@@ -7,236 +7,208 @@
   "project_name": "Drakken Field Anatomy Archive",
   "project_root": ".",
   "artifact_path": "",
-  "state_revision": 16,
-  "last_updated": "2026-08-03T09:59:00-04:00",
+  "state_revision": 17,
+  "last_updated": "2026-08-03T10:50:00-04:00",
   "current_baseline": {
-    "identity": "build-skymourn source commit 8a0919c697ec740042589295212eb536f31de19f",
-    "state": "implemented-unverified",
-    "last_verified": "No retrievable current-branch build or browser evidence"
+    "identity": "audit/exhaustive-bug-sweep-20260803 PR #2",
+    "state": "partially-verified",
+    "last_verified": "GitHub Actions run 30824468370: strict static audit, typecheck, zero-warning lint, 17 tests, and production build passed"
   },
   "scope_boundaries": [
     "Single browser archive at repository root",
     "All 59 canonical Drakken records remain present",
     "Canon governed by docs/drakken_compendium_full_blood_eclipse_visual_integrated.md",
-    "Record-level procedural model improvements use bounded explicit-count batches",
-    "The 59-record inventory is closed; do not fabricate records to fill a requested batch count",
-    "No deployment, backend, authentication, database, external asset sourcing, dependency migration, or unrelated feature work"
+    "The 59-record inventory is closed; do not fabricate, duplicate, or wrap records",
+    "No deployment, backend, authentication, database, external asset sourcing, framework migration, or unrelated feature work",
+    "Automated verification does not substitute for browser, visual-canon, device, or long-session performance evidence"
   ],
   "linked_parent_state": null
 }
 -->
 
-## 1. Project Identity and Scope
+## 1. Project Identity and Purpose
 
-The Drakken Field Anatomy Archive is a responsive React Three Fiber forensic compendium containing 59 Drakken records. The central examination chamber remains the primary product surface. The active milestone is record-level model improvement without reducing the archive, inventing canon, or counting shared configuration as finished modeling.
+The Drakken Field Anatomy Archive is a React Three Fiber forensic compendium for 59 canonical records. Its protected user journey is: find a record, inspect a record-specific 3D reconstruction, manipulate the camera, toggle four anatomy layers, section the reconstruction, use animation and measurement tools, review evidence and incidents, and export the complete dossier.
 
 ## 2. Current Baseline
 
-The active model-source baseline is `build-skymourn` commit `8a0919c697ec740042589295212eb536f31de19f`.
+The current repair candidate is draft PR #2 from `audit/exhaustive-bug-sweep-20260803` into `build-skymourn`.
 
-Current source includes:
+The exhaustive sweep established and repaired:
 
-- all 59 records and the legacy fallback router;
-- original dedicated models for Skymourn, Gorevault, and Blood Ring;
-- Batches 1–7 recorded below;
-- a final Batch 8 closure containing the only two records remaining after Batch 7;
-- dedicated source constructions for Mother and The Egg;
-- branch-scoped GitHub Actions validation configuration.
-
-The connector reports no status checks or workflow runs for the current source commit. Browser execution is unavailable. The final two models are implemented but unverified.
+- explicit dedicated routing for all 59 records;
+- four previously omitted models: Glassspine, Quarrymind, Toxic Veil Engine, and Hive Floramother;
+- build-blocking Three.js curve constructors and Node engine metadata;
+- section clipping across meshes and functional Drei line overlays;
+- Skymourn animation ownership when optional layers are hidden;
+- reduced-motion playback behavior;
+- pending record-switch cancellation;
+- modal focus containment and restoration;
+- hidden mobile drawer interaction state;
+- remote runtime font removal;
+- complete Markdown and JSON exports;
+- WebGL quality remount and context-listener cleanup;
+- honest reconstruction-unit and scale language;
+- complete 59-entry asset, provenance, and license ledgers;
+- current project, design, architecture, pipeline, and validation documentation;
+- permanent registry, source-reference, export, and governance tests;
+- permanent strict static auditing in CI.
 
 ## 3. Artifact Contract
 
-Maintain one usable forensic archive containing the full 59-record collection. Every record remains discoverable and inspectable. Model work must preserve surface, structure, internal, and functional layers; clipping; animation; measurement; annotations; scale context; record switching; and fallback routing.
+Maintain one usable archive containing all 59 canonical records. Every record must remain searchable, selectable, and explicitly routed. Each model must preserve surface, structure, internal, and functional examination layers; section clipping; animation; measurement; annotations; evidence status; camera controls; diagnostics; and complete dossier export.
 
-A record is not complete merely because it has unique configuration values. It requires meaningful record-specific construction grounded in the governing dossier and appropriate runtime validation before promotion to verified.
-
-The record inventory is closed at 59. A requested batch larger than the remaining inventory must stop at the final canonical record rather than fabricate, duplicate, or wrap records.
+Procedural chamber geometry is normalized for examination. Record visualization-height fields are metadata and are not a proven meter-per-world-unit calibration.
 
 ## 4. Active Invariants
 
-### INV-001 — Preserve the full archive
+### INV-001 — Preserve the closed 59-record registry
 
-- **State:** `requested`
-- **Rule:** Keep all 59 records present, selectable, and routed.
-- **Validation:** Record-count tests and rendered navigation inspection.
-- **Status:** active
+- **State:** `verified` at registry/source level
+- **Rule:** Keep exactly 59 unique record IDs, archive IDs, and model asset IDs. Do not invent additional records.
+- **Evidence:** strict static audit and integrity tests in run `30824468370`
+- **Runtime gap:** browser navigation through all 59 remains unverified
 
-### INV-002 — Canon governs model anatomy
+### INV-002 — Every record has a dedicated route
 
-- **State:** `requested`
-- **Rule:** Significant anatomy, function, terminology, dimensions, and behavior must derive from the dossier or be clearly restrained reconstruction.
-- **Authority:** `docs/drakken_compendium_full_blood_eclipse_visual_integrated.md`
-- **Validation:** Record-by-record dossier comparison.
-- **Status:** active
+- **State:** `verified` at source/build level
+- **Rule:** No canonical record may rely on the generic parametric fallback as its active route.
+- **Evidence:** static audit reports 59 dedicated routes and zero fallback IDs
 
-### INV-003 — Protect the examination workflow
+### INV-003 — Canon governs model identity
 
-- **State:** `requested`
-- **Rule:** Preserve orbit, pan, zoom, reset, layers, clipping, animations, measurement, comparison, annotations, evidence, diagnostics, and export behavior.
-- **Validation:** Browser smoke and repeated-switch lifecycle path.
-- **Status:** active
+- **State:** `implemented-unverified`
+- **Rule:** Significant form and function derive from the dossier or remain explicitly reconstructive.
+- **Evidence:** dedicated source components and record source references
+- **Missing proof:** visual sibling comparison and rendered canon audit
 
-### INV-004 — Configuration is not completion
+### INV-004 — Protect the examination workflow
 
-- **State:** `requested`
-- **Rule:** Colors, scales, primitive counts, configuration entries, and archetype routing alone do not count as individual model completion.
-- **Validation:** Dedicated construction inspection and sibling comparison.
-- **Status:** active
+- **State:** `partially-verified`
+- **Rule:** Preserve orbit, pan, zoom, reset, projection modes, layers, clipping, animations, measurement, annotations, diagnostics, exports, and responsive access.
+- **Evidence:** typecheck, lint, tests, build, static source checks
+- **Missing proof:** direct browser journey across pointer, keyboard, touch, and narrow layouts
 
-### INV-005 — Batch 5 exact boundary
+### INV-005 — Keep runtime assets local and governed
 
-- **State:** `requested`
-- **Rule:** Batch 5 begins at `nebular-stream-herder` and ends at `data-core-unbinder`.
-- **Status:** active
+- **State:** `verified` at source/ledger level
+- **Rule:** No remote runtime fonts, models, textures, audio, or shaders. Every `modelAssetRef` must have asset, provenance, and license entries.
+- **Evidence:** zero remote application references; 59/59/59 ledger coverage
 
-### INV-006 — Batch 6 exact boundary
+### INV-006 — Do not overclaim scale
 
-- **State:** `requested`
-- **Rule:** Batch 6 begins at `foundry-cantor` and ends at `sovereignty-eater`.
-- **Status:** active
+- **State:** `verified` at source/copy level
+- **Rule:** Measurements use reconstruction units. Visualization-height metadata does not establish physical calibration.
+- **Evidence:** UI, exports, manifests, design, architecture, and validation documentation
 
-### INV-007 — Batch 7 exact boundary
+### INV-007 — Completion claims require current evidence
 
-- **State:** `requested`
-- **Rule:** Batch 7 begins at `hymnlock` and ends at `viral-bastion`.
-- **Status:** active
+- **State:** `active`
+- **Rule:** Source presence is not browser proof. A successful build is not visual, interaction, performance, or lifecycle verification.
 
-### INV-008 — Batch 8 is the final two-record closure batch
+## 5. Verified Automated Behavior
 
-- **State:** `requested`
-- **Rule:** The only records after `viral-bastion` are `mother` and `the-egg`. Batch 8 must contain exactly those two records, end the 59-record inventory, and must not fabricate or wrap eight additional records to satisfy a nominal ten-record request.
-- **Evidence:** `src/data/specimens.json` and `src/scene/SpecimenRouter.tsx`
-- **Validation:** Tail-of-registry and exact route-case inspection.
-- **Status:** active
+GitHub Actions run `30824468370` passed on the cleaned audit branch:
 
-## 5. Verified Working Behavior
+- locked dependency installation: 253 packages, zero reported vulnerabilities;
+- strict static audit: zero issues;
+- TypeScript project build;
+- ESLint with `--max-warnings 0`;
+- Vitest: 17/17 tests across two files;
+- Vite production build: 592 transformed modules.
 
-No current-commit runtime behavior is promoted to verified. Historical bootstrap validation predates the current model batches and is stale for the present baseline.
+The strict audit specifically verified:
 
-## 6. Known Not Working
+- 59 specimen records;
+- 59 dedicated routes;
+- zero fallback record IDs;
+- zero missing line clipping assignments;
+- zero missing material clipping assignments;
+- zero remote application runtime references;
+- 59 asset entries;
+- 59 provenance entries;
+- 59 license entries.
 
-No current runtime failure has been observed because the current branch has not been executed in an accessible browser runtime.
+## 6. Known Remaining Risk
 
-## 7. Implemented but Unverified
+### RISK-001 — Oversized production JavaScript chunk
 
-### UNV-001 — Full archive application source
+- **State:** `known-risk`
+- **Evidence:** production build emitted a 1,574.68 kB minified / 389.13 kB gzip main JavaScript chunk and Vite's `>500 kB` warning
+- **Impact:** initial parsing and loading may be expensive, especially on lower-tier mobile hardware
+- **Why not blindly repaired:** meaningful improvement likely requires record-family or per-model dynamic loading and browser performance comparison; suppressing the warning or arbitrary manual chunking would not prove a faster user path
 
-The source contains the 59-record archive, examination chamber, controls, four anatomy layers, clipping, animations, measurement, scale references, annotations, evidence panels, diagnostics, responsive drawers, keyboard controls, and exports.
+## 7. Implemented but Unverified Runtime Behavior
 
-### UNV-002 — Batch 1 Crust-Binders
+The following repairs compile and pass source-level checks but still require direct browser observation:
 
-Dedicated source models exist for Fault-Tongue, Obsidian Gul, Tremorhound, Magma Pleuron, and Granithelion.
+- reduced-motion startup and manual resume;
+- cancellation of a pending record switch by reselecting the active record;
+- keyboard focus trapping and restoration for the briefing dialog;
+- mobile drawer visibility and focus behavior;
+- quality-tier renderer recreation;
+- WebGL context loss and restoration handling;
+- sectioning of all functional lines in rendered models;
+- measurement interactions and reconstruction-unit labels;
+- complete file downloads across supported browsers;
+- repeated model switching and resource stabilization;
+- visual framing and canon fidelity for all 59 models.
 
-### UNV-003 — Batch 2 Atmos-Engines
+## 8. Pending Work
 
-Dedicated source models and routes exist for Aerokarst, Hydrostatic Renderer, Stratos Chorister, Balance Engine, and Stormmind Tactician.
+### PND-001 — Browser acceptance sweep
 
-### UNV-004 — Batch 3 Seedcarriers
+Exercise representative records from every family and every repaired path using mouse, keyboard, touch, a narrow viewport, and reduced motion.
 
-Canon-correct routes exist for Macroflora Colossus, Sporesphere Archivist, Neural Fungibinder, Precipitation Synth, and Soil Rewriter.
+- **Priority:** critical before release
+- **Blocks source handoff:** no
+- **Blocks runtime completion claim:** yes
 
-### UNV-005 — Batch 4 Fluxborne models
+### PND-002 — Performance and lifecycle profile
 
-Dedicated routes exist for Trench-Sovereign, Salinity Conductor, Gyre Tactician, Littoral Reformer, and Cryofluid Engine. Currenthalo uses a corrected loop assembly so its fin-ribs remain attached to the animated loops.
-
-### UNV-006 — Batch 5 exact ten-model implementation
-
-Dedicated routes exist for Veilcurrent, Coronaxis, Ringthroat, Solnexus, Nullthorn, Lyriboris, Helionth, Umbrakrael, Cinderverge, and Singulararch.
-
-### UNV-007 — Batch 6 exact ten-model implementation
-
-Dedicated routes exist for Ironcant, Gridsaint, Spiremolt, Roadthorn, Habitarch, Archivore, Lexiclast, Calendarion, Dreamtaxon, and Crownmute.
-
-### UNV-008 — Batch 7 exact ten-model implementation
-
-Dedicated routes exist for Hymnlock, Memorialvein, Shrinehunger, Redacted Grin, Spinal Loop, Cradle.exe, Foldhowl, Manifest.Discord, Gloryfail, and Viral Bastion.
-
-### UNV-009 — Batch 8 final two-model implementation
-
-Source commit `8a0919c697ec740042589295212eb536f31de19f` routes the only two records remaining after Batch 7 to dedicated models:
-
-1. `mother` — Mother
-2. `the-egg` — The Egg
-
-Implementation files:
-
-- `src/scene/models/OriginModels.tsx`
-- `src/scene/SpecimenRouter.tsx`
-
-Mother is represented as the living planetary codematriarch rather than a humanoid individual: bioluminescent data-veins, code-tree forests, macro-rune storm systems, concentric planetary structure, a genesis nursery core, and a trans-temporal egg corona.
-
-The Egg is a separate fixed Origin Node: translucent breathing geode glass, barcode-light spirals, encoded self-shielding, an undifferentiated embryonic data core, and terra-emergence field roots.
-
-Missing evidence: TypeScript, lint, tests, production build, browser rendering, layer and clipping behavior, measurement, animations, camera framing, scale presentation, lifecycle disposal, and repeated switching.
-
-## 8. Unknown or Evidence-Stale State
-
-### UNK-001 — Browser and device behavior
-
-Pointer, touch, keyboard, narrow viewport, reduced motion, WebGL clipping, measurement picking, context recovery, and repeated switching have not been exercised against the current source baseline.
-
-### UNK-002 — Current dependency-backed build state
-
-A validation workflow exists, but no status or workflow run is attached or retrievable for source commit `8a0919c697ec740042589295212eb536f31de19f`.
-
-## 9. Pending Work
-
-### PND-001 — Validate the current branch
-
-- **Priority:** critical
-- **Required:** `npm run typecheck && npm run lint && npm test && npm run build`
-- **Blocks verified completion:** yes
-
-### PND-002 — Perform browser model and lifecycle checks
-
-Exercise all record families, including Mother and The Egg, through camera controls, layers, clipping, animations, measurement, annotations, scale context, and repeated switching.
-
-- **Priority:** critical
-- **Blocks verified completion:** yes
-
-### PND-003 — Do not begin another model batch without new canon records
-
-The registry ends at `the-egg`. Further work on the current 59-record collection should be validation, repair, optimization, or approved asset replacement rather than inventing a Batch 9.
+Measure first load, record switching, `renderer.info` stabilization, memory growth, and target-device responsiveness. Compare any code-splitting candidate against this baseline.
 
 - **Priority:** high
-- **Blocks source implementation closure:** no
+- **Blocks source correctness claim:** no
+- **Blocks performance readiness claim:** yes
 
-## 10. Active Decisions and Prohibitions
+### PND-003 — Visual canon review
 
-- Use npm, Vite, React, TypeScript, Three.js, React Three Fiber, Drei, Vitest, ESLint, and plain CSS with one WebGL canvas.
-- Use deterministic local procedural geometry while approved GLBs are absent.
-- Preserve dossier body plans even when older `specimens.json` summaries are generic or contradictory.
-- Keep Mother planetary and fixed to her stellar nursery context; do not anthropomorphize her into an ordinary creature model.
-- Keep The Egg an inert fixed Origin Node rather than a combat organism.
-- Do not fabricate, duplicate, or wrap records to fill an exhausted batch count.
-- Do not claim rendering, visual comparison, typechecking, linting, testing, or building without direct current-revision evidence.
-- Do not deploy, install speculative dependencies, replace frameworks, source external assets, or perform destructive Git operations.
+Rotate and compare every record against its dossier and closest sibling, including hidden-layer combinations and section planes.
 
-## 11. Validation and Evidence Matrix
+- **Priority:** high
+- **Blocks build claim:** no
+- **Blocks full model-quality completion claim:** yes
 
-| Claim | State | Evidence | Required proof |
+## 9. Active Decisions and Prohibitions
+
+- Keep React 19, Vite, TypeScript, Three.js, R3F, Drei, Vitest, ESLint, and plain CSS.
+- Keep one WebGL canvas and DOM-owned interface controls.
+- Keep dependencies pinned.
+- Do not restore remote font loading.
+- Do not claim meter calibration without a real model-bounds normalization system and evidence.
+- Do not suppress the chunk warning as a substitute for performance work.
+- Do not merge PR #2 as a verified runtime release without browser evidence.
+- Do not begin another specimen batch unless the canon registry is intentionally expanded.
+
+## 10. Validation Matrix
+
+| Claim | State | Evidence | Missing proof |
 |---|---|---|---|
-| Full 59-record archive remains intact | requested | Registry unchanged and existing routing preserved | Record-count test and browser navigation |
-| Final inventory contains only Mother and The Egg after Viral Bastion | implemented-unverified | Registry tail inspection | Record-count test |
-| Batch 8 routes exactly the final two records | implemented-unverified | Router and compare inspection | Build plus direct route exercise |
-| Mother and The Egg are dossier-grounded | implemented-unverified | Dossier comparison and dedicated source | Visual canon audit |
-| No fabricated records were added | implemented-unverified | Registry file unchanged | Record-count test and diff inspection |
-| Examination workflow remains functional | unknown | Source compatibility retained | Browser smoke path |
-| Current branch compiles and builds | evidence-stale | No retrievable current status or workflow run | Full npm suite |
+| Registry contains 59 unique records | verified | static audit + integrity tests | browser navigation |
+| Every record has a dedicated source route | verified | 59 routes, zero fallback IDs | rendered route exercise |
+| Source compiles | verified | TypeScript pass | none |
+| Lint is clean | verified | zero-warning ESLint pass | none |
+| Tests pass | verified | 17/17 Vitest | browser E2E |
+| Production bundle builds | verified | Vite build pass | deployment/browser load |
+| No remote runtime references | verified at source level | strict static audit | network-panel confirmation |
+| Section clipping is assigned consistently | verified at source level | zero clipping gaps | rendered clipping behavior |
+| Examination workflow is usable | unverified | source and build evidence only | complete browser journey |
+| Visual canon fidelity | unverified | dossier-grounded source | rendered comparison |
+| Performance readiness | unverified / at risk | chunk warning | target-device profile |
 
-## 12. Current Change Scope and Impact Radius
+## 11. Compact Revision Log
 
-Batch 8 adds one final origin-model module and two model-router cases. The impact radius includes Three.js geometry ownership, transparent and emissive materials, planetary and geode camera framing, frame animation transforms, clipping, layer visibility, measurement events, annotations, performance, and record switching. No dependencies, application UI, archive records, or previously completed model routes changed.
-
-## 13. Compact Revision Log
-
-- **Revision 1–8:** Bootstrap, prototype, archive expansion, and rejected shared-archetype completion claims.
-- **Revision 9:** Added Batch 1 Crust-Binder dedicated models.
-- **Revision 10:** Added Batch 2 Atmos-Engine dedicated models.
-- **Revision 11:** Reconciled the 59-record contract and corrected Batch 3 Seedcarriers.
-- **Revision 12:** Added Batch 4 Fluxborne models and branch validation workflow.
-- **Revision 13:** Added Batch 5: exactly ten sequential Fluxborne and Orbital-Wyrm models ending at Singulararch.
-- **Revision 14:** Added Batch 6: exactly ten sequential Civiformer and Noosphere-Cantor models ending at Crownmute.
-- **Revision 15:** Added Batch 7: exactly ten sequential Noosphere-Cantor and Glitch-Touched models ending at Viral Bastion.
-- **Revision 16:** Added the final two-record Batch 8 containing Mother and The Egg. The 59-record source inventory is now exhausted. No runtime verification was promoted.
+- **Revision 1–8:** Bootstrap, prototype, archive expansion, and rejection of shared-archetype completion claims.
+- **Revision 9–16:** Bounded dedicated-model batches completed the closed 59-record source inventory.
+- **Revision 17 — 2026-08-03:** Exhaustive repository bug sweep. Repaired build blockers, four missing model routes, cross-cutting interaction/accessibility/export/lifecycle defects, clipping consistency, governance ledgers, documentation, and automated integrity coverage. Promoted automated source/build claims to verified. Browser, visual-canon, device, lifecycle, and performance claims remain explicitly unverified.
