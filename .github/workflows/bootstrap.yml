@@ -17,11 +17,6 @@ jobs:
           ref: build-skymourn
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
       - name: Restore source tree
         shell: bash
         run: |
@@ -29,6 +24,11 @@ jobs:
           base64 --decode /tmp/dfaa.b64 > /tmp/dfaa.tar.gz
           tar -xzf /tmp/dfaa.tar.gz -C .
           rm -rf .bootstrap
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
 
       - name: Install dependencies
         run: npm install --ignore-scripts
