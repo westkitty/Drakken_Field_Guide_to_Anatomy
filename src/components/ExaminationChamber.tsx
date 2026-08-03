@@ -396,7 +396,7 @@ export function ExaminationChamber(props: ChamberProps) {
         <span><kbd>Drag</kbd> Orbit 3D</span>
       </div>
       <div className="chamber-scale-note">
-        Reconstruction scale: {props.record.dimensions.visualizationHeightMeters} m. {props.record.dimensions.visualizationNote}
+        Record visualization-height metadata: {props.record.dimensions.visualizationHeightMeters} m. Chamber geometry is normalized and uncalibrated.
       </div>
     </div>
   );

@@ -98,7 +98,7 @@ export default function App() {
   const [qualityTier, setQualityTier] = useState<'standard' | 'reduced'>('standard');
   const [measurementMode, setMeasurementMode] = useState(false);
   const [measurementPoints, setMeasurementPoints] = useState<[number, number, number][]>([]);
-  const [scaleReference, setScaleReference] = useState<'none' | 'human' | 'vehicle' | 'building'>('human');
+  const [scaleReference, setScaleReference] = useState<'none' | 'human' | 'vehicle' | 'building'>('none');
   const [selectedAnnotationId, setSelectedAnnotationId] = useState<string | null>('sky-face');
   const [selectedAnnotationIds, setSelectedAnnotationIds] = useState<string[]>(['sky-face']);
   const [recordTab, setRecordTab] = useState<'record' | 'incident' | 'military' | 'civic' | 'sources'>('record');
@@ -520,9 +520,9 @@ export default function App() {
                 <button type="button" onClick={() => setMeasurementPoints([])}>Clear measurement</button>
                 <select aria-label="Scale comparison" value={scaleReference} onChange={(event) => setScaleReference(event.target.value as typeof scaleReference)}>
                   <option value="none">No scale reference</option>
-                  <option value="human">Human figure - 1.8 m</option>
-                  <option value="vehicle">Ground vehicle - 1.5 m</option>
-                  <option value="building">Ten-meter building marker</option>
+                  <option value="human">Illustrative human marker</option>
+                  <option value="vehicle">Illustrative vehicle marker</option>
+                  <option value="building">Illustrative building marker</option>
                 </select>
               </div>
               <p className="measurement-summary">

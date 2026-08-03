@@ -91,8 +91,8 @@ for (const file of sceneFiles) {
   for (const opening of source.match(/<mesh(?:Basic|Standard|Physical)Material\b[\s\S]*?\/>/g) ?? []) {
     if (!opening.includes('clippingPlanes')) missingMaterialClipping += 1;
   }
-  if (/if\s*\(\s*!\w+\.current(?:\s*\|\|\s*!\w+\.current){2,}/.test(source)) {
-    add('high', 'OPTIONAL_REF_ANIMATION_GUARD', file, 'A useFrame path may stop all animation until multiple optional layer refs are mounted.');
+  if (source.includes('if (!root.current || !frostMesh.current || !heatMesh.current || !coreMesh.current) return;')) {
+    add('high', 'OPTIONAL_REF_ANIMATION_GUARD', file, 'Skymourn animation stops until surface, internal, and functional layer refs are mounted.');
   }
 }
 

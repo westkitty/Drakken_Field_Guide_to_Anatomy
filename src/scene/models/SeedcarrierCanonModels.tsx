@@ -351,6 +351,7 @@ export function SporesphereArchivistModel(props: SpecimenModelProps) {
 export function NeuralFungibinderModel(props: SpecimenModelProps) {
   const crown = useRef<THREE.Group>(null);
   const elapsed = useAnimationClock(props.animation);
+  const clippingPlanes = useMemo(() => clipArray(props.clipPlane), [props.clipPlane]);
 
   useFrame(() => {
     if (!crown.current) return;
@@ -404,6 +405,7 @@ export function NeuralFungibinderModel(props: SpecimenModelProps) {
 }
 
 export function PrecipitationSynthModel(props: SpecimenModelProps) {
+  const clippingPlanes = useMemo(() => clipArray(props.clipPlane), [props.clipPlane]);
   const rainGlyphs = useMemo(() => Array.from({ length: 5 }, (_, glyph) => Array.from({ length: 40 }, (_, index) => {
     const t = index / 39;
     const angle = t * Math.PI * (2.5 + glyph * 0.3);
