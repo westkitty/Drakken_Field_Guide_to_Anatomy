@@ -1,10 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
-
 :root {
   color-scheme: dark;
-  --font-serif: "Cinzel", Georgia, "Times New Roman", serif;
-  --font-sans: "Outfit", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   font-family: var(--font-sans);
   background: #05080f;
@@ -973,7 +971,9 @@ input[type="range"] {
     width: min(380px, 92vw);
     max-height: none;
     transform: translateX(-104%);
-    transition: transform 180ms ease-out;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 180ms ease-out, visibility 0s linear 180ms;
     box-shadow: 20px 0 60px rgba(0, 0, 0, 0.7);
   }
 
@@ -988,6 +988,9 @@ input[type="range"] {
   .registry-panel.is-open,
   .record-panel.is-open {
     transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s;
   }
 
   .mobile-close {

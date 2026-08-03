@@ -220,7 +220,7 @@ export function MacrofloraColossusModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {rootDirections.map(([x, , z], index) => (
-            <Line key={index} points={[[0, -2.7, 0], [x * 3.2, -3.3, z * 3.2], [x * 7.2, -4.4, z * 7.2]]} color="#78c98b" lineWidth={1.5} transparent opacity={0.58} />
+            <Line key={index} points={[[0, -2.7, 0], [x * 3.2, -3.3, z * 3.2], [x * 7.2, -4.4, z * 7.2]]} color="#78c98b" lineWidth={1.5} transparent opacity={0.58}  clippingPlanes={clippingPlanes} />
           ))}
           <points>
             <bufferGeometry>
@@ -318,7 +318,7 @@ export function SporesphereArchivistModel(props: SpecimenModelProps) {
           ))}
           {pods.map((index) => {
             const angle = (index / pods.length) * Math.PI * 2;
-            return <Line key={index} points={[[0, 0, 0], [Math.cos(angle) * 4.05, index % 2 ? 0.75 : -0.6, Math.sin(angle) * 4.05]]} color="#6c8e7b" lineWidth={1} transparent opacity={0.45} />;
+            return <Line key={index} points={[[0, 0, 0], [Math.cos(angle) * 4.05, index % 2 ? 0.75 : -0.6, Math.sin(angle) * 4.05]]} color="#6c8e7b" lineWidth={1} transparent opacity={0.45}  clippingPlanes={clippingPlanes} />;
           })}
         </group>
       )}
@@ -340,8 +340,8 @@ export function SporesphereArchivistModel(props: SpecimenModelProps) {
 
       {props.layers.functional && (
         <group>
-          <Line points={helix.a} color="#77d9a3" lineWidth={2} transparent opacity={0.72} />
-          <Line points={helix.b} color="#a9e49a" lineWidth={2} transparent opacity={0.72} />
+          <Line points={helix.a} color="#77d9a3" lineWidth={2} transparent opacity={0.72}  clippingPlanes={clippingPlanes} />
+          <Line points={helix.b} color="#a9e49a" lineWidth={2} transparent opacity={0.72}  clippingPlanes={clippingPlanes} />
           {[3.5, 4.7, 5.9].map((radius, index) => (
             <mesh key={radius} rotation={[Math.PI / 2, index * 0.34, 0]}>
               <torusGeometry args={[radius, 0.035, 8, 96]} />
@@ -447,7 +447,7 @@ export function NeuralFungibinderModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {webLines.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#60d596' : '#82bff0'} lineWidth={1.5} transparent opacity={0.58} />
+            <Line key={index} points={points} color={index % 2 ? '#60d596' : '#82bff0'} lineWidth={1.5} transparent opacity={0.58}  clippingPlanes={clippingPlanes} />
           ))}
           {[2.8, 4.6, 6.4].map((radius, index) => (
             <mesh key={radius} position={[0, -2.85, 0]} rotation={[-Math.PI / 2, 0, 0]}>
@@ -463,7 +463,11 @@ export function NeuralFungibinderModel(props: SpecimenModelProps) {
 }
 
 class PrecipitationCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     return target.set(Math.sin(t * Math.PI * 2.2) * 1.1, Math.sin(t * Math.PI * 3.3) * 0.72, (t - 0.5) * 9.5);
   }
 }
@@ -563,7 +567,7 @@ export function PrecipitationSynthModel(props: SpecimenModelProps) {
 
       {props.layers.functional && (
         <group>
-          <Line points={pathPoints} color="#74d6b3" lineWidth={1.5} transparent opacity={0.58} />
+          <Line points={pathPoints} color="#74d6b3" lineWidth={1.5} transparent opacity={0.58}  clippingPlanes={clippingPlanes} />
           <points>
             <bufferGeometry>
               <bufferAttribute attach="attributes-position" args={[rainParticles, 3]} />
@@ -571,7 +575,7 @@ export function PrecipitationSynthModel(props: SpecimenModelProps) {
             <pointsMaterial color="#8ed2ff" size={0.1} sizeAttenuation transparent opacity={props.silhouette ? 0 : 0.68} clippingPlanes={clippingPlanes} />
           </points>
           {[-2.6, 0, 2.6].map((z) => (
-            <Line key={z} points={[[0, -0.2, z], [0, -6.1, z]]} color="#79c7ed" lineWidth={1} transparent opacity={0.45} />
+            <Line key={z} points={[[0, -0.2, z], [0, -6.1, z]]} color="#79c7ed" lineWidth={1} transparent opacity={0.45}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -662,7 +666,7 @@ export function SoilRewriterModel(props: SpecimenModelProps) {
             <StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#8a8871" metalness={0.45} roughness={0.5} wireframe />
           </mesh>
           {legPositions.map(([x, , z], index) => (
-            <Line key={index} points={[[0, 0.55, 0], [x, -0.4, z], [x, -2.4, z + (z > 0 ? 0.4 : -0.4)]]} color="#a7aa83" lineWidth={2} transparent opacity={0.65} />
+            <Line key={index} points={[[0, 0.55, 0], [x, -0.4, z], [x, -2.4, z + (z > 0 ? 0.4 : -0.4)]]} color="#a7aa83" lineWidth={2} transparent opacity={0.65}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -683,10 +687,10 @@ export function SoilRewriterModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {[-3, -1.8, -0.6, 0.6, 1.8, 3].map((x) => (
-            <Line key={x} points={[[x, -1, 3.8], [x, -3.6, 1.5], [x, -3.6, -8]]} color="#80bd68" lineWidth={1.4} transparent opacity={0.58} />
+            <Line key={x} points={[[x, -1, 3.8], [x, -3.6, 1.5], [x, -3.6, -8]]} color="#80bd68" lineWidth={1.4} transparent opacity={0.58}  clippingPlanes={clippingPlanes} />
           ))}
           {[-5.2, -2.6, 0, 2.6, 5.2].map((z) => (
-            <Line key={z} points={[[-4.3, -3.62, z], [4.3, -3.62, z]]} color="#5f8f4d" lineWidth={1} transparent opacity={0.35} />
+            <Line key={z} points={[[-4.3, -3.62, z], [4.3, -3.62, z]]} color="#5f8f4d" lineWidth={1} transparent opacity={0.35}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}

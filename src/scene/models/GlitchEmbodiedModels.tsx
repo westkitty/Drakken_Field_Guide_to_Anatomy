@@ -197,7 +197,7 @@ export function RedactedGrinModel(props: SpecimenModelProps) {
       )}
       {props.layers.structure && (
         <group>
-          <Line points={[[-3.2, 0, 0], [3.2, 0, 0]]} color="#7e667f" lineWidth={3} transparent opacity={0.64} />
+          <Line points={[[-3.2, 0, 0], [3.2, 0, 0]]} color="#7e667f" lineWidth={3} transparent opacity={0.64}  clippingPlanes={clippingPlanes} />
           {[-2, -1, 0, 1, 2].map((x, index) => (
             <mesh key={x} position={[x, 0, 0]} rotation={[index * 0.5, index * 0.3, 0]}>
               <torusGeometry args={[0.58 + (index % 2) * 0.15, 0.07, 8, 28]} />
@@ -223,10 +223,10 @@ export function RedactedGrinModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {brokenRings.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#6d466f' : '#ab6bb1'} lineWidth={1.25} transparent opacity={0.46 - index * 0.04} />
+            <Line key={index} points={points} color={index % 2 ? '#6d466f' : '#ab6bb1'} lineWidth={1.25} transparent opacity={0.46 - index * 0.04}  clippingPlanes={clippingPlanes} />
           ))}
           {[-5, -2.5, 0, 2.5, 5].map((x, index) => (
-            <Line key={x} points={[[x, -4.5, -5], [x * 0.22, 0, 0], [x, 4.5, 5]]} color={index % 2 ? '#4f3153' : '#8b5c91'} lineWidth={1.1} transparent opacity={0.36} />
+            <Line key={x} points={[[x, -4.5, -5], [x * 0.22, 0, 0], [x, 4.5, 5]]} color={index % 2 ? '#4f3153' : '#8b5c91'} lineWidth={1.1} transparent opacity={0.36}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -311,7 +311,7 @@ export function SpinalLoopModel(props: SpecimenModelProps) {
             <StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#92847a" roughness={0.42} metalness={0.28} wireframe />
           </mesh>
           {stations.filter((_, index) => index % 3 === 0).map((station, index) => (
-            <Line key={index} points={[[0, 0, 0], station.position]} color="#82756c" lineWidth={1.4} transparent opacity={0.52} />
+            <Line key={index} points={[[0, 0, 0], station.position]} color="#82756c" lineWidth={1.4} transparent opacity={0.52}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -338,7 +338,7 @@ export function SpinalLoopModel(props: SpecimenModelProps) {
             </mesh>
           ))}
           {[-4, -2, 0, 2, 4].map((z, index) => (
-            <Line key={z} points={[[-5, -1.5, z], [0, 0, z * 0.2], [5, 1.5, z]]} color={index % 2 ? '#8a6a62' : '#6f8790'} lineWidth={1.15} transparent opacity={0.4} />
+            <Line key={z} points={[[-5, -1.5, z], [0, 0, z * 0.2], [5, 1.5, z]]} color={index % 2 ? '#8a6a62' : '#6f8790'} lineWidth={1.15} transparent opacity={0.4}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -441,7 +441,7 @@ export function CradleExeModel(props: SpecimenModelProps) {
               ))}
             </group>
           ))}
-          <Line points={[[-1.2, -2.4, 0], [0, 0, 0], [1.2, -2.4, 0]]} color="#968b9d" lineWidth={2.2} transparent opacity={0.64} />
+          <Line points={[[-1.2, -2.4, 0], [0, 0, 0], [1.2, -2.4, 0]]} color="#968b9d" lineWidth={2.2} transparent opacity={0.64}  clippingPlanes={clippingPlanes} />
         </group>
       )}
       {props.layers.internal && (
@@ -461,7 +461,7 @@ export function CradleExeModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {lullabyWaves.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#c2a6ce' : '#846f96'} lineWidth={1.2} transparent opacity={0.46 - index * 0.045} />
+            <Line key={index} points={points} color={index % 2 ? '#c2a6ce' : '#846f96'} lineWidth={1.2} transparent opacity={0.46 - index * 0.045}  clippingPlanes={clippingPlanes} />
           ))}
           <mesh position={[0, -1.8, 0]} rotation={[-Math.PI / 2, 0, 0]}>
             <circleGeometry args={[6.2, 64]} />
@@ -572,7 +572,7 @@ export function FoldhowlModel(props: SpecimenModelProps) {
               <StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#26313f" emissive="#3c5e79" emissiveIntensity={0.34} roughness={0.46} />
             </mesh>
           ))}
-          <Line points={[[-2.4, 0.2, 0], [-4.2, 0.7, 0.4], [-5.5, 0.2, -0.3]]} color="#51718b" lineWidth={3} transparent opacity={0.7} />
+          <Line points={[[-2.4, 0.2, 0], [-4.2, 0.7, 0.4], [-5.5, 0.2, -0.3]]} color="#51718b" lineWidth={3} transparent opacity={0.7}  clippingPlanes={clippingPlanes} />
           <points>
             <bufferGeometry>
               <bufferAttribute attach="attributes-position" args={[staticPositions, 3]} />
@@ -583,7 +583,7 @@ export function FoldhowlModel(props: SpecimenModelProps) {
       )}
       {props.layers.structure && (
         <group>
-          <Line points={[[-2.5, 0, 0], [-1.2, 0.2, 0], [0, 0.1, 0], [1.3, 0.4, 0], [2.6, 0.7, 0]]} color="#778895" lineWidth={3} transparent opacity={0.68} />
+          <Line points={[[-2.5, 0, 0], [-1.2, 0.2, 0], [0, 0.1, 0], [1.3, 0.4, 0], [2.6, 0.7, 0]]} color="#778895" lineWidth={3} transparent opacity={0.68}  clippingPlanes={clippingPlanes} />
           {[-1.5, -0.7, 0.1, 0.9, 1.7].map((x, index) => (
             <mesh key={x} position={[x, 0.15, 0]} rotation={[Math.PI / 2, index * 0.3, 0]}>
               <torusGeometry args={[0.82, 0.07, 8, 30, Math.PI * 1.45]} />
@@ -609,7 +609,7 @@ export function FoldhowlModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {tearLines.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#5b7690' : '#2f485e'} lineWidth={1.2} transparent opacity={0.46} />
+            <Line key={index} points={points} color={index % 2 ? '#5b7690' : '#2f485e'} lineWidth={1.2} transparent opacity={0.46}  clippingPlanes={clippingPlanes} />
           ))}
           {[-4.5, -1.5, 1.5, 4.5].map((x, index) => (
             <mesh key={x} position={[x, -2.3, index % 2 ? 1.4 : -1.4]} rotation={[-Math.PI / 2, 0, 0]}>

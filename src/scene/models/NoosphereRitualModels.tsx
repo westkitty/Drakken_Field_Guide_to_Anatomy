@@ -161,7 +161,7 @@ export function HymnlockModel(props: SpecimenModelProps) {
           </group>
           {chainAnchors.map((anchor, index) => (
             <group key={index}>
-              <Line points={[[index % 2 ? 1.1 : -1.1, index < 2 ? 2.2 : -1.4, 0], anchor]} color="#a885c0" lineWidth={2} transparent opacity={0.72} />
+              <Line points={[[index % 2 ? 1.1 : -1.1, index < 2 ? 2.2 : -1.4, 0], anchor]} color="#a885c0" lineWidth={2} transparent opacity={0.72}  clippingPlanes={clippingPlanes} />
               <mesh position={anchor}>
                 <octahedronGeometry args={[0.34, 0]} />
                 <StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#bba4ca" emissive="#8e5eaa" emissiveIntensity={0.74} roughness={0.2} />
@@ -207,7 +207,7 @@ export function HymnlockModel(props: SpecimenModelProps) {
             </mesh>
           ))}
           {[-4, -2, 0, 2, 4].map((x, index) => (
-            <Line key={x} points={[[x, -4.5, -5], [x * 0.35, 0, 0], [x, 4.5, 5]]} color={index % 2 ? '#c89cda' : '#8e5aa4'} lineWidth={1.2} transparent opacity={0.44} />
+            <Line key={x} points={[[x, -4.5, -5], [x * 0.35, 0, 0], [x, 4.5, 5]]} color={index % 2 ? '#c89cda' : '#8e5aa4'} lineWidth={1.2} transparent opacity={0.44}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -217,7 +217,11 @@ export function HymnlockModel(props: SpecimenModelProps) {
 }
 
 class MemorialCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     return target.set(
       Math.sin(t * Math.PI * 2.4) * 0.62,
       Math.sin(t * Math.PI * 3.4) * 0.26,
@@ -277,7 +281,7 @@ export function MemorialveinModel(props: SpecimenModelProps) {
             <PhysicalMaterial model={props} clippingPlanes={clippingPlanes} color="#b64b5f" emissive="#8f203c" emissiveIntensity={0.52} roughness={0.16} transmission={0.46} opacity={0.68} />
           </mesh>
           {veinPaths.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#ff899b' : '#7b1635'} lineWidth={1.5} transparent opacity={0.72} />
+            <Line key={index} points={points} color={index % 2 ? '#ff899b' : '#7b1635'} lineWidth={1.5} transparent opacity={0.72}  clippingPlanes={clippingPlanes} />
           ))}
           <group ref={reliquaries}>
             {stations.slice(1, 8).map((point, index) => (
@@ -301,7 +305,7 @@ export function MemorialveinModel(props: SpecimenModelProps) {
           </group>
           <group ref={elegy}>
             {tailPaths.map((points, index) => (
-              <Line key={index} points={points} color={index % 2 ? '#e2788a' : '#9f3151'} lineWidth={1.35} transparent opacity={0.58} />
+              <Line key={index} points={points} color={index % 2 ? '#e2788a' : '#9f3151'} lineWidth={1.35} transparent opacity={0.58}  clippingPlanes={clippingPlanes} />
             ))}
           </group>
         </group>
@@ -342,7 +346,7 @@ export function MemorialveinModel(props: SpecimenModelProps) {
             </mesh>
           ))}
           {[-4, -2, 0, 2, 4].map((x, index) => (
-            <Line key={x} points={[[x, -3.8, -6], [x * 0.35, 0, 0], [x, 3.8, 6]]} color={index % 2 ? '#d56479' : '#7d2945'} lineWidth={1.15} transparent opacity={0.42} />
+            <Line key={x} points={[[x, -3.8, -6], [x * 0.35, 0, 0], [x, 3.8, 6]]} color={index % 2 ? '#d56479' : '#7d2945'} lineWidth={1.15} transparent opacity={0.42}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -443,7 +447,7 @@ export function ShrinehungerModel(props: SpecimenModelProps) {
               const radius = 2.4 + (index % 3) * 0.35;
               return (
                 <group key={index} position={[Math.cos(angle) * radius, 0.7 + Math.sin(angle * 2) * 1.4, Math.sin(angle) * radius]}>
-                  <Line points={[[0, 0.8, 0], [0, 0, 0]]} color="#b88d63" lineWidth={1.3} transparent opacity={0.62} />
+                  <Line points={[[0, 0.8, 0], [0, 0, 0]]} color="#b88d63" lineWidth={1.3} transparent opacity={0.62}  clippingPlanes={clippingPlanes} />
                   <mesh>
                     <octahedronGeometry args={[0.25 + (index % 2) * 0.08, 0]} />
                     <StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#c19b6f" emissive="#b16d35" emissiveIntensity={0.52} roughness={0.3} metalness={0.3} />
@@ -491,7 +495,7 @@ export function ShrinehungerModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {routeLines.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#d4a667' : '#9e7042'} lineWidth={1.4} transparent opacity={0.5} />
+            <Line key={index} points={points} color={index % 2 ? '#d4a667' : '#9e7042'} lineWidth={1.4} transparent opacity={0.5}  clippingPlanes={clippingPlanes} />
           ))}
           {[1.2, 2.2, 3.2, 4.2, 5.2].map((radius, index) => (
             <mesh key={radius} position={[0, -2.25, 0]} rotation={[Math.PI / 2, 0, 0]}>

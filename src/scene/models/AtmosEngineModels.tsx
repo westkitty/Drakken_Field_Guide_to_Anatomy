@@ -226,7 +226,7 @@ export function HydrostaticRendererModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {[-2.2, 0, 2.2].map((x) => (
-            <Line key={x} points={[[x, -0.5, 0], [x, -7.2, 0]]} color="#73c7ee" lineWidth={2} transparent opacity={0.64} />
+            <Line key={x} points={[[x, -0.5, 0], [x, -7.2, 0]]} color="#73c7ee" lineWidth={2} transparent opacity={0.64}  clippingPlanes={clippingPlanes} />
           ))}
           <mesh position={[0, -6.4, 0]} rotation={[-Math.PI / 2, 0, 0]}>
             <circleGeometry args={[4.8, 64]} />
@@ -240,7 +240,11 @@ export function HydrostaticRendererModel(props: SpecimenModelProps) {
 }
 
 class ChoristerCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     const angle = t * Math.PI * 2;
     return target.set(Math.sin(angle) * 2.3, (t - 0.5) * 8.5, Math.sin(angle * 2) * 1.15);
   }
@@ -325,7 +329,7 @@ export function StratosChoristerModel(props: SpecimenModelProps) {
               <meshBasicMaterial color={props.silhouette ? '#000000' : '#8ad8ef'} transparent opacity={0.58 - index * 0.13} clippingPlanes={clippingPlanes} />
             </mesh>
           ))}
-          <Line points={[[-6, -2, 0], [0, 0, 0], [6, 2, 0]]} color="#7ed6f8" lineWidth={2} transparent opacity={0.58} />
+          <Line points={[[-6, -2, 0], [0, 0, 0], [6, 2, 0]]} color="#7ed6f8" lineWidth={2} transparent opacity={0.58}  clippingPlanes={clippingPlanes} />
         </group>
       )}
       <Markers {...props} />
@@ -457,9 +461,9 @@ export function StormmindTacticianModel(props: SpecimenModelProps) {
           <group ref={antlers} position={[0, 4.7, 0]}>
             {[-1, 1].map((side) => (
               <group key={side} scale={[side, 1, 1]}>
-                <Line points={[[0.5, 0, 0], [1.7, 1.2, 0], [2.8, 0.65, 0.35], [3.8, 1.55, 0.1]]} color="#9ee9ff" lineWidth={4} />
-                <Line points={[[1.7, 1.2, 0], [2.0, 2.2, -0.2]]} color="#70cbea" lineWidth={3} />
-                <Line points={[[2.8, 0.65, 0.35], [3.2, -0.2, 0.6]]} color="#70cbea" lineWidth={3} />
+                <Line points={[[0.5, 0, 0], [1.7, 1.2, 0], [2.8, 0.65, 0.35], [3.8, 1.55, 0.1]]} color="#9ee9ff" lineWidth={4}  clippingPlanes={clippingPlanes} />
+                <Line points={[[1.7, 1.2, 0], [2.0, 2.2, -0.2]]} color="#70cbea" lineWidth={3}  clippingPlanes={clippingPlanes} />
+                <Line points={[[2.8, 0.65, 0.35], [3.2, -0.2, 0.6]]} color="#70cbea" lineWidth={3}  clippingPlanes={clippingPlanes} />
               </group>
             ))}
           </group>
@@ -511,7 +515,7 @@ export function StormmindTacticianModel(props: SpecimenModelProps) {
             </mesh>
           ))}
           {[-4, -2, 0, 2, 4].map((x) => (
-            <Line key={x} points={[[0, 1, 0], [x, -5.4, x * 0.35]]} color="#b9f2ff" lineWidth={1.5} transparent opacity={0.5} />
+            <Line key={x} points={[[0, 1, 0], [x, -5.4, x * 0.35]]} color="#b9f2ff" lineWidth={1.5} transparent opacity={0.5}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}

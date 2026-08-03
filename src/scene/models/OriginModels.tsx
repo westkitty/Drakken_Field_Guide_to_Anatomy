@@ -246,7 +246,7 @@ export function MotherModel(props: SpecimenModelProps) {
               lineWidth={1.5 + (index % 2) * 0.4}
               transparent
               opacity={props.silhouette ? 0 : 0.72}
-            />
+             clippingPlanes={clippingPlanes} />
           ))}
 
           <group ref={codeTrees}>
@@ -368,7 +368,7 @@ export function MotherModel(props: SpecimenModelProps) {
                 lineWidth={1.1}
                 transparent
                 opacity={0.42}
-              />
+               clippingPlanes={clippingPlanes} />
             );
           })}
         </group>
@@ -450,7 +450,7 @@ export function MotherModel(props: SpecimenModelProps) {
                 lineWidth={1.2}
                 transparent
                 opacity={0.36}
-              />
+               clippingPlanes={clippingPlanes} />
             );
           })}
         </group>
@@ -636,7 +636,7 @@ export function TheEggModel(props: SpecimenModelProps) {
               lineWidth={1.6 + index * 0.25}
               transparent
               opacity={props.silhouette ? 0 : 0.78 - index * 0.08}
-            />
+             clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -673,7 +673,7 @@ export function TheEggModel(props: SpecimenModelProps) {
                 lineWidth={1.1}
                 transparent
                 opacity={0.44}
-              />
+               clippingPlanes={clippingPlanes} />
             );
           })}
         </group>
@@ -752,7 +752,7 @@ export function TheEggModel(props: SpecimenModelProps) {
               lineWidth={1.15}
               transparent
               opacity={0.42}
-            />
+             clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}

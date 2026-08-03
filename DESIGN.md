@@ -1,65 +1,33 @@
-# Drakken Field Anatomy Archive — Design System & Visual Specification
+# Drakken Field Anatomy Archive — Design System
 
-## 1. Aesthetic Direction & POV
-The **Drakken Field Anatomy Archive** is a classified, high-density forensic workstation set in **Zentrum Vault 9**. Its aesthetic balances **Classified Archival Editorial** typography with **3D Containment Grid Visualization**.
+## Direction
 
-- **Primary Canvas**: Deep near-black navy (`#05080f`) with radial ambient lighting.
-- **Surface Elevation**: Semi-transparent dark glass panels (`rgba(10, 15, 25, 0.88)` with `18px` backdrop blur).
-- **Hairline Framing**: 1px subtle borders (`rgba(162, 176, 188, 0.14)`) with high-contrast active states (`#7ed6f8`).
+The archive is a classified forensic workstation for Zentrum Vault 9: near-black navy surfaces, restrained glass panels, thin archival rules, high-contrast focus states, and specimen-specific accents.
 
----
+## Typography
 
-## 2. Typography Hierarchy
+The runtime uses local system font stacks only:
 
-| Role | Font Family | Spec / Weight | Letter Spacing | Usage |
-|---|---|---|---|---|
-| **Editorial Serif** | `Cinzel`, Georgia, serif | 600 SemiBold / 700 Bold | `0.08em` uppercase | Primary Headings (`h1`, `h2`), Archive Titles, Specimen Designations |
-| **Interface Sans** | `Outfit`, system-ui, sans-serif | 400 Regular / 500 Medium / 600 SemiBold | Standard | Body text, incident descriptions, tab navigation, buttons |
-| **Technical Mono** | `JetBrains Mono`, monospace | 400 Regular / 500 Medium / 600 SemiBold | `0.05em` | Metadata fields, archive IDs, status badges, diagnostics metrics, `<kbd>` hints |
+- Editorial serif: Georgia / Times New Roman
+- Interface sans: system UI
+- Technical mono: SFMono-Regular / Menlo / Monaco / Consolas
 
----
+Remote font loading is prohibited by the local-only runtime asset policy.
 
-## 3. Color Tokens & Palette
+## Layout
 
-### Core Archival Theme
-- `--bg`: `#05080f` (Vault depth background)
-- `--bg-subtle`: `#080c14` (Sub-surface layer)
-- `--panel`: `rgba(10, 15, 25, 0.88)` (Glassmorphism backdrop)
-- `--panel-solid`: `#0b111d` (Opaque fallback panel)
-- `--panel-accent`: `#121929` (Interactive surface)
-- `--line`: `rgba(162, 176, 188, 0.14)` (Hairline grid border)
-- `--line-strong`: `rgba(162, 176, 188, 0.28)` (Focus outline)
-- `--line-glow`: `rgba(126, 214, 248, 0.35)` (Selection aura)
+- Header: archive identity, record count, evidence state, and briefing access
+- Registry: search, category filters, complete evidence filters, and all 59 records
+- Chamber: one R3F Canvas, camera controls, sectioning, layers, animation, measurement, annotations, scale aids, and diagnostics
+- Record panel: complete dossier and Markdown/JSON export
 
-### Archetype & Specimen Accents
-- `--cyan-frost`: `#7ed6f8` (Atmos-Engines / Default containment)
-- `--ember-orange`: `#e05a2b` (Crust-Binders / Magma core)
-- `--crimson-heat`: `#9e2626` (Civiformers / Furnace maws)
-- `--moon-gold`: `#c4a359` (Orbital-Wyrms / Archival badges)
-- `--soft-violet`: `#8a85b6` (Noosphere-Cantors / Telepathic fields)
-- `--bio-green`: `#4a6b38` (Seedcarriers / Organic spores)
-- `--saline-blue`: `#1e405b` (Fluxborne / Deep sea trench)
+## Accessibility and motion
 
----
+- Reduced-motion preference pauses model animation automatically; users may manually resume it.
+- Mobile drawers become non-visible and non-interactive when closed.
+- The orientation dialog receives focus, traps Tab navigation, closes with Escape, and restores focus.
+- Focus states, native controls, semantic headings, labels, live regions, and pressed/expanded states remain required.
 
-## 4. UI Components & Layout Blueprint
+## Scale boundary
 
-### Header Masthead
-- **Left**: Eyebrow badge `Zentrum Vault 9 / Recovered intelligence interface` + `Drakken Field Anatomy Archive` (`h1` in Cinzel).
-- **Right**: Dynamic specimen count (`59 records`), world scale calibration (`1m per unit`), active specimen evidence badge.
-
-### Primary Examination Chamber (`#examination-chamber`)
-- **Viewport**: Three.js WebGL canvas with dynamic point lights, ambient fog (`#05080f`), shadow mapping, and `ArchivalContainmentPlatform`.
-- **Top Controls**: Camera perspective/orthographic toggle, 5 preset camera positions (`Front`, `Side`, `Dorsal`, `Ventral`, `3/4`), wireframe/silhouette toggles, and quality scaling.
-- **Bottom HUD**: Interactive Keyboard Shortcut pill bar (`R`, `Space`, `Esc`, `Click+Drag`).
-
-### Sidebar Panels
-- **Registry Drawer** (`.registry-panel`): Search input, category filter buttons, evidence status filter buttons, scrollable specimen card list with threat levels and dimensions.
-- **Record Drawer** (`.record-panel`): Tabbed dossier (`record`, `incident`, `military`, `civic`, `sources`), anchored 3D annotations, and Markdown/JSON export buttons.
-- **Diagnostics Overlay** (`.diagnostics-panel`): Real-time WebGL memory statistics (geometries, textures, draw calls, triangles, rendering tier).
-
----
-
-## 5. Accessibility & Motion Rules
-- **Reduced Motion**: Automatically disables non-essential rotation animations when `(prefers-reduced-motion: reduce)` is detected.
-- **Keyboard Navigation**: Full `aria-pressed`, `aria-expanded`, and `aria-live` regions. `Esc` closes all drawers, `Space` toggles playback, `R` resets camera.
+Specimen geometry and comparison silhouettes are normalized visual aids. Record visualization-height metadata may be displayed as source metadata, but the chamber must not claim a proven meter-per-world-unit calibration.

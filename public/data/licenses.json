@@ -1,36 +1,596 @@
 {
-  "schemaVersion": 1,
-  "releaseIntent": "Prototype",
+  "schemaVersion": 2,
+  "releaseIntent": "Interactive archive under active validation",
   "records": [
     {
       "assetId": "proc-skymourn-v1",
       "owner": "Stinky Weasel Productions / project owner supplied canon",
-      "license": "Project-owned content; external license not applicable",
+      "license": "Project-owned content; external asset license not applicable",
       "commercialUse": "Owner-controlled",
       "modification": "Owner-controlled",
-      "rawRedistribution": "Not applicable; no source binary is distributed",
-      "attribution": "Internal canon source citation retained",
-      "reviewState": "Owner-supplied source"
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-ATM-001 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
     },
     {
       "assetId": "proc-gorevault-v1",
       "owner": "Stinky Weasel Productions / project owner supplied canon",
-      "license": "Project-owned content; external license not applicable",
+      "license": "Project-owned content; external asset license not applicable",
       "commercialUse": "Owner-controlled",
       "modification": "Owner-controlled",
-      "rawRedistribution": "Not applicable; no source binary is distributed",
-      "attribution": "Internal canon source citation retained",
-      "reviewState": "Owner-supplied source"
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-CIV-002 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
     },
     {
       "assetId": "proc-blood-ring-v1",
       "owner": "Stinky Weasel Productions / project owner supplied canon",
-      "license": "Project-owned content; external license not applicable",
+      "license": "Project-owned content; external asset license not applicable",
       "commercialUse": "Owner-controlled",
       "modification": "Owner-controlled",
-      "rawRedistribution": "Not applicable; no source binary is distributed",
-      "attribution": "Internal canon source citation retained",
-      "reviewState": "Owner-supplied source"
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-INF-003 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-magma-pleuron-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-CRU-001 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-granithelion-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-CRU-002 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-fault-tongue-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-CRU-003 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-obsidian-gul-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-CRU-004 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-tremorhound-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-CRU-005 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-glassspine-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-CRU-006 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-quarrymind-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-CRU-007 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-aerokarst-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-ATM-002 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-hydrostatic-renderer-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-ATM-003 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-stratos-chorister-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-ATM-004 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-balance-engine-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-ATM-005 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-stormmind-tactician-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-ATM-006 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-toxic-veil-engine-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-ATM-007 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-macroflora-colossus-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-SED-001 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-sporesphere-archivist-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-SED-002 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-neural-fungibinder-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-SED-003 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-precipitation-synth-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-SED-004 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-soil-rewriter-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-SED-005 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-hive-floramother-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-SED-006 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-trench-sovereign-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-FLX-001 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-salinity-conductor-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-FLX-002 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-gyre-tactician-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-FLX-003 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-littoral-reformer-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-FLX-004 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-cryofluid-engine-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-FLX-005 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-nebular-stream-herder-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-FLX-006 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-stellar-plasma-swimmer-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-FLX-007 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-orbital-extrusion-engine-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-FLX-008 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-starbinder-core-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-WYR-001 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-gravity-impaler-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-WYR-002 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-deepsong-carrier-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-WYR-003 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-radiant-scaffold-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-WYR-004 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-phantom-occluder-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-WYR-005 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-burnline-reaper-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-WYR-006 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-data-core-unbinder-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-WYR-007 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-foundry-cantor-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-CIV-003 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-power-lattice-regulator-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-CIV-004 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-skyline-moulter-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-CIV-005 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-transit-impaler-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-CIV-006 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-demographic-planner-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-CIV-007 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-record-devourer-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-CIV-008 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-syntax-breaker-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-NS-001 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-civic-time-rewriter-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-NS-002 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-oneiric-ecologist-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-NS-003 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-sovereignty-eater-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-NS-004 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-hymnlock-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-NS-005 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-memorialvein-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-NS-006 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-shrinehunger-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-NS-007 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-redacted-grin-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-GLI-001 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-spinal-loop-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-GLI-002 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-cradle-exe-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-GLI-003 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-foldhowl-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-GLI-004 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-manifest-discord-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-GLI-005 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-gloryfail-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-GLI-006 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-viral-bastion-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-GLI-007 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-mother-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-ORI-001 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
+    },
+    {
+      "assetId": "proc-the-egg-v1",
+      "owner": "Stinky Weasel Productions / project owner supplied canon",
+      "license": "Project-owned content; external asset license not applicable",
+      "commercialUse": "Owner-controlled",
+      "modification": "Owner-controlled",
+      "rawRedistribution": "Not applicable; runtime procedural source is repository code",
+      "attribution": "Retain DFA-ORI-000 canon source references",
+      "reviewState": "Owner-supplied canon; procedural implementation pending browser QA"
     }
   ]
 }

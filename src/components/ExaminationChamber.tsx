@@ -234,7 +234,7 @@ function RuntimeProbe({
       triangles: info.render.triangles,
       cameraMode,
       qualityTier,
-      clipping: clip.enabled ? `${clip.axis.toUpperCase()} ${clip.position.toFixed(1)} m` : 'Disabled',
+      clipping: clip.enabled ? `${clip.axis.toUpperCase()} ${clip.position.toFixed(1)} units` : 'Disabled',
     });
   });
 
@@ -296,6 +296,29 @@ function ArchivalContainmentPlatform({ archetype }: { archetype: string }) {
   );
 }
 
+function ContextLifecycle() {
+  const { gl } = useThree();
+
+  useEffect(() => {
+    const canvas = gl.domElement;
+    const handleContextLost = (event: Event) => {
+      event.preventDefault();
+      console.warn('[Vault 9 Examination System] WebGL context lost; awaiting browser restoration.');
+    };
+    const handleContextRestored = () => {
+      console.info('[Vault 9 Examination System] WebGL context restored.');
+    };
+    canvas.addEventListener('webglcontextlost', handleContextLost, false);
+    canvas.addEventListener('webglcontextrestored', handleContextRestored, false);
+    return () => {
+      canvas.removeEventListener('webglcontextlost', handleContextLost, false);
+      canvas.removeEventListener('webglcontextrestored', handleContextRestored, false);
+    };
+  }, [gl]);
+
+  return null;
+}
+
 export function ExaminationChamber(props: ChamberProps) {
   const clipPlane = useMemo(() => {
     const direction = props.clip.inverted ? -1 : 1;
@@ -313,24 +336,16 @@ export function ExaminationChamber(props: ChamberProps) {
   return (
     <div className="chamber-canvas" aria-label={`Three-dimensional examination chamber for ${props.record.designation}`}>
       <Canvas
+        key={props.qualityTier}
         shadows={props.qualityTier === 'standard'}
         dpr={props.qualityTier === 'standard' ? [1, 1.6] : 1}
         gl={{ antialias: props.qualityTier === 'standard', powerPreference: 'high-performance' }}
         onCreated={({ gl }) => {
           gl.localClippingEnabled = true;
           gl.setClearColor('#05080f');
-          const canvas = gl.domElement;
-          const handleContextLost = (event: Event) => {
-            event.preventDefault();
-            console.warn('[Vault 9 Examination System] WebGL Context Lost. Retaining state for restoration...');
-          };
-          const handleContextRestored = () => {
-            console.info('[Vault 9 Examination System] WebGL Context Restored successfully.');
-          };
-          canvas.addEventListener('webglcontextlost', handleContextLost, false);
-          canvas.addEventListener('webglcontextrestored', handleContextRestored, false);
         }}
       >
+        <ContextLifecycle />
         <color attach="background" args={['#05080f']} />
         <fog attach="fog" args={['#05080f', 26, 62]} />
         <ambientLight intensity={0.65} />
@@ -381,7 +396,7 @@ export function ExaminationChamber(props: ChamberProps) {
         <span><kbd>Drag</kbd> Orbit 3D</span>
       </div>
       <div className="chamber-scale-note">
-        Reconstruction scale: {props.record.dimensions.visualizationHeightMeters} m. {props.record.dimensions.visualizationNote}
+        Record visualization-height metadata: {props.record.dimensions.visualizationHeightMeters} m. Chamber geometry is normalized and uncalibrated.
       </div>
     </div>
   );

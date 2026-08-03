@@ -101,7 +101,11 @@ function Markers(props: SpecimenModelProps) {
 }
 
 class VeilcurrentCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     return target.set(
       Math.sin(t * Math.PI * 2.2) * 0.72,
       Math.cos(t * Math.PI * 3.4) * 0.36,
@@ -212,7 +216,7 @@ export function NebularStreamHerderModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {[-4.5, -2.25, 0, 2.25, 4.5].map((x, index) => (
-            <Line key={x} points={[[x, -1.6, -8], [x * 0.5, Math.sin(index) * 0.8, 0], [x, 1.6, 8]]} color={index % 2 ? '#8fc8dd' : '#c2e2eb'} lineWidth={1.2} transparent opacity={0.44} />
+            <Line key={x} points={[[x, -1.6, -8], [x * 0.5, Math.sin(index) * 0.8, 0], [x, 1.6, 8]]} color={index % 2 ? '#8fc8dd' : '#c2e2eb'} lineWidth={1.2} transparent opacity={0.44}  clippingPlanes={clippingPlanes} />
           ))}
           {[3.4, 5.0, 6.6].map((radius, index) => (
             <mesh key={radius} rotation={[Math.PI / 2, index * 0.32, 0]}>
@@ -228,7 +232,11 @@ export function NebularStreamHerderModel(props: SpecimenModelProps) {
 }
 
 class CoronaxisCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     return target.set(
       Math.sin(t * Math.PI * 2.6) * 0.9,
       Math.sin(t * Math.PI * 4.2) * 0.52,
@@ -277,7 +285,7 @@ export function StellarPlasmaSwimmerModel(props: SpecimenModelProps) {
             <PhysicalMaterial model={props} clippingPlanes={clippingPlanes} color="#fff3cf" emissive="#ff8b2f" emissiveIntensity={2.0} roughness={0.08} transmission={0.12} opacity={0.9} />
           </mesh>
           {filaments.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#fff1a8' : '#ff7a2c'} lineWidth={1.8} transparent opacity={0.62} />
+            <Line key={index} points={points} color={index % 2 ? '#fff1a8' : '#ff7a2c'} lineWidth={1.8} transparent opacity={0.62}  clippingPlanes={clippingPlanes} />
           ))}
           {stations.map((point, index) => (
             <mesh key={index} position={[point.x, point.y + 0.72, point.z]} rotation={[0, index * 0.42, 0]} scale={[0.25, 0.7 + (index % 3) * 0.12, 0.25]}>
@@ -324,7 +332,7 @@ export function StellarPlasmaSwimmerModel(props: SpecimenModelProps) {
               <meshBasicMaterial color={props.silhouette ? '#000000' : index % 2 ? '#ff8136' : '#ffd37a'} transparent opacity={0.4 - index * 0.08} clippingPlanes={clippingPlanes} />
             </mesh>
           ))}
-          <Line points={[[0, 0, -8], [0, 0, 8]]} color="#fff3b0" lineWidth={2.0} transparent opacity={0.48} />
+          <Line points={[[0, 0, -8], [0, 0, 8]]} color="#fff3b0" lineWidth={2.0} transparent opacity={0.48}  clippingPlanes={clippingPlanes} />
         </group>
       )}
       <Markers {...props} />
@@ -447,7 +455,7 @@ export function OrbitalExtrusionEngineModel(props: SpecimenModelProps) {
             </bufferGeometry>
             <pointsMaterial color="#b51c2d" size={0.14} sizeAttenuation transparent opacity={props.silhouette ? 0 : 0.8} clippingPlanes={clippingPlanes} />
           </points>
-          <Line points={[[0, 4.7, 0], [0, 13.5, 0]]} color="#d83448" lineWidth={3.2} transparent opacity={0.54} />
+          <Line points={[[0, 4.7, 0], [0, 13.5, 0]]} color="#d83448" lineWidth={3.2} transparent opacity={0.54}  clippingPlanes={clippingPlanes} />
         </group>
       )}
       <Markers {...props} />

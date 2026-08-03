@@ -45,7 +45,11 @@ function Markers(props: SpecimenModelProps) {
 }
 
 class RoadthornCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
+  constructor() {
+    super();
+  }
+
+    getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
     return target.set(
       Math.sin(t * Math.PI * 2.2) * 0.35,
       Math.cos(t * Math.PI * 3.3) * 0.18,
@@ -94,7 +98,7 @@ export function TransitImpalerModel(props: SpecimenModelProps) {
           <mesh scale={[1, 0.7, 1.65]}><coneGeometry args={[1, 2.6, 8]} /><StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#192023" emissive="#234a57" emissiveIntensity={0.32} roughness={0.48} metalness={0.65} /></mesh>
           {[-1, 0, 1].map((x, index) => <mesh key={x} position={[x * 0.45, 0.85, 0.4]} rotation={[0, 0, x * 0.22]} scale={[0.1, 0.55 + index * 0.12, 0.1]}><boxGeometry args={[1, 1, 1]} /><StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#8dd5e6" emissive="#3fb6d3" emissiveIntensity={0.9} roughness={0.16} /></mesh>)}
         </group>
-        {[-1, 1].map((side) => <Line key={side} points={stations.map((point) => [point.x + side, point.y, point.z] as [number, number, number])} color="#59696d" lineWidth={1.7} transparent opacity={0.58} />)}
+        {[-1, 1].map((side) => <Line key={side} points={stations.map((point) => [point.x + side, point.y, point.z] as [number, number, number])} color="#59696d" lineWidth={1.7} transparent opacity={0.58}  clippingPlanes={clippingPlanes} />)}
       </group>}
       {props.layers.structure && <group>
         <mesh geometry={spineGeometry}><StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#78878b" metalness={0.6} roughness={0.34} wireframe /></mesh>
@@ -105,7 +109,7 @@ export function TransitImpalerModel(props: SpecimenModelProps) {
         {stations.slice(3, 11).map((point, index) => <mesh key={index} position={[point.x, point.y, point.z]} scale={[0.32, 0.26, 0.42]}><sphereGeometry args={[1, 18, 12]} /><StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#4f7780" emissive="#3f9baa" emissiveIntensity={0.52} roughness={0.22} /></mesh>)}
       </group>}
       {props.layers.functional && <group>
-        {trackLines.map((points, index) => <Line key={index} points={points} color={index === 1 ? '#8ed5e4' : '#4b7884'} lineWidth={index === 1 ? 2.2 : 1.3} transparent opacity={0.5} />)}
+        {trackLines.map((points, index) => <Line key={index} points={points} color={index === 1 ? '#8ed5e4' : '#4b7884'} lineWidth={index === 1 ? 2.2 : 1.3} transparent opacity={0.5}  clippingPlanes={clippingPlanes} />)}
         {[-5, -2.5, 0, 2.5, 5].map((z, index) => <mesh key={z} position={[0, -1.9, z]} rotation={[Math.PI / 2, 0, 0]}><ringGeometry args={[0.7 + index * 0.1, 0.82 + index * 0.1, 28]} /><meshBasicMaterial color={props.silhouette ? '#000000' : '#4d8da0'} transparent opacity={0.38} side={THREE.DoubleSide} clippingPlanes={clippingPlanes} /></mesh>)}
       </group>}
       <Markers {...props} />
@@ -160,7 +164,7 @@ export function DemographicPlannerModel(props: SpecimenModelProps) {
       </group>}
       {props.layers.structure && <group><mesh position={[0, 0.4, 0]}><boxGeometry args={[4.5, 3.4, 3.8]} /><StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#967d79" roughness={0.42} metalness={0.3} wireframe /></mesh><mesh position={[0, 2, 0]}><cylinderGeometry args={[0.35, 0.5, 3.4, 10]} /><StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#927a76" roughness={0.38} wireframe /></mesh></group>}
       {props.layers.internal && <group><mesh ref={indexer}><icosahedronGeometry args={[1.15, 3]} /><PhysicalMaterial model={props} clippingPlanes={clippingPlanes} color="#8f3c3a" emissive="#e34f43" emissiveIntensity={1.2} roughness={0.16} transmission={0.12} opacity={0.9} /></mesh>{[-1.3, 1.3].map((x) => <mesh key={x} position={[x, 0, 0]} scale={[0.58, 0.78, 0.58]}><sphereGeometry args={[1, 20, 14]} /><StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#744644" emissive="#a64b46" emissiveIntensity={0.52} roughness={0.26} /></mesh>)}</group>}
-      {props.layers.functional && <group>{scanLines.map((points, index) => <Line key={index} points={points} color={index % 2 ? '#ff6b5a' : '#c53b35'} lineWidth={1.2} transparent opacity={0.48} />)}{[3.2, 4.6, 6].map((radius, index) => <mesh key={radius} rotation={[Math.PI / 2, index * 0.36, 0]}><torusGeometry args={[radius, 0.035, 8, 96]} /><meshBasicMaterial color={props.silhouette ? '#000000' : '#c8463f'} transparent opacity={0.3 - index * 0.06} clippingPlanes={clippingPlanes} /></mesh>)}</group>}
+      {props.layers.functional && <group>{scanLines.map((points, index) => <Line key={index} points={points} color={index % 2 ? '#ff6b5a' : '#c53b35'} lineWidth={1.2} transparent opacity={0.48}  clippingPlanes={clippingPlanes} />)}{[3.2, 4.6, 6].map((radius, index) => <mesh key={radius} rotation={[Math.PI / 2, index * 0.36, 0]}><torusGeometry args={[radius, 0.035, 8, 96]} /><meshBasicMaterial color={props.silhouette ? '#000000' : '#c8463f'} transparent opacity={0.3 - index * 0.06} clippingPlanes={clippingPlanes} /></mesh>)}</group>}
       <Markers {...props} />
     </group>
   );
@@ -226,7 +230,7 @@ export function RecordDevourerModel(props: SpecimenModelProps) {
         const angle = t * Math.PI * 5 + spiral;
         const radius = 3.6 * (1 - t) + 0.3;
         return [Math.cos(angle) * radius, 0.4 + Math.sin(angle * 0.5) * 1.4, 5.4 - t * 5] as [number, number, number];
-      })} color={spiral % 2 ? '#d7c59f' : '#7899a5'} lineWidth={1.2} transparent opacity={0.46} />)}{[3.2, 4.6, 6].map((radius, index) => <mesh key={radius} rotation={[Math.PI / 2, index * 0.36, 0]}><torusGeometry args={[radius, 0.035, 8, 96]} /><meshBasicMaterial color={props.silhouette ? '#000000' : '#826f55'} transparent opacity={0.28 - index * 0.06} clippingPlanes={clippingPlanes} /></mesh>)}</group>}
+      })} color={spiral % 2 ? '#d7c59f' : '#7899a5'} lineWidth={1.2} transparent opacity={0.46}  clippingPlanes={clippingPlanes} />)}{[3.2, 4.6, 6].map((radius, index) => <mesh key={radius} rotation={[Math.PI / 2, index * 0.36, 0]}><torusGeometry args={[radius, 0.035, 8, 96]} /><meshBasicMaterial color={props.silhouette ? '#000000' : '#826f55'} transparent opacity={0.28 - index * 0.06} clippingPlanes={clippingPlanes} /></mesh>)}</group>}
       <Markers {...props} />
     </group>
   );
