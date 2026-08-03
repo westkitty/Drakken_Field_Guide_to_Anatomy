@@ -8,6 +8,13 @@ import {
   StratosChoristerModel,
 } from './models/AtmosEngineModels';
 import {
+  CryofluidEngineModel,
+  GyreTacticianModel,
+  LittoralReformerModel,
+  SalinityConductorModel,
+  TrenchSovereignModel,
+} from './models/FluxborneModels';
+import {
   MacrofloraColossusModel,
   NeuralFungibinderModel,
   PrecipitationSynthModel,
@@ -37,6 +44,16 @@ export function SpecimenModel(props: SpecimenModelProps) {
       return <PrecipitationSynthModel {...props} />;
     case 'soil-rewriter':
       return <SoilRewriterModel {...props} />;
+    case 'trench-sovereign':
+      return <TrenchSovereignModel {...props} />;
+    case 'salinity-conductor':
+      return <SalinityConductorModel {...props} />;
+    case 'gyre-tactician':
+      return <GyreTacticianModel {...props} />;
+    case 'littoral-reformer':
+      return <LittoralReformerModel {...props} />;
+    case 'cryofluid-engine':
+      return <CryofluidEngineModel {...props} />;
     default:
       return <LegacySpecimenModel {...props} />;
   }
