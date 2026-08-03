@@ -3,7 +3,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Suspense, useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import { distanceMeters, formatMeters } from '../lib/archive';
-import { SpecimenModel } from '../scene/Specimens';
+import { SpecimenModel } from '../scene/SpecimenRouter';
 import type {
   AnimationState,
   CameraMode,
@@ -279,22 +279,15 @@ function ArchivalContainmentPlatform({ archetype }: { archetype: string }) {
 
   return (
     <group position={[0, -5, 0]}>
-      {/* Containment Obsidian Base */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.02, 0]} receiveShadow>
         <planeGeometry args={[48, 48]} />
         <meshStandardMaterial color="#06090e" roughness={0.92} metalness={0.08} />
       </mesh>
-
-      {/* Grid Floor */}
       <gridHelper args={[48, 48, '#1e2d3d', '#0f1722']} position={[0, 0.01, 0]} />
-
-      {/* Inner Glowing Containment Ring */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.03, 0]}>
         <ringGeometry args={[6.8, 7.0, 64]} />
         <meshBasicMaterial color={ringColor} transparent opacity={0.45} side={THREE.DoubleSide} />
       </mesh>
-
-      {/* Outer Concentric Data Ring */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.02, 0]}>
         <ringGeometry args={[11.8, 12.0, 64]} />
         <meshBasicMaterial color="#50667a" transparent opacity={0.25} side={THREE.DoubleSide} />
@@ -322,10 +315,7 @@ export function ExaminationChamber(props: ChamberProps) {
       <Canvas
         shadows={props.qualityTier === 'standard'}
         dpr={props.qualityTier === 'standard' ? [1, 1.6] : 1}
-        gl={{
-          antialias: props.qualityTier === 'standard',
-          powerPreference: 'high-performance',
-        }}
+        gl={{ antialias: props.qualityTier === 'standard', powerPreference: 'high-performance' }}
         onCreated={({ gl }) => {
           gl.localClippingEnabled = true;
           gl.setClearColor('#05080f');
@@ -343,20 +333,12 @@ export function ExaminationChamber(props: ChamberProps) {
       >
         <color attach="background" args={['#05080f']} />
         <fog attach="fog" args={['#05080f', 26, 62]} />
-
-        {/* Mythic Focal Light Hierarchy */}
         <ambientLight intensity={0.65} />
-        {/* Main Moonlit Key Light */}
         <directionalLight position={[10, 15, 12]} color="#dceaf5" intensity={2.6} castShadow />
-        {/* Deep Indigo Fill Light */}
         <directionalLight position={[-14, 6, -10]} color="#283b54" intensity={1.3} />
-        {/* Restrained Gold Specular Rim Light */}
         <directionalLight position={[0, -10, -12]} color="#c4a359" intensity={0.7} />
-        {/* Specimen Thermal Accent Point Light */}
         <pointLight position={[0, 0, 4]} color={accentLightColor} intensity={1.8} distance={20} />
-
         <ArchivalContainmentPlatform archetype={props.record.archetype} />
-
         <Suspense fallback={null}>
           <SpecimenModel
             key={props.record.id}
@@ -375,7 +357,6 @@ export function ExaminationChamber(props: ChamberProps) {
           <MeasurementDisplay points={props.measurementPoints} />
           <ClippingIndicator clip={props.clip} />
         </Suspense>
-
         <CameraController
           mode={props.cameraMode}
           preset={props.cameraPreset}
@@ -405,4 +386,3 @@ export function ExaminationChamber(props: ChamberProps) {
     </div>
   );
 }
-
