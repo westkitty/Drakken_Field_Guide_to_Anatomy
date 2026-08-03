@@ -197,7 +197,7 @@ export function PhantomOccluderModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {blindfield.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#17131e' : '#493e57'} lineWidth={1.3} transparent opacity={0.42 - index * 0.05} />
+            <Line key={index} points={points} color={index % 2 ? '#17131e' : '#493e57'} lineWidth={1.3} transparent opacity={0.42 - index * 0.05}  clippingPlanes={clippingPlanes} />
           ))}
           {[4.2, 5.8, 7.4].map((radius, index) => (
             <mesh key={radius} rotation={[Math.PI / 2, index * 0.4, 0]}>
@@ -300,7 +300,7 @@ export function BurnlineReaperModel(props: SpecimenModelProps) {
             <StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#2b1712" emissive="#b34d28" emissiveIntensity={1.3} roughness={0.18} opacity={0.88} />
           </mesh>
           {ashVeils.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#6c625c' : '#3d3734'} lineWidth={1.5} transparent opacity={0.42} />
+            <Line key={index} points={points} color={index % 2 ? '#6c625c' : '#3d3734'} lineWidth={1.5} transparent opacity={0.42}  clippingPlanes={clippingPlanes} />
           ))}
           <points ref={ash}>
             <bufferGeometry>
@@ -346,7 +346,7 @@ export function BurnlineReaperModel(props: SpecimenModelProps) {
             </mesh>
           ))}
           {[-4, -2, 0, 2, 4].map((x, index) => (
-            <Line key={x} points={[[x, 3.8, -7], [x * 0.6, 0, 0], [x, -3.8, 7]]} color={index % 2 ? '#675951' : '#9b6d58'} lineWidth={1.2} transparent opacity={0.4} />
+            <Line key={x} points={[[x, 3.8, -7], [x * 0.6, 0, 0], [x, -3.8, 7]]} color={index % 2 ? '#675951' : '#9b6d58'} lineWidth={1.2} transparent opacity={0.4}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -443,7 +443,7 @@ export function DataCoreUnbinderModel(props: SpecimenModelProps) {
             </mesh>
           ))}
           {[-1, 1].map((side) => (
-            <Line key={side} points={[[side * 4.2, -4.2, -4.2], [0, 0, 0], [side * 4.2, 4.2, 4.2]]} color="#9f83b4" lineWidth={1.4} transparent opacity={0.5} />
+            <Line key={side} points={[[side * 4.2, -4.2, -4.2], [0, 0, 0], [side * 4.2, 4.2, 4.2]]} color="#9f83b4" lineWidth={1.4} transparent opacity={0.5}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -464,7 +464,7 @@ export function DataCoreUnbinderModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {spirals.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#c6a8d8' : '#76548d'} lineWidth={1.3} transparent opacity={0.48 - index * 0.04} />
+            <Line key={index} points={points} color={index % 2 ? '#c6a8d8' : '#76548d'} lineWidth={1.3} transparent opacity={0.48 - index * 0.04}  clippingPlanes={clippingPlanes} />
           ))}
           {[4.2, 5.6, 7.0].map((radius, index) => (
             <mesh key={radius} rotation={[Math.PI / 2, index * 0.37, 0]}>

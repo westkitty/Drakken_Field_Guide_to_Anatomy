@@ -1,17 +1,7 @@
-# Attribution
+# Attribution and Ownership
 
-## Canon sources supplied by the project owner
+The archive contains 59 project-owned procedural reconstructions derived from the supplied Drakken working-canon dossier and the source references preserved in each specimen record. No external runtime models, textures, fonts, audio, or remotely hosted visual assets are required.
 
-- `drakken_compendium_full_blood_eclipse_visual_integrated.md`
-- `drakken-archive-metadata-contact-sheet.pdf`
-- `drakken-archive-contact-sheet.pdf`
+Per-record ownership, provenance, and source locations are recorded in `public/data/assets.json`, `public/data/provenance.json`, `public/data/licenses.json`, and `src/data/specimens.json`.
 
-These sources establish the Skymourn, Gorevault, and Blood Ring records used by the prototype.
-
-## Runtime assets
-
-All runtime geometry is generated procedurally by the project source code. No third-party models, textures, fonts, audio, remote images, or hotlinked assets are included.
-
-## Software
-
-Runtime and development dependencies retain their own package licenses. See `package.json` and each package distribution for the governing license text.
+Third-party code dependencies remain governed by their package licenses. This file does not replace dependency license notices.

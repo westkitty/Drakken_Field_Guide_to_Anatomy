@@ -182,7 +182,7 @@ export function SyntaxBreakerModel(props: SpecimenModelProps) {
             })}
           </group>
           {tongueScripts.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#bd73c8' : '#efc169'} lineWidth={1.5} transparent opacity={0.58} />
+            <Line key={index} points={points} color={index % 2 ? '#bd73c8' : '#efc169'} lineWidth={1.5} transparent opacity={0.58}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -223,7 +223,7 @@ export function SyntaxBreakerModel(props: SpecimenModelProps) {
             </mesh>
           ))}
           {[-3, -1.5, 0, 1.5, 3].map((x, index) => (
-            <Line key={x} points={[[x, -3.8, -5], [x * 0.4, 0, 0], [x, 3.8, 5]]} color={index % 2 ? '#bb75c4' : '#d9b15f'} lineWidth={1.15} transparent opacity={0.44} />
+            <Line key={x} points={[[x, -3.8, -5], [x * 0.4, 0, 0], [x, 3.8, 5]]} color={index % 2 ? '#bb75c4' : '#d9b15f'} lineWidth={1.15} transparent opacity={0.44}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -326,7 +326,7 @@ export function CivicTimeRewriterModel(props: SpecimenModelProps) {
           {Array.from({ length: 10 }, (_, index) => {
             const angle = (index / 10) * Math.PI * 2;
             return (
-              <Line key={index} points={[[0, 0, 0], [Math.cos(angle) * 2.8, Math.sin(angle) * 2.8, 0]]} color="#a5966c" lineWidth={1.8} transparent opacity={0.68} />
+              <Line key={index} points={[[0, 0, 0], [Math.cos(angle) * 2.8, Math.sin(angle) * 2.8, 0]]} color="#a5966c" lineWidth={1.8} transparent opacity={0.68}  clippingPlanes={clippingPlanes} />
             );
           })}
           <mesh>
@@ -358,7 +358,7 @@ export function CivicTimeRewriterModel(props: SpecimenModelProps) {
             </mesh>
           ))}
           {[-4, -2, 0, 2, 4].map((x, index) => (
-            <Line key={x} points={[[x, -5, -4], [x * 0.4, 1, 0], [x, 5, 4]]} color={phaseColors[index % 4]} lineWidth={1.15} transparent opacity={0.42} />
+            <Line key={x} points={[[x, -5, -4], [x * 0.4, 1, 0], [x, 5, 4]]} color={phaseColors[index % 4]} lineWidth={1.15} transparent opacity={0.42}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -457,7 +457,7 @@ export function OneiricEcologistModel(props: SpecimenModelProps) {
           {Array.from({ length: 8 }, (_, index) => {
             const angle = (index / 8) * Math.PI * 2;
             return (
-              <Line key={index} points={[[Math.cos(angle) * 1.2, -0.4, Math.sin(angle) * 1.2], [Math.cos(angle) * 2.2, -2.8, Math.sin(angle) * 2.2]]} color="#c4a9ca" lineWidth={1.8} transparent opacity={0.55} />
+              <Line key={index} points={[[Math.cos(angle) * 1.2, -0.4, Math.sin(angle) * 1.2], [Math.cos(angle) * 2.2, -2.8, Math.sin(angle) * 2.2]]} color="#c4a9ca" lineWidth={1.8} transparent opacity={0.55}  clippingPlanes={clippingPlanes} />
             );
           })}
           <points ref={spores}>
@@ -476,7 +476,7 @@ export function OneiricEcologistModel(props: SpecimenModelProps) {
               <StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#a599a8" roughness={0.4} wireframe />
             </mesh>
           ))}
-          <Line points={[[-4.8, 0, 0], [0, 0, 0], [4.8, 0, 0]]} color="#aca0b1" lineWidth={2.4} transparent opacity={0.65} />
+          <Line points={[[-4.8, 0, 0], [0, 0, 0], [4.8, 0, 0]]} color="#aca0b1" lineWidth={2.4} transparent opacity={0.65}  clippingPlanes={clippingPlanes} />
         </group>
       )}
       {props.layers.internal && (
@@ -496,7 +496,7 @@ export function OneiricEcologistModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {dreamWaves.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#d4b8dc' : '#9d78aa'} lineWidth={1.2} transparent opacity={0.46 - index * 0.04} />
+            <Line key={index} points={points} color={index % 2 ? '#d4b8dc' : '#9d78aa'} lineWidth={1.2} transparent opacity={0.46 - index * 0.04}  clippingPlanes={clippingPlanes} />
           ))}
           {[3.6, 5.0, 6.4].map((radius, index) => (
             <mesh key={radius} rotation={[Math.PI / 2, index * 0.36, 0]}>
@@ -645,7 +645,7 @@ export function SovereigntyEaterModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {decreeLines.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#4c4055' : '#75627d'} lineWidth={1.2} transparent opacity={0.42} />
+            <Line key={index} points={points} color={index % 2 ? '#4c4055' : '#75627d'} lineWidth={1.2} transparent opacity={0.42}  clippingPlanes={clippingPlanes} />
           ))}
           {[3.2, 4.7, 6.2].map((radius, index) => (
             <mesh key={radius} rotation={[Math.PI / 2, index * 0.38, 0]}>

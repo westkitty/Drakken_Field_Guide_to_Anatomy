@@ -224,7 +224,7 @@ export function TrenchSovereignModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {sonar.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#4eafc8' : '#7dd8e8'} lineWidth={1.2} transparent opacity={0.48 - index * 0.05} />
+            <Line key={index} points={points} color={index % 2 ? '#4eafc8' : '#7dd8e8'} lineWidth={1.2} transparent opacity={0.48 - index * 0.05}  clippingPlanes={clippingPlanes} />
           ))}
           {[2.8, 4.2, 5.6].map((radius, index) => (
             <mesh key={radius} rotation={[Math.PI / 2, index * 0.34, 0]}>
@@ -347,7 +347,7 @@ export function SalinityConductorModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {[-3.8, -1.9, 0, 1.9, 3.8].map((x, index) => (
-            <Line key={x} points={[[x, 0, -5.5], [x * 0.65, Math.sin(index) * 0.4, 0], [x, 0, 5.5]]} color={index % 2 ? '#d7edf0' : '#9bc8cf'} lineWidth={1.3} transparent opacity={0.5} />
+            <Line key={x} points={[[x, 0, -5.5], [x * 0.65, Math.sin(index) * 0.4, 0], [x, 0, 5.5]]} color={index % 2 ? '#d7edf0' : '#9bc8cf'} lineWidth={1.3} transparent opacity={0.5}  clippingPlanes={clippingPlanes} />
           ))}
           {[3.1, 4.4, 5.7].map((radius, index) => (
             <mesh key={radius} rotation={[Math.PI / 2, index * 0.4, 0]}>
@@ -480,7 +480,7 @@ export function GyreTacticianModel(props: SpecimenModelProps) {
             </mesh>
           ))}
           {[-1, 1].map((side) => (
-            <Line key={side} points={[[side * 7.2, 0, -4.5], [side * 4.5, 0.8, 0], [side * 7.2, 0, 4.5]]} color="#85d9e5" lineWidth={1.5} transparent opacity={0.48} />
+            <Line key={side} points={[[side * 7.2, 0, -4.5], [side * 4.5, 0.8, 0], [side * 7.2, 0, 4.5]]} color="#85d9e5" lineWidth={1.5} transparent opacity={0.48}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -558,7 +558,7 @@ export function LittoralReformerModel(props: SpecimenModelProps) {
       )}
       {props.layers.structure && (
         <group>
-          <Line points={segments.map((segment) => [segment.x, segment.y, segment.z] as [number, number, number])} color="#a1b6ae" lineWidth={3} transparent opacity={0.7} />
+          <Line points={segments.map((segment) => [segment.x, segment.y, segment.z] as [number, number, number])} color="#a1b6ae" lineWidth={3} transparent opacity={0.7}  clippingPlanes={clippingPlanes} />
           {segments.map((segment, index) => (
             <mesh key={index} position={[segment.x, segment.y, segment.z]} rotation={[Math.PI / 2, 0, 0]}>
               <torusGeometry args={[1.22 * segment.scale, 0.1, 8, 30, Math.PI * 1.5]} />
@@ -583,7 +583,7 @@ export function LittoralReformerModel(props: SpecimenModelProps) {
       )}
       {props.layers.functional && (
         <group>
-          <Line points={surfScar} color="#76c4c0" lineWidth={2.4} transparent opacity={0.52} />
+          <Line points={surfScar} color="#76c4c0" lineWidth={2.4} transparent opacity={0.52}  clippingPlanes={clippingPlanes} />
           {Array.from({ length: 6 }, (_, spiral) => (
             <Line
               key={spiral}
@@ -597,7 +597,7 @@ export function LittoralReformerModel(props: SpecimenModelProps) {
               lineWidth={1.2}
               transparent
               opacity={0.46}
-            />
+             clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -736,7 +736,7 @@ export function CryofluidEngineModel(props: SpecimenModelProps) {
               </mesh>
             ))}
           </group>
-          <Line points={[[0, 0, front.z], [0, 0, front.z + 8.2]]} color="#d5f7ff" lineWidth={1.5} transparent opacity={0.5} />
+          <Line points={[[0, 0, front.z], [0, 0, front.z + 8.2]]} color="#d5f7ff" lineWidth={1.5} transparent opacity={0.5}  clippingPlanes={clippingPlanes} />
         </group>
       )}
       <Markers {...props} />

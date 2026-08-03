@@ -167,7 +167,7 @@ function SkymournModel(props: SpecimenModelProps) {
 
   useFrame(() => {
     const t = elapsed.current;
-    if (!root.current || !frostMesh.current || !heatMesh.current || !coreMesh.current) return;
+    if (!root.current) return;
 
     const isRipple = props.animation.name === 'Thermal Ripple Burst';
 
@@ -177,7 +177,9 @@ function SkymournModel(props: SpecimenModelProps) {
     root.current.position.y = Math.sin(t * 0.48) * (isRipple ? 0.28 : 0.14);
 
     const frostPulse = isRipple ? 1 + Math.sin(t * 4.5) * 0.045 : 1 + Math.sin(t * 1.1) * 0.015;
-    frostMesh.current.scale.setScalar(frostPulse);
+    if (frostMesh.current) {
+      frostMesh.current.scale.setScalar(frostPulse);
+    }
 
     if (heatMesh.current) {
       heatMesh.current.scale.setScalar(1.02 + Math.cos(t * 2.2) * 0.025);
@@ -267,7 +269,7 @@ function SkymournModel(props: SpecimenModelProps) {
               lineWidth={1.5}
               transparent
               opacity={0.7}
-            />
+             clippingPlanes={clippingPlanes} />
             <Line
               points={[
                 [-0.6, 0.2, 0.42],
@@ -277,7 +279,7 @@ function SkymournModel(props: SpecimenModelProps) {
               lineWidth={1.2}
               transparent
               opacity={0.5}
-            />
+             clippingPlanes={clippingPlanes} />
           </group>
 
           {/* Spine Crystalline Spikes */}
@@ -396,7 +398,7 @@ function SkymournModel(props: SpecimenModelProps) {
               lineWidth={1.5}
               transparent
               opacity={0.75}
-            />
+             clippingPlanes={clippingPlanes} />
           ))}
 
           {/* Geometric Orbital Field Lines */}
@@ -652,7 +654,7 @@ function GorevaultModel(props: SpecimenModelProps) {
               lineWidth={1.5}
               transparent
               opacity={0.7}
-            />
+             clippingPlanes={clippingPlanes} />
           ))}
           <mesh position={[0, 0.8, 0]}>
             <sphereGeometry args={[5.6, 24, 16]} />

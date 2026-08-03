@@ -96,7 +96,7 @@ export function FoundryCantorModel(props: SpecimenModelProps) {
         {[-1.25, 1.25].map((x) => <mesh key={x} position={[x, 1.2, 0]} scale={[0.42, 1.1, 0.42]}><capsuleGeometry args={[0.5, 1.4, 8, 16]} /><StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#783020" emissive="#c54a25" emissiveIntensity={0.72} roughness={0.2} /></mesh>)}
       </group>}
       {props.layers.functional && <group>
-        {scriptTrails.map((points, index) => <Line key={index} points={points} color={index % 2 ? '#ff6a29' : '#d9441b'} lineWidth={1.6} transparent opacity={0.58} />)}
+        {scriptTrails.map((points, index) => <Line key={index} points={points} color={index % 2 ? '#ff6a29' : '#d9441b'} lineWidth={1.6} transparent opacity={0.58}  clippingPlanes={clippingPlanes} />)}
         {[3, 4.3, 5.6].map((radius, index) => <mesh key={radius} rotation={[Math.PI / 2, index * 0.34, 0]}><torusGeometry args={[radius, 0.04, 8, 96]} /><meshBasicMaterial color={props.silhouette ? '#000000' : '#d9471d'} transparent opacity={0.34 - index * 0.07} clippingPlanes={clippingPlanes} /></mesh>)}
       </group>}
       <Markers {...props} />
@@ -153,8 +153,8 @@ export function PowerLatticeRegulatorModel(props: SpecimenModelProps) {
         {[-1.4, 1.4].map((y) => <mesh key={y} position={[0, y, 0]} scale={[0.72, 0.38, 0.72]}><sphereGeometry args={[1, 22, 14]} /><StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#548ca4" emissive="#39bfe8" emissiveIntensity={0.8} roughness={0.18} /></mesh>)}
       </group>}
       {props.layers.functional && <group>
-        {gridLines.map((points, index) => <Line key={index} points={points} color={index % 2 ? '#7ce5ff' : '#3caed4'} lineWidth={1.25} transparent opacity={0.52} />)}
-        {[-1, 1].map((side) => <Line key={side} points={[[side * 3.2, 2.4, 0], [side * 5.8, 4.5, 0], [side * 7.2, 2.2, 0]]} color="#b9f3ff" lineWidth={1.7} transparent opacity={0.62} />)}
+        {gridLines.map((points, index) => <Line key={index} points={points} color={index % 2 ? '#7ce5ff' : '#3caed4'} lineWidth={1.25} transparent opacity={0.52}  clippingPlanes={clippingPlanes} />)}
+        {[-1, 1].map((side) => <Line key={side} points={[[side * 3.2, 2.4, 0], [side * 5.8, 4.5, 0], [side * 7.2, 2.2, 0]]} color="#b9f3ff" lineWidth={1.7} transparent opacity={0.62}  clippingPlanes={clippingPlanes} />)}
       </group>}
       <Markers {...props} />
     </group>
@@ -200,7 +200,7 @@ export function SkylineMoulterModel(props: SpecimenModelProps) {
         {segments.slice(0, 7).flatMap((segment, index) => [-1, 1].map((side) => <mesh key={`${index}-${side}`} position={[side * 1.25, -1.15, segment.z]} rotation={[0, 0, side * 0.22]}><cylinderGeometry args={[0.18, 0.32, 2.4, 8]} /><StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#8f8e87" roughness={0.5} metalness={0.26} /></mesh>))}
       </group>}
       {props.layers.structure && <group>
-        <Line points={segments.map((segment) => [segment.x, segment.y, segment.z] as [number, number, number])} color="#9c9a91" lineWidth={3} transparent opacity={0.72} />
+        <Line points={segments.map((segment) => [segment.x, segment.y, segment.z] as [number, number, number])} color="#9c9a91" lineWidth={3} transparent opacity={0.72}  clippingPlanes={clippingPlanes} />
         {segments.map((segment, index) => <mesh key={index} position={[segment.x, segment.y, segment.z]} rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[1.15, 0.09, 8, 30, Math.PI * 1.5]} /><StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#aaa79c" roughness={0.4} wireframe /></mesh>)}
       </group>}
       {props.layers.internal && <group>
@@ -208,7 +208,7 @@ export function SkylineMoulterModel(props: SpecimenModelProps) {
         {segments.slice(2, 7).map((segment, index) => <mesh key={index} position={[segment.x, segment.y, segment.z]} scale={[0.36, 0.3, 0.5]}><sphereGeometry args={[1, 18, 12]} /><StandardMaterial model={props} clippingPlanes={clippingPlanes} color="#8ea38b" emissive="#62866a" emissiveIntensity={0.45} roughness={0.24} /></mesh>)}
       </group>}
       {props.layers.functional && <group>
-        {[-3.2, -1.6, 0, 1.6, 3.2].map((x, index) => <Line key={x} points={[[x, -2, -5.5], [x * 0.5, 0, 0], [x, 6.5 + index * 0.5, 5.5]]} color={index % 2 ? '#e8dcae' : '#b9b18b'} lineWidth={1.3} transparent opacity={0.46} />)}
+        {[-3.2, -1.6, 0, 1.6, 3.2].map((x, index) => <Line key={x} points={[[x, -2, -5.5], [x * 0.5, 0, 0], [x, 6.5 + index * 0.5, 5.5]]} color={index % 2 ? '#e8dcae' : '#b9b18b'} lineWidth={1.3} transparent opacity={0.46}  clippingPlanes={clippingPlanes} />)}
         {[3.2, 4.6, 6].map((radius, index) => <mesh key={radius} rotation={[Math.PI / 2, index * 0.36, 0]}><torusGeometry args={[radius, 0.035, 8, 96]} /><meshBasicMaterial color={props.silhouette ? '#000000' : '#c1b78b'} transparent opacity={0.3 - index * 0.06} clippingPlanes={clippingPlanes} /></mesh>)}
       </group>}
       <Markers {...props} />

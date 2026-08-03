@@ -218,7 +218,7 @@ export function ManifestDiscordModel(props: SpecimenModelProps) {
             </mesh>
           ))}
           {[-1, 1].map((side) => (
-            <Line key={side} points={[[side * 4.8, -3.2, 0], [0, 0, 0], [side * 4.8, 3.2, 0]]} color="#817086" lineWidth={1.7} transparent opacity={0.54} />
+            <Line key={side} points={[[side * 4.8, -3.2, 0], [0, 0, 0], [side * 4.8, 3.2, 0]]} color="#817086" lineWidth={1.7} transparent opacity={0.54}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -242,7 +242,7 @@ export function ManifestDiscordModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {infectionPaths.map((points, index) => (
-            <Line key={index} points={points} color={index % 3 === 0 ? '#d365d0' : index % 3 === 1 ? '#59a9bd' : '#c59a42'} lineWidth={1.2} transparent opacity={0.46 - index * 0.025} />
+            <Line key={index} points={points} color={index % 3 === 0 ? '#d365d0' : index % 3 === 1 ? '#59a9bd' : '#c59a42'} lineWidth={1.2} transparent opacity={0.46 - index * 0.025}  clippingPlanes={clippingPlanes} />
           ))}
           {[3.4, 4.8, 6.2].map((radius, index) => (
             <mesh key={radius} rotation={[Math.PI / 2, index * 0.4, 0]}>
@@ -309,7 +309,7 @@ export function GloryfailModel(props: SpecimenModelProps) {
             </mesh>
             <mesh position={[-0.23, 0.2, 0.53]} scale={[0.12, 0.05, 0.04]}><boxGeometry args={[1, 1, 1]} /><meshBasicMaterial color={props.silhouette ? '#000000' : '#d8b25b'} clippingPlanes={clippingPlanes} /></mesh>
             <mesh position={[0.23, 0.2, 0.53]} scale={[0.12, 0.05, 0.04]}><boxGeometry args={[1, 1, 1]} /><meshBasicMaterial color={props.silhouette ? '#000000' : '#9d2838'} clippingPlanes={clippingPlanes} /></mesh>
-            <Line points={[[-0.34, -0.3, 0.58], [0, -0.12, 0.62], [0.34, -0.38, 0.58]]} color="#7f3b46" lineWidth={2} transparent opacity={0.74} />
+            <Line points={[[-0.34, -0.3, 0.58], [0, -0.12, 0.62], [0.34, -0.38, 0.58]]} color="#7f3b46" lineWidth={2} transparent opacity={0.74}  clippingPlanes={clippingPlanes} />
           </group>
           <group ref={wings}>
             {[-1, 1].flatMap((side) => [0, 1, 2, 3].map((tier) => (
@@ -363,9 +363,9 @@ export function GloryfailModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {prayerLines.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#c5a64e' : '#9b3548'} lineWidth={1.25} transparent opacity={0.44} />
+            <Line key={index} points={points} color={index % 2 ? '#c5a64e' : '#9b3548'} lineWidth={1.25} transparent opacity={0.44}  clippingPlanes={clippingPlanes} />
           ))}
-          <Line points={[[0, 0, 0], [0, 0, 8.5]]} color="#e4b94b" lineWidth={3} transparent opacity={0.58} />
+          <Line points={[[0, 0, 0], [0, 0, 8.5]]} color="#e4b94b" lineWidth={3} transparent opacity={0.58}  clippingPlanes={clippingPlanes} />
           {[3.4, 4.8, 6.2].map((radius, index) => (
             <mesh key={radius} rotation={[Math.PI / 2, index * 0.4, 0]}>
               <torusGeometry args={[radius, 0.035, 8, 96]} />
@@ -512,7 +512,7 @@ export function ViralBastionModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {firewallLines.map((points, index) => (
-            <Line key={index} points={points} color={index % 3 === 0 ? '#bf3c7b' : '#4ba7c3'} lineWidth={1.25} transparent opacity={0.48} />
+            <Line key={index} points={points} color={index % 3 === 0 ? '#bf3c7b' : '#4ba7c3'} lineWidth={1.25} transparent opacity={0.48}  clippingPlanes={clippingPlanes} />
           ))}
           {[4.2, 5.8, 7.4].map((radius, index) => (
             <mesh key={radius} rotation={[Math.PI / 2, index * 0.36, 0]} position={[0, -2.8, 0]}>

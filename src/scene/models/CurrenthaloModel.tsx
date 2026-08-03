@@ -198,7 +198,7 @@ export function GyreTacticianModel(props: SpecimenModelProps) {
             </mesh>
           ))}
           {[-1, 1].map((side) => (
-            <Line key={side} points={[[side * 7.2, 0, -4.5], [side * 4.5, 0.8, 0], [side * 7.2, 0, 4.5]]} color="#85d9e5" lineWidth={1.5} transparent opacity={0.48} />
+            <Line key={side} points={[[side * 7.2, 0, -4.5], [side * 4.5, 0.8, 0], [side * 7.2, 0, 4.5]]} color="#85d9e5" lineWidth={1.5} transparent opacity={0.48}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}

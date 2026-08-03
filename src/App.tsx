@@ -4,6 +4,7 @@ import {
   beginLoad,
   distanceMeters,
   downloadText,
+  evidenceStates,
   exportRecordJson,
   exportRecordMarkdown,
   findSpecimen,
@@ -30,7 +31,7 @@ const categoryFilters: Array<'all' | SpecimenCategory> = [
   'siege or processing entity',
   'planetary infrastructure',
 ];
-const evidenceFilters = ['all', 'confirmed', 'reconstructed', 'non-canon prototype'] as const;
+const evidenceFilters = ['all', ...evidenceStates.map((state) => state.toLowerCase())];
 
 function EvidenceBadge({ state }: { state: string }) {
   return <span className={`evidence-badge evidence-${state.toLowerCase().replaceAll(' ', '-')}`}>{state}</span>;
@@ -65,6 +66,9 @@ export default function App() {
   const [pendingSpecimenId, setPendingSpecimenId] = useState<string | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
   const loadGate = useRef({ requestId: 0, activeId: 'skymourn' });
+  const briefingTriggerRef = useRef<HTMLButtonElement>(null);
+  const briefingCloseRef = useRef<HTMLButtonElement>(null);
+  const orientationPreviousFocus = useRef<HTMLElement | null>(null);
   const activeRecord = findSpecimen(activeSpecimenId);
 
   const [query, setQuery] = useState('');
@@ -124,9 +128,47 @@ export default function App() {
     media.addEventListener('change', update);
     return () => media.removeEventListener('change', update);
   }, []);
+  useEffect(() => {
+    if (!reducedMotion) return;
+    setAnimation((current) => current.playing ? { ...current, playing: false } : current);
+  }, [reducedMotion]);
+
+  useEffect(() => {
+    if (!orientationOpen) return;
+    orientationPreviousFocus.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const frame = window.requestAnimationFrame(() => briefingCloseRef.current?.focus());
+    const trapFocus = (event: KeyboardEvent) => {
+      if (event.key !== 'Tab') return;
+      const card = briefingCloseRef.current?.closest<HTMLElement>('.orientation-card');
+      const focusable = card ? Array.from(card.querySelectorAll<HTMLElement>('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')).filter((item) => !item.hasAttribute('disabled')) : [];
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', trapFocus);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      document.removeEventListener('keydown', trapFocus);
+      orientationPreviousFocus.current?.focus();
+    };
+  }, [orientationOpen]);
 
   const chooseSpecimen = useCallback((id: string) => {
-    if (id === activeSpecimenId) return;
+    if (id === activeSpecimenId) {
+      if (pendingSpecimenId) {
+        loadGate.current = beginLoad(loadGate.current, activeSpecimenId);
+        setPendingSpecimenId(null);
+        setLoadError(null);
+      }
+      return;
+    }
     const nextGate = beginLoad(loadGate.current, id);
     loadGate.current = nextGate;
     setPendingSpecimenId(id);
@@ -138,7 +180,7 @@ export default function App() {
         setActiveSpecimenId(id);
         setAnimation({
           name: record.animations[0],
-          playing: true,
+          playing: !reducedMotion,
           speed: 1,
           loop: true,
           restartToken: 0,
@@ -156,7 +198,7 @@ export default function App() {
         setPendingSpecimenId(null);
       }
     }, reducedMotion ? 0 : 120);
-  }, [activeSpecimenId, reducedMotion]);
+  }, [activeSpecimenId, pendingSpecimenId, reducedMotion]);
 
   const filteredRecords = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -181,7 +223,7 @@ export default function App() {
 
   const handleAnnotationSelect = useCallback((id: string) => {
     setSelectedAnnotationId(id);
-    setSelectedAnnotationIds((current) => (current.includes(id) ? current : [...current, id]));
+    setSelectedAnnotationIds((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id]);
     setRecordOpen(true);
   }, []);
 
@@ -234,9 +276,9 @@ export default function App() {
           <h1>Drakken Field Anatomy Archive</h1>
         </div>
         <div className="header-status">
-          <button type="button" onClick={() => setOrientationOpen(true)}>Briefing</button>
+          <button ref={briefingTriggerRef} type="button" onClick={() => setOrientationOpen(true)}>Briefing</button>
           <span>{specimens.length} records</span>
-          <span>One meter per world unit</span>
+          <span>Normalized reconstruction geometry</span>
           <EvidenceBadge state={activeRecord.evidenceStatus} />
         </div>
       </header>
@@ -424,7 +466,7 @@ export default function App() {
                 <ToggleButton active={clip.inverted} onClick={() => setClip((current) => ({ ...current, inverted: !current.inverted }))}>Invert</ToggleButton>
               </div>
               <label className="range-field">
-                <span>Plane position <output>{clip.position.toFixed(1)} m</output></span>
+                <span>Plane position <output>{clip.position.toFixed(1)} units</output></span>
                 <input
                   type="range"
                   min="-8"
@@ -569,6 +611,7 @@ export default function App() {
                   type="button"
                   key={annotation.id}
                   className={selectedAnnotationId === annotation.id ? 'is-active' : ''}
+                  aria-pressed={selectedAnnotationIds.includes(annotation.id)}
                   onClick={() => handleAnnotationSelect(annotation.id)}
                 >
                   <span><strong>{annotation.title}</strong><small>{annotation.layer}</small></span>
@@ -639,10 +682,10 @@ export default function App() {
               </div>
               <div className="orientation-item">
                 <strong>Scale References</strong>
-                <small>Compare colossal specimen heights against 1.8m Human, 1.5m Vehicle, and 10m markers.</small>
+                <small>Reference silhouettes are normalized visual aids. They do not establish canon dimensions or a proven world-unit calibration.</small>
               </div>
             </div>
-            <button type="button" onClick={() => setOrientationOpen(false)}>Acknowledge & Proceed</button>
+            <button ref={briefingCloseRef} type="button" onClick={() => setOrientationOpen(false)}>Acknowledge & Proceed</button>
           </div>
         </div>
       )}

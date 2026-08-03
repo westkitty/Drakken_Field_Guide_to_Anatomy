@@ -173,7 +173,7 @@ export function StarbinderCoreModel(props: SpecimenModelProps) {
             </group>
           ))}
           {cords.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#b9975b' : '#f4d98a'} lineWidth={1.6} transparent opacity={0.58} />
+            <Line key={index} points={points} color={index % 2 ? '#b9975b' : '#f4d98a'} lineWidth={1.6} transparent opacity={0.58}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -215,7 +215,7 @@ export function StarbinderCoreModel(props: SpecimenModelProps) {
             </mesh>
           ))}
           {[-1, 1].map((side) => (
-            <Line key={side} points={[[side * 7, 0, -5], [side * 4.2, 0, 0], [side * 7, 0, 5]]} color="#f2d47d" lineWidth={1.4} transparent opacity={0.46} />
+            <Line key={side} points={[[side * 7, 0, -5], [side * 4.2, 0, 0], [side * 7, 0, 5]]} color="#f2d47d" lineWidth={1.4} transparent opacity={0.46}  clippingPlanes={clippingPlanes} />
           ))}
         </group>
       )}
@@ -334,7 +334,7 @@ export function GravityImpalerModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {tears.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#4e4566' : '#82729e'} lineWidth={1.3} transparent opacity={0.48} />
+            <Line key={index} points={points} color={index % 2 ? '#4e4566' : '#82729e'} lineWidth={1.3} transparent opacity={0.48}  clippingPlanes={clippingPlanes} />
           ))}
           {[3.4, 4.8, 6.2].map((radius, index) => (
             <mesh key={radius} rotation={[index * 0.72, index * 0.45, 0]}>
@@ -430,7 +430,7 @@ export function DeepsongCarrierModel(props: SpecimenModelProps) {
             ))}
           </group>
           {stations.slice(1, 13).map((point, index) => (
-            <Line key={index} points={[[point.x, point.y, point.z], [point.x + Math.sin(index) * 1.2, point.y + 1.4 + (index % 3) * 0.25, point.z + Math.cos(index) * 0.7]]} color="#c8add8" lineWidth={2.2} transparent opacity={0.66} />
+            <Line key={index} points={[[point.x, point.y, point.z], [point.x + Math.sin(index) * 1.2, point.y + 1.4 + (index % 3) * 0.25, point.z + Math.cos(index) * 0.7]]} color="#c8add8" lineWidth={2.2} transparent opacity={0.66}  clippingPlanes={clippingPlanes} />
           ))}
           <points ref={dust}>
             <bufferGeometry>
@@ -462,7 +462,7 @@ export function DeepsongCarrierModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {waves.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#d0afe0' : '#9c77b3'} lineWidth={1.2} transparent opacity={0.46 - index * 0.04} />
+            <Line key={index} points={points} color={index % 2 ? '#d0afe0' : '#9c77b3'} lineWidth={1.2} transparent opacity={0.46 - index * 0.04}  clippingPlanes={clippingPlanes} />
           ))}
           {[3.2, 4.7, 6.2].map((radius, index) => (
             <mesh key={radius} rotation={[Math.PI / 2, index * 0.34, 0]}>
@@ -549,7 +549,7 @@ export function RadiantScaffoldModel(props: SpecimenModelProps) {
       {props.layers.structure && (
         <group ref={lattice}>
           {scaffoldLines.map((points, index) => (
-            <Line key={index} points={points} color={index % 2 ? '#f1ce6f' : '#fff2b0'} lineWidth={2.0} transparent opacity={0.72} />
+            <Line key={index} points={points} color={index % 2 ? '#f1ce6f' : '#fff2b0'} lineWidth={2.0} transparent opacity={0.72}  clippingPlanes={clippingPlanes} />
           ))}
           {nodes.map((node, index) => (
             <mesh key={index} position={[node.x, node.y, node.z]} rotation={[Math.PI / 2, index * 0.3, 0]}>
@@ -576,7 +576,7 @@ export function RadiantScaffoldModel(props: SpecimenModelProps) {
       {props.layers.functional && (
         <group>
           {[-5.5, -2.75, 0, 2.75, 5.5].map((x, index) => (
-            <Line key={x} points={[[x, -2.4, -8], [x * 0.5, Math.sin(index) * 0.5, 0], [x, 2.4, 8]]} color={index % 2 ? '#f4d676' : '#fff0a8'} lineWidth={1.2} transparent opacity={0.44} />
+            <Line key={x} points={[[x, -2.4, -8], [x * 0.5, Math.sin(index) * 0.5, 0], [x, 2.4, 8]]} color={index % 2 ? '#f4d676' : '#fff0a8'} lineWidth={1.2} transparent opacity={0.44}  clippingPlanes={clippingPlanes} />
           ))}
           {[3.6, 5.2, 6.8].map((radius, index) => (
             <mesh key={radius} rotation={[Math.PI / 2, index * 0.35, 0]}>
