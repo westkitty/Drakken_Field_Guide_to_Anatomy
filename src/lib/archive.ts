@@ -22,7 +22,6 @@ export function findSpecimen(id: string): SpecimenRecord {
   return record;
 }
 
-
 export function resolveAnimationName(record: SpecimenRecord, requested: string): string {
   return record.animations.includes(requested) ? requested : record.animations[0];
 }
@@ -38,26 +37,24 @@ export function formatMeters(value: number): string {
   if (!Number.isFinite(value)) {
     return 'Unknown';
   }
-  return `${value.toFixed(value < 10 ? 2 : 1)} m`;
+  return `${value.toFixed(value < 10 ? 2 : 1)} reconstruction units`;
+}
+
+function selectedAnnotations(record: SpecimenRecord, selectedAnnotationIds: string[]) {
+  return record.annotations.filter((annotation) => selectedAnnotationIds.includes(annotation.id));
 }
 
 export function exportRecordJson(record: SpecimenRecord, selectedAnnotationIds: string[]): string {
-  const selectedAnnotations = record.annotations.filter((annotation) =>
-    selectedAnnotationIds.includes(annotation.id),
-  );
-
   return JSON.stringify(
     {
-      archiveId: record.archiveId,
-      designation: record.designation,
-      revision: record.recordRevision,
-      evidenceStatus: record.evidenceStatus,
-      dimensions: record.dimensions,
-      selectedAnnotations,
-      sources: record.sources,
-      canonStatus: record.canonStatus,
-      assetVersion: record.assetVersion,
-      exportTimestamp: new Date().toISOString(),
+      ...record,
+      exportMetadata: {
+        exportTimestamp: new Date().toISOString(),
+        selectedAnnotationIds,
+        selectedAnnotations: selectedAnnotations(record, selectedAnnotationIds),
+        scaleNotice:
+          'Procedural chamber geometry is normalized for examination. Visualization-height metadata is not a proven world-unit calibration.',
+      },
     },
     null,
     2,
@@ -65,31 +62,60 @@ export function exportRecordJson(record: SpecimenRecord, selectedAnnotationIds: 
 }
 
 export function exportRecordMarkdown(record: SpecimenRecord, selectedAnnotationIds: string[]): string {
-  const selectedAnnotations = record.annotations.filter((annotation) =>
-    selectedAnnotationIds.includes(annotation.id),
-  );
+  const selected = selectedAnnotations(record, selectedAnnotationIds);
   const sourceLines = record.sources.length
-    ? record.sources.map((source) => `- ${source.id}: ${source.title} (${source.location})`).join('\n')
+    ? record.sources.map((source) => `- **${source.id}** — ${source.title}; ${source.location}; reliability: ${source.reliability}`).join('\n')
     : '- Source unavailable';
-  const annotationLines = selectedAnnotations.length
-    ? selectedAnnotations
+  const annotationLines = selected.length
+    ? selected
         .map(
           (annotation) =>
-            `- **${annotation.title}** [${annotation.evidence}] - ${annotation.description} (${annotation.sourceRef})`,
+            `- **${annotation.title}** [${annotation.layer}; ${annotation.evidence}] — ${annotation.description} (${annotation.sourceRef})`,
         )
         .join('\n')
     : '- None selected';
+  const incidentLines = record.incidents.length
+    ? record.incidents
+        .map((incident) => `### ${incident.title}\n\n${incident.summary}\n\n- Evidence: ${incident.evidence}\n- Source: ${incident.sourceRef}`)
+        .join('\n\n')
+    : 'No incident is recorded.';
+  const layerLines = (Object.entries(record.layers) as Array<[keyof SpecimenRecord['layers'], string]>)
+    .map(([layer, description]) => `- **${layer}:** ${description}`)
+    .join('\n');
+  const civicLines = [
+    `- **Field evidence:** ${record.civicResponse.fieldEvidence}`,
+    `- **Administration guidance:** ${record.civicResponse.administrationGuidance}`,
+    `- **Suspected propaganda:** ${record.civicResponse.suspectedPropaganda}`,
+    `- **Archive interpretation:** ${record.civicResponse.archiveInterpretation}`,
+  ].join('\n');
 
   return `# ${record.designation}\n\n` +
     `- Archive ID: ${record.archiveId}\n` +
     `- Record revision: ${record.recordRevision}\n` +
-    `- Evidence status: ${record.evidenceStatus}\n` +
-    `- Canon status: ${record.canonStatus}\n` +
-    `- Canon dimensions: ${record.dimensions.canon}\n` +
-    `- Visualization scale: ${record.dimensions.visualizationHeightMeters} m (${record.dimensions.visualizationNote})\n` +
     `- Asset version: ${record.assetVersion}\n` +
+    `- Canon status: ${record.canonStatus}\n` +
+    `- Evidence status: ${record.evidenceStatus}\n` +
+    `- Category: ${record.category}\n` +
+    `- Archetype: ${record.archetype}\n` +
+    `- Threat classification: ${record.threatClassification}\n` +
+    `- Canon dimensions: ${record.dimensions.canon}\n` +
+    `- Visualization metadata: ${record.dimensions.visualizationHeightMeters} m; ${record.dimensions.visualizationNote}\n` +
+    `- Estimated mass: ${record.estimatedMass}\n` +
+    `- Environment: ${record.environment}\n` +
+    `- Model asset reference: ${record.modelAssetRef}\n` +
+    `- Model availability: ${record.modelAvailability}\n` +
+    `- Source status: ${record.sourceStatus}\n` +
     `- Export timestamp: ${new Date().toISOString()}\n\n` +
+    `> Scale notice: procedural chamber geometry is normalized for examination. Visualization-height metadata is not a proven world-unit calibration.\n\n` +
+    `## Description\n\n${record.description}\n\n` +
+    `## Operational role\n\n${record.operationalRole}\n\n` +
+    `## Anatomy layers\n\n${layerLines}\n\n` +
+    `## Operational animations\n\n${record.animations.map((animation) => `- ${animation}`).join('\n')}\n\n` +
     `## Selected annotations\n\n${annotationLines}\n\n` +
+    `## Incidents\n\n${incidentLines}\n\n` +
+    `## Military interpretation\n\n${record.militaryInterpretation}\n\n` +
+    `## Civic response\n\n${civicLines}\n\n` +
+    `## Evidence tags\n\n${record.evidenceTags.map((tag) => `- ${tag}`).join('\n')}\n\n` +
     `## Sources\n\n${sourceLines}\n`;
 }
 
@@ -99,8 +125,11 @@ export function downloadText(filename: string, text: string, mime: string): void
   const anchor = document.createElement('a');
   anchor.href = url;
   anchor.download = filename;
+  anchor.hidden = true;
+  document.body.append(anchor);
   anchor.click();
-  URL.revokeObjectURL(url);
+  anchor.remove();
+  window.setTimeout(() => URL.revokeObjectURL(url), 0);
 }
 
 export interface LoadGate {
