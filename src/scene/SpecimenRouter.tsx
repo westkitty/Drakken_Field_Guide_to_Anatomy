@@ -24,6 +24,17 @@ import {
 } from './models/CosmicFluxborneModels';
 import { GyreTacticianModel } from './models/CurrenthaloModel';
 import {
+  CradleExeModel,
+  FoldhowlModel,
+  RedactedGrinModel,
+  SpinalLoopModel,
+} from './models/GlitchEmbodiedModels';
+import {
+  GloryfailModel,
+  ManifestDiscordModel,
+  ViralBastionModel,
+} from './models/GlitchSemanticModels';
+import {
   CryofluidEngineModel,
   LittoralReformerModel,
   SalinityConductorModel,
@@ -35,6 +46,11 @@ import {
   SovereigntyEaterModel,
   SyntaxBreakerModel,
 } from './models/NoosphereBatchModels';
+import {
+  HymnlockModel,
+  MemorialveinModel,
+  ShrinehungerModel,
+} from './models/NoosphereRitualModels';
 import {
   DeepsongCarrierModel,
   GravityImpalerModel,
@@ -126,6 +142,26 @@ export function SpecimenModel(props: SpecimenModelProps) {
       return <OneiricEcologistModel {...props} />;
     case 'sovereignty-eater':
       return <SovereigntyEaterModel {...props} />;
+    case 'hymnlock':
+      return <HymnlockModel {...props} />;
+    case 'memorialvein':
+      return <MemorialveinModel {...props} />;
+    case 'shrinehunger':
+      return <ShrinehungerModel {...props} />;
+    case 'redacted-grin':
+      return <RedactedGrinModel {...props} />;
+    case 'spinal-loop':
+      return <SpinalLoopModel {...props} />;
+    case 'cradle-exe':
+      return <CradleExeModel {...props} />;
+    case 'foldhowl':
+      return <FoldhowlModel {...props} />;
+    case 'manifest-discord':
+      return <ManifestDiscordModel {...props} />;
+    case 'gloryfail':
+      return <GloryfailModel {...props} />;
+    case 'viral-bastion':
+      return <ViralBastionModel {...props} />;
     default:
       return <LegacySpecimenModel {...props} />;
   }
