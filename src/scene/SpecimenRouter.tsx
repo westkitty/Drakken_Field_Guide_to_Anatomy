@@ -8,13 +8,15 @@ import {
   StratosChoristerModel,
 } from './models/AtmosEngineModels';
 import {
-  DemographicPlannerModel,
   FoundryCantorModel,
   PowerLatticeRegulatorModel,
-  RecordDevourerModel,
   SkylineMoulterModel,
+} from './models/CiviformerIndustrialModels';
+import {
+  DemographicPlannerModel,
+  RecordDevourerModel,
   TransitImpalerModel,
-} from './models/CiviformerBatchModels';
+} from './models/CiviformerOccupationModels';
 import {
   NebularStreamHerderModel,
   OrbitalExtrusionEngineModel,
