@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - build-skymourn
+  pull_request:
+    branches:
+      - build-skymourn
   workflow_dispatch:
 
 permissions:
