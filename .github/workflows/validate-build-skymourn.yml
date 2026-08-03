@@ -13,53 +13,15 @@ permissions:
   contents: read
 
 jobs:
-  audit-autofix:
-    if: github.event_name == 'pull_request' && github.head_ref == 'audit/exhaustive-bug-sweep-20260803'
-    permissions:
-      contents: write
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out audit branch
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22.13.0'
-
-      - name: Apply pending bounded repair scripts
-        run: |
-          found=0
-          for script in scripts/apply-audit-*.mjs; do
-            if [ ! -f "$script" ]; then
-              continue
-            fi
-            found=1
-            node "$script"
-          done
-          if [ "$found" -eq 0 ]; then
-            echo "No pending audit repair scripts."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git diff --cached --quiet && exit 0
-          git commit -m "Apply bounded exhaustive-sweep repairs"
-          git push origin HEAD:${{ github.head_ref }}
-
   validate:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: '22.13.0'
           cache: npm
