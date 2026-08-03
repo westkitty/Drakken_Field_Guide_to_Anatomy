@@ -7,12 +7,12 @@
   "project_name": "Drakken Field Anatomy Archive",
   "project_root": ".",
   "artifact_path": "",
-  "state_revision": 11,
-  "last_updated": "2026-08-03T12:59:00Z",
+  "state_revision": 12,
+  "last_updated": "2026-08-03T13:10:00Z",
   "current_baseline": {
-    "identity": "build-skymourn commit 11a431c9bfc081c9353c533c7b8765e013ded792",
+    "identity": "build-skymourn source commit 904c47002778d183a7129b0901bc8f937d7e6ab7",
     "state": "implemented-unverified",
-    "last_verified": "Current model-batch commits have not received dependency-backed or browser validation"
+    "last_verified": "Current model-batch source has not received retrievable dependency-backed or browser validation"
   },
   "scope_boundaries": [
     "Single browser archive at repository root",
@@ -31,7 +31,7 @@ Drakken Field Anatomy Archive is a responsive React Three Fiber forensic compend
 
 ## 2. Current Baseline
 
-The active baseline is `build-skymourn` at commit `11a431c9bfc081c9353c533c7b8765e013ded792`.
+The active source baseline is `build-skymourn` at commit `904c47002778d183a7129b0901bc8f937d7e6ab7`.
 
 Current source includes:
 
@@ -40,9 +40,12 @@ Current source includes:
 - Batch 1 dedicated Crust-Binder work;
 - Batch 2 dedicated Atmos-Engine work;
 - Batch 3 canon-correct Seedcarrier routing;
+- Batch 4 dedicated Fluxborne models for Trench-Sovereign, Salinity Conductor, Gyre Tactician, Littoral Reformer, and Cryofluid Engine;
+- a corrected Currenthalo loop assembly that keeps fin-ribs owned by their animated body loops;
+- a branch-scoped GitHub Actions workflow that runs existing typecheck, lint, tests, and build commands;
 - shared parametric fallback models for records not yet given dedicated passes.
 
-The current model-batch commits have not been run through TypeScript, lint, tests, production build, or browser inspection in the connector-only environment. They remain implemented but unverified.
+The connector exposed no retrievable status result for the current push-run. Current Batch 4 source therefore remains implemented but unverified.
 
 ## 3. Artifact Contract
 
@@ -64,7 +67,7 @@ The obsolete initial three-record prototype contract is retained only as project
   "authority": "Latest explicit user correction and current repository baseline",
   "evidence": "src/data/specimens.json and current branch routing",
   "validation_method": "Record-count tests plus rendered archive navigation inspection",
-  "last_checked": "2026-08-03 source inspection",
+  "last_checked": "2026-08-03 Batch 4 source inspection",
   "status": "active",
   "recheck_trigger": "Any registry, manifest, route, model, export, or test-data change"
 }
@@ -77,7 +80,7 @@ The obsolete initial three-record prototype contract is retained only as project
 - **Authority:** Latest explicit user correction and current repository baseline
 - **Evidence:** `src/data/specimens.json` and current branch routing
 - **Validation method:** Record-count tests plus rendered archive navigation inspection
-- **Last checked:** 2026-08-03 source inspection
+- **Last checked:** 2026-08-03 Batch 4 source inspection
 - **Status:** active
 - **Recheck trigger:** Any registry, manifest, route, model, export, or test-data change
 <!-- /operational-state:entry -->
@@ -92,7 +95,7 @@ The obsolete initial three-record prototype contract is retained only as project
   "authority": "User-supplied full working-canon dossier",
   "evidence": "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md",
   "validation_method": "Record-by-record dossier comparison",
-  "last_checked": "2026-08-03 Batch 3 canon audit",
+  "last_checked": "2026-08-03 Batch 4 Fluxborne canon audit",
   "status": "active",
   "recheck_trigger": "Any model, content, annotation, source, export, or copy change"
 }
@@ -105,7 +108,7 @@ The obsolete initial three-record prototype contract is retained only as project
 - **Authority:** User-supplied full working-canon dossier
 - **Evidence:** `docs/drakken_compendium_full_blood_eclipse_visual_integrated.md`
 - **Validation method:** Record-by-record dossier comparison
-- **Last checked:** 2026-08-03 Batch 3 canon audit
+- **Last checked:** 2026-08-03 Batch 4 Fluxborne canon audit
 - **Status:** active
 - **Recheck trigger:** Any model, content, annotation, source, export, or copy change
 <!-- /operational-state:entry -->
@@ -146,7 +149,7 @@ The obsolete initial three-record prototype contract is retained only as project
   "rule": "A record cannot be marked complete solely because it has unique configuration values, colors, scales, primitive counts, or an archetype route. Completion requires meaningful record-specific rendered construction and validation.",
   "scope": "Model-quality passes and completion reports",
   "authority": "Explicit user correction after false all-model completion claims",
-  "evidence": "Batch workflow correction accepted in current project",
+  "evidence": "Bounded dedicated-model workflow accepted in current project",
   "validation_method": "Dedicated construction inspection and sibling comparison",
   "last_checked": "2026-08-03",
   "status": "active",
@@ -159,7 +162,7 @@ The obsolete initial three-record prototype contract is retained only as project
 - **Rule:** A record cannot be marked complete solely because it has unique configuration values, colors, scales, primitive counts, or an archetype route. Completion requires meaningful record-specific rendered construction and validation.
 - **Scope:** Model-quality passes and completion reports
 - **Authority:** Explicit user correction after false all-model completion claims
-- **Evidence:** Batch workflow correction accepted in current project
+- **Evidence:** Bounded dedicated-model workflow accepted in current project
 - **Validation method:** Dedicated construction inspection and sibling comparison
 - **Last checked:** 2026-08-03
 - **Status:** active
@@ -235,7 +238,7 @@ None observed through a current runtime. Absence of runtime evidence is recorded
   "id": "UNV-004",
   "title": "Batch 3 Seedcarrier canon-correct models",
   "state": "implemented-unverified",
-  "implementation": "Commit 11a431c9bfc081c9353c533c7b8765e013ded792 routes Macroflora Colossus, Sporesphere Archivist, Neural Fungibinder, Precipitation Synth, and Soil Rewriter through canon-correct constructions in src/scene/models/SeedcarrierCanonModels.tsx.",
+  "implementation": "Macroflora Colossus, Sporesphere Archivist, Neural Fungibinder, Precipitation Synth, and Soil Rewriter route through canon-correct constructions in src/scene/models/SeedcarrierCanonModels.tsx.",
   "missing_evidence": "Repository TypeScript, lint, tests, production build, direct rendering, clipping, measurement, animation, camera, and repeated-switch checks",
   "status": "active"
 }
@@ -243,8 +246,26 @@ None observed through a current runtime. Absence of runtime evidence is recorded
 ### UNV-004 — Batch 3 Seedcarrier canon-correct models
 
 - **State:** `implemented-unverified`
-- **Implementation:** Commit `11a431c9bfc081c9353c533c7b8765e013ded792` routes Macroflora Colossus, Sporesphere Archivist, Neural Fungibinder, Precipitation Synth, and Soil Rewriter through canon-correct constructions in `src/scene/models/SeedcarrierCanonModels.tsx`.
+- **Implementation:** Macroflora Colossus, Sporesphere Archivist, Neural Fungibinder, Precipitation Synth, and Soil Rewriter route through canon-correct constructions in `src/scene/models/SeedcarrierCanonModels.tsx`.
 - **Missing evidence:** Repository TypeScript, lint, tests, production build, direct rendering, clipping, measurement, animation, camera, and repeated-switch checks
+- **Status:** active
+<!-- /operational-state:entry -->
+
+<!-- operational-state:entry
+{
+  "id": "UNV-005",
+  "title": "Batch 4 Fluxborne dedicated models",
+  "state": "implemented-unverified",
+  "implementation": "Commit 904c47002778d183a7129b0901bc8f937d7e6ab7 routes Trench-Sovereign, Salinity Conductor, Gyre Tactician, Littoral Reformer, and Cryofluid Engine through dedicated canon-grounded models. Currenthalo uses a separate corrected loop assembly so fin-ribs remain attached to their animated loops.",
+  "missing_evidence": "Retrievable CI result, repository typecheck, lint, tests, build, direct rendering, clipping, measurement, animation, camera, sibling comparison, and repeated-switch checks",
+  "status": "active"
+}
+-->
+### UNV-005 — Batch 4 Fluxborne dedicated models
+
+- **State:** `implemented-unverified`
+- **Implementation:** Commit `904c47002778d183a7129b0901bc8f937d7e6ab7` routes Trench-Sovereign, Salinity Conductor, Gyre Tactician, Littoral Reformer, and Cryofluid Engine through dedicated canon-grounded models. Currenthalo uses a separate corrected loop assembly so fin-ribs remain attached to their animated loops.
+- **Missing evidence:** Retrievable CI result, repository typecheck, lint, tests, build, direct rendering, clipping, measurement, animation, camera, sibling comparison, and repeated-switch checks
 - **Status:** active
 <!-- /operational-state:entry -->
 
@@ -273,16 +294,16 @@ None observed through a current runtime. Absence of runtime evidence is recorded
   "id": "UNK-002",
   "title": "Current dependency-backed build state",
   "state": "evidence-stale",
-  "unknown": "The last successful Actions evidence predates the dedicated Atmos-Engine and Seedcarrier model commits. No status checks are attached to commit 11a431c9bfc081c9353c533c7b8765e013ded792.",
-  "decisive_check": "Run npm run typecheck, npm run lint, npm test, and npm run build against the current branch.",
+  "unknown": "A branch-scoped validation workflow now exists, but no retrievable result was exposed for commit 904c47002778d183a7129b0901bc8f937d7e6ab7. The last known successful Actions evidence predates the current dedicated model batches.",
+  "decisive_check": "Inspect the Validate build-skymourn workflow result or run npm run typecheck, npm run lint, npm test, and npm run build locally against the current branch.",
   "status": "active"
 }
 -->
 ### UNK-002 — Current dependency-backed build state
 
 - **State:** `evidence-stale`
-- **Unknown:** The last successful Actions evidence predates the dedicated Atmos-Engine and Seedcarrier model commits. No status checks are attached to commit `11a431c9bfc081c9353c533c7b8765e013ded792`.
-- **Decisive check:** Run `npm run typecheck`, `npm run lint`, `npm test`, and `npm run build` against the current branch.
+- **Unknown:** A branch-scoped validation workflow now exists, but no retrievable result was exposed for commit `904c47002778d183a7129b0901bc8f937d7e6ab7`. The last known successful Actions evidence predates the current dedicated model batches.
+- **Decisive check:** Inspect the `Validate build-skymourn` workflow result or run `npm run typecheck`, `npm run lint`, `npm test`, and `npm run build` locally against the current branch.
 - **Status:** active
 <!-- /operational-state:entry -->
 
@@ -293,9 +314,9 @@ None observed through a current runtime. Absence of runtime evidence is recorded
   "id": "PND-001",
   "title": "Validate current branch",
   "state": "pending",
-  "task": "Run TypeScript, zero-warning lint, focused tests, and production build for the current branch.",
-  "reason_pending": "The connector environment cannot clone or execute the GitHub repository and no CI status is attached to the latest commit.",
-  "dependency": "Local checkout or GitHub Actions",
+  "task": "Obtain a conclusive result for TypeScript, zero-warning lint, focused tests, and production build on the current branch.",
+  "reason_pending": "The branch workflow exists but its push-run result is not retrievable through the active connector, and the execution container cannot access the repository network.",
+  "dependency": "GitHub Actions result or local checkout",
   "priority": "critical",
   "validation_needed": "npm run typecheck && npm run lint && npm test && npm run build",
   "blocks_completion": true
@@ -304,9 +325,9 @@ None observed through a current runtime. Absence of runtime evidence is recorded
 ### PND-001 — Validate current branch
 
 - **State:** `pending`
-- **Task:** Run TypeScript, zero-warning lint, focused tests, and production build for the current branch.
-- **Reason pending:** The connector environment cannot clone or execute the GitHub repository and no CI status is attached to the latest commit.
-- **Dependency:** Local checkout or GitHub Actions
+- **Task:** Obtain a conclusive result for TypeScript, zero-warning lint, focused tests, and production build on the current branch.
+- **Reason pending:** The branch workflow exists but its push-run result is not retrievable through the active connector, and the execution container cannot access the repository network.
+- **Dependency:** GitHub Actions result or local checkout
 - **Priority:** critical
 - **Validation needed:** `npm run typecheck && npm run lint && npm test && npm run build`
 - **Blocks completion:** true
@@ -317,7 +338,7 @@ None observed through a current runtime. Absence of runtime evidence is recorded
   "id": "PND-002",
   "title": "Perform browser model smoke and lifecycle checks",
   "state": "pending",
-  "task": "Exercise the ten Batch 2 and Batch 3 records plus representative fallback records through camera, layers, clipping, animations, measurement, annotations, and repeated switching.",
+  "task": "Exercise the fifteen Batch 2 through Batch 4 records plus representative fallback records through camera, layers, clipping, animations, measurement, annotations, and repeated switching.",
   "reason_pending": "No interactive browser runtime is available in the connector environment",
   "dependency": "Installed application and browser",
   "priority": "critical",
@@ -328,7 +349,7 @@ None observed through a current runtime. Absence of runtime evidence is recorded
 ### PND-002 — Perform browser model smoke and lifecycle checks
 
 - **State:** `pending`
-- **Task:** Exercise the ten Batch 2 and Batch 3 records plus representative fallback records through camera, layers, clipping, animations, measurement, annotations, and repeated switching.
+- **Task:** Exercise the fifteen Batch 2 through Batch 4 records plus representative fallback records through camera, layers, clipping, animations, measurement, annotations, and repeated switching.
 - **Reason pending:** No interactive browser runtime is available in the connector environment
 - **Dependency:** Installed application and browser
 - **Priority:** critical
@@ -341,8 +362,8 @@ None observed through a current runtime. Absence of runtime evidence is recorded
   "id": "PND-003",
   "title": "Continue bounded record-level model batches",
   "state": "pending",
-  "task": "After validation, select the next weakest family and improve no more than five records in one batch.",
-  "reason_pending": "Batch 3 source is implemented and requires validation before further expansion",
+  "task": "After validation, select the next weakest coherent family group and improve no more than five records in one batch.",
+  "reason_pending": "Batch 4 source is implemented and requires validation before additional expansion",
   "dependency": "PND-001 and PND-002",
   "priority": "high",
   "validation_needed": "Record-level canon audit, implementation, build, browser inspection, and sibling comparison",
@@ -352,8 +373,8 @@ None observed through a current runtime. Absence of runtime evidence is recorded
 ### PND-003 — Continue bounded record-level model batches
 
 - **State:** `pending`
-- **Task:** After validation, select the next weakest family and improve no more than five records in one batch.
-- **Reason pending:** Batch 3 source is implemented and requires validation before further expansion
+- **Task:** After validation, select the next weakest coherent family group and improve no more than five records in one batch.
+- **Reason pending:** Batch 4 source is implemented and requires validation before additional expansion
 - **Dependency:** PND-001 and PND-002
 - **Priority:** high
 - **Validation needed:** Record-level canon audit, implementation, build, browser inspection, and sibling comparison
@@ -421,7 +442,7 @@ None observed through a current runtime. Absence of runtime evidence is recorded
   "id": "DEC-004",
   "title": "No false visual or build claims",
   "state": "requested",
-  "decision": "Do not claim a model was rendered, visually compared, runtime-tested, typechecked, linted, tested, or built unless that exact check was executed against the current revision.",
+  "decision": "Do not claim a model was rendered, visually compared, runtime-tested, typechecked, linted, tested, or built unless that exact check was executed against the current revision and its result is available.",
   "authority": "Explicit user correction and operational evidence policy",
   "status": "active"
 }
@@ -429,7 +450,7 @@ None observed through a current runtime. Absence of runtime evidence is recorded
 ### DEC-004 — No false visual or build claims
 
 - **State:** `requested`
-- **Decision:** Do not claim a model was rendered, visually compared, runtime-tested, typechecked, linted, tested, or built unless that exact check was executed against the current revision.
+- **Decision:** Do not claim a model was rendered, visually compared, runtime-tested, typechecked, linted, tested, or built unless that exact check was executed against the current revision and its result is available.
 - **Authority:** Explicit user correction and operational evidence policy
 - **Status:** active
 <!-- /operational-state:entry -->
@@ -439,21 +460,22 @@ None observed through a current runtime. Absence of runtime evidence is recorded
 | ID | Claim | State | Current evidence | Required validation | Recheck trigger |
 |---|---|---|---|---|---|
 | INV-001 | Full 59-record archive remains intact | requested | Current registry and routing source | Record-count tests and rendered navigation | Registry, route, manifest, or model change |
-| INV-002 | Model features remain canon-grounded | requested | Full dossier and Batch 3 source audit | Record-by-record content and visual audit | Model or canon change |
+| INV-002 | Model features remain canon-grounded | requested | Full dossier and Batch 4 source audit | Record-by-record content and visual audit | Model or canon change |
 | INV-003 | Examination workflow remains functional | requested | Source presence only | Full browser smoke path | Scene, model, routing, control, or layout change |
 | INV-004 | Config does not equal completion | requested | Bounded dedicated-model workflow | Dedicated construction and sibling comparison | Any completion claim |
 | UNV-001 | Full archive source exists | implemented-unverified | Current branch source | Build and browser inspection | Application change |
 | UNV-002 | Batch 1 dedicated models exist | implemented-unverified | CrustBinderModels source | Current build and browser comparison | Model change |
 | UNV-003 | Batch 2 dedicated models exist | implemented-unverified | AtmosEngineModels and router source | Current build and browser comparison | Model or route change |
 | UNV-004 | Batch 3 canon-correct models exist | implemented-unverified | SeedcarrierCanonModels and router source | Current build and browser comparison | Model or route change |
+| UNV-005 | Batch 4 Fluxborne models exist | implemented-unverified | FluxborneModels, CurrenthaloModel, and router source | Current build and browser comparison | Model or route change |
 | UNK-001 | Browser and device behavior | unknown | No current runtime evidence | Browser checklist | Runtime change |
-| UNK-002 | Current build state | evidence-stale | Historical Actions run only | Full npm validation suite | Source or dependency change |
-| PND-001 | Validate current branch | pending | No status checks on latest commit | Full npm validation suite | Latest commit change |
+| UNK-002 | Current build state | evidence-stale | Workflow present; result unavailable | Workflow result or full local npm suite | Source or dependency change |
+| PND-001 | Validate current branch | pending | No conclusive current result | Full npm validation suite | Latest source commit change |
 | PND-002 | Browser model checks | pending | No browser runtime | Direct model journey checks | Model or UI change |
 
 ## 12. Current Change Scope and Impact Radius
 
-The completed change scope is Batch 3 only: five Seedcarrier records and their router imports. `src/scene/models/SeedcarrierCanonModels.tsx` supersedes the earlier incorrect routed forms for those five records while retaining the older file as a reusable base for three compatible constructions. The impact radius includes model rendering, clipping, layer visibility, measurement event handling, annotations, camera framing, performance, and record switching.
+The completed change scope is Batch 4 only: five Fluxborne records, their dedicated procedural model source, the corrected Currenthalo ownership component, routing imports and cases, and branch validation infrastructure. The impact radius includes model rendering, transparency, clipping, layer visibility, measurement event handling, annotations, camera framing, animation transforms, geometry ownership, performance, and repeated record switching.
 
 ## 13. Compact Revision Log
 
@@ -464,4 +486,5 @@ The completed change scope is Batch 3 only: five Seedcarrier records and their r
 - **Revision 8 — 2026-08-03:** Expanded the archive to all 59 records using nine shared archetype foundations; later completion claims were rejected because archetype routing did not prove individual model quality.
 - **Revision 9 — 2026-08-03:** Added Batch 1 Crust-Binder dedicated models.
 - **Revision 10 — 2026-08-03:** Added Batch 2 Atmos-Engine dedicated model source and routing; current build and browser validation remain pending.
-- **Revision 11 — 2026-08-03:** Reconciled the obsolete three-record state, established the full 59-record contract, and corrected Batch 3 against the full canon dossier. Verdgorge is now an antlered root-rib quadruped; Pollenvault gains a gaping flower underside, pollenglyphs, and coded mist; Mycethron gains a brainlike tendril crown and dendritic web; Raintaster gains pale-script and patterned rain overlays; Terragullet is replaced by a jawless grinder-worm with compost chambers and glowing loam glyph trails. Current revision remains implemented-unverified.
+- **Revision 11 — 2026-08-03:** Reconciled the obsolete three-record state, established the full 59-record contract, and corrected Batch 3 against the full canon dossier.
+- **Revision 12 — 2026-08-03:** Added Batch 4 Fluxborne models for Abyssoriel, Brinechoir, Currenthalo, Shelfcarver, and Glacierthroat. Corrected Currenthalo so animated loops own their fin-ribs. Added branch-scoped validation workflow. Current revision remains implemented-unverified because the workflow result and browser evidence are unavailable through the active environment.
