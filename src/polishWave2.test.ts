@@ -9,7 +9,7 @@ describe('product polish wave 2 ledger', () => {
   });
 
   it('records each adversarial repair separately from the initial wave', () => {
-    expect(POLISH_WAVE_2_REPAIRS).toHaveLength(9);
+    expect(POLISH_WAVE_2_REPAIRS).toHaveLength(11);
     expect(new Set(POLISH_WAVE_2_REPAIRS.map((item) => item.id)).size).toBe(POLISH_WAVE_2_REPAIRS.length);
     expect(POLISH_WAVE_2_REPAIRS.every((item) => item.title.trim().length > 12)).toBe(true);
   });
