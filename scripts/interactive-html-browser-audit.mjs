@@ -40,21 +40,35 @@ await page.waitForSelector('canvas', { timeout: 30_000 });
 await page.waitForSelector('#registry-drawer', { timeout: 30_000 });
 await delay(300);
 
-async function dispatchKey(key, code = '') {
-  await page.evaluate(({ key, code }) => {
-    window.dispatchEvent(new KeyboardEvent('keydown', { key, code, bubbles: true, cancelable: true }));
-  }, { key, code });
-  await delay(100);
+async function verifyShortcut(key, selector) {
+  await page.keyboard.press(key);
+  await page.waitForFunction((value) => document.querySelector(value)?.classList.contains('is-open'), { timeout: 5_000 }, selector);
+  await page.keyboard.press('Escape');
+  await page.waitForFunction((value) => !document.querySelector(value)?.classList.contains('is-open'), { timeout: 5_000 }, selector);
+  await delay(80);
 }
 
-async function openDrawer(key, selector) {
-  await dispatchKey(key);
+async function openDrawer(_key, selector) {
+  const id = selector.replace(/^#/, '');
+  const clicked = await page.evaluate((drawerId) => {
+    const trigger = document.querySelector(`[aria-controls="${drawerId}"]`);
+    if (!(trigger instanceof HTMLButtonElement)) return false;
+    trigger.click();
+    return true;
+  }, id);
+  if (!clicked) throw new Error(`No trigger found for ${selector}.`);
   await page.waitForFunction((value) => document.querySelector(value)?.classList.contains('is-open'), { timeout: 10_000 }, selector);
   await delay(120);
 }
 
 async function closeDrawer(selector) {
-  await dispatchKey('Escape');
+  const closed = await page.evaluate(() => {
+    const scrim = document.querySelector('.drawer-scrim');
+    if (!(scrim instanceof HTMLButtonElement)) return false;
+    scrim.click();
+    return true;
+  });
+  if (!closed) throw new Error(`No drawer scrim available while closing ${selector}.`);
   await page.waitForFunction((value) => !document.querySelector(value)?.classList.contains('is-open'), { timeout: 10_000 }, selector);
 }
 
@@ -109,6 +123,11 @@ if (delivery.marker !== 'single-file-interactive-html' || delivery.canvasCount !
   throw new Error(`Interactive application did not mount completely: ${JSON.stringify(delivery)}.`);
 }
 
+// Verify the actual G/T/I/D and Escape keyboard path before any pointer work changes focus.
+for (const [key, selector] of [['g', '#registry-drawer'], ['t', '#tools-drawer'], ['i', '#record-drawer'], ['d', '#diagnostics-drawer']]) {
+  await verifyShortcut(key, selector);
+}
+
 // Preserve the live 3D orbit and zoom input path.
 const canvas = await page.$('canvas');
 const box = await canvas?.boundingBox();
@@ -140,9 +159,7 @@ await page.waitForFunction((name) => document.querySelector('.specimen-titlebar 
 
 // Preserve all examination tools and their state changes.
 await openDrawer('t', '#tools-drawer');
-for (const label of ['Orthographic', 'front', 'Silhouette', 'Wireframe', 'Reduced quality', 'Show all', 'Enabled', 'Y', 'Invert']) {
-  await clickButton('#tools-drawer', label);
-}
+for (const label of ['Orthographic', 'front', 'Silhouette', 'Wireframe', 'Reduced quality', 'Show all', 'Enabled', 'Y', 'Invert']) await clickButton('#tools-drawer', label);
 await setValue('#tools-drawer input[aria-label="Section plane position"]', 2.5);
 await clickButton('#tools-drawer', 'Pause', false);
 await clickButton('#tools-drawer', 'Restart');
@@ -158,31 +175,20 @@ const tools = await page.evaluate(() => {
   const find = (text) => buttons.find((button) => button.textContent?.replace(/\s+/g, ' ').trim() === text);
   const pressed = (text) => find(text)?.getAttribute('aria-pressed');
   return {
-    orthographic: pressed('Orthographic'),
-    front: find('front')?.classList.contains('is-active') ?? false,
-    silhouette: pressed('Silhouette'),
-    wireframe: pressed('Wireframe'),
-    reducedQuality: pressed('Reduced quality'),
+    orthographic: pressed('Orthographic'), front: find('front')?.classList.contains('is-active') ?? false,
+    silhouette: pressed('Silhouette'), wireframe: pressed('Wireframe'), reducedQuality: pressed('Reduced quality'),
     layerCount: document.querySelectorAll('#tools-drawer .layer-grid button[aria-pressed="true"]').length,
-    sectionEnabled: pressed('Enabled'),
-    sectionY: find('Y')?.classList.contains('is-active') ?? false,
-    inverted: pressed('Invert'),
+    sectionEnabled: pressed('Enabled'), sectionY: find('Y')?.classList.contains('is-active') ?? false, inverted: pressed('Invert'),
     sectionValue: document.querySelector('#tools-drawer input[aria-label="Section plane position"]')?.value ?? '',
     animationAction: buttons.find((button) => /^(Play|Pause)/.test(button.textContent?.trim() ?? ''))?.textContent?.replace(/\s+/g, ' ').trim() ?? '',
     animationSpeed: document.querySelector('#tools-drawer input[aria-label="Playback speed"]')?.value ?? '',
-    measurement: pressed('Measure'),
-    scale: document.querySelector('#tools-drawer select[aria-label="Scale comparison"]')?.value ?? '',
+    measurement: pressed('Measure'), scale: document.querySelector('#tools-drawer select[aria-label="Scale comparison"]')?.value ?? '',
     modeRail: document.querySelector('.active-mode-rail')?.textContent?.replace(/\s+/g, ' ').trim() ?? '',
   };
 });
-if (
-  tools.orthographic !== 'true' || !tools.front || tools.silhouette !== 'true' || tools.wireframe !== 'true' ||
-  tools.reducedQuality !== 'true' || tools.layerCount !== 4 || tools.sectionEnabled !== 'true' || !tools.sectionY ||
-  tools.inverted !== 'true' || tools.sectionValue !== '2.5' || !tools.animationAction.startsWith('Play') ||
-  tools.animationSpeed !== '1.5' || tools.measurement !== 'true' || tools.scale !== 'human' ||
-  !tools.modeRail.includes('Section Y 2.5') || !tools.modeRail.includes('Measurement armed')
-) throw new Error(`Examination-tool parity failed: ${JSON.stringify(tools)}.`);
-
+if (tools.orthographic !== 'true' || !tools.front || tools.silhouette !== 'true' || tools.wireframe !== 'true' || tools.reducedQuality !== 'true' || tools.layerCount !== 4 || tools.sectionEnabled !== 'true' || !tools.sectionY || tools.inverted !== 'true' || tools.sectionValue !== '2.5' || !tools.animationAction.startsWith('Play') || tools.animationSpeed !== '1.5' || tools.measurement !== 'true' || tools.scale !== 'human' || !tools.modeRail.includes('Section Y 2.5') || !tools.modeRail.includes('Measurement armed')) {
+  throw new Error(`Examination-tool parity failed: ${JSON.stringify(tools)}.`);
+}
 await clickButton('#tools-drawer', 'Reset all');
 const reset = await page.evaluate(() => {
   const buttons = [...document.querySelectorAll('#tools-drawer button')];
@@ -195,12 +201,10 @@ const reset = await page.evaluate(() => {
     scale: document.querySelector('#tools-drawer select[aria-label="Scale comparison"]')?.value ?? '',
   };
 });
-if (reset.perspective !== 'true' || reset.layerCount !== 1 || reset.sectionEnabled !== 'false' || reset.measurement !== 'false' || reset.scale !== 'none') {
-  throw new Error(`Reset-all parity failed: ${JSON.stringify(reset)}.`);
-}
+if (reset.perspective !== 'true' || reset.layerCount !== 1 || reset.sectionEnabled !== 'false' || reset.measurement !== 'false' || reset.scale !== 'none') throw new Error(`Reset-all parity failed: ${JSON.stringify(reset)}.`);
 await closeDrawer('#tools-drawer');
-await dispatchKey(' ', 'Space');
-await dispatchKey('r', 'KeyR');
+await page.keyboard.press('Space');
+await page.keyboard.press('r');
 
 // Preserve the complete dossier, annotations, and file exports.
 await openDrawer('i', '#record-drawer');
@@ -224,20 +228,14 @@ await closeDrawer('#record-drawer');
 
 // Preserve diagnostics and the orientation briefing.
 await openDrawer('d', '#diagnostics-drawer');
-const diagnostics = await page.evaluate(() => ({
-  rows: document.querySelectorAll('#diagnostics-drawer dl > div').length,
-  specimen: document.querySelector('#diagnostics-drawer dl > div dd')?.textContent?.trim() ?? '',
-}));
+const diagnostics = await page.evaluate(() => ({ rows: document.querySelectorAll('#diagnostics-drawer dl > div').length, specimen: document.querySelector('#diagnostics-drawer dl > div dd')?.textContent?.trim() ?? '' }));
 if (diagnostics.rows < 9 || diagnostics.specimen !== 'skymourn') throw new Error(`Diagnostics parity failed: ${JSON.stringify(diagnostics)}.`);
 await closeDrawer('#diagnostics-drawer');
 await page.evaluate(() => document.querySelector('.hud-brand')?.click());
 await page.waitForSelector('.orientation-overlay', { visible: true, timeout: 5_000 });
-const briefing = await page.evaluate(() => ({
-  title: document.querySelector('#briefing-heading')?.textContent?.trim() ?? '',
-  topics: document.querySelectorAll('.orientation-item').length,
-}));
+const briefing = await page.evaluate(() => ({ title: document.querySelector('#briefing-heading')?.textContent?.trim() ?? '', topics: document.querySelectorAll('.orientation-item').length }));
 if (briefing.title !== 'Examiner Orientation Briefing' || briefing.topics < 6) throw new Error(`Briefing parity failed: ${JSON.stringify(briefing)}.`);
-await dispatchKey('Escape');
+await page.keyboard.press('Escape');
 await page.waitForFunction(() => !document.querySelector('.orientation-overlay'), { timeout: 5_000 });
 
 // Preserve responsive containment in the actual downloaded file.
@@ -247,18 +245,9 @@ await openDrawer('t', '#tools-drawer');
 const responsive = await page.evaluate(() => {
   const drawer = document.querySelector('#tools-drawer');
   const rect = drawer?.getBoundingClientRect();
-  return {
-    width: window.innerWidth,
-    height: window.innerHeight,
-    left: rect?.left ?? -1,
-    right: rect?.right ?? -1,
-    bottom: rect?.bottom ?? -1,
-    overflow: drawer ? drawer.scrollWidth > drawer.clientWidth + 1 : true,
-  };
+  return { width: window.innerWidth, height: window.innerHeight, left: rect?.left ?? -1, right: rect?.right ?? -1, bottom: rect?.bottom ?? -1, overflow: drawer ? drawer.scrollWidth > drawer.clientWidth + 1 : true };
 });
-if (responsive.left < -1 || responsive.right > responsive.width + 1 || responsive.bottom > responsive.height + 1 || responsive.overflow) {
-  throw new Error(`Responsive parity failed: ${JSON.stringify(responsive)}.`);
-}
+if (responsive.left < -1 || responsive.right > responsive.width + 1 || responsive.bottom > responsive.height + 1 || responsive.overflow) throw new Error(`Responsive parity failed: ${JSON.stringify(responsive)}.`);
 
 await page.screenshot({ path: path.join(outputRoot, 'interactive-html-file-launch.png'), fullPage: true });
 await browser.close();
@@ -268,44 +257,19 @@ const ignoredPage = [/^THREE\.WebGLRenderer: Error creating WebGL context\.$/i];
 const actionableConsoleErrors = consoleErrors.filter((message) => !ignoredConsole.some((pattern) => pattern.test(message)));
 const actionablePageErrors = pageErrors.filter((message) => !ignoredPage.some((pattern) => pattern.test(message)));
 if (remoteRequests.length) throw new Error(`Remote runtime requests detected: ${JSON.stringify(remoteRequests)}.`);
-if (actionablePageErrors.length || actionableConsoleErrors.length) {
-  throw new Error(`Interactive HTML browser errors: ${JSON.stringify({ actionablePageErrors, actionableConsoleErrors })}.`);
-}
+if (actionablePageErrors.length || actionableConsoleErrors.length) throw new Error(`Interactive HTML browser errors: ${JSON.stringify({ actionablePageErrors, actionableConsoleErrors })}.`);
 
-const report = {
-  htmlFile: path.basename(htmlFile),
-  delivery,
-  registry,
-  tools,
-  reset,
-  record,
-  downloadedFiles,
-  diagnostics,
-  briefing,
-  responsive,
-  remoteRequests,
-  actionablePageErrors,
-  actionableConsoleErrors,
-};
+const report = { htmlFile: path.basename(htmlFile), delivery, registry, tools, reset, record, downloadedFiles, diagnostics, briefing, responsive, remoteRequests, actionablePageErrors, actionableConsoleErrors };
 fs.writeFileSync(path.join(outputRoot, 'interactive-html-browser-audit.json'), JSON.stringify(report, null, 2));
 fs.writeFileSync(path.join(outputRoot, 'interactive-html-browser-audit.md'), [
-  '# Interactive HTML Feature-Parity Audit',
-  '',
-  '- Direct local `file://` launch: PASS',
-  '- One live R3F canvas with orbit and zoom input: PASS',
-  '- All 59 records and first/last record switching: PASS',
-  '- Camera modes and presets: PASS',
-  '- Silhouette, wireframe, and quality controls: PASS',
-  '- Four anatomy layers and presets: PASS',
-  '- Sectioning axis, position, and inversion: PASS',
-  '- Animation selection, transport, loop, and speed: PASS',
-  '- Measurement mode and scale references: PASS',
-  '- Reset-all, Space, and R shortcuts: PASS',
-  '- Five dossier tabs, annotations, Markdown export, and JSON export: PASS',
-  '- Diagnostics and briefing: PASS',
-  '- Mobile containment: PASS',
-  '- Remote runtime requests: 0',
-  '- Actionable browser errors: 0',
-  '',
+  '# Interactive HTML Feature-Parity Audit', '',
+  '- Direct local `file://` launch: PASS', '- One live R3F canvas with orbit and zoom input: PASS',
+  '- All 59 records and first/last record switching: PASS', '- G/T/I/D and Escape shortcuts: PASS',
+  '- Camera modes and presets: PASS', '- Silhouette, wireframe, and quality controls: PASS',
+  '- Four anatomy layers and presets: PASS', '- Sectioning axis, position, and inversion: PASS',
+  '- Animation selection, transport, loop, and speed: PASS', '- Measurement mode and scale references: PASS',
+  '- Reset-all, Space, and R shortcuts: PASS', '- Five dossier tabs, annotations, Markdown export, and JSON export: PASS',
+  '- Diagnostics and briefing: PASS', '- Mobile containment: PASS', '- Remote runtime requests: 0',
+  '- Actionable browser errors: 0', '',
 ].join('\n'));
 console.log('Interactive HTML feature-parity audit passed.');
