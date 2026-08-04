@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from 'react';
 import { ExaminationChamber } from './components/ExaminationChamber';
 import {
   beginLoad,
@@ -35,6 +35,7 @@ const evidenceFilters = ['all', ...evidenceStates.map((state) => state.toLowerCa
 const defaultLayers: Record<LayerId, boolean> = { surface: true, structure: false, internal: false, functional: false };
 const defaultClip: ClipState = { enabled: false, axis: 'x', position: 0, inverted: false };
 const recordTabs = ['record', 'incident', 'military', 'civic', 'sources'] as const;
+type RecordTab = (typeof recordTabs)[number];
 
 function EvidenceBadge({ state }: { state: string }) {
   return <span className={`evidence-badge evidence-${state.toLowerCase().replaceAll(' ', '-')}`}>{state}</span>;
@@ -65,6 +66,7 @@ function ToggleButton({
 }
 
 export default function App() {
+  // adversarial-polish-repair: focus, semantics, recovery, and action clarity
   const [activeSpecimenId, setActiveSpecimenId] = useState('skymourn');
   const [pendingSpecimenId, setPendingSpecimenId] = useState<string | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -79,6 +81,7 @@ export default function App() {
   const lastPanelTriggerRef = useRef<HTMLButtonElement | null>(null);
   const statusTimerRef = useRef<number | null>(null);
   const activeRecord = findSpecimen(activeSpecimenId);
+  const defaultAnimationName = activeRecord.animations[0];
 
   const [query, setQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<(typeof categoryFilters)[number]>('all');
@@ -110,7 +113,7 @@ export default function App() {
   const [scaleReference, setScaleReference] = useState<'none' | 'human' | 'vehicle' | 'building'>('none');
   const [selectedAnnotationId, setSelectedAnnotationId] = useState<string | null>('sky-face');
   const [selectedAnnotationIds, setSelectedAnnotationIds] = useState<string[]>(['sky-face']);
-  const [recordTab, setRecordTab] = useState<'record' | 'incident' | 'military' | 'civic' | 'sources'>('record');
+  const [recordTab, setRecordTab] = useState<RecordTab>('record');
   const [diagnosticsOpen, setDiagnosticsOpen] = useState(false);
   const [registryOpen, setRegistryOpen] = useState(false);
   const [recordOpen, setRecordOpen] = useState(false);
@@ -237,6 +240,18 @@ export default function App() {
     }, reducedMotion ? 0 : 120);
   }, [activeSpecimenId, announce, pendingSpecimenId, reducedMotion]);
 
+  const retryFailedSpecimen = useCallback(() => {
+    if (!lastFailedSpecimenId) return;
+    setLoadError(null);
+    if (lastFailedSpecimenId === activeSpecimenId) {
+      setResetCameraToken((value) => value + 1);
+      setLastFailedSpecimenId(null);
+      announce(`${activeRecord.designation} restored.`);
+      return;
+    }
+    chooseSpecimen(lastFailedSpecimenId);
+  }, [activeRecord.designation, activeSpecimenId, announce, chooseSpecimen, lastFailedSpecimenId]);
+
   const filteredRecords = useMemo(() => {
     const normalized = query.trim().toLowerCase();
     return specimens.filter((record) => {
@@ -256,6 +271,15 @@ export default function App() {
 
   const visibleLayerCount = layerOrder.filter((layer) => layers[layer]).length;
   const filtersActive = query.trim().length > 0 || categoryFilter !== 'all' || evidenceFilter !== 'all';
+  const activePanelSelector = registryOpen
+    ? '#registry-drawer'
+    : toolsOpen
+      ? '#tools-drawer'
+      : recordOpen
+        ? '#record-drawer'
+        : diagnosticsOpen
+          ? '#diagnostics-drawer'
+          : null;
   const clearRegistryFilters = useCallback(() => {
     setQuery('');
     setCategoryFilter('all');
@@ -264,24 +288,39 @@ export default function App() {
   }, [announce]);
 
   useEffect(() => {
-    const selector = registryOpen
-      ? '.registry-panel.is-open'
-      : toolsOpen
-        ? '.tools-panel.is-open'
-        : recordOpen
-          ? '.record-panel.is-open'
-          : null;
-    if (!selector) return;
+    if (!activePanelSelector) return;
+    const panel = document.querySelector<HTMLElement>(activePanelSelector);
+    if (!panel) return;
+    const focusableSelector = 'button:not(:disabled), input:not(:disabled), select:not(:disabled), [href], [tabindex]:not([tabindex="-1"])';
+    const getFocusable = () => Array.from(panel.querySelectorAll<HTMLElement>(focusableSelector)).filter((item) => item.offsetParent !== null);
     const frame = window.requestAnimationFrame(() => {
-      const panel = document.querySelector<HTMLElement>(selector);
-      panel?.querySelector<HTMLElement>('input, button, select, [href], [tabindex]:not([tabindex="-1"])')?.focus();
+      const preferred = panel.querySelector<HTMLElement>('[data-drawer-focus]');
+      (preferred ?? getFocusable()[0])?.focus();
     });
-    return () => window.cancelAnimationFrame(frame);
-  }, [recordOpen, registryOpen, toolsOpen]);
+    const trapFocus = (event: KeyboardEvent) => {
+      if (event.key !== 'Tab') return;
+      const focusable = getFocusable();
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    panel.addEventListener('keydown', trapFocus);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      panel.removeEventListener('keydown', trapFocus);
+    };
+  }, [activePanelSelector]);
 
   const resetAllTools = useCallback(() => {
     setLayers(defaultLayers);
-    setAnimation({ name: activeRecord.animations[0], playing: !reducedMotion, speed: 1, loop: true, restartToken: 0 });
+    setAnimation({ name: defaultAnimationName, playing: !reducedMotion, speed: 1, loop: true, restartToken: 0 });
     setAnimationTime(0);
     setCameraMode('perspective');
     setCameraPreset('three-quarter');
@@ -295,7 +334,7 @@ export default function App() {
     setMeasurementPoints([]);
     setScaleReference('none');
     announce('Examination tools reset.');
-  }, [activeRecord.animations, announce, reducedMotion]);
+  }, [announce, defaultAnimationName, reducedMotion]);
 
   const setLayerPreset = useCallback((preset: 'surface' | 'all' | 'none') => {
     setLayers(preset === 'all'
@@ -312,8 +351,29 @@ export default function App() {
 
   const handleAnnotationSelect = useCallback((id: string) => {
     setSelectedAnnotationId(id);
-    setSelectedAnnotationIds((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id]);
     setRecordOpen(true);
+  }, []);
+
+  const toggleAnnotationExport = useCallback((id: string) => {
+    setSelectedAnnotationIds((current) => {
+      const included = current.includes(id);
+      announce(included ? 'Annotation removed from export.' : 'Annotation included in export.');
+      return included ? current.filter((item) => item !== id) : [...current, id];
+    });
+  }, [announce]);
+
+  const handleRecordTabKeyDown = useCallback((event: ReactKeyboardEvent<HTMLButtonElement>, tab: RecordTab) => {
+    const currentIndex = recordTabs.indexOf(tab);
+    let nextIndex = currentIndex;
+    if (event.key === 'ArrowRight') nextIndex = (currentIndex + 1) % recordTabs.length;
+    else if (event.key === 'ArrowLeft') nextIndex = (currentIndex - 1 + recordTabs.length) % recordTabs.length;
+    else if (event.key === 'Home') nextIndex = 0;
+    else if (event.key === 'End') nextIndex = recordTabs.length - 1;
+    else return;
+    event.preventDefault();
+    const nextTab = recordTabs[nextIndex];
+    setRecordTab(nextTab);
+    window.requestAnimationFrame(() => document.getElementById('record-tab-' + nextTab)?.focus());
   }, []);
 
   useEffect(() => {
@@ -413,21 +473,21 @@ export default function App() {
       {(registryOpen || toolsOpen || recordOpen || diagnosticsOpen) && <button type="button" className="drawer-scrim" aria-label="Close open panel" onClick={() => closePanels()} />}
 
       <main className="archive-layout">
-        <aside id="registry-drawer" className={`registry-panel ${registryOpen ? 'is-open' : ''}`} aria-label="Specimen registry" aria-hidden={!registryOpen}>
+        <aside id="registry-drawer" role="dialog" aria-modal="true" className={`registry-panel ${registryOpen ? 'is-open' : ''}`} aria-label="Specimen registry" aria-hidden={!registryOpen}>
           <div className="panel-heading">
             <div>
               <p className="eyebrow">Registry</p>
               <h2>Specimen index</h2>
             </div>
-            <button className="mobile-close" type="button" onClick={() => setRegistryOpen(false)} aria-label="Close registry">×</button>
+            <button className="mobile-close" type="button" onClick={() => closePanels()} aria-label="Close registry">×</button>
           </div>
-          <label className="search-field">
-            <span>Search records</span>
+          <div className="search-field">
+            <label htmlFor="registry-search">Search records</label>
             <span className="search-control">
-              <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Designation, role, archive ID" />
+              <input id="registry-search" data-drawer-focus value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Designation, role, archive ID" />
               {query && <button type="button" className="clear-field" onClick={() => setQuery('')} aria-label="Clear record search">×</button>}
             </span>
-          </label>
+          </div>
           <div className="filter-block">
             <span>Category</span>
             <div className="filter-row">
@@ -530,7 +590,7 @@ export default function App() {
               onAnimationTime={setAnimationTime}
             />
             {pendingSpecimenId && <div className="loading-overlay" role="status"><span className="loading-kicker">Reconstructing record</span><strong>{findSpecimen(pendingSpecimenId).designation}</strong><span className="loading-track"><span /></span></div>}
-            {loadError && <div className="error-overlay" role="alert"><strong>Record reconstruction failed</strong><span>{loadError}</span><span className="overlay-actions">{lastFailedSpecimenId && <button type="button" onClick={() => chooseSpecimen(lastFailedSpecimenId)}>Retry</button>}<button type="button" onClick={() => setLoadError(null)}>Dismiss</button></span></div>}
+            {loadError && <div className="error-overlay" role="alert"><strong>Record reconstruction failed</strong><span>{loadError}</span><span className="overlay-actions">{lastFailedSpecimenId && <button type="button" onClick={retryFailedSpecimen}>Retry</button>}<button type="button" onClick={() => setLoadError(null)}>Dismiss</button></span></div>}
           </div>
 
           {(clip.enabled || measurementMode || !animation.playing || qualityTier === 'reduced' || wireframe || silhouette) && (
@@ -544,13 +604,13 @@ export default function App() {
             </div>
           )}
 
-          <aside id="tools-drawer" className={`tools-panel ${toolsOpen ? 'is-open' : ''}`} aria-label="Examination tools" aria-hidden={!toolsOpen}>
+          <aside id="tools-drawer" role="dialog" aria-modal="true" className={`tools-panel ${toolsOpen ? 'is-open' : ''}`} aria-label="Examination tools" aria-hidden={!toolsOpen}>
             <div className="panel-heading">
               <div>
                 <p className="eyebrow">Controls</p>
                 <h2>Examination Tools</h2>
               </div>
-              <span className="panel-heading-actions"><button type="button" className="panel-reset" onClick={resetAllTools}>Reset all</button><button className="mobile-close" type="button" onClick={() => setToolsOpen(false)} aria-label="Close tools">×</button></span>
+              <span className="panel-heading-actions"><button type="button" className="panel-reset" data-drawer-focus onClick={resetAllTools}>Reset all</button><button className="mobile-close" type="button" onClick={() => closePanels()} aria-label="Close tools">×</button></span>
             </div>
             
             <div className="tools-content">
@@ -695,13 +755,13 @@ export default function App() {
         </aside>
         </section>
 
-        <aside id="record-drawer" className={`record-panel ${recordOpen ? 'is-open' : ''}`} aria-label="Specimen record" aria-hidden={!recordOpen}>
+        <aside id="record-drawer" role="dialog" aria-modal="true" className={`record-panel ${recordOpen ? 'is-open' : ''}`} aria-label="Specimen record" aria-hidden={!recordOpen}>
           <div className="panel-heading">
             <div>
               <p className="eyebrow">Archive record</p>
               <h2>{activeRecord.designation}</h2>
             </div>
-            <button className="mobile-close" type="button" onClick={() => setRecordOpen(false)} aria-label="Close record">×</button>
+            <button className="mobile-close" type="button" onClick={() => closePanels()} aria-label="Close record">×</button>
           </div>
           <div className="record-summary">
             <EvidenceBadge state={activeRecord.evidenceStatus} />
@@ -709,7 +769,7 @@ export default function App() {
           </div>
           <nav className="record-tabs" role="tablist" aria-label="Record sections">
             {recordTabs.map((tab) => (
-              <button type="button" role="tab" id={`record-tab-${tab}`} aria-controls={`record-panel-${tab}`} aria-selected={recordTab === tab} tabIndex={recordTab === tab ? 0 : -1} key={tab} className={recordTab === tab ? 'is-active' : ''} onClick={() => setRecordTab(tab)}>{tab}</button>
+              <button type="button" role="tab" id={`record-tab-${tab}`} aria-controls={`record-panel-${tab}`} aria-selected={recordTab === tab} tabIndex={recordTab === tab ? 0 : -1} data-drawer-focus={recordTab === tab ? true : undefined} key={tab} className={recordTab === tab ? 'is-active' : ''} onKeyDown={(event) => handleRecordTabKeyDown(event, tab)} onClick={() => setRecordTab(tab)}>{tab}</button>
             ))}
           </nav>
 
@@ -768,18 +828,20 @@ export default function App() {
             </div>
             <div className="annotation-actions"><button type="button" onClick={() => { setSelectedAnnotationIds(activeRecord.annotations.map((annotation) => annotation.id)); setSelectedAnnotationId(activeRecord.annotations[0]?.id ?? null); announce('All annotations selected for export.'); }}>Select all</button><button type="button" disabled={selectedAnnotationIds.length === 0} onClick={() => { setSelectedAnnotationIds([]); setSelectedAnnotationId(null); announce('Annotation export selection cleared.'); }}>Clear</button></div>
             <div className="annotation-list">
-              {activeRecord.annotations.map((annotation) => (
-                <button
-                  type="button"
-                  key={annotation.id}
-                  className={selectedAnnotationId === annotation.id ? 'is-active' : ''}
-                  aria-pressed={selectedAnnotationIds.includes(annotation.id)}
-                  onClick={() => handleAnnotationSelect(annotation.id)}
-                >
-                  <span><strong>{annotation.title}</strong><small>{annotation.layer}</small></span>
-                  <EvidenceBadge state={annotation.evidence} />
-                </button>
-              ))}
+              {activeRecord.annotations.map((annotation) => {
+                const included = selectedAnnotationIds.includes(annotation.id);
+                return (
+                  <div className={'annotation-row ' + (selectedAnnotationId === annotation.id ? 'is-active' : '')} key={annotation.id}>
+                    <button type="button" className="annotation-detail-trigger" onClick={() => handleAnnotationSelect(annotation.id)}>
+                      <span><strong>{annotation.title}</strong><small>{annotation.layer}</small></span>
+                      <EvidenceBadge state={annotation.evidence} />
+                    </button>
+                    <button type="button" className="annotation-export-toggle" aria-pressed={included} onClick={() => toggleAnnotationExport(annotation.id)}>
+                      {included ? 'Included' : 'Include'}
+                    </button>
+                  </div>
+                );
+              })}
             </div>
             {selectedAnnotation && (
               <article className="annotation-detail">
@@ -802,23 +864,22 @@ export default function App() {
         </aside>
       </main>
 
-      <section id="diagnostics-drawer" className={`diagnostics-panel ${diagnosticsOpen ? 'is-open' : ''}`} aria-label="Runtime diagnostics" aria-hidden={!diagnosticsOpen}>
-        <button type="button" className="diagnostics-toggle" onClick={() => setDiagnosticsOpen((value) => !value)} aria-expanded={diagnosticsOpen}>
-          Diagnostics {diagnosticsOpen ? '-' : '+'}
-        </button>
-        {diagnosticsOpen && (
-          <dl>
-            <div><dt>Active specimen</dt><dd>{diagnostics.specimenId}</dd></div>
-            <div><dt>Animation</dt><dd>{diagnostics.activeAnimation}</dd></div>
-            <div><dt>Geometries</dt><dd>{diagnostics.geometries}</dd></div>
-            <div><dt>Textures</dt><dd>{diagnostics.textures}</dd></div>
-            <div><dt>Draw calls</dt><dd>{diagnostics.drawCalls}</dd></div>
-            <div><dt>Triangles</dt><dd>{diagnostics.triangles.toLocaleString()}</dd></div>
-            <div><dt>Camera</dt><dd>{diagnostics.cameraMode}</dd></div>
-            <div><dt>Quality</dt><dd>{diagnostics.qualityTier}</dd></div>
-            <div><dt>Clipping</dt><dd>{diagnostics.clipping}</dd></div>
-          </dl>
-        )}
+      <section id="diagnostics-drawer" role="dialog" aria-modal="true" className={`diagnostics-panel ${diagnosticsOpen ? 'is-open' : ''}`} aria-label="Runtime diagnostics" aria-hidden={!diagnosticsOpen}>
+        <div className="panel-heading">
+          <div><p className="eyebrow">Runtime</p><h2>Diagnostics</h2></div>
+          <button type="button" className="mobile-close" data-drawer-focus onClick={() => closePanels()} aria-label="Close diagnostics">×</button>
+        </div>
+        <dl>
+          <div><dt>Active specimen</dt><dd>{diagnostics.specimenId}</dd></div>
+          <div><dt>Animation</dt><dd>{diagnostics.activeAnimation}</dd></div>
+          <div><dt>Geometries</dt><dd>{diagnostics.geometries}</dd></div>
+          <div><dt>Textures</dt><dd>{diagnostics.textures}</dd></div>
+          <div><dt>Draw calls</dt><dd>{diagnostics.drawCalls}</dd></div>
+          <div><dt>Triangles</dt><dd>{diagnostics.triangles.toLocaleString()}</dd></div>
+          <div><dt>Camera</dt><dd>{diagnostics.cameraMode}</dd></div>
+          <div><dt>Quality</dt><dd>{diagnostics.qualityTier}</dd></div>
+          <div><dt>Clipping</dt><dd>{diagnostics.clipping}</dd></div>
+        </dl>
       </section>
 
       {orientationOpen && (

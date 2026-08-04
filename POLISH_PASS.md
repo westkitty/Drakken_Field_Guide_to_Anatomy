@@ -1,50 +1,78 @@
-# Polish Pass — Initial Implementation
+# Polish Pass
 
 This pass is bounded to presentation, interaction finish, accessibility, responsive behavior, and examination feedback. It does not alter the closed 59-record inventory, dedicated model routes, canon data, asset policy, or renderer architecture.
 
-## Implemented improvements
+## Initial implementation — 40 improvements
 
-1. Corrected the Registry edge handle mnemonic to G.
-2. Expanded edge-handle hit areas without enlarging the visible chrome.
-3. Added safe-area-aware handle placement.
-4. Added clearer active/open handle treatment.
-5. Added aria-controls and aria-expanded drawer relationships.
-6. Made Diagnostics mutually exclusive with the primary drawers.
-7. Added Diagnostics to scrim and Escape closure behavior.
-8. Added sticky, translucent drawer headings.
-9. Added contained scrolling, stable gutters, and polished scrollbars.
-10. Replaced ASCII X close labels with typographic close glyphs.
-11. Added a live registry result count.
-12. Added one-click search clearing.
-13. Added one-click registry filter reset.
-14. Added active and loading semantics to specimen cards.
-15. Added a recoverable empty registry state.
-16. Added chamber aria-busy state during record loading.
-17. Rebuilt loading feedback as a compact reconstruction card.
-18. Added retry and dismiss actions to load errors.
-19. Added a mode rail that appears only while non-default modes are active.
-20. Added timed live feedback for load, camera, playback, reset, measurement, selection, and export actions.
-21. Added a complete examination-tool reset action.
-22. Added Surface only, Show all, and Hide all anatomy presets.
-23. Added a live visible-layer count.
-24. Disabled sectioning controls until sectioning is enabled.
-25. Added accessible value text to sectioning and playback ranges.
-26. Disabled measurement clearing when no measurement exists.
-27. Improved measurement instructions and numbered 3D points.
-28. Added Select all and Clear actions for annotation export.
-29. Converted record navigation to a semantic tablist/tabpanel relationship.
-30. Added annotation counts to export buttons and export confirmation.
-31. Added backdrop dismissal and an explicit close control to the briefing.
-32. Expanded the briefing with deliberate-interface and motion-preference guidance.
-33. Added a screen-reader chamber instruction description.
-34. Added context-sensitive grab, grabbing, and measurement cursors.
-35. Added a restrained viewport vignette and measurement-only crosshair.
-36. Added a mobile tools-sheet grab handle and safe-area padding.
-37. Added consistent radii, elevation, button-state, and disabled-state tokens.
-38. Added coarse-pointer 44px action targets.
-39. Added reduced-motion handling for new transitions and loading feedback.
-40. Added regression tests for the polish contracts.
+- **P01** — Correct registry handle mnemonic
+- **P02** — Expand invisible edge-handle targets
+- **P03** — Respect display safe areas
+- **P04** — Clarify open handle state
+- **P05** — Connect triggers and drawers semantically
+- **P06** — Make diagnostics mutually exclusive
+- **P07** — Include diagnostics in dismissal behavior
+- **P08** — Use sticky drawer headings
+- **P09** — Contain and polish drawer scrolling
+- **P10** — Use typographic close controls
+- **P11** — Show live registry result totals
+- **P12** — Provide one-click search clearing
+- **P13** — Provide one-click filter reset
+- **P14** — Expose active and loading record states
+- **P15** — Provide recoverable registry empty state
+- **P16** — Expose chamber loading state
+- **P17** — Polish reconstruction loading feedback
+- **P18** — Provide retryable load failure feedback
+- **P19** — Surface non-default examination modes
+- **P20** — Confirm completed actions with live feedback
+- **P21** — Reset all examination tools
+- **P22** — Add anatomy visibility presets
+- **P23** — Show visible anatomy layer count
+- **P24** — Disable unavailable section controls
+- **P25** — Describe range values accessibly
+- **P26** — Disable unavailable measurement clearing
+- **P27** — Number measurement points and improve guidance
+- **P28** — Add bulk annotation export controls
+- **P29** — Use semantic record tabs
+- **P30** — Expose annotation counts during export
+- **P31** — Allow explicit and backdrop briefing dismissal
+- **P32** — Expand shortcut and motion guidance
+- **P33** — Describe chamber controls to assistive technology
+- **P34** — Use context-sensitive viewport cursors
+- **P35** — Add restrained viewport depth treatment
+- **P36** — Polish mobile tools sheet handling
+- **P37** — Normalize finish tokens and interaction states
+- **P38** — Provide coarse-pointer action targets
+- **P39** — Respect reduced-motion preferences
+- **P40** — Add durable polish regression coverage
 
-## Adversarial review
+## Adversarial critique
 
-Pending after source validation and browser evidence.
+The initial result was deliberately reviewed as if it were a hostile release candidate rather than accepted because it looked more finished. The review found:
+
+1. **Blocker:** the new test imported Node's file system module even though this browser project does not install Node type declarations. TypeScript correctly rejected it.
+2. **Major:** drawers transferred focus on open but did not contain it, allowing keyboard navigation behind the modal scrim. Diagnostics was excluded from even the initial focus transfer.
+3. **Major:** direct drawer close buttons hid their focused container without restoring focus to the trigger.
+4. **Major:** Diagnostics had both an edge trigger and a second internal toggle, making it feel like a leftover widget rather than part of the drawer system.
+5. **Major:** the search clear button was nested inside the search label, creating ambiguous label activation and invalid interaction structure.
+6. **Major:** record tabs declared tab semantics but omitted the keyboard behavior those semantics promise.
+7. **Minor:** the full tool reset callback depended on an animation array rather than a stable primitive.
+8. **Minor:** retrying a failure for the already active record could no-op at the existing early-return guard.
+9. **Major:** selecting an annotation for inspection also silently changed export membership, conflating two independent user intentions.
+
+## Implemented adversarial repairs
+
+- **A01** — Remove Node-only APIs from browser-project tests
+- **A02** — Trap keyboard focus inside every open drawer
+- **A03** — Restore trigger focus from every drawer close action
+- **A04** — Make diagnostics use the same drawer language as the rest of the interface
+- **A05** — Separate search labelling from its clear action
+- **A06** — Complete arrow, Home, and End keyboard behavior for record tabs
+- **A07** — Stabilize tool reset dependencies
+- **A08** — Make retry behavior deterministic for current and alternate records
+- **A09** — Separate annotation inspection from export inclusion
+
+## Evidence status
+
+- Source/build validation: pending exact repaired head.
+- Browser interaction and responsive polish: pending targeted browser audit.
+- Human art-direction approval: remains outside this polish pass.
