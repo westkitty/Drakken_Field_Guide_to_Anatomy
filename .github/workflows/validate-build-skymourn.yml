@@ -88,7 +88,6 @@ jobs:
       - name: Install ephemeral browser harness
         run: |
           mkdir -p /tmp/drakken-polish-audit
-          cp scripts/polish-browser-audit.mjs /tmp/drakken-polish-audit/audit.mjs
           cp scripts/polish-wave3-browser-audit.mjs /tmp/drakken-polish-audit/wave3-audit.mjs
           cp scripts/polish-wave4-browser-audit.mjs /tmp/drakken-polish-audit/wave4-audit.mjs
           cp scripts/interactive-html-parity-v2.mjs /tmp/drakken-polish-audit/interactive-html-audit.mjs
@@ -113,7 +112,7 @@ jobs:
           DRAKKEN_AUDIT_OUTPUT=polish-browser-audit-output \
           node interactive-html-audit.mjs
 
-      - name: Run targeted polish audits
+      - name: Run current polish audits
         run: |
           npm run dev -- --host 127.0.0.1 --port 4173 > /tmp/drakken-vite.log 2>&1 &
           VITE_PID=$!
@@ -128,10 +127,6 @@ jobs:
           DRAKKEN_AUDIT_URL=http://127.0.0.1:4173 \
           DRAKKEN_AUDIT_OUTPUT=${GITHUB_WORKSPACE}/polish-browser-audit-output \
           node wave4-audit.mjs
-          PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache \
-          DRAKKEN_AUDIT_URL=http://127.0.0.1:4173 \
-          DRAKKEN_AUDIT_OUTPUT=${GITHUB_WORKSPACE}/polish-browser-audit-output \
-          node audit.mjs
           PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache \
           DRAKKEN_AUDIT_URL=http://127.0.0.1:4173 \
           DRAKKEN_AUDIT_OUTPUT=${GITHUB_WORKSPACE}/polish-browser-audit-output \
