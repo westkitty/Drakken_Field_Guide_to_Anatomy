@@ -119,7 +119,8 @@ const diagnosticsHeading = await page.$eval('#diagnostics-drawer h2', (node) => 
 if (diagnosticsHeading !== 'Diagnostics') throw new Error('Diagnostics does not use the shared drawer heading language.');
 await closeDrawer('#diagnostics-drawer', 'button[aria-controls="diagnostics-drawer"]');
 
-await loadAt(390, 844);
+await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
+await delay(500);
 const mobileRest = await page.evaluate(() => ({
   horizontalOverflow: document.documentElement.scrollWidth > window.innerWidth + 1,
   handleCount: document.querySelectorAll('.global-hud button').length,
