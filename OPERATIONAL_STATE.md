@@ -7,12 +7,12 @@
   "project_name": "Drakken Field Anatomy Archive",
   "project_root": ".",
   "artifact_path": "",
-  "state_revision": 23,
-  "last_updated": "2026-08-04T01:50:00-04:00",
+  "state_revision": 24,
+  "last_updated": "2026-08-04T01:58:00-04:00",
   "current_baseline": {
-    "identity": "repair/immersive-ui-model-quality-20260803, PR #4; application, repair, tests, and permanent audits through 51844ee6d54741206dd01f8dc11a7bf9d914c0c3; durable third-wave evidence through 0c3c16b1b9ae90e7eb90334ba3b0e16827e234a1; plus this state revision",
+    "identity": "repair/immersive-ui-model-quality-20260803, PR #4; application, repair, tests, permanent audits, ledgers, and state through d763c1bfbc8efd47d0a4bc7b8524173e21013379",
     "state": "technically-verified-human-review-pending",
-    "last_verified": "GitHub Actions run 30881813041 passed strict static audit, typecheck, zero-warning lint, tests, production build, the established desktop/mobile product-polish audit, and the dedicated wave-three audit on application head 51844ee6d54741206dd01f8dc11a7bf9d914c0c3"
+    "last_verified": "GitHub Actions run 30882103387 passed strict static audit, typecheck, zero-warning lint, tests, production build, the established desktop/mobile product-polish audit, and the dedicated wave-three audit on exact head d763c1bfbc8efd47d0a4bc7b8524173e21013379"
   },
   "scope_boundaries": [
     "Single browser archive at repository root",
@@ -203,7 +203,7 @@ Wave 3 adversarial and screenshot review produced 8 repairs:
 
 ### Source and build
 
-GitHub Actions run `30881813041` passed on application head `51844ee6d54741206dd01f8dc11a7bf9d914c0c3`:
+GitHub Actions run `30882103387` passed on exact head `d763c1bfbc8efd47d0a4bc7b8524173e21013379`:
 
 - locked dependency installation;
 - strict static audit;
@@ -223,7 +223,7 @@ Previously verified source contracts remain intact:
 
 ### Established product-polish browser audit
 
-Run `30881813041` passed the permanent established browser audit at desktop and mobile sizes. It reverified:
+Run `30882103387` passed the permanent established browser audit at desktop and mobile sizes. It reverified:
 
 - closed-at-rest presentation and five compact reveal handles;
 - active loading of `polish-legibility.css`, `polish-wave2.css`, and `polish-wave2-repairs.css`;
@@ -244,7 +244,7 @@ Run `30881813041` passed the permanent established browser audit at desktop and 
 
 ### Dedicated wave-three browser audit
 
-Run `30881813041` also passed `scripts/polish-wave3-browser-audit.mjs`. It verified:
+Run `30882103387` also passed `scripts/polish-wave3-browser-audit.mjs`. It verified:
 
 - `polish-wave3.css` and `polish-wave3-repairs.css` are active in the live cascade;
 - dark native-control color scheme and refined keycap treatment;
@@ -357,10 +357,10 @@ After human visual approval, evaluate whether the additive polish cascade should
 | Second 11 adversarial repairs | verified | wave-2 critique, source, tests, browser audit, screenshots | preference/device review |
 | Third 32 polish improvements | verified | wave-3 manifest, source, tests, established and dedicated browser audits | physical-device review |
 | Third 8 adversarial repairs | verified | wave-3 critique, source, tests, dedicated browser audit, screenshots | preference/device review |
-| Source compiles | verified | run `30881813041` | none |
-| Lint is clean | verified | run `30881813041` | none |
-| Tests pass | verified | run `30881813041` | none |
-| Production build succeeds | verified | run `30881813041` | deployment/browser load |
+| Source compiles | verified | run `30882103387` | none |
+| Lint is clean | verified | run `30882103387` | none |
+| Tests pass | verified | run `30882103387` | none |
+| Production build succeeds | verified | run `30882103387` | deployment/browser load |
 | UI is hidden at rest | verified | browser audits and screenshots | physical-device confirmation |
 | Global handles hide above modal surfaces | verified | dedicated wave-three browser audit and screenshots | cross-browser physical-device confirmation |
 | Drawer focus and keyboard tabs | verified | established browser audit | screen-reader/physical-device confirmation |
@@ -385,3 +385,4 @@ After human visual approval, evaluate whether the additive polish cascade should
 - **Revision 21 — 2026-08-04:** Implemented 40 product-polish improvements, conducted a hostile release-candidate critique, implemented 11 resulting repairs, added durable polish contracts and a targeted desktop/mobile browser audit, corrected mobile containment and nested stacking-context blur, and passed source/build/browser validation.
 - **Revision 22 — 2026-08-04:** Implemented 39 additional polish improvements, conducted source, accessibility-preference, and screenshot adversarial review, implemented 11 resulting repairs, activated the orphaned legibility layer, eliminated export-content overlap and mobile tool clipping, expanded the permanent browser audit, and passed source/build/browser validation. Human art direction, native preference modes, physical-device behavior, and performance approval remain pending.
 - **Revision 23 — 2026-08-04:** Implemented 32 additional polish improvements, conducted source and screenshot adversarial review, implemented 8 resulting repairs, hid global handles over modal surfaces, removed tab-marker and hyphenation noise, added a dedicated wave-three browser gate, and passed source/build/browser validation. Human art direction, native preference modes, physical-device behavior, and performance approval remain pending.
+- **Revision 24 — 2026-08-04:** Revalidated the exact final documentation head `d763c1bfbc8efd47d0a4bc7b8524173e21013379` through the complete source/build and dual-browser gate in run `30882103387`; no new implementation or visual defect was introduced.
