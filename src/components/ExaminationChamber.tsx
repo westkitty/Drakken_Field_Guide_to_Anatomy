@@ -1,4 +1,5 @@
 import {
+  Bounds,
   ContactShadows,
   Environment,
   Html,
@@ -7,6 +8,7 @@ import {
   OrbitControls,
   OrthographicCamera,
   PerspectiveCamera,
+  useBounds,
 } from '@react-three/drei';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Suspense, useEffect, useMemo, useRef } from 'react';
@@ -52,6 +54,15 @@ const cameraPositions: Record<CameraPreset, [number, number, number]> = {
   ventral: [0, -14, 0.1],
   'three-quarter': [9.4, 7.2, 11.2],
 };
+
+function FitToSpecimen({ recordId, resetToken }: { recordId: string; resetToken: number }) {
+  const bounds = useBounds();
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => bounds.refresh().clip().fit());
+    return () => window.cancelAnimationFrame(frame);
+  }, [bounds, recordId, resetToken]);
+  return null;
+}
 
 function CameraController({
   mode,
@@ -286,9 +297,9 @@ function ArchivalContainmentPlatform({ archetype }: { archetype: string }) {
     <group position={[0, -5, 0]}>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.03, 0]} receiveShadow>
         <planeGeometry args={[52, 52]} />
-        <meshStandardMaterial color="#3a4650" roughness={0.88} metalness={0.06} />
+        <meshStandardMaterial color="#171d22" roughness={0.92} metalness={0.04} />
       </mesh>
-      <gridHelper args={[52, 52, '#8aa2b1', '#526570']} position={[0, 0.01, 0]} />
+      <gridHelper args={[52, 52, '#34434d', '#28343c']} position={[0, 0.01, 0]} />
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.035, 0]}>
         <ringGeometry args={[6.8, 7.04, 96]} />
         <meshBasicMaterial color={ringColor} transparent opacity={0.72} side={THREE.DoubleSide} />
@@ -304,21 +315,21 @@ function ArchivalContainmentPlatform({ archetype }: { archetype: string }) {
 function StudioLighting({ accent, qualityTier }: { accent: string; qualityTier: ChamberProps['qualityTier'] }) {
   return (
     <>
-      <hemisphereLight color="#ffffff" groundColor="#61717c" intensity={2.25} />
-      <ambientLight intensity={0.85} />
+      <hemisphereLight color="#ffffff" groundColor="#61717c" intensity={1.15} />
+      <ambientLight intensity={0.38} />
       <directionalLight
         position={[10, 15, 12]}
         color="#fffaf2"
-        intensity={4.4}
+        intensity={2.55}
         castShadow={qualityTier === 'standard'}
         shadow-mapSize-width={qualityTier === 'standard' ? 2048 : 512}
         shadow-mapSize-height={qualityTier === 'standard' ? 2048 : 512}
         shadow-bias={-0.0002}
       />
-      <directionalLight position={[-12, 8, 8]} color="#b9e9ff" intensity={2.4} />
-      <spotLight position={[0, 10, -13]} color={accent} intensity={3.2} angle={0.52} penumbra={1} distance={42} />
-      <pointLight position={[0, -1, 7]} color="#ffffff" intensity={2.1} distance={24} decay={1.5} />
-      <pointLight position={[0, -4, -4]} color="#f1c77b" intensity={1.25} distance={18} />
+      <directionalLight position={[-12, 8, 8]} color="#b9e9ff" intensity={1.15} />
+      <spotLight position={[0, 10, -13]} color={accent} intensity={1.7} angle={0.52} penumbra={1} distance={42} />
+      <pointLight position={[0, -1, 7]} color="#ffffff" intensity={0.95} distance={24} decay={1.5} />
+      <pointLight position={[0, -4, -4]} color="#f1c77b" intensity={0.65} distance={18} />
       <Environment resolution={qualityTier === 'standard' ? 256 : 128} frames={1}>
         <Lightformer form="rect" intensity={3.2} color="#ffffff" position={[0, 8, -12]} scale={[12, 6, 1]} />
         <Lightformer form="rect" intensity={2.2} color="#a7ddff" position={[-10, 2, 4]} rotation={[0, Math.PI / 2, 0]} scale={[8, 8, 1]} />
@@ -373,19 +384,20 @@ export function ExaminationChamber(props: ChamberProps) {
         gl={{ antialias: props.qualityTier === 'standard', powerPreference: 'high-performance', alpha: false }}
         onCreated={({ gl }) => {
           gl.localClippingEnabled = true;
-          gl.setClearColor('#26343f');
+          gl.setClearColor('#1b2329');
           gl.toneMapping = THREE.ACESFilmicToneMapping;
-          gl.toneMappingExposure = 1.22;
+          gl.toneMappingExposure = 1.02;
           gl.outputColorSpace = THREE.SRGBColorSpace;
           gl.shadowMap.type = THREE.PCFSoftShadowMap;
         }}
       >
         <ContextLifecycle />
-        <color attach="background" args={['#26343f']} />
-        <fog attach="fog" args={['#26343f', 38, 92]} />
+        <color attach="background" args={['#1b2329']} />
+        <fog attach="fog" args={['#1b2329', 42, 96]} />
         <StudioLighting accent={accentLightColor} qualityTier={props.qualityTier} />
         <ArchivalContainmentPlatform archetype={props.record.archetype} />
         <Suspense fallback={null}>
+          <Bounds fit clip observe margin={1.14}>
           <SpecimenModel
             key={props.record.id}
             record={props.record}
@@ -399,9 +411,11 @@ export function ExaminationChamber(props: ChamberProps) {
             selectedAnnotationId={props.selectedAnnotationId}
             onSelectAnnotation={props.onSelectAnnotation}
           />
+          <FitToSpecimen recordId={props.record.id} resetToken={props.resetCameraToken} />
+          </Bounds>
           <ContactShadows
             position={[0, -4.93, 0]}
-            opacity={0.5}
+            opacity={0.28}
             scale={28}
             blur={2.6}
             far={18}

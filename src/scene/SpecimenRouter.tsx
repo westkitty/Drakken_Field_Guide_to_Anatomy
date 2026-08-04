@@ -1,5 +1,6 @@
 import { SpecimenModel as LegacySpecimenModel } from './Specimens';
 import type { SpecimenModelProps } from './SpecimenCommon';
+import { RecordEnhancementLayer } from './RecordEnhancementLayer';
 import {
   AerokarstModel,
   BalanceEngineModel,
@@ -77,7 +78,7 @@ import {
   SporesphereArchivistModel,
 } from './models/SeedcarrierCanonModels';
 
-export function SpecimenModel(props: SpecimenModelProps) {
+function ResolvedSpecimenModel(props: SpecimenModelProps) {
   switch (props.record.id) {
     case 'aerokarst':
       return <AerokarstModel {...props} />;
@@ -185,3 +186,15 @@ export function SpecimenModel(props: SpecimenModelProps) {
       return <LegacySpecimenModel {...props} />;
   }
 }
+
+
+function EnhancedSpecimenModel(props: SpecimenModelProps) {
+  return (
+    <group>
+      <ResolvedSpecimenModel {...props} />
+      <RecordEnhancementLayer {...props} />
+    </group>
+  );
+}
+
+export { EnhancedSpecimenModel as SpecimenModel };

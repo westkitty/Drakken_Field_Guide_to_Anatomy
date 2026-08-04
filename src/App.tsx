@@ -68,6 +68,11 @@ export default function App() {
   const loadGate = useRef({ requestId: 0, activeId: 'skymourn' });
   const briefingCloseRef = useRef<HTMLButtonElement>(null);
   const orientationPreviousFocus = useRef<HTMLElement | null>(null);
+  const registryTriggerRef = useRef<HTMLButtonElement>(null);
+  const toolsTriggerRef = useRef<HTMLButtonElement>(null);
+  const recordTriggerRef = useRef<HTMLButtonElement>(null);
+  const diagnosticsTriggerRef = useRef<HTMLButtonElement>(null);
+  const lastPanelTriggerRef = useRef<HTMLButtonElement | null>(null);
   const activeRecord = findSpecimen(activeSpecimenId);
 
   const [query, setQuery] = useState('');
@@ -120,6 +125,14 @@ export default function App() {
   });
 
   const selectedAnnotation = activeRecord.annotations.find((item) => item.id === selectedAnnotationId) ?? null;
+
+  const closePanels = useCallback((restoreFocus = true) => {
+    setRegistryOpen(false);
+    setRecordOpen(false);
+    setToolsOpen(false);
+    setDiagnosticsOpen(false);
+    if (restoreFocus) window.requestAnimationFrame(() => lastPanelTriggerRef.current?.focus());
+  }, []);
 
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -218,6 +231,22 @@ export default function App() {
     });
   }, [categoryFilter, evidenceFilter, query]);
 
+  useEffect(() => {
+    const selector = registryOpen
+      ? '.registry-panel.is-open'
+      : toolsOpen
+        ? '.tools-panel.is-open'
+        : recordOpen
+          ? '.record-panel.is-open'
+          : null;
+    if (!selector) return;
+    const frame = window.requestAnimationFrame(() => {
+      const panel = document.querySelector<HTMLElement>(selector);
+      panel?.querySelector<HTMLElement>('input, button, select, [href], [tabindex]:not([tabindex="-1"])')?.focus();
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [recordOpen, registryOpen, toolsOpen]);
+
   const addMeasurementPoint = useCallback((point: [number, number, number]) => {
     setMeasurementPoints((current) => (current.length >= 2 ? [point] : [...current, point]));
   }, []);
@@ -234,15 +263,42 @@ export default function App() {
       const editable = target?.matches('input, textarea, select, [contenteditable="true"]');
       if (event.key === 'Escape') {
         setMeasurementMode(false);
-        setRegistryOpen(false);
-        setRecordOpen(false);
-        setToolsOpen(false);
-        setDiagnosticsOpen(false);
+        closePanels();
         setOrientationOpen(false);
         return;
       }
       if (editable) return;
-      if (event.key.toLowerCase() === 'r') {
+      const key = event.key.toLowerCase();
+      if (key === 'g') {
+        lastPanelTriggerRef.current = registryTriggerRef.current;
+        setRegistryOpen((value) => !value);
+        setToolsOpen(false);
+        setRecordOpen(false);
+        setDiagnosticsOpen(false);
+        return;
+      }
+      if (key === 't') {
+        lastPanelTriggerRef.current = toolsTriggerRef.current;
+        setToolsOpen((value) => !value);
+        setRegistryOpen(false);
+        setRecordOpen(false);
+        setDiagnosticsOpen(false);
+        return;
+      }
+      if (key === 'i') {
+        lastPanelTriggerRef.current = recordTriggerRef.current;
+        setRecordOpen((value) => !value);
+        setRegistryOpen(false);
+        setToolsOpen(false);
+        setDiagnosticsOpen(false);
+        return;
+      }
+      if (key === 'd') {
+        lastPanelTriggerRef.current = diagnosticsTriggerRef.current;
+        setDiagnosticsOpen((value) => !value);
+        return;
+      }
+      if (key === 'r') {
         setResetCameraToken((value) => value + 1);
       }
       if (event.code === 'Space') {
@@ -252,7 +308,7 @@ export default function App() {
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, []);
+  }, [closePanels]);
 
   const exportMarkdown = () => {
     downloadText(
@@ -274,16 +330,18 @@ export default function App() {
       <a className="skip-link" href="#examination-chamber">Skip to examination chamber</a>
       
       <nav className="global-hud" aria-label="Global controls">
-        <button type="button" className="hud-brand" onClick={() => setOrientationOpen(true)}>
+        <button type="button" className="hud-brand" aria-label="Open archive briefing" title="Briefing" onClick={() => setOrientationOpen(true)}>
           <strong>Drakken Archive</strong>
         </button>
         <div className="hud-toggles">
-          <button type="button" aria-pressed={registryOpen} onClick={() => { setRegistryOpen((v) => !v); setRecordOpen(false); setToolsOpen(false); }}>Registry</button>
-          <button type="button" aria-pressed={toolsOpen} onClick={() => { setToolsOpen((v) => !v); setRegistryOpen(false); setRecordOpen(false); }}>Tools</button>
-          <button type="button" aria-pressed={recordOpen} onClick={() => { setRecordOpen((v) => !v); setRegistryOpen(false); setToolsOpen(false); }}>Record</button>
-          <button type="button" aria-pressed={diagnosticsOpen} onClick={() => setDiagnosticsOpen((v) => !v)}>Diag</button>
+          <button ref={registryTriggerRef} type="button" aria-label="Open specimen registry" aria-keyshortcuts="G" title="Registry (G)" aria-pressed={registryOpen} onClick={(event) => { lastPanelTriggerRef.current = event.currentTarget; setRegistryOpen((v) => !v); setRecordOpen(false); setToolsOpen(false); setDiagnosticsOpen(false); }}>Registry</button>
+          <button ref={toolsTriggerRef} type="button" aria-label="Open examination tools" aria-keyshortcuts="T" title="Tools (T)" aria-pressed={toolsOpen} onClick={(event) => { lastPanelTriggerRef.current = event.currentTarget; setToolsOpen((v) => !v); setRegistryOpen(false); setRecordOpen(false); setDiagnosticsOpen(false); }}>Tools</button>
+          <button ref={recordTriggerRef} type="button" aria-label="Open specimen record" aria-keyshortcuts="I" title="Record (I)" aria-pressed={recordOpen} onClick={(event) => { lastPanelTriggerRef.current = event.currentTarget; setRecordOpen((v) => !v); setRegistryOpen(false); setToolsOpen(false); setDiagnosticsOpen(false); }}>Record</button>
+          <button ref={diagnosticsTriggerRef} type="button" aria-label="Open diagnostics" aria-keyshortcuts="D" title="Diagnostics (D)" aria-pressed={diagnosticsOpen} onClick={(event) => { lastPanelTriggerRef.current = event.currentTarget; setDiagnosticsOpen((v) => !v); }}>Diag</button>
         </div>
       </nav>
+
+      {(registryOpen || toolsOpen || recordOpen) && <button type="button" className="drawer-scrim" aria-label="Close open panel" onClick={() => closePanels()} />}
 
       <main className="archive-layout">
         <aside className={`registry-panel ${registryOpen ? 'is-open' : ''}`} aria-label="Specimen registry">
