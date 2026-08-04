@@ -27,12 +27,20 @@
   flex: 0 0 100%;
 }
 
-/* W4-A03 — narrow Record tabs fit inside the drawer instead of widening it. */
+/* W4-A03 — narrow Record chrome fits inside the drawer instead of widening it. */
 .record-panel {
   overflow-x: hidden;
 }
 
 @media (max-width: 520px) {
+  .record-panel .panel-heading,
+  .record-panel .export-row {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
   .record-tabs {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
