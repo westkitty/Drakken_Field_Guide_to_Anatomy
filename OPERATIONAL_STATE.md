@@ -7,12 +7,12 @@
   "project_name": "Drakken Field Anatomy Archive",
   "project_root": ".",
   "artifact_path": "",
-  "state_revision": 20,
-  "last_updated": "2026-08-03T22:26:00-04:00",
+  "state_revision": 21,
+  "last_updated": "2026-08-04T00:10:00-04:00",
   "current_baseline": {
-    "identity": "repair/immersive-ui-model-quality-20260803, PR #4, source through 7de33f65bd8081257a5d065fabbb01785cb747a0 plus this state revision",
-    "state": "partially-verified",
-    "last_verified": "GitHub Actions run 30876070337 passed strict static audit, typecheck, zero-warning lint, tests, and production build; normal-runtime browser shards in run 30875253098 completed all 59 record mounts and four-layer interactions before a known generic Vite 404 false-positive"
+    "identity": "repair/immersive-ui-model-quality-20260803, PR #4; application polish source through a21d0b02d580776fb9a6f8092d282e8facbb062b; durable polish ledger/test evidence through 345d92588512bc6f66b07f8aeaa27449b5663d41; plus this state revision",
+    "state": "technically-verified-human-review-pending",
+    "last_verified": "GitHub Actions run 30878949026 passed strict static audit, typecheck, zero-warning lint, tests, production build, and the targeted desktop/mobile product-polish browser audit on evidence head 345d92588512bc6f66b07f8aeaa27449b5663d41"
   },
   "scope_boundaries": [
     "Single browser archive at repository root",
@@ -20,7 +20,7 @@
     "Canon governed by docs/drakken_compendium_full_blood_eclipse_visual_integrated.md and src/data/specimens.json",
     "No fabricated, duplicate, or wrapped records",
     "No backend, authentication, database, deployment, framework migration, or remote runtime asset work",
-    "Automated mount evidence does not equal human art-direction or canon approval"
+    "Automated source, browser, and screenshot evidence does not equal human art-direction or canon approval"
   ],
   "linked_parent_state": null
 }
@@ -28,33 +28,72 @@
 
 ## 1. Project Purpose
 
-The Drakken Field Anatomy Archive is a React Three Fiber forensic compendium for 59 canonical records. The model is the primary product surface. Users must be able to select a record, inspect a record-specific reconstruction, manipulate the camera, toggle surface/structure/internal/functional anatomy, section the model, use animation and measurement tools, review evidence, and export the dossier.
+The Drakken Field Anatomy Archive is a React Three Fiber forensic compendium for 59 canonical records. The model is the primary product surface. Users can select a record, inspect a record-specific reconstruction, manipulate the camera, toggle surface/structure/internal/functional anatomy, section the model, use animation and measurement tools, review evidence, and export the dossier.
 
 ## 2. Current Baseline
 
-PR #4 repairs the rejected dashboard-like presentation and replaces the former boilerplate model-completion claim with explicit record-level work.
+PR #4 contains three bounded bodies of work:
 
-Implemented UI behavior:
+1. a hidden-at-rest model-first interface;
+2. two explicit canon-backed additions for every one of the 59 records;
+3. a verified product-polish pass consisting of 40 initial improvements plus 11 repairs produced by adversarial review and browser evidence.
+
+### Model-first interface
 
 - full-window examination canvas;
 - no persistent title bar, camera strip, bottom tool grid, chamber HUD, or scale note at rest;
-- five faint 30-pixel deliberate reveal handles;
-- left Registry drawer, right Record drawer, bottom Tools drawer, and compact Diagnostics control;
-- `G`, `T`, `I`, and `D` shortcuts plus `Escape` to close;
-- one primary drawer at a time, scrim closure, focus transfer, and focus restoration;
+- five faint deliberate reveal handles;
+- Registry, Record, Tools, and Diagnostics drawers;
+- `G`, `T`, `I`, and `D` shortcuts plus `Escape` closure;
+- mutually exclusive drawers with scrim closure;
+- focus entry, focus trapping, and trigger-focus restoration;
 - hidden drawers are noninteractive;
 - bounds-owned initial and reset framing;
-- dimmer floor, grid, exposure, and lights so pale/transmissive models retain contour.
+- subdued floor, grid, exposure, and lights.
 
-Implemented model behavior:
+### Record-specific model work
 
-- all 59 records retain their dedicated base routes;
-- every route is wrapped by `RecordEnhancementLayer`;
-- `recordEnhancementData.ts` defines exactly two explicit, canon-backed additions for every record;
-- every addition belongs to a surface, structure, internal, or functional layer;
+- all 59 records retain dedicated base routes;
+- every route is supplemented by `RecordEnhancementLayer`;
+- `recordEnhancementData.ts` defines exactly two explicit canon-backed additions per record;
+- additions belong to surface, structure, internal, or functional layers;
 - additions honor clipping, silhouette, wireframe, measurement interaction, and animation timing;
-- `MODEL_IMPROVEMENTS_LEDGER.md` records the exact additions and canon basis for every record;
-- `modelEnhancements.test.ts` prevents missing records, duplicate claims, invalid layers, and the rejected generic PASS language.
+- `MODEL_IMPROVEMENTS_LEDGER.md` records every addition and canon basis;
+- regression tests prevent missing records, duplicate claims, invalid layers, and generic PASS language.
+
+### Product polish
+
+The durable implementation ledger is `POLISH_PASS.md`; the machine-readable contract is `src/polishManifest.ts`.
+
+The 40 initial improvements cover:
+
+- handle discoverability, safe areas, and target sizing;
+- drawer semantics, scrolling, headings, focus and dismissal;
+- registry search, filtering, counts, empty states, and loading state;
+- reconstruction loading and error recovery;
+- live mode and action feedback;
+- complete tool reset, anatomy presets, disabled-state honesty, and accessible range values;
+- numbered measurement points and better measurement guidance;
+- independent annotation inspection and export selection;
+- semantic keyboard-operable tabs;
+- export counts and confirmation;
+- briefing dismissal and guidance;
+- responsive mobile-sheet containment;
+- visual finish tokens, reduced-motion support, and regression tests.
+
+Adversarial review produced 11 implemented repairs:
+
+- Node-free browser-project tests;
+- focus containment and restoration for every drawer;
+- consistent Diagnostics drawer behavior;
+- valid search labelling;
+- complete tab keyboard behavior;
+- stable reset dependencies;
+- deterministic retry behavior;
+- separate annotation inspection/export intent;
+- measured mobile tools-sheet containment;
+- corrected drawer/scrim stacking contexts;
+- sharp drawer content with blur restricted to the background scrim.
 
 ## 3. Active Invariants
 
@@ -73,19 +112,19 @@ Implemented model behavior:
 - At rest, the canvas fills the useful window.
 - Persistent interface bars are prohibited.
 - Controls appear only through deliberate edge handles or keyboard shortcuts.
-- Pointer movement used for orbiting must not reveal interface chrome.
+- Ordinary pointer movement must not reveal interface chrome.
 
 ### INV-004 — Two explicit additions per record
 
-- Every record must have two distinct additions.
-- At least one must materially affect visible geometry, anatomy, proportion, or silhouette.
+- Every record has two distinct additions.
+- At least one materially affects visible geometry, anatomy, proportion, or silhouette.
 - Color-only, shared-lighting-only, generic root motion, route wiring, or boilerplate ledger text do not count.
 
 ### INV-005 — Canon and evidence honesty
 
 - Additions derive from the specimen registry or governing dossier.
 - Reconstructive interpretation must not be described as confirmed anatomy.
-- Automated source/build/mount evidence must not be promoted to human visual approval.
+- Automated source/build/browser evidence must not be promoted to human visual approval.
 
 ### INV-006 — Preserve examination tools
 
@@ -101,17 +140,25 @@ Implemented model behavior:
 - Chamber measurements remain reconstruction units.
 - Visualization-height metadata is not a proven world-unit calibration.
 
+### INV-009 — Polish must remain behavioral
+
+- Polish claims require inspectable behavior or presentation changes, not a renamed PASS row.
+- Modal drawers must contain focus and restore it on closure.
+- Mobile sheets must remain inside measured viewport bounds.
+- Scrim effects must remain behind readable drawer content.
+- Reduced-motion and coarse-pointer behavior remain protected.
+
 ## 4. Verified Evidence
 
 ### Source and build
 
-GitHub Actions run `30876070337` passed on the repair head:
+GitHub Actions run `30878949026` passed on evidence head `345d92588512bc6f66b07f8aeaa27449b5663d41`:
 
 - locked dependency installation;
 - strict static audit;
 - TypeScript;
 - ESLint with zero warnings;
-- Vitest, including exact 59-record enhancement coverage;
+- Vitest, including 59-record enhancement coverage and the 40-improvement/11-repair polish contract;
 - production build.
 
 Previously verified source contracts remain intact:
@@ -123,29 +170,42 @@ Previously verified source contracts remain intact:
 - no remote application runtime references;
 - complete asset, provenance, and license ledgers.
 
-### Browser interaction
+### Targeted product-polish browser audit
 
-Normal-runtime browser run `30875253098` executed twelve five-record shards covering records 1–59. Every shard reached the end of its assigned range, mounted each record, enabled all four anatomy layers, retained one canvas, and produced screenshot artifacts. The jobs were marked failed only after those checks because the harness treated one generic Vite development-server 404 as an application console failure. There were no page exceptions or record error overlays in the completed ranges.
+Run `30878949026` also passed the permanent targeted browser audit at desktop and mobile sizes. It verified:
 
-The captured 1440×900, 1280×800, and 390×844 views demonstrate:
+- closed-at-rest presentation;
+- five compact reveal handles;
+- drawer focus entry, trapping, and restoration;
+- Registry count and labelled search;
+- Tools reset and three anatomy presets;
+- keyboard tab navigation;
+- independent annotation inspection and export controls;
+- consistent Diagnostics drawer language;
+- no desktop or mobile horizontal overflow;
+- mobile tools-sheet viewport containment;
+- no actionable DOM/CSS browser errors.
 
-- persistent bars removed;
-- canvas occupying the full window;
-- drawers closed at rest;
-- only faint edge handles visible;
-- Skymourn fully framed;
-- floor/grid substantially subdued.
+The audit records and excludes only the runner's exact SwiftShader `THREE.WebGLRenderer: Error creating WebGL context.` environment warning. It does not suppress any other page exception or console error and does not replace the separate renderer/model evidence.
+
+### Visual screenshot review
+
+Desktop Registry, desktop Tools, and mobile Tools screenshots were inspected after the mechanical audit. That review exposed two defects that the first assertions missed: mobile sheet geometry during transition and scrim blur composited across drawer content. Both were repaired. Final screenshots show sharp, contained drawer surfaces above the blurred background scrim.
+
+### 59-record browser evidence
+
+Normal-runtime browser run `30875253098` executed twelve five-record shards covering records 1–59. Every shard reached the end of its range, mounted each record, enabled all four anatomy layers, retained one canvas, and produced artifacts. Those jobs were marked failed only after the checks because the older harness treated a generic Vite development-server 404 as an application failure.
 
 ## 5. Implemented but Still Requiring Human Review
 
-The following are implemented and automated-mount tested, but not approved as final art:
+The following remain outside automated approval:
 
-- artistic quality and anatomy of each of the 59 complete compositions;
-- fidelity of every addition to the intended visual canon;
-- whether any procedural detail should be remodeled rather than supplemented;
+- artistic quality and anatomy of each complete 59-record composition;
+- final canon fidelity of every reconstructive addition;
+- whether individual procedural details need bespoke remodeling;
 - final material balance on Andrew's MacBook display;
 - animation quality and functional readability for every record;
-- touch ergonomics and screen-reader behavior on physical devices;
+- touch and screen-reader behavior on physical devices;
 - long-session thermal and GPU behavior.
 
 ## 6. Known Risks
@@ -156,11 +216,11 @@ The main production JavaScript chunk remains above Vite's 500 kB warning thresho
 
 ### RISK-002 — Procedural enhancement ceiling
 
-The new layer gives every record two explicit, canon-backed forms, but a procedural addition is not automatically equivalent to a bespoke artist-authored reconstruction. Human review may still classify individual records for moderate or replacement-level remodeling.
+Two explicit canon-backed additions per record do not automatically equal bespoke artist-authored reconstructions. Human review may still classify records for moderate or replacement-level remodeling.
 
-### RISK-003 — Software-rendered browser cost
+### RISK-003 — Software-rendered browser limits
 
-Continuous animation, physical materials, and shadows make full 59-record headless WebGL sweeps expensive. The repository contains a query-gated `?audit=1` mode that renders on demand with reduced test-only effects; normal runtime behavior is unchanged.
+Continuous animation, physical materials, and shadows make exhaustive headless WebGL sweeps expensive. The query-gated `?audit=1` mode renders on demand with reduced test-only effects; normal runtime behavior is unchanged. SwiftShader context availability is not treated as proof of real-device renderer failure.
 
 ## 7. Pending Work
 
@@ -170,7 +230,7 @@ Review every record in the running application and mark it accepted, moderate-re
 
 ### PND-002 — Physical-device interaction review
 
-Verify pointer, keyboard, touch, drawer focus, clipping, measurement, exports, and responsive behavior on target devices.
+Verify pointer, keyboard, touch, screen-reader output, drawer focus, clipping, measurement, exports, and responsive behavior on target devices.
 
 ### PND-003 — Performance profile
 
@@ -185,19 +245,25 @@ Measure first load, record switching, memory stabilization, GPU load, and therma
 - Do not suppress the bundle warning instead of measuring performance.
 - Do not add dependencies or remote runtime assets without a demonstrated requirement.
 - Do not expand the closed registry without an explicit canon decision.
+- Do not place visual effects above drawer content or allow mobile sheets to exceed viewport bounds.
 
 ## 9. Validation Matrix
 
 | Claim | State | Evidence | Remaining proof |
 |---|---|---|---|
 | 59 unique records | verified | static audit and tests | none |
-| 59 dedicated routes | verified | static audit | rendered spot review |
-| Two explicit additions per record | verified at source level | `recordEnhancementData.ts`, ledger, tests | human visual approval |
-| Source compiles | verified | run `30876070337` | none |
-| Lint is clean | verified | run `30876070337` | none |
-| Tests pass | verified | run `30876070337` | none |
-| Production build succeeds | verified | run `30876070337` | deployment/browser load |
-| UI is hidden at rest | verified in automated screenshots | browser artifacts | physical-device confirmation |
+| 59 dedicated routes | verified | static audit | rendered human spot review |
+| Two explicit additions per record | verified at source level | enhancement data, ledger, tests | human visual approval |
+| 40 initial polish improvements | verified | polish manifest, tests, source inspection | physical-device review |
+| 11 adversarial repairs | verified | critique ledger, source, tests, browser audit | physical-device review |
+| Source compiles | verified | run `30878949026` | none |
+| Lint is clean | verified | run `30878949026` | none |
+| Tests pass | verified | run `30878949026` | none |
+| Production build succeeds | verified | run `30878949026` | deployment/browser load |
+| UI is hidden at rest | verified | targeted browser audit and screenshots | physical-device confirmation |
+| Drawer focus and keyboard tabs | verified | targeted browser audit | screen-reader/physical-device confirmation |
+| Desktop/mobile containment and overflow | verified | targeted browser audit | additional real-device sizes |
+| Drawer content is visually sharp above scrim | verified in final screenshots | final visual evidence | cross-browser human check |
 | All 59 records mount and expose four layers | verified by completed shard loops | run `30875253098` logs/artifacts | human interaction review |
 | All 59 models are artistically final | unverified | not established | full human review |
 | Performance readiness | at risk / unverified | bundle warning | target-device profile |
@@ -208,4 +274,5 @@ Measure first load, record switching, memory stabilization, GPU load, and therma
 - **Revision 17:** Exhaustive repository bug sweep and automated source/build verification.
 - **Revision 18:** Bug-sweep merge into `build-skymourn`.
 - **Revision 19:** Brighter chamber and model-first viewport attempt; user rejected remaining persistent UI and model quality.
-- **Revision 20 — 2026-08-03:** Implemented deliberate hidden-at-rest drawers, bounds framing, subdued chamber presentation, two explicit canon-backed additions for all 59 records, a precise durable ledger, regression tests, and 59-record browser mount/layer evidence. Human art-direction, physical-device, and performance approval remain pending.
+- **Revision 20 — 2026-08-03:** Implemented deliberate hidden-at-rest drawers, bounds framing, subdued chamber presentation, two explicit canon-backed additions for all 59 records, a precise durable ledger, regression tests, and 59-record browser mount/layer evidence.
+- **Revision 21 — 2026-08-04:** Implemented 40 product-polish improvements, conducted a hostile release-candidate critique, implemented 11 resulting repairs, added durable polish contracts and a targeted desktop/mobile browser audit, corrected mobile containment and nested stacking-context blur, and passed source/build/browser validation. Human art-direction, physical-device, and performance approval remain pending.
