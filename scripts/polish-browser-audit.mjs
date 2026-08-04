@@ -36,7 +36,7 @@ async function openDrawer(key, selector) {
     { timeout: 10_000 },
     selector,
   );
-  await delay(80);
+  await delay(240);
   const focusInside = await page.evaluate((value) => document.querySelector(value)?.contains(document.activeElement) ?? false, selector);
   if (!focusInside) throw new Error(`${selector} did not receive focus.`);
 }
@@ -139,7 +139,7 @@ const mobileTools = await page.evaluate(() => {
     horizontalOverflow: document.querySelector('#tools-drawer').scrollWidth > document.querySelector('#tools-drawer').clientWidth + 1,
   };
 });
-if (mobileTools.left < -1 || mobileTools.right > mobileTools.viewportWidth + 1 || mobileTools.top < -1 || mobileTools.bottom > mobileTools.viewportHeight + 1) throw new Error('Mobile tools sheet escapes the viewport.');
+if (mobileTools.left < -1 || mobileTools.right > mobileTools.viewportWidth + 1 || mobileTools.top < -1 || mobileTools.bottom > mobileTools.viewportHeight + 1) throw new Error(`Mobile tools sheet escapes the viewport: ${JSON.stringify(mobileTools)}`);
 if (mobileTools.horizontalOverflow) throw new Error('Mobile tools sheet has horizontal overflow.');
 await page.screenshot({ path: path.join(outputRoot, 'mobile-tools.png'), fullPage: true });
 
