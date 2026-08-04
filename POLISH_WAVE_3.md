@@ -76,6 +76,8 @@ Application and repair source through `51844ee6d54741206dd01f8dc11a7bf9d914c0c3`
 - the established desktop/mobile browser audit;
 - a new dedicated wave-three browser audit.
 
+The documentation and Operational State follow-up head `98a04b7360b6b52d7875cf823170da57cde435e6` then passed the same complete gate in GitHub Actions run `30882036959`.
+
 The dedicated browser audit verifies:
 
 - `polish-wave3.css` and `polish-wave3-repairs.css` are active;
