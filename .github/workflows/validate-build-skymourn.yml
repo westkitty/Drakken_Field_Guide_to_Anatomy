@@ -14,32 +14,9 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  sync-ledger:
-    if: github.event_name == 'pull_request' && github.head_ref == 'repair/immersive-ui-model-quality-20260803'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repair branch
-        uses: actions/checkout@v7
-        with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
-
-      - name: Generate finalized ledger
-        run: node scripts/generate-model-improvements-ledger.mjs
-
-      - name: Commit synchronized ledger
-        run: |
-          if [[ -n "$(git status --porcelain MODEL_IMPROVEMENTS_LEDGER.md)" ]]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add MODEL_IMPROVEMENTS_LEDGER.md
-            git commit -m "docs: finalize 59-record model evidence ledger"
-            git push origin HEAD:${GITHUB_HEAD_REF}
-          fi
-
   validate:
     runs-on: ubuntu-latest
     timeout-minutes: 15
