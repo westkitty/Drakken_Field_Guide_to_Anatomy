@@ -1,4 +1,9 @@
 /* Visual adversarial repair: keep blur behind drawers, never across their content. */
+.archive-layout {
+  position: static;
+  inset: auto;
+}
+
 .drawer-scrim {
   position: fixed;
   inset: 0;
