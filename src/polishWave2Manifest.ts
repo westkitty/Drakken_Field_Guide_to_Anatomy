@@ -30,7 +30,7 @@ export const POLISH_WAVE_2_IMPROVEMENTS = [
   { id: 'W2-29', title: 'Polish record tabs as a compact segmented navigator' },
   { id: 'W2-30', title: 'Give dossier records, incidents, civic notes, and sources card surfaces' },
   { id: 'W2-31', title: 'Improve annotation row hover, active, and detail hierarchy' },
-  { id: 'W2-32', title: 'Pin export actions to a clear drawer footer' },
+  { id: 'W2-32', title: 'Separate export actions into a clear dossier footer' },
   { id: 'W2-33', title: 'Align diagnostics labels and numeric values for scanning' },
   { id: 'W2-34', title: 'Add a restrained status-toast lifetime indicator' },
   { id: 'W2-35', title: 'Add polished loading shimmer and error severity accents' },
@@ -42,7 +42,7 @@ export const POLISH_WAVE_2_IMPROVEMENTS = [
 
 export const POLISH_WAVE_2_REPAIRS = [
   { id: 'W2-A01', title: 'Load the existing legibility layer that was present but orphaned' },
-  { id: 'W2-A02', title: 'Reserve content space beneath the sticky export footer' },
+  { id: 'W2-A02', title: 'Reserve content space beneath the initial sticky export footer' },
   { id: 'W2-A03', title: 'Anchor active-state dots without changing button width' },
   { id: 'W2-A04', title: 'Remove hover lift and enlarge micro-controls on coarse pointers' },
   { id: 'W2-A05', title: 'Release sticky record chrome on very narrow mobile viewports' },
@@ -50,4 +50,6 @@ export const POLISH_WAVE_2_REPAIRS = [
   { id: 'W2-A07', title: 'Provide opaque surfaces for reduced-transparency preferences' },
   { id: 'W2-A08', title: 'Increase borders and muted-text contrast when more contrast is requested' },
   { id: 'W2-A09', title: 'Restore native system colors and controls in forced-colors mode' },
+  { id: 'W2-A10', title: 'Replace the overlapping sticky export footer with an in-flow footer' },
+  { id: 'W2-A11', title: 'Wrap mobile tool groups and use a two-column anatomy layer grid' },
 ] as const;
