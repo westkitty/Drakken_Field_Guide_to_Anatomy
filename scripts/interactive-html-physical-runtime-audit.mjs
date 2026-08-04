@@ -118,7 +118,17 @@ for (const [controls, drawerSelector] of handleCases) {
   if (!visible) throw new Error(`${controls} failed physical opening: ${JSON.stringify(opened)}.`);
   handleResults.push({ controls, hit, opened });
   if (controls === 'registry-drawer' || controls === 'record-drawer') await page.screenshot({ path: path.join(outputRoot, `physical-${controls}.png`), fullPage: true });
-  await page.keyboard.press('Escape');
+
+  const closeButton = await page.$(`${drawerSelector} .mobile-close`);
+  const closeBox = await closeButton?.boundingBox();
+  if (!closeBox) throw new Error(`${controls} opened but its close control has no physical box.`);
+  const closePoint = { x: closeBox.x + closeBox.width / 2, y: closeBox.y + closeBox.height / 2 };
+  const closeHit = await page.evaluate(({ x, y }) => {
+    const node = document.elementFromPoint(x, y);
+    return { label: node?.getAttribute?.('aria-label') ?? '', tag: node?.tagName ?? '', className: typeof node?.className === 'string' ? node.className : '' };
+  }, closePoint);
+  if (closeHit.label !== 'Close panel') throw new Error(`${controls} close button is blocked: ${JSON.stringify(closeHit)}.`);
+  await page.mouse.click(closePoint.x, closePoint.y);
   await page.waitForFunction((selector) => !document.querySelector(selector)?.classList.contains('is-open'), { timeout: 10_000 }, drawerSelector);
   await delay(150);
 }
@@ -178,7 +188,7 @@ fs.writeFileSync(path.join(outputRoot, 'interactive-html-physical-runtime.md'), 
   '- Normal local file launch and Skymourn bounds fit: PASS',
   '- Five visible edge controls: PASS',
   '- Registry, Tools, Record, and Diagnostics opened through real pointer clicks: PASS',
-  '- Each drawer closed and restored the next physical handle: PASS',
+  '- Each drawer closed through its real visible close control: PASS',
   '- Left-drag orbit changed camera state: PASS',
   '- Right-drag pan changed camera state: PASS',
   `- Physical wheel zoom changed camera state (${wheelDirection}): PASS`,
@@ -186,4 +196,4 @@ fs.writeFileSync(path.join(outputRoot, 'interactive-html-physical-runtime.md'), 
   '- Actionable browser errors: 0',
   '',
 ].join('\n'));
-console.log('Interactive HTML one-session physical runtime audit passed.');
+console.log('Interactive HTML physical runtime audit passed.');
