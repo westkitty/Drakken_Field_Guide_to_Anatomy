@@ -6,13 +6,13 @@
   "project_id": "drakken-field-anatomy-archive",
   "project_name": "Drakken Field Anatomy Archive",
   "project_root": ".",
-  "artifact_path": "",
-  "state_revision": 28,
-  "last_updated": "2026-08-04T02:50:00-04:00",
+  "artifact_path": "dist-interactive-html/Drakken_Field_Guide_Interactive.html",
+  "state_revision": 29,
+  "last_updated": "2026-08-04T12:30:00-04:00",
   "current_baseline": {
-    "identity": "repair/immersive-ui-model-quality-20260803, PR #4; application, model, polish, interactive HTML delivery, tests, audits, and documentation through 5c1c62e8317ec0c73cc4e23873c4a49951cc4dd6; plus this state revision",
-    "state": "technically-verified-human-review-pending",
-    "last_verified": "GitHub Actions run 30886808883 passed strict static audit, typecheck, zero-warning lint, tests, production build, self-contained HTML build/static validation, direct-file feature parity, and all established desktop/mobile polish audits on head 5c1c62e8317ec0c73cc4e23873c4a49951cc4dd6"
+    "identity": "repair/immersive-ui-model-quality-20260803, PR #4; runtime repair product head 9561e9a7ec33ccde4aa4a5686f30f04a85854994; delivery correction through 387d31611f92f2538b7e5450f0628d19061a315d; plus this state revision",
+    "state": "technically-verified-user-acceptance-pending",
+    "last_verified": "GitHub Actions run 30928483024 passed source/build/static HTML validation, physical local-file pointer interaction, direct-file feature state, and wave-four browser validation. The remaining failure in that run was an obsolete legacy assertion requiring all edge handles to remain under 34 pixels; that contradictory path has been retired."
   },
   "scope_boundaries": [
     "Single browser archive at repository root",
@@ -20,498 +20,204 @@
     "Canon governed by docs/drakken_compendium_full_blood_eclipse_visual_integrated.md and src/data/specimens.json",
     "No fabricated, duplicate, or wrapped records",
     "No backend, authentication, database, deployment, framework migration, or remote runtime asset work",
-    "The engageable HTML delivery must preserve the complete protected product path rather than substitute a static or reduced-function artifact",
-    "Automated source, browser, screenshot, and direct-file evidence does not equal human art-direction, physical-device, or canon approval"
+    "The interactive HTML must preserve physical pointer interaction and the complete protected product path",
+    "Andrew's direct Brave retest is required before user-facing completion"
   ],
   "linked_parent_state": null
 }
 -->
 
-## 1. Project Purpose
+## 1. Purpose
 
-The Drakken Field Anatomy Archive is a React Three Fiber forensic compendium for 59 canonical records. The model is the primary product surface. Users can select a record, inspect a record-specific reconstruction, manipulate the camera, toggle surface/structure/internal/functional anatomy, section the model, use animation and measurement tools, review evidence, and export the dossier.
+The Drakken Field Anatomy Archive is a React Three Fiber forensic compendium containing exactly 59 canonical Drakken records. The model is the primary surface. Users must be able to select records, physically orbit/pan/zoom the live reconstruction, control cameras and rendering, toggle four anatomy layers, section and animate the model, measure points, inspect annotations and evidence, review diagnostics, and export the dossier.
 
-## 2. Current Baseline
+## 2. Authoritative Runtime Rejection
 
-PR #4 now contains seven bounded bodies of work:
+The first delivered single-file HTML was rejected by Andrew during direct Brave testing. His screenshot and report are controlling runtime evidence.
 
-1. a hidden-at-rest model-first interface;
-2. two explicit canon-backed additions for every one of the 59 records;
-3. the first verified product-polish pass: 40 improvements plus 11 adversarial repairs;
-4. the second verified product-polish pass: 39 new improvements plus 11 adversarial and screenshot-driven repairs;
-5. the third verified product-polish pass: 32 new improvements plus 8 adversarial and screenshot-driven repairs;
-6. the fourth verified product-polish pass: 60 new improvements plus 10 adversarial, measured, and screenshot-driven repairs;
-7. a verified self-contained interactive HTML delivery preserving the complete protected product path.
+Observed failures:
 
-### Model-first interface
+- physical drag, wheel, and adjustment controls did not function as expected;
+- the interface appeared absent even though React state and DOM nodes existed;
+- Skymourn rendered as an overexposed, poorly framed loop rather than a readable specimen;
+- the earlier audit incorrectly promoted DOM state and programmatic control activation to feature parity.
 
-- full-window examination canvas;
-- no persistent title bar, camera strip, bottom tool grid, chamber HUD, or scale note at rest;
-- five faint deliberate reveal handles;
-- Registry, Record, Tools, and Diagnostics drawers;
-- `G`, `T`, `I`, and `D` shortcuts plus `Escape` closure;
-- mutually exclusive drawers with scrim closure;
-- focus entry, focus trapping, and trigger-focus restoration;
-- hidden drawers are noninteractive;
-- bounds-owned initial and reset framing;
-- subdued floor, grid, exposure, and lights.
+All Revision 28 claims that the first HTML was feature-complete are superseded.
 
-### Record-specific model work
+## 3. Current Runtime Repair
 
-- all 59 records retain dedicated base routes;
-- every route is supplemented by `RecordEnhancementLayer`;
-- `recordEnhancementData.ts` defines exactly two explicit canon-backed additions per record;
-- additions belong to surface, structure, internal, or functional layers;
-- additions honor clipping, silhouette, wireframe, measurement interaction, and animation timing;
-- `MODEL_IMPROVEMENTS_LEDGER.md` records every addition and canon basis;
-- regression tests prevent missing records, duplicate claims, invalid layers, and generic PASS language.
+### 3.1 Canvas input ownership
 
-### Product polish wave 1
+`src/components/ExaminationChamber.tsx` now:
 
-The first durable ledger is `POLISH_PASS.md`; its machine-readable contract is `src/polishManifest.ts`.
+- explicitly enables orbit, zoom, and pan;
+- maps left mouse to rotate, middle mouse to dolly, and right mouse to pan;
+- maps touch gestures to rotate and dolly/pan;
+- enables screen-space panning and zoom-to-cursor;
+- uses a full-size canvas with `touch-action: none`;
+- publishes actual camera position, target, zoom, mode, interaction count, and fitted-record state for verification;
+- fits record bounds after two animation frames rather than relying on a perpetually observing bounds wrapper.
 
-Wave 1 implemented 40 improvements across:
+`src/runtime-interaction-repair.css` now:
 
-- handle discoverability, safe areas, and target sizing;
-- drawer semantics, scrolling, headings, focus and dismissal;
-- Registry search, filtering, counts, empty states, and loading state;
-- reconstruction loading and error recovery;
-- live mode and action feedback;
-- complete tool reset, anatomy presets, disabled-state honesty, and accessible range values;
-- numbered measurement points and better guidance;
-- independent annotation inspection and export selection;
-- semantic keyboard-operable tabs;
-- export counts and confirmation;
-- briefing dismissal and guidance;
-- responsive mobile containment;
-- visual finish tokens, reduced-motion support, and regression tests.
+- gives the WebGL canvas the full viewport;
+- makes decorative chamber overlays noninteractive;
+- makes the React Three Fiber wrapper transparent to pointer input;
+- leaves the canvas as the sole examination hit target.
 
-Wave 1 adversarial review produced 11 repairs, including focus containment/restoration, valid search semantics, complete tab keyboard behavior, deterministic retry, annotation intent separation, measured mobile sheet containment, and corrected scrim/drawer stacking contexts.
+### 3.2 Drawer visibility and control discovery
 
-### Product polish wave 2
+The actual defect was reproduced in the packaged HTML: React added `is-open`, while the final CSS cascade still computed `opacity: 0` and translated the drawer off-screen.
 
-The second durable ledger is `POLISH_WAVE_2.md`; its machine-readable contract is `src/polishWave2Manifest.ts`.
+`src/runtime-drawer-fix.css` now:
 
-Wave 2 implemented 39 additional improvements across:
+- removes the broken drawer transition path;
+- forces ID-specific open drawers to be visible, opaque, interactive, and on-screen;
+- restores the HUD and all reveal controls after drawer closure.
 
-- text selection, balanced headings, and improved long-form wrapping;
-- raised surfaces, inner edges, scrollbar finish, and sticky-heading depth;
-- close-control, search, filter, Registry summary, card, loading, and empty-state polish;
-- compact tool grouping, panel hierarchy, custom ranges and selects, disabled-state clarity, and non-color active markers;
-- mode-rail, record-tab, dossier-card, annotation, export-footer, diagnostics, toast, loading, error, and briefing finish;
-- mobile tab snapping, card compaction, and Tools spacing.
+`src/runtime-interaction-repair.css` now presents five visible controls:
 
-Wave 2 adversarial and screenshot review produced 11 repairs:
+- Registry on the left;
+- Tools at the bottom;
+- Record on the right;
+- Diagnostics at the upper right;
+- Briefing at the upper left.
 
-- load the previously orphaned `polish-legibility.css` layer;
-- reserve space under the first sticky export footer;
-- prevent active-marker width jitter;
-- remove hover lift and enlarge micro-controls on coarse pointers;
-- release sticky record chrome on narrow screens;
-- add reduced-motion, reduced-transparency, increased-contrast, and forced-colors fallbacks;
-- replace the still-overlapping sticky export footer with an in-flow footer;
-- wrap mobile camera/render controls and use a contained two-column anatomy grid.
+The retired legacy 34 × 34-pixel maximum is prohibited because it made the controls too difficult to discover.
 
-### Product polish wave 3
+### 3.3 Skymourn reconstruction
 
-The third durable ledger is `POLISH_WAVE_3.md`; its machine-readable contract is `src/polishWave3Manifest.ts`.
+`src/scene/models/SkymournRepairModel.tsx` replaces the rejected initial Skymourn presentation with a dedicated stable reconstruction containing:
 
-Wave 3 implemented 32 additional improvements across:
+- a controlled closed frost-body curve;
+- darker material separation and reduced transmission;
+- an enlarged readable mask face;
+- a cold seam and distributed frost crystals;
+- structural circulation ribs;
+- an internal thermal conduit and paired thermal sacs;
+- restrained functional field rings;
+- layer, clipping, wireframe, silhouette, measurement, annotation, and animation support.
 
-- native dark controls, accent/caret treatment, tap behavior, content selection, focus, and shortcut keycaps;
-- tabular metrics, archive identifiers, non-color evidence markers, copy wrapping, reading width, source references, and record-grid scanning;
-- annotation hierarchy, focus parity, scroll margins, scroll padding, heading separation, card focus elevation, mode chips, and status feedback;
-- loading and error hierarchy, numbered briefing topics, tab overflow treatment, technical output readouts, select truncation, short-height adaptation, landscape-mobile behavior, ultra-narrow containment, and reduced-data simplification.
+`src/scene/SpecimenRouter.tsx` routes `skymourn` explicitly through this model while preserving the other dedicated routes and enhancement layer.
 
-Wave 3 adversarial and screenshot review produced 8 repairs:
+## 4. Physical Runtime Evidence
 
-- hide all edge handles while any modal drawer or briefing is open;
-- remove the generic active-state dot from Record tabs;
-- disable automatic hyphenation in dossier copy;
-- prevent doubled focus rings on Registry search;
-- remove permanent tab masking when labels fit;
-- stack mobile record terms and values;
-- remove briefing numbering below 360 pixels;
-- preserve explicit focus outlines in increased-contrast and forced-colors modes.
+GitHub Actions run `30928483024` opened the generated HTML directly through `file://` without `?audit=1` and passed the focused physical runtime gate.
 
-### Product polish wave 4
+Verified:
 
-The fourth durable ledger is `POLISH_WAVE_4.md`; its machine-readable contract is `src/polishWave4Manifest.ts`.
+- Skymourn mounted and completed bounds fitting;
+- the canvas measured exactly 1440 × 900 inside a 1440 × 900 viewport;
+- all five controls were visible, targetable, and unobstructed;
+- Registry opened at `[0, 0, 380, 900]`;
+- Tools opened at `[-40, 198, 720, 900]`;
+- Record opened at `[1010, 0, 1440, 900]`;
+- Diagnostics opened at `[1090, 462.875, 1440, 900]`;
+- each drawer was closed through its actual visible close control;
+- the viewport center hit target was `CANVAS`;
+- physical left-drag changed camera position and target;
+- physical right-drag changed camera position and target;
+- physical wheel input changed camera state;
+- remote runtime requests were zero;
+- actionable page and console errors were zero.
 
-Wave 4 implemented 60 additional improvements across:
+The direct-file feature-state gate in the same run independently passed all 59 records, record switching, tools, layers, sectioning, animation, measurement, dossier tabs, exports, Diagnostics, briefing, shortcuts, and isolated mobile containment.
 
-- transition and pressed-state rhythm, disabled/enabled affordances, focus halos, skip-link behavior, scrim dismissal, close controls, and heading actions;
-- Registry labels, search, filters, result summary, specimen-card hierarchy, technical identifiers, metadata, evidence, source status, and empty-state recovery;
-- Tools reset, tool-cluster layout, technical heading rails, stable controls, pressed toggles, axis segmentation, anatomy cards, range/select treatment, measurement guidance, and active-mode containment;
-- dossier summary, Record tabs, term/value cards, article rhythm, civic accents, numbered sources, annotation controls and metadata, exports, Diagnostics, briefing, loading/error surfaces, toast safe areas, constrained devices, and accessibility preferences.
-
-Wave 4 adversarial and screenshot review produced 10 repairs:
-
-- keep the skip link off-screen at rest and reveal it immediately on keyboard focus;
-- prevent desktop Camera and Render tool clusters from colliding;
-- remove measured five-pixel narrow Record overflow from headings and export actions;
-- restore 44-pixel coarse-pointer close targets after the complete cascade;
-- remove the redundant generic active specimen-card marker;
-- constrain long paired specimen metadata values;
-- use one toast anchor system and preserve safe-area clearance through entrance motion;
-- apply mobile safe-area padding directionally;
-- activate the intended ultra-narrow annotation action grid;
-- permit export actions to shrink without widening the drawer.
-
-### Self-contained interactive HTML delivery
-
-The durable delivery contract is `INTERACTIVE_HTML_DELIVERY.md`.
-
-- `npm run build:html` builds a production bundle and packages it into one HTML file;
-- `npm run validate:html` rejects unresolved or external runtime dependencies;
-- output path: `dist-interactive-html/Drakken_Field_Guide_Interactive.html`;
-- JavaScript, CSS, and referenced local build assets are inlined;
-- the file opens directly through `file://` without Vite, `node_modules`, or a network connection;
-- CI uploads the file as the `drakken-interactive-html` artifact;
-- `scripts/interactive-html-parity-v2.mjs` verifies the complete protected product path on the actual generated file;
-- desktop and mobile parity are tested on isolated pages so one viewport or WebGL state cannot contaminate the other;
-- no application feature was intentionally removed, replaced by screenshots, or reduced to a static demonstration.
-
-## 3. Active Invariants
+## 5. Protected Invariants
 
 ### INV-001 — Closed registry
 
-- Exactly 59 unique records remain present.
-- No record may be invented, duplicated, or wrapped.
+Exactly 59 unique canonical records. Do not invent, duplicate, wrap, or silently replace records.
 
-### INV-002 — Dedicated routes remain intact
+### INV-002 — Dedicated model routes
 
-- Every canonical record keeps its dedicated model route.
-- Enhancement layers supplement rather than replace record-specific base models.
+Every canonical record keeps its dedicated route. Shared enhancement layers may supplement but not replace record-specific models.
 
-### INV-003 — Model-first presentation
+### INV-003 — Physical model interaction
 
-- At rest, the canvas fills the useful window.
-- Persistent interface bars are prohibited.
-- Controls appear only through deliberate edge handles or keyboard shortcuts.
-- Ordinary pointer movement must not reveal interface chrome.
+A mounted canvas or programmatic state change is insufficient. The downloadable artifact must pass real pointer orbit, pan, wheel zoom, physical edge-control clicks, and physical drawer closure.
 
-### INV-004 — Two explicit additions per record
+### INV-004 — Model-first presentation
 
-- Every record has two distinct additions.
-- At least one materially affects visible geometry, anatomy, proportion, or silhouette.
-- Color-only, shared-lighting-only, generic root motion, route wiring, or boilerplate ledger text do not count.
+No persistent dashboard bars. The canvas owns the useful viewport. Controls remain deliberately discoverable without covering substantial model space.
 
-### INV-005 — Canon and evidence honesty
+### INV-005 — Open drawers must actually appear
 
-- Additions derive from the specimen registry or governing dossier.
-- Reconstructive interpretation must not be described as confirmed anatomy.
-- Automated source/build/browser evidence must not be promoted to human visual approval.
+An `is-open` class is not proof. Open drawers must compute as visible, opaque, interactive, and inside the viewport.
 
-### INV-006 — Preserve examination tools
+### INV-006 — Examination capabilities
 
-- Orbit, pan, zoom, perspective/orthographic modes, presets, reset, four anatomy layers, clipping, animation, measurement, annotations, diagnostics, and exports remain protected.
+Preserve camera modes and presets, reset, four anatomy layers, clipping, animation, measurement, annotations, diagnostics, evidence filters, and exports.
 
-### INV-007 — Local runtime assets
+### INV-007 — Self-contained delivery
 
-- Do not add remote fonts, models, textures, environment maps, audio, or shaders.
-- Existing asset, provenance, and license ledgers remain complete.
+The HTML may not depend on a server, `node_modules`, remote scripts, remote styles, remote assets, or runtime network access.
 
-### INV-008 — Scale honesty
+### INV-008 — Evidence honesty
 
-- Chamber measurements remain reconstruction units.
-- Visualization-height metadata is not a proven world-unit calibration.
+Automated evidence does not equal Andrew's Brave acceptance, human art-direction approval, physical-device accessibility approval, or target-MacBook performance approval.
 
-### INV-009 — Polish must remain behavioral
+## 6. Existing Project Work Preserved
 
-- Polish claims require inspectable behavior or presentation changes, not renamed PASS rows.
-- Modal drawers must contain focus and restore it on closure.
-- Mobile sheets must remain inside measured viewport bounds.
-- Scrim effects must remain behind readable drawer content.
-- Reduced-motion and coarse-pointer behavior remain protected.
+The repair branch still contains:
 
-### INV-010 — Finish must not conceal content
+- hidden-at-rest shell and responsive drawers;
+- two explicit canon-backed additions for every record;
+- precise model improvement ledger;
+- four product-polish waves totaling 171 improvements;
+- 40 prior adversarial and screenshot-driven repairs;
+- regression tests for the 59-record boundary and polish contracts;
+- source/build/static HTML validation and browser audit tooling.
 
-- Drawer content must remain sharp and opaque above the scrim.
-- Export actions may not cover annotation or dossier content.
-- Mobile tool groups may not depend on clipped or undiscoverable horizontal overflow.
-- Active-state affordances may not cause layout jitter.
-- System accessibility preferences must retain usable controls and content.
+Durable ledgers:
 
-### INV-011 — Modal chrome exclusivity
+- `MODEL_IMPROVEMENTS_LEDGER.md`
+- `POLISH_PASS.md`
+- `POLISH_WAVE_2.md`
+- `POLISH_WAVE_3.md`
+- `POLISH_WAVE_4.md`
+- `INTERACTIVE_HTML_DELIVERY.md`
 
-- Global edge handles may appear only when no modal drawer or briefing is open.
-- Selected Record tabs must use their dedicated selected treatment without generic active dots.
-- Dossier prose must not use automatic hyphenation in narrow drawers.
-- Component-owned focus states may not be doubled by global focus decoration.
+## 7. Remaining Risks
 
-### INV-012 — Precision controls and constrained-layout containment
-
-- The skip link must remain off-screen until keyboard focus and appear immediately when focused.
-- Primary tool clusters may wrap but may not collide or create horizontal overflow.
-- Narrow Record headings, tabs, metadata, annotation actions, and exports must remain inside the drawer.
-- Coarse-pointer close controls must remain at least 44 × 44 pixels after the complete cascade.
-- Status feedback must retain lower-right safe-area clearance in hidden and visible states.
+### RISK-001 — User acceptance
 
-### INV-013 — Feature-complete engageable HTML delivery
+Andrew has not yet tested the repaired artifact in his Brave installation. This is the immediate completion gate.
 
-- The downloadable HTML must contain the actual application, not screenshots, a report, or a reduced-function viewer.
-- It must preserve all 59 records, the live R3F canvas, record switching, camera modes and presets, rendering controls, all four anatomy layers, clipping, animation, measurement, scale, annotations, dossier tabs, exports, diagnostics, briefing, keyboard controls, and responsive containment.
-- It must open directly from the local filesystem without a development server.
-- It must make zero remote runtime requests after download.
-- A delivery that loses or simulates any protected feature is failed even when its HTML, screenshot, or build output looks correct.
-
-## 4. Verified Evidence
-
-### Source, production build, and HTML package
-
-GitHub Actions run `30886808883` passed on head `5c1c62e8317ec0c73cc4e23873c4a49951cc4dd6`:
-
-- locked dependency installation;
-- strict static audit;
-- TypeScript;
-- ESLint with zero warnings;
-- Vitest, including exact 59-record enhancement coverage and all four polish contracts: 40/11, 39/11, 32/8, and 60/10;
-- standard production build;
-- single-file interactive HTML production build;
-- static HTML validation;
-- artifact upload.
+### RISK-002 — Artistic quality
 
-The generated HTML was approximately 1.77 MB and contained one inline application script and one inline stylesheet, with no external script source, stylesheet link, module preload, unresolved Vite asset path, source-map dependency, or remote runtime URL.
+The new Skymourn model is technically readable and fitted, but Andrew must judge whether it is artistically acceptable. The same remains true for the complete 59-record set.
 
-Previously verified source contracts remain intact:
+### RISK-003 — Physical-device accessibility
 
-- 59 registry entries;
-- 59 dedicated routes;
-- zero fallback record IDs;
-- complete clipping assignments;
-- no remote application runtime references;
-- complete asset, provenance, and license ledgers.
-
-### Direct-file feature-parity audit
-
-Run `30886808883` passed `scripts/interactive-html-parity-v2.mjs` against the generated artifact opened directly through a local `file://` URL.
-
-It verified:
-
-- one live React Three Fiber canvas;
-- orbit and zoom input;
-- all 59 records and first/last record switching while retaining one canvas;
-- G/T/I/D, Escape, Space, and R shortcuts;
-- perspective and orthographic cameras plus presets and reset;
-- silhouette, wireframe, and standard/reduced quality controls;
-- all four anatomy layers and presets;
-- section enablement, axis, inversion, and plane position;
-- animation selection, play/pause, restart, loop, and speed;
-- measurement mode and scale references;
-- reset-all behavior;
-- all five dossier tabs and annotation controls;
-- Markdown and JSON exports created from the direct-file application;
-- Diagnostics and Examiner Orientation Briefing;
-- fresh-page 390 × 844 mobile drawer containment;
-- zero remote runtime requests;
-- zero actionable browser errors.
-
-### Established product-polish browser audit
+Native touch, screen-reader, forced-colors, reduced-transparency, increased-contrast, and notched safe-area behavior remain unapproved on physical devices.
 
-Run `30886808883` passed the permanent established browser audit at desktop and mobile sizes. It reverified:
+### RISK-004 — Performance
 
-- closed-at-rest presentation and five compact reveal handles;
-- active loading of the governing polish layers;
-- sharp, opaque drawer surfaces with no content-level backdrop blur;
-- Registry count, labelled search, visible search focus, card depth, focus trapping, and focus restoration;
-- Tools reset, anatomy presets, custom range treatment, custom select treatment, and panel depth;
-- record-tab keyboard navigation;
-- independent annotation inspection and export controls;
-- an in-flow export footer with zero measured annotation overlap;
-- aligned Diagnostics values using tabular numerals;
-- no desktop or mobile horizontal overflow;
-- a 390 × 844 Tools sheet fully inside the viewport;
-- no internal camera/render group overflow;
-- no anatomy-grid overflow and exactly two mobile layer columns;
-- narrow record tabs and export actions in normal flow;
-- decorative transition shutdown under reduced motion;
-- zero actionable page or console errors.
+The single-file artifact is roughly 1.78 MB and the standard JavaScript bundle remains above Vite's warning threshold. Performance must be measured on Andrew's MacBook; functionality may not be removed merely to silence a warning.
 
-### Dedicated wave-three browser audit
+### RISK-005 — Layered CSS history
 
-Run `30886808883` passed `scripts/polish-wave3-browser-audit.mjs`, re-verifying:
+Several additive repair stylesheets remain. Consolidation is forbidden until Andrew approves the repaired runtime and visual regression evidence is preserved.
 
-- `polish-wave3.css` and `polish-wave3-repairs.css` active in the live cascade;
-- dark native-control color scheme and refined keycap treatment;
-- edge handles hidden over Registry, Record, Tools, Diagnostics, and briefing modal states;
-- Registry search focus without a doubled outline;
-- evidence badges with non-color markers;
-- selected Record tabs without generic active dots;
-- dossier copy without automatic hyphenation;
-- mobile Record term/value pairs stacked into one column;
-- mobile Record content without horizontal overflow;
-- zero actionable page or console errors.
+## 8. Immediate Next Step
 
-### Dedicated wave-four browser audit
+Build, validate, and download the latest `drakken-interactive-html` artifact from the exact final branch head. Andrew must open the newly named repaired HTML rather than the superseded file and test, in this order:
 
-Run `30886808883` passed `scripts/polish-wave4-browser-audit.mjs`. It verified:
+1. click Registry, Tools, Record, and Diagnostics;
+2. left-drag the model;
+3. right-drag to pan;
+4. scroll to zoom;
+5. switch away from Skymourn and back;
+6. inspect Skymourn's framing and readability.
 
-- `polish-wave4.css` and `polish-wave4-repairs.css` active in the live cascade;
-- skip link off-screen at rest and immediately visible on keyboard focus;
-- status toast inside the lower-right viewport safe area;
-- active Registry card and paired metadata containment;
-- redundant active-card marker absent;
-- desktop primary tool clusters free of collision and overflow;
-- narrow Record drawer and five-tab strip free of horizontal overflow;
-- coarse-pointer close target at least 44 × 44 pixels when emulated;
-- ultra-narrow annotation action grid active;
-- zero actionable page or console errors.
+Do not claim user-facing completion until that retest succeeds.
 
-The browser jobs record only their exact known SwiftShader `THREE.WebGLRenderer: Error creating WebGL context.` environment warning where encountered. That warning is excluded only from DOM/CSS gates and does not replace separate renderer/model or direct-file evidence.
+## 9. Revision Log
 
-### Visual screenshot review
-
-The wave-four screenshots were inspected after automated validation. They show:
-
-- a contained Registry with stronger labels, filter hierarchy, technical ID capsules, and no active-card marker noise;
-- a desktop Tools sheet with non-colliding Camera and Render groups, stable control geometry, anatomy cards, and clearer readouts;
-- a 390-pixel Record drawer with contained tabs, full-width term/value cards, readable long values, and no horizontal leak;
-- no visible skip link at rest and no controls or feedback surfaces touching viewport edges.
-
-No additional screenshot-discovered defect remained within the bounded fourth-wave scope.
-
-### 59-record browser evidence
-
-Normal-runtime browser run `30875253098` executed twelve five-record shards covering records 1–59. Every shard reached the end of its range, mounted each record, enabled all four anatomy layers, retained one canvas, and produced artifacts. Those older jobs were marked failed only after the checks because the prior harness treated a generic Vite development-server 404 as an application failure.
-
-## 5. Implemented but Still Requiring Human Review
-
-The following remain outside automated approval:
-
-- artistic quality and anatomy of each complete 59-record composition;
-- final canon fidelity of every reconstructive addition;
-- whether individual procedural details need bespoke remodeling;
-- final material balance on Andrew's MacBook display;
-- animation quality and functional readability for every record;
-- physical-device touch and screen-reader behavior;
-- manual reduced-data, reduced-transparency, increased-contrast, forced-colors, and safe-area review;
-- direct opening and prolonged use of the downloadable HTML on Andrew's actual MacBook and preferred browser;
-- sub-360-pixel physical-device review;
-- long-session thermal and GPU behavior.
-
-## 6. Known Risks
-
-### RISK-001 — Bundle size
-
-The main production JavaScript chunk remains above Vite's 500 kB warning threshold. Meaningful repair requires measured dynamic loading; warning suppression is prohibited.
-
-### RISK-002 — Procedural enhancement ceiling
-
-Two explicit canon-backed additions per record do not automatically equal bespoke artist-authored reconstructions. Human review may still classify records for moderate or replacement-level remodeling.
-
-### RISK-003 — Software-rendered browser limits
-
-Continuous animation, physical materials, and shadows make exhaustive headless WebGL sweeps expensive. The query-gated `?audit=1` mode renders on demand with reduced test-only effects; normal runtime behavior is unchanged. SwiftShader context availability is not treated as proof of real-device renderer failure.
-
-### RISK-004 — Preference emulation coverage
-
-Reduced motion is automated. Reduced data, reduced transparency, increased contrast, forced colors, and physical safe areas are implemented at source level but still require physical or native-browser manual review because Chromium automation support is incomplete for those modes.
-
-### RISK-005 — Layered polish cascade
-
-The application intentionally loads several additive polish stylesheets. Their order is covered by browser assertions, but future consolidation must preserve visual behavior and may not occur as an unaudited cleanup.
-
-### RISK-006 — Complete single-file payload size
-
-The engageable HTML is approximately 1.77 MB because it contains React, Three.js, the complete archive data, all 59 procedural routes, and the application styles. Size optimization may not remove protected functionality. Any future reduction requires measured startup/performance evidence and the complete direct-file parity gate.
-
-## 7. Pending Work
-
-### PND-001 — Human 59-record art-direction review
-
-Review every record in the running application and mark it accepted, moderate-repair, or replacement-level. This blocks any claim that all models are artistically final.
-
-### PND-002 — Physical-device interaction review
-
-Verify pointer, keyboard, touch, screen-reader output, drawer focus, clipping, measurement, exports, responsive behavior, and accessibility preference modes on target devices, including the downloaded HTML on Andrew's MacBook.
-
-### PND-003 — Performance profile
-
-Measure first load, record switching, memory stabilization, GPU load, and thermals on the MacBook for both the development build and downloaded HTML. Compare any code-splitting or packaging candidate against the measured baseline.
-
-### PND-004 — Conditional stylesheet consolidation
-
-After human visual approval, evaluate whether the additive polish cascade should be consolidated. Do not perform consolidation without visual regression screenshots and the full browser and direct-file audits.
-
-## 8. Prohibitions
-
-- Do not restore persistent dashboard chrome.
-- Do not reveal controls on ordinary pointer movement.
-- Do not show global edge handles above an open modal drawer or briefing.
-- Do not show the skip link without keyboard focus.
-- Do not permit primary tool clusters to overlap or depend on clipped horizontal scrolling.
-- Do not restore narrow Record negative-edge overflow.
-- Do not reduce coarse-pointer close targets below 44 × 44 pixels.
-- Do not replace precise ledger entries with generic PASS wording.
-- Do not describe automated mounting as human canon or art approval.
-- Do not suppress the bundle warning instead of measuring performance.
-- Do not add dependencies or remote runtime assets without a demonstrated requirement.
-- Do not expand the closed registry without an explicit canon decision.
-- Do not place visual effects above drawer content.
-- Do not allow mobile sheets or internal tool groups to exceed viewport bounds.
-- Do not pin action surfaces over dossier or annotation content.
-- Do not restore automatic dossier hyphenation or generic active dots on Record tabs or specimen cards.
-- Do not consolidate polish stylesheets without screenshot and browser regression evidence.
-- Do not deliver screenshots, a static report, a reduced viewer, or a server-dependent shell in place of the feature-complete interactive HTML.
-- Do not remove protected features to reduce the HTML file size.
-- Do not introduce runtime network requirements into the downloadable HTML.
-
-## 9. Validation Matrix
-
-| Claim | State | Evidence | Remaining proof |
-|---|---|---|---|
-| 59 unique records | verified | static audit and tests | none |
-| 59 dedicated routes | verified | static audit | rendered human spot review |
-| Two explicit additions per record | verified at source level | enhancement data, ledger, tests | human visual approval |
-| First 40 polish improvements | verified | wave-1 manifest, tests, source, browser audit | physical-device review |
-| First 11 adversarial repairs | verified | wave-1 critique, source, tests, browser audit | physical-device review |
-| Second 39 polish improvements | verified | wave-2 manifest, source, tests, expanded browser audit | physical-device review |
-| Second 11 adversarial repairs | verified | wave-2 critique, source, tests, browser audit, screenshots | preference/device review |
-| Third 32 polish improvements | verified | wave-3 manifest, source, tests, established and dedicated browser audits | physical-device review |
-| Third 8 adversarial repairs | verified | wave-3 critique, source, tests, dedicated browser audit, screenshots | preference/device review |
-| Fourth 60 polish improvements | verified | wave-4 manifest, source, tests, established and dedicated browser audits | physical-device review |
-| Fourth 10 adversarial repairs | verified | wave-4 critique, source, tests, measurement, dedicated browser audit, screenshots | preference/device review |
-| Source compiles | verified | run `30886808883` | none |
-| Lint is clean | verified | run `30886808883` | none |
-| Tests pass | verified | run `30886808883` | none |
-| Standard production build succeeds | verified | run `30886808883` | deployment/browser load |
-| Single-file HTML builds and passes static dependency validation | verified | run `30886808883`; `build:html`, `validate:html` | none |
-| HTML opens directly from `file://` | verified | direct-file parity audit in run `30886808883` | target-MacBook confirmation |
-| HTML preserves the complete protected feature matrix | verified under automated direct-file interaction | `interactive-html-parity-v2.mjs`, run `30886808883` | physical-device and human interaction review |
-| HTML makes zero remote runtime requests | verified | direct-file request capture in run `30886808883` | cross-browser confirmation |
-| HTML produces Markdown and JSON exports | verified | direct-file download assertions in run `30886808883` | target-browser confirmation |
-| UI is hidden at rest | verified | browser audits and screenshots | physical-device confirmation |
-| Global handles hide above modal surfaces | verified | wave-three browser audit and screenshots | cross-browser physical-device confirmation |
-| Skip link hidden at rest and immediate on focus | verified | wave-four browser geometry and focus assertion | screen-reader/physical-device confirmation |
-| Drawer focus and keyboard tabs | verified | established browser audit | screen-reader/physical-device confirmation |
-| Desktop/mobile containment and overflow | verified | all browser audits plus isolated direct-file mobile page | additional real-device sizes |
-| Primary Tools clusters do not collide | verified | wave-four rectangle intersection and overflow assertions | physical-device confirmation |
-| Narrow Record chrome does not overflow | verified | established and wave-four geometry assertions | additional real-device widths |
-| Coarse-pointer close target is 44 × 44 pixels | verified under emulation | wave-four browser audit | physical touch-device confirmation |
-| Status toast retains safe-area clearance | verified at browser geometry level | wave-four browser audit | notched-device confirmation |
-| Dossier prose avoids automatic hyphenation | verified | computed style and screenshot review | cross-browser typography review |
-| Mobile record fields stack cleanly | verified | computed grid style, overflow check, screenshot | physical-device touch check |
-| Export footer does not cover annotation content | verified | zero-overlap geometry and screenshot | cross-browser human check |
-| Mobile Tools controls do not clip | verified | internal overflow checks and direct-file mobile containment | physical-device touch check |
-| Reduced-motion fallback | verified | media emulation and computed styles | physical-device confirmation |
-| Reduced-data/transparency/contrast/forced-colors fallbacks | implemented, partially verified | source inspection and focused assertions | native preference review |
-| All 59 records mount and expose four layers | verified by completed shard loops | run `30875253098` logs/artifacts | human interaction review |
-| All 59 models are artistically final | unverified | not established | full human review |
-| Performance readiness | at risk / unverified | bundle and single-file size warnings | target-device profile |
-
-## 10. Revision Log
-
-- **Revisions 1–16:** Bootstrap and dedicated-model source expansion across the closed 59-record inventory.
-- **Revision 17:** Exhaustive repository bug sweep and automated source/build verification.
-- **Revision 18:** Bug-sweep merge into `build-skymourn`.
-- **Revision 19:** Brighter chamber and model-first viewport attempt; user rejected remaining persistent UI and model quality.
-- **Revision 20 — 2026-08-03:** Implemented deliberate hidden-at-rest drawers, bounds framing, subdued chamber presentation, two explicit canon-backed additions for all 59 records, a precise durable ledger, regression tests, and 59-record browser mount/layer evidence.
-- **Revision 21 — 2026-08-04:** Implemented 40 product-polish improvements, conducted a hostile release-candidate critique, implemented 11 resulting repairs, added durable polish contracts and a targeted desktop/mobile browser audit, corrected mobile containment and nested stacking-context blur, and passed source/build/browser validation.
-- **Revision 22 — 2026-08-04:** Implemented 39 additional polish improvements, conducted source, accessibility-preference, and screenshot adversarial review, implemented 11 resulting repairs, activated the orphaned legibility layer, eliminated export-content overlap and mobile tool clipping, expanded the permanent browser audit, and passed source/build/browser validation. Human art direction, native preference modes, physical-device behavior, and performance approval remain pending.
-- **Revision 23 — 2026-08-04:** Implemented 32 additional polish improvements, conducted source and screenshot adversarial review, implemented 8 resulting repairs, hid global handles over modal surfaces, removed tab-marker and hyphenation noise, added a dedicated wave-three browser gate, and passed source/build/browser validation. Human art direction, native preference modes, physical-device behavior, and performance approval remain pending.
-- **Revision 24 — 2026-08-04:** Revalidated the exact final documentation head `d763c1bfbc8efd47d0a4bc7b8524173e21013379` through the complete source/build and dual-browser gate in run `30882103387`; no new implementation or visual defect was introduced.
-- **Revision 25 — 2026-08-04:** Implemented 60 additional polish improvements, conducted source, measured layout, browser, and screenshot adversarial review, implemented 10 resulting repairs, corrected skip-link visibility, tool-cluster collision, narrow Record overflow, coarse-pointer target regression, specimen metadata pressure, toast safe-area clearance, and mobile action layout, added a dedicated wave-four browser gate, and passed source/build plus all three browser audits in run `30883838602`. Human art direction, native preference modes, physical-device behavior, and performance approval remain pending.
-- **Revision 26 — 2026-08-04:** Revalidated the exact fourth-wave documentation head `f98dc2b58eeb346e06fa26dcbc0c3f66fd957d6b` through the complete source/build and three-browser gate in run `30884135982`; no new implementation or documentation defect was introduced.
-- **Revision 27 — 2026-08-04:** Promoted exact final branch head `2c9c879445ed814ec1a9c7c67ea2df4e6818b9e8` and run `30884250123` as the current verified baseline; this was a pointer-only reconciliation with no application change.
-- **Revision 28 — 2026-08-04:** Added a deterministic self-contained interactive HTML build and static validator, established a no-feature-loss delivery invariant, added an isolated desktop/mobile direct-file parity audit covering the complete protected product path, documented delivery and validation commands, removed superseded audit harnesses, and passed standard build, HTML build, direct-file parity, and all existing browser gates in run `30886808883`. Human art direction, physical-device behavior, and target-MacBook performance remain pending.
+- **Revisions 1–18:** Bootstrap, dedicated-model expansion, exhaustive source/build audit, and merge preparation.
+- **Revision 19:** Brighter chamber/model-first attempt rejected for persistent UI and model quality.
+- **Revision 20:** Hidden-at-rest drawers, framing, and two explicit additions for all 59 records.
+- **Revisions 21–27:** Four polish waves, adversarial repairs, browser gates, and exact-head reconciliation.
+- **Revision 28:** First self-contained HTML delivery; later invalidated by Andrew's direct Brave test.
+- **Revision 29 — 2026-08-04:** Recorded the authoritative runtime rejection, repaired physical canvas input, drawer visibility/restoration, control discoverability, and Skymourn, added a genuine physical local-file gate, and set state to technically verified with user acceptance pending.
