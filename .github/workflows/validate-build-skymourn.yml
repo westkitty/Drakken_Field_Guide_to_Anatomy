@@ -28,6 +28,9 @@ jobs:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
+      - name: Repair temporary applicator quoting
+        run: node scripts/fix-polish-applicator.mjs
+
       - name: Apply bounded adversarial repair
         run: node scripts/apply-polish-pass.mjs
 
