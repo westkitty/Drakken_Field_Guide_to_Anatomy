@@ -39,3 +39,15 @@ export const POLISH_WAVE_2_IMPROVEMENTS = [
   { id: 'W2-38', title: 'Compact mobile specimen cards without losing identity' },
   { id: 'W2-39', title: 'Refine mobile tools spacing and panel radii' },
 ] as const;
+
+export const POLISH_WAVE_2_REPAIRS = [
+  { id: 'W2-A01', title: 'Load the existing legibility layer that was present but orphaned' },
+  { id: 'W2-A02', title: 'Reserve content space beneath the sticky export footer' },
+  { id: 'W2-A03', title: 'Anchor active-state dots without changing button width' },
+  { id: 'W2-A04', title: 'Remove hover lift and enlarge micro-controls on coarse pointers' },
+  { id: 'W2-A05', title: 'Release sticky record chrome on very narrow mobile viewports' },
+  { id: 'W2-A06', title: 'Disable decorative motion under reduced-motion preferences' },
+  { id: 'W2-A07', title: 'Provide opaque surfaces for reduced-transparency preferences' },
+  { id: 'W2-A08', title: 'Increase borders and muted-text contrast when more contrast is requested' },
+  { id: 'W2-A09', title: 'Restore native system colors and controls in forced-colors mode' },
+] as const;
