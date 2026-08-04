@@ -37,6 +37,17 @@
   pointer-events: none !important;
 }
 
+/* A stale late-cascade rule was leaving React-open drawers invisible and off-canvas. */
+.registry-panel.is-open,
+.record-panel.is-open,
+.tools-panel.is-open,
+.diagnostics-panel.is-open {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
 .chamber-interaction-hint {
   position: fixed;
   left: 50%;
