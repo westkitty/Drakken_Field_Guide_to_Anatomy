@@ -46,8 +46,41 @@ This second pass is additive. It does not repeat the first 40-item polish ledger
 
 ## Adversarial critique
 
-Pending completion of the initial implementation and baseline validation.
+The initial wave passed the existing static, build, test, and browser gates on commit `5d394a2c26cdcf640dff864d222ac626c1364f9c`. It was then reviewed against the actual stylesheet cascade and narrow/mobile/accessibility conditions rather than accepted on those passes alone. The review found nine actionable problems:
 
-## Validation status
+1. **Blocker:** `polish-legibility.css` existed and contained the verified scrim/drawer stacking repair, but `main.tsx` did not load it at the current PR head. The repository narrative therefore outran the active cascade.
+2. **Major:** the new sticky export footer could cover the final annotation content because the record drawer did not reserve footer space.
+3. **Major:** active-state marker dots participated in inline layout and could change button width when toggled.
+4. **Major:** hover elevation was inappropriate on coarse pointers and the smallest close/search controls remained too small for direct touch.
+5. **Major:** sticky record tabs and a sticky export footer consumed too much vertical space on very narrow screens.
+6. **Major:** card pulse, panel shimmer, hover lift, and toast lifetime animation needed an explicit reduced-motion repair.
+7. **Major:** translucent surfaces and backdrop blur needed an opaque reduced-transparency path.
+8. **Moderate:** borders and muted copy remained too soft for users requesting increased contrast.
+9. **Major:** custom gradients, select arrows, pseudo-elements, and shadows needed a forced-colors fallback rather than fighting system colors.
 
-Pending exact-head source, build, and browser checks.
+## Implemented adversarial repairs
+
+- **W2-A01** — Load the orphaned legibility layer.
+- **W2-A02** — Reserve record content space beneath the export footer.
+- **W2-A03** — Absolutely anchor active-state dots.
+- **W2-A04** — Remove hover lift and enlarge micro-controls on coarse pointers.
+- **W2-A05** — Release sticky record chrome below 520 px.
+- **W2-A06** — Disable decorative motion under reduced-motion preferences.
+- **W2-A07** — Provide opaque reduced-transparency surfaces.
+- **W2-A08** — Increase border and muted-text contrast when requested.
+- **W2-A09** — Restore native system presentation in forced-colors mode.
+
+## Validation contract
+
+The permanent browser audit must prove:
+
+- the wave-two, repair, and legibility stylesheets are active;
+- the drawer content surface is opaque and has no backdrop blur;
+- the registry search focus surface has a visible emphasis treatment;
+- record tabs and the export footer have the intended desktop positioning;
+- the mobile tools sheet remains inside the viewport;
+- narrow/mobile record chrome releases sticky positioning;
+- reduced-motion disables the new decorative transitions;
+- no actionable page or console error is introduced.
+
+Human art direction, physical-device accessibility, and target-device performance remain separate approvals.
