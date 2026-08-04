@@ -12,6 +12,7 @@ import './polish-wave3.css';
 import './polish-wave3-repairs.css';
 import './polish-wave4.css';
 import './polish-wave4-repairs.css';
+import './runtime-interaction-repair.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
