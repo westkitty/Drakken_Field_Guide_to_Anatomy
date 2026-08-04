@@ -70,7 +70,6 @@ const records = await page.$$eval('.registry-panel .specimen-card', (cards) => c
 if (records.length !== 59) throw new Error(`Expected 59 registry cards, found ${records.length}.`);
 await page.keyboard.press('Escape');
 
-// Use reduced renderer quality for exhaustive software-rendered CI without changing application defaults.
 await page.keyboard.press('t');
 await page.waitForSelector('.tools-panel.is-open', { visible: true });
 await page.$$eval('.tools-panel button', (buttons) => {
@@ -89,26 +88,29 @@ for (let index = startIndex; index < endIndex; index += 1) {
   console.log(`Auditing ${index + 1}/59 ${record.designation}`);
   await page.keyboard.press('g');
   await page.waitForSelector('.registry-panel.is-open', { visible: true });
-  const cards = await page.$$('.registry-panel .specimen-card');
-  const target = cards[index];
-  if (!target) throw new Error(`Registry card ${index + 1} is missing.`);
-  const alreadyActive = await target.evaluate((element) => element.classList.contains('is-active'));
-  if (alreadyActive) {
-    await page.keyboard.press('Escape');
-  } else {
-    await target.click();
-  }
+  const clicked = await page.$$eval('.registry-panel .specimen-card', (cards, targetIndex) => {
+    const target = cards[targetIndex];
+    if (!(target instanceof HTMLElement)) return false;
+    target.click();
+    return true;
+  }, index);
+  if (!clicked) throw new Error(`Registry card ${index + 1} is missing.`);
+  await page.keyboard.press('Escape');
 
-  await page.waitForFunction(
-    (designation) => {
-      if (document.querySelector('.error-overlay')) return true;
-      const activeName = document.querySelector('.registry-panel .specimen-card.is-active strong')?.textContent?.trim();
-      return activeName === designation && !document.querySelector('.loading-overlay');
-    },
-    { timeout: 30_000 },
-    record.designation,
-  );
-  await delay(100);
+  let selectionState = null;
+  for (let attempt = 0; attempt < 60; attempt += 1) {
+    selectionState = await page.evaluate(() => ({
+      activeName: document.querySelector('.registry-panel .specimen-card.is-active strong')?.textContent?.trim() ?? null,
+      loading: document.querySelector('.loading-overlay')?.textContent?.trim() ?? null,
+      error: document.querySelector('.error-overlay')?.textContent?.trim() ?? null,
+      openPanels: [...document.querySelectorAll('.registry-panel, .record-panel, .tools-panel')].filter((panel) => panel.classList.contains('is-open')).length,
+    }));
+    if (selectionState.error || (selectionState.activeName === record.designation && !selectionState.loading)) break;
+    await delay(500);
+  }
+  if (!selectionState || (selectionState.activeName !== record.designation && !selectionState.error)) {
+    throw new Error(`Selection did not settle for ${record.designation}: ${JSON.stringify(selectionState)}`);
+  }
 
   const mounted = await page.evaluate(() => ({
     error: document.querySelector('.error-overlay')?.textContent?.trim() ?? null,
