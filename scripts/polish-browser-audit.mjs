@@ -146,8 +146,11 @@ await page.screenshot({ path: path.join(outputRoot, 'mobile-tools.png'), fullPag
 
 await browser.close();
 const ignoredConsolePatterns = [/Failed to load resource.*404/i, /THREE\.WebGLRenderer/i, /DevTools/i];
+const ignoredPageErrorPatterns = [/^THREE\.WebGLRenderer: Error creating WebGL context\.$/i];
 const actionableConsoleErrors = consoleErrors.filter((message) => !ignoredConsolePatterns.some((pattern) => pattern.test(message)));
-if (pageErrors.length || actionableConsoleErrors.length) throw new Error(`Browser errors: ${JSON.stringify({ pageErrors, actionableConsoleErrors })}`);
+const actionablePageErrors = pageErrors.filter((message) => !ignoredPageErrorPatterns.some((pattern) => pattern.test(message)));
+const environmentPageWarnings = pageErrors.filter((message) => ignoredPageErrorPatterns.some((pattern) => pattern.test(message)));
+if (actionablePageErrors.length || actionableConsoleErrors.length) throw new Error(`Browser errors: ${JSON.stringify({ actionablePageErrors, actionableConsoleErrors })}`);
 
 const report = {
   desktopRest,
@@ -156,8 +159,9 @@ const report = {
   annotationControls,
   mobileRest,
   mobileTools,
-  pageErrors,
+  actionablePageErrors,
   actionableConsoleErrors,
+  environmentPageWarnings,
 };
 fs.writeFileSync(path.join(outputRoot, 'polish-browser-audit.json'), JSON.stringify(report, null, 2));
 fs.writeFileSync(path.join(outputRoot, 'polish-browser-audit.md'), [
@@ -173,8 +177,9 @@ fs.writeFileSync(path.join(outputRoot, 'polish-browser-audit.md'), [
   '- Desktop and mobile horizontal overflow: PASS',
   '- Mobile tools sheet viewport containment: PASS',
   '- Actionable browser errors: 0',
+  `- Headless SwiftShader context warnings: ${environmentPageWarnings.length} (recorded, excluded only from this DOM/CSS polish gate)`,
   '',
-  'This audit verifies interaction and responsive mechanics; it does not replace human art-direction review.',
+  'This audit verifies interaction and responsive mechanics. It does not replace the separate renderer/model evidence or human art-direction review.',
   '',
 ].join('\n'));
 console.log('Targeted product polish browser audit passed.');
