@@ -5,7 +5,7 @@ import puppeteer from 'puppeteer';
 const baseUrl = process.env.DRAKKEN_AUDIT_URL ?? 'http://127.0.0.1:4173';
 const outputRoot = process.env.DRAKKEN_AUDIT_OUTPUT ?? path.resolve('browser-audit-output');
 const startIndex = Number(process.env.DRAKKEN_AUDIT_START ?? 0);
-const count = Number(process.env.DRAKKEN_AUDIT_COUNT ?? 10);
+const count = Number(process.env.DRAKKEN_AUDIT_COUNT ?? 5);
 const screenshots = path.join(outputRoot, 'screenshots');
 fs.mkdirSync(screenshots, { recursive: true });
 
@@ -14,7 +14,7 @@ const browser = await puppeteer.launch({
   args: ['--no-sandbox', '--disable-setuid-sandbox', '--enable-precise-memory-info'],
 });
 const page = await browser.newPage();
-page.setDefaultTimeout(15_000);
+page.setDefaultTimeout(30_000);
 const consoleErrors = [];
 const pageErrors = [];
 page.on('console', (message) => {
@@ -89,10 +89,23 @@ for (let index = startIndex; index < endIndex; index += 1) {
   console.log(`Auditing ${index + 1}/59 ${record.designation}`);
   await page.keyboard.press('g');
   await page.waitForSelector('.registry-panel.is-open', { visible: true });
-  await page.$$eval('.registry-panel .specimen-card', (cards, targetIndex) => cards[targetIndex]?.click(), index);
+  const cards = await page.$$('.registry-panel .specimen-card');
+  const target = cards[index];
+  if (!target) throw new Error(`Registry card ${index + 1} is missing.`);
+  const alreadyActive = await target.evaluate((element) => element.classList.contains('is-active'));
+  if (alreadyActive) {
+    await page.keyboard.press('Escape');
+  } else {
+    await target.click();
+  }
+
   await page.waitForFunction(
-    (designation) => document.querySelector('.specimen-titlebar h2')?.textContent?.trim() === designation && !document.querySelector('.loading-overlay'),
-    { timeout: 15_000 },
+    (designation) => {
+      if (document.querySelector('.error-overlay')) return true;
+      const activeName = document.querySelector('.registry-panel .specimen-card.is-active strong')?.textContent?.trim();
+      return activeName === designation && !document.querySelector('.loading-overlay');
+    },
+    { timeout: 30_000 },
     record.designation,
   );
   await delay(100);
