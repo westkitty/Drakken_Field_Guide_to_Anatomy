@@ -7,12 +7,12 @@
   "project_name": "Drakken Field Anatomy Archive",
   "project_root": ".",
   "artifact_path": "",
-  "state_revision": 22,
-  "last_updated": "2026-08-04T01:12:00-04:00",
+  "state_revision": 23,
+  "last_updated": "2026-08-04T01:50:00-04:00",
   "current_baseline": {
-    "identity": "repair/immersive-ui-model-quality-20260803, PR #4; application and permanent audit source through 51fb122fef485e97f22744e377f39c95a67cd8f5; durable second-wave evidence through dcc0e50800ce5e8d69b0feda12aee0c89dee3050; plus this state revision",
+    "identity": "repair/immersive-ui-model-quality-20260803, PR #4; application, repair, tests, and permanent audits through 51844ee6d54741206dd01f8dc11a7bf9d914c0c3; durable third-wave evidence through 0c3c16b1b9ae90e7eb90334ba3b0e16827e234a1; plus this state revision",
     "state": "technically-verified-human-review-pending",
-    "last_verified": "GitHub Actions run 30880875699 passed strict static audit, typecheck, zero-warning lint, tests, production build, and the expanded desktop/mobile product-polish browser audit on application head 51fb122fef485e97f22744e377f39c95a67cd8f5"
+    "last_verified": "GitHub Actions run 30881813041 passed strict static audit, typecheck, zero-warning lint, tests, production build, the established desktop/mobile product-polish audit, and the dedicated wave-three audit on application head 51844ee6d54741206dd01f8dc11a7bf9d914c0c3"
   },
   "scope_boundaries": [
     "Single browser archive at repository root",
@@ -32,12 +32,13 @@ The Drakken Field Anatomy Archive is a React Three Fiber forensic compendium for
 
 ## 2. Current Baseline
 
-PR #4 now contains four bounded bodies of work:
+PR #4 now contains five bounded bodies of work:
 
 1. a hidden-at-rest model-first interface;
 2. two explicit canon-backed additions for every one of the 59 records;
 3. the first verified product-polish pass: 40 improvements plus 11 adversarial repairs;
-4. the second verified product-polish pass: 39 new improvements plus 11 adversarial and screenshot-driven repairs.
+4. the second verified product-polish pass: 39 new improvements plus 11 adversarial and screenshot-driven repairs;
+5. the third verified product-polish pass: 32 new improvements plus 8 adversarial and screenshot-driven repairs.
 
 ### Model-first interface
 
@@ -108,6 +109,28 @@ Wave 2 adversarial and screenshot review produced 11 repairs:
 - replace the still-overlapping sticky export footer with an in-flow footer;
 - wrap mobile camera/render controls and use a contained two-column anatomy grid.
 
+### Product polish wave 3
+
+The third durable ledger is `POLISH_WAVE_3.md`; its machine-readable contract is `src/polishWave3Manifest.ts`.
+
+Wave 3 implemented 32 additional improvements across:
+
+- native dark controls, accent/caret treatment, tap behavior, content selection, focus, and shortcut keycaps;
+- tabular metrics, archive identifiers, non-color evidence markers, copy wrapping, reading width, source references, and record-grid scanning;
+- annotation hierarchy, focus parity, scroll margins, scroll padding, heading separation, card focus elevation, mode chips, and status feedback;
+- loading and error hierarchy, numbered briefing topics, tab overflow treatment, technical output readouts, select truncation, short-height adaptation, landscape-mobile behavior, ultra-narrow containment, and reduced-data simplification.
+
+Wave 3 adversarial and screenshot review produced 8 repairs:
+
+- hide all edge handles while any modal drawer or briefing is open;
+- remove the generic active-state dot from Record tabs;
+- disable automatic hyphenation in dossier copy;
+- prevent doubled focus rings on Registry search;
+- remove permanent tab masking when labels fit;
+- stack mobile record terms and values;
+- remove briefing numbering below 360 pixels;
+- preserve explicit focus outlines in increased-contrast and forced-colors modes.
+
 ## 3. Active Invariants
 
 ### INV-001 — Closed registry
@@ -169,17 +192,24 @@ Wave 2 adversarial and screenshot review produced 11 repairs:
 - Active-state affordances may not cause layout jitter.
 - System accessibility preferences must retain usable controls and content.
 
+### INV-011 — Modal chrome exclusivity
+
+- Global edge handles may appear only when no modal drawer or briefing is open.
+- Selected Record tabs must use their dedicated selected treatment without generic active dots.
+- Dossier prose must not use automatic hyphenation in narrow drawers.
+- Component-owned focus states may not be doubled by global focus decoration.
+
 ## 4. Verified Evidence
 
 ### Source and build
 
-GitHub Actions run `30880875699` passed on application head `51fb122fef485e97f22744e377f39c95a67cd8f5`:
+GitHub Actions run `30881813041` passed on application head `51844ee6d54741206dd01f8dc11a7bf9d914c0c3`:
 
 - locked dependency installation;
 - strict static audit;
 - TypeScript;
 - ESLint with zero warnings;
-- Vitest, including exact 59-record enhancement coverage, the first 40-improvement/11-repair contract, and the second 39-improvement/11-repair contract;
+- Vitest, including exact 59-record enhancement coverage, the first 40-improvement/11-repair contract, the second 39-improvement/11-repair contract, and the third 32-improvement/8-repair contract;
 - production build.
 
 Previously verified source contracts remain intact:
@@ -191,15 +221,15 @@ Previously verified source contracts remain intact:
 - no remote application runtime references;
 - complete asset, provenance, and license ledgers.
 
-### Expanded product-polish browser audit
+### Established product-polish browser audit
 
-Run `30880875699` also passed the permanent expanded browser audit at desktop and mobile sizes. It verified:
+Run `30881813041` passed the permanent established browser audit at desktop and mobile sizes. It reverified:
 
 - closed-at-rest presentation and five compact reveal handles;
 - active loading of `polish-legibility.css`, `polish-wave2.css`, and `polish-wave2-repairs.css`;
 - sharp, opaque drawer surfaces with no content-level backdrop blur;
 - Registry count, labelled search, visible search focus, card depth, focus trapping, and focus restoration;
-- Tools reset, three anatomy presets, custom range treatment, custom select treatment, and panel depth;
+- Tools reset, anatomy presets, custom range treatment, custom select treatment, and panel depth;
 - record-tab keyboard navigation;
 - independent annotation inspection and export controls;
 - an in-flow export footer with zero measured annotation overlap;
@@ -212,18 +242,33 @@ Run `30880875699` also passed the permanent expanded browser audit at desktop an
 - decorative transition shutdown under reduced motion;
 - zero actionable page or console errors.
 
-The audit recorded twenty exact SwiftShader `THREE.WebGLRenderer: Error creating WebGL context.` environment warnings. Those are excluded only from this DOM/CSS gate. They do not replace or invalidate separate renderer/model evidence.
+### Dedicated wave-three browser audit
+
+Run `30881813041` also passed `scripts/polish-wave3-browser-audit.mjs`. It verified:
+
+- `polish-wave3.css` and `polish-wave3-repairs.css` are active in the live cascade;
+- dark native-control color scheme and refined keycap treatment;
+- edge handles hidden over Registry, Record, Tools, Diagnostics, and briefing modal states;
+- Registry search retains its focus-within treatment without a doubled outline;
+- evidence badges include non-color markers;
+- selected Record tabs exclude the generic active-state marker;
+- dossier copy does not use automatic hyphenation;
+- mobile Record term/value pairs stack into one column;
+- mobile Record content has no horizontal overflow;
+- zero actionable page or console errors.
+
+The browser jobs record only their exact known SwiftShader `THREE.WebGLRenderer: Error creating WebGL context.` environment warning. That warning is excluded only from the DOM/CSS gates and does not replace separate renderer/model evidence.
 
 ### Visual screenshot review
 
-The final generated screenshots were inspected after the automated audit. They show:
+The wave-three screenshots were inspected after automated validation. They show:
 
-- a sharp Registry surface with focused search, segmented filters, and elevated record cards;
-- a contained desktop Tools surface with clear grouping and custom controls;
-- a complete annotation detail placed above an in-flow export footer, with no overlay;
-- a 390-pixel mobile Tools sheet where camera controls wrap and all four anatomy controls fit in a two-column grid.
+- a clean Registry drawer with no edge handles crossing filters or record cards;
+- a Record drawer with a stable selected tab, unsplit prose, and clear term/value hierarchy;
+- a 390-pixel Record drawer with stacked field cards and no visible global handles;
+- preserved hidden-at-rest model-first behavior when all drawers are closed.
 
-The screenshot review found no remaining defect within this bounded second-wave polish scope.
+No additional screenshot-discovered defect remained within the bounded third-wave scope.
 
 ### 59-record browser evidence
 
@@ -239,7 +284,8 @@ The following remain outside automated approval:
 - final material balance on Andrew's MacBook display;
 - animation quality and functional readability for every record;
 - physical-device touch and screen-reader behavior;
-- manual reduced-transparency, increased-contrast, and forced-colors review;
+- manual reduced-data, reduced-transparency, increased-contrast, and forced-colors review;
+- sub-360-pixel physical-device review;
 - long-session thermal and GPU behavior.
 
 ## 6. Known Risks
@@ -258,7 +304,11 @@ Continuous animation, physical materials, and shadows make exhaustive headless W
 
 ### RISK-004 — Preference emulation coverage
 
-Reduced motion is automated. Reduced transparency, increased contrast, and forced colors are implemented at source level but still require physical or native-browser manual review because Chromium automation support is incomplete for those modes.
+Reduced motion is automated. Reduced data, reduced transparency, increased contrast, and forced colors are implemented at source level but still require physical or native-browser manual review because Chromium automation support is incomplete for those modes.
+
+### RISK-005 — Layered polish cascade
+
+The application now intentionally loads several additive polish stylesheets. Their order is covered by browser assertions, but future consolidation must preserve visual behavior and may not occur as an unaudited cleanup.
 
 ## 7. Pending Work
 
@@ -274,10 +324,15 @@ Verify pointer, keyboard, touch, screen-reader output, drawer focus, clipping, m
 
 Measure first load, record switching, memory stabilization, GPU load, and thermals on the MacBook. Compare any code-splitting candidate against the measured baseline.
 
+### PND-004 — Conditional stylesheet consolidation
+
+After human visual approval, evaluate whether the additive polish cascade should be consolidated. Do not perform consolidation without visual regression screenshots and the full browser audit.
+
 ## 8. Prohibitions
 
 - Do not restore persistent dashboard chrome.
 - Do not reveal controls on ordinary pointer movement.
+- Do not show global edge handles above an open modal drawer or briefing.
 - Do not replace precise ledger entries with generic PASS wording.
 - Do not describe automated mounting as human canon or art approval.
 - Do not suppress the bundle warning instead of measuring performance.
@@ -286,6 +341,8 @@ Measure first load, record switching, memory stabilization, GPU load, and therma
 - Do not place visual effects above drawer content.
 - Do not allow mobile sheets or internal tool groups to exceed viewport bounds.
 - Do not pin action surfaces over dossier or annotation content.
+- Do not restore automatic dossier hyphenation or generic active dots on Record tabs.
+- Do not consolidate polish stylesheets without screenshot and browser regression evidence.
 
 ## 9. Validation Matrix
 
@@ -297,18 +354,23 @@ Measure first load, record switching, memory stabilization, GPU load, and therma
 | First 40 polish improvements | verified | wave-1 manifest, tests, source, browser audit | physical-device review |
 | First 11 adversarial repairs | verified | wave-1 critique, source, tests, browser audit | physical-device review |
 | Second 39 polish improvements | verified | wave-2 manifest, source, tests, expanded browser audit | physical-device review |
-| Second 11 adversarial repairs | verified | wave-2 critique, source, tests, expanded browser audit, screenshots | preference/device review |
-| Source compiles | verified | run `30880875699` | none |
-| Lint is clean | verified | run `30880875699` | none |
-| Tests pass | verified | run `30880875699` | none |
-| Production build succeeds | verified | run `30880875699` | deployment/browser load |
-| UI is hidden at rest | verified | expanded browser audit and screenshots | physical-device confirmation |
-| Drawer focus and keyboard tabs | verified | expanded browser audit | screen-reader/physical-device confirmation |
-| Desktop/mobile containment and overflow | verified | expanded browser audit | additional real-device sizes |
-| Export footer does not cover annotation content | verified | zero-overlap geometry and final screenshot | cross-browser human check |
-| Mobile Tools controls do not clip | verified | internal overflow checks and final screenshot | physical-device touch check |
+| Second 11 adversarial repairs | verified | wave-2 critique, source, tests, browser audit, screenshots | preference/device review |
+| Third 32 polish improvements | verified | wave-3 manifest, source, tests, established and dedicated browser audits | physical-device review |
+| Third 8 adversarial repairs | verified | wave-3 critique, source, tests, dedicated browser audit, screenshots | preference/device review |
+| Source compiles | verified | run `30881813041` | none |
+| Lint is clean | verified | run `30881813041` | none |
+| Tests pass | verified | run `30881813041` | none |
+| Production build succeeds | verified | run `30881813041` | deployment/browser load |
+| UI is hidden at rest | verified | browser audits and screenshots | physical-device confirmation |
+| Global handles hide above modal surfaces | verified | dedicated wave-three browser audit and screenshots | cross-browser physical-device confirmation |
+| Drawer focus and keyboard tabs | verified | established browser audit | screen-reader/physical-device confirmation |
+| Desktop/mobile containment and overflow | verified | both browser audits | additional real-device sizes |
+| Dossier prose avoids automatic hyphenation | verified | computed style and screenshot review | cross-browser typography review |
+| Mobile record fields stack cleanly | verified | computed grid style, overflow check, screenshot | physical-device touch check |
+| Export footer does not cover annotation content | verified | zero-overlap geometry and screenshot | cross-browser human check |
+| Mobile Tools controls do not clip | verified | internal overflow checks and screenshot | physical-device touch check |
 | Reduced-motion fallback | verified | media emulation and computed styles | physical-device confirmation |
-| Reduced-transparency/contrast/forced-colors fallbacks | implemented, unverified manually | source inspection | native preference review |
+| Reduced-data/transparency/contrast/forced-colors fallbacks | implemented, partially verified | source inspection and focused assertions | native preference review |
 | All 59 records mount and expose four layers | verified by completed shard loops | run `30875253098` logs/artifacts | human interaction review |
 | All 59 models are artistically final | unverified | not established | full human review |
 | Performance readiness | at risk / unverified | bundle warning | target-device profile |
@@ -322,3 +384,4 @@ Measure first load, record switching, memory stabilization, GPU load, and therma
 - **Revision 20 — 2026-08-03:** Implemented deliberate hidden-at-rest drawers, bounds framing, subdued chamber presentation, two explicit canon-backed additions for all 59 records, a precise durable ledger, regression tests, and 59-record browser mount/layer evidence.
 - **Revision 21 — 2026-08-04:** Implemented 40 product-polish improvements, conducted a hostile release-candidate critique, implemented 11 resulting repairs, added durable polish contracts and a targeted desktop/mobile browser audit, corrected mobile containment and nested stacking-context blur, and passed source/build/browser validation.
 - **Revision 22 — 2026-08-04:** Implemented 39 additional polish improvements, conducted source, accessibility-preference, and screenshot adversarial review, implemented 11 resulting repairs, activated the orphaned legibility layer, eliminated export-content overlap and mobile tool clipping, expanded the permanent browser audit, and passed source/build/browser validation. Human art direction, native preference modes, physical-device behavior, and performance approval remain pending.
+- **Revision 23 — 2026-08-04:** Implemented 32 additional polish improvements, conducted source and screenshot adversarial review, implemented 8 resulting repairs, hid global handles over modal surfaces, removed tab-marker and hyphenation noise, added a dedicated wave-three browser gate, and passed source/build/browser validation. Human art direction, native preference modes, physical-device behavior, and performance approval remain pending.
