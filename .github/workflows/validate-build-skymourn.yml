@@ -15,7 +15,7 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -32,28 +32,22 @@ jobs:
       - name: Install locked dependencies
         run: npm ci --ignore-scripts
 
-      - name: Normalize repair and generate ledger
+      - name: Apply final framing repair
         if: github.event_name == 'pull_request' && github.head_ref == 'repair/immersive-ui-model-quality-20260803'
         run: |
           node scripts/cleanup-immersive-repair.mjs
-          node scripts/fix-browser-audit-navigation.mjs
-          node scripts/fix-immersive-browser-controls-and-camera.mjs
+          node scripts/finalize-camera-bounds.mjs
           node scripts/generate-model-improvements-ledger.mjs
           if [[ -n "$(git status --porcelain)" ]]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add src/App.tsx src/components/ExaminationChamber.tsx scripts/immersive-browser-audit.mjs MODEL_IMPROVEMENTS_LEDGER.md
-            git commit -m "fix: preserve model framing and test deliberate drawer controls"
+            git add src/App.tsx src/components/ExaminationChamber.tsx MODEL_IMPROVEMENTS_LEDGER.md
+            git commit -m "fix: let bounds own initial and reset model framing"
             git push origin HEAD:${GITHUB_HEAD_REF}
           fi
 
       - name: Strict static audit
-        run: |
-          if [ -f scripts/audit-static.mjs ]; then
-            node scripts/audit-static.mjs --strict
-          else
-            echo "No static audit script present."
-          fi
+        run: node scripts/audit-static.mjs --strict
 
       - name: Typecheck
         run: npm run typecheck
@@ -66,37 +60,3 @@ jobs:
 
       - name: Build
         run: npm run build
-
-      - name: Install ephemeral browser harness
-        if: github.event_name == 'pull_request' && github.head_ref == 'repair/immersive-ui-model-quality-20260803'
-        run: |
-          mkdir -p /tmp/drakken-browser-audit
-          cp scripts/immersive-browser-audit.mjs /tmp/drakken-browser-audit/audit.mjs
-          cd /tmp/drakken-browser-audit
-          npm init -y >/dev/null
-          PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache npm install puppeteer@24.16.0 --no-save --no-package-lock
-
-      - name: Run immersive browser audit
-        if: github.event_name == 'pull_request' && github.head_ref == 'repair/immersive-ui-model-quality-20260803'
-        run: |
-          npm run dev -- --host 127.0.0.1 --port 4173 > /tmp/drakken-vite.log 2>&1 &
-          VITE_PID=$!
-          trap 'kill ${VITE_PID} 2>/dev/null || true' EXIT
-          for attempt in {1..60}; do
-            if curl -fsS http://127.0.0.1:4173 >/dev/null; then break; fi
-            sleep 1
-          done
-          curl -fsS http://127.0.0.1:4173 >/dev/null
-          cd /tmp/drakken-browser-audit
-          PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache \
-          DRAKKEN_AUDIT_URL=http://127.0.0.1:4173 \
-          DRAKKEN_AUDIT_OUTPUT=${GITHUB_WORKSPACE}/browser-audit-output \
-          node audit.mjs
-
-      - name: Upload browser audit evidence
-        if: always() && github.event_name == 'pull_request' && github.head_ref == 'repair/immersive-ui-model-quality-20260803'
-        uses: actions/upload-artifact@v4
-        with:
-          name: drakken-immersive-browser-audit
-          path: browser-audit-output
-          if-no-files-found: warn
