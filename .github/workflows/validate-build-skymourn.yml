@@ -14,36 +14,9 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  apply-adversarial-repair:
-    if: github.event_name == 'pull_request' && github.head_ref == 'repair/immersive-ui-model-quality-20260803' && github.actor != 'github-actions[bot]'
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - name: Check out repair branch
-        uses: actions/checkout@v7
-        with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
-
-      - name: Repair temporary applicator quoting
-        run: node scripts/fix-polish-applicator.mjs
-
-      - name: Apply bounded adversarial repair
-        run: node scripts/apply-polish-pass.mjs
-
-      - name: Commit repaired implementation
-        run: |
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add src/App.tsx src/polish.css src/polish.test.ts src/polishManifest.ts POLISH_PASS.md
-            git commit -m "fix: implement adversarial polish findings"
-            git push origin HEAD:${GITHUB_HEAD_REF}
-          fi
-
   validate:
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -74,3 +47,52 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  polish-browser-audit:
+    if: github.event_name == 'pull_request' && github.head_ref == 'repair/immersive-ui-model-quality-20260803'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22.13.0'
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Install ephemeral browser harness
+        run: |
+          mkdir -p /tmp/drakken-polish-audit
+          cp scripts/polish-browser-audit.mjs /tmp/drakken-polish-audit/audit.mjs
+          cd /tmp/drakken-polish-audit
+          npm init -y >/dev/null
+          PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache npm install puppeteer@24.16.0 --no-save --no-package-lock
+
+      - name: Run targeted polish audit
+        run: |
+          npm run dev -- --host 127.0.0.1 --port 4173 > /tmp/drakken-vite.log 2>&1 &
+          VITE_PID=$!
+          trap 'kill ${VITE_PID} 2>/dev/null || true' EXIT
+          for attempt in {1..60}; do
+            if curl -fsS http://127.0.0.1:4173 >/dev/null; then break; fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:4173 >/dev/null
+          cd /tmp/drakken-polish-audit
+          PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache \
+          DRAKKEN_AUDIT_URL=http://127.0.0.1:4173 \
+          DRAKKEN_AUDIT_OUTPUT=${GITHUB_WORKSPACE}/polish-browser-audit-output \
+          node audit.mjs
+
+      - name: Upload polish evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: drakken-polish-browser-audit
+          path: polish-browser-audit-output
+          if-no-files-found: warn
