@@ -9,7 +9,7 @@ describe('product polish ledger', () => {
   });
 
   it('records every bounded adversarial repair', () => {
-    expect(ADVERSARIAL_REPAIRS).toHaveLength(9);
+    expect(ADVERSARIAL_REPAIRS).toHaveLength(11);
     expect(new Set(ADVERSARIAL_REPAIRS.map((item) => item.id)).size).toBe(ADVERSARIAL_REPAIRS.length);
     expect(ADVERSARIAL_REPAIRS.every((item) => item.title.trim().length > 8)).toBe(true);
   });
