@@ -1,0 +1,1187 @@
+{
+  "schemaVersion": 2,
+  "records": [
+    {
+      "assetId": "proc-skymourn-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Skymourn entry, lines 548-576 in supplied working canon dossier",
+        "Page 10, Skymourn archival plate"
+      ],
+      "sourceIds": [
+        "SRC-SKY-001",
+        "SRC-SKY-002"
+      ],
+      "processing": [
+        "Mapped Skymourn surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-gorevault-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Gorevault entry, lines 1353-1375 in supplied working canon dossier"
+      ],
+      "sourceIds": [
+        "SRC-GOR-001"
+      ],
+      "processing": [
+        "Mapped Gorevault surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-blood-ring-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Corrected Blood Ring summary and formation sequence, lines 92-127"
+      ],
+      "sourceIds": [
+        "SRC-RING-001"
+      ],
+      "processing": [
+        "Mapped Blood Ring surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-magma-pleuron-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Magma Pleuron entry, line 173"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Magma Pleuron surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-granithelion-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Granithelion entry, line 203"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Granithelion surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-fault-tongue-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Fault-Tongue entry, line 231"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Fault-Tongue surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-obsidian-gul-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Obsidian Gul entry, line 259"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Obsidian Gul surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-tremorhound-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Tremorhound entry, line 288"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Tremorhound surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-glassspine-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Glassspine entry, line 317"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Glassspine surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-quarrymind-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Quarrymind entry, line 346"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Quarrymind surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-aerokarst-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Aerokarst entry, line 376"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Aerokarst surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-hydrostatic-renderer-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Hydrostatic Renderer entry, line 404"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Hydrostatic Renderer surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-stratos-chorister-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Stratos Chorister entry, line 432"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Stratos Chorister surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-balance-engine-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Balance Engine entry, line 460"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Balance Engine surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-stormmind-tactician-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Stormmind Tactician entry, line 490"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Stormmind Tactician surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-toxic-veil-engine-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Toxic Veil Engine entry, line 521"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Toxic Veil Engine surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-macroflora-colossus-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Macroflora Colossus entry, line 581"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Macroflora Colossus surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-sporesphere-archivist-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Sporesphere Archivist entry, line 612"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Sporesphere Archivist surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-neural-fungibinder-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Neural Fungibinder entry, line 642"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Neural Fungibinder surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-precipitation-synth-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Precipitation Synth entry, line 669"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Precipitation Synth surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-soil-rewriter-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Soil Rewriter entry, line 698"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Soil Rewriter surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-hive-floramother-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Hive Floramother entry, line 727"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Hive Floramother surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-trench-sovereign-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Trench-Sovereign entry, line 789"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Trench-Sovereign Leviathan surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-salinity-conductor-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Salinity Conductor entry, line 813"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Salinity Conductor surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-gyre-tactician-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Gyre Tactician entry, line 837"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Gyre Tactician surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-littoral-reformer-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Littoral Reformer entry, line 861"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Littoral Reformer surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-cryofluid-engine-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Cryofluid Engine entry, line 885"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Cryofluid Engine surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-nebular-stream-herder-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Nebular Stream Herder entry, line 909"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Nebular Stream Herder surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-stellar-plasma-swimmer-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Stellar-Plasma Swimmer entry, line 933"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Stellar-Plasma Swimmer surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-orbital-extrusion-engine-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Orbital Extrusion Engine entry, line 957"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Orbital Extrusion Engine surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-starbinder-core-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Starbinder Core entry, line 982"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Starbinder Core surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-gravity-impaler-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Gravity Impaler entry, line 1013"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Gravity Impaler surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-deepsong-carrier-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Deepsong Carrier entry, line 1041"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Deepsong Carrier surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-radiant-scaffold-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Radiant Scaffold entry, line 1070"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Radiant Scaffold surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-phantom-occluder-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Phantom Occluder entry, line 1098"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Phantom Occluder surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-burnline-reaper-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Burnline Reaper entry, line 1126"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Burnline Reaper surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-data-core-unbinder-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Data Core Unbinder entry, line 1154"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Data Core Unbinder surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-foundry-cantor-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Foundry Cantor entry, line 1186"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Foundry Cantor surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-power-lattice-regulator-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Power-Lattice Regulator entry, line 1210"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Power-Lattice Regulator surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-skyline-moulter-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Skyline Moulter entry, line 1234"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Skyline Moulter surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-transit-impaler-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Transit Impaler entry, line 1258"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Transit Impaler surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-demographic-planner-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Demographic Planner entry, line 1282"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Demographic Planner surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-record-devourer-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Record-Devourer entry, line 1306"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Record-Devourer surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-syntax-breaker-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Syntax Breaker entry, line 1381"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Syntax Breaker surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-civic-time-rewriter-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Civic-Time Rewriter entry, line 1405"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Civic-Time Rewriter surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-oneiric-ecologist-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Oneiric Ecologist entry, line 1429"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Oneiric Ecologist surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-sovereignty-eater-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Sovereignty Eater entry, line 1453"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Sovereignty Eater surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-hymnlock-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Hymnlock entry, line 1477"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Hymnlock surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-memorialvein-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Memorialvein entry, line 1500"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Memorialvein surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-shrinehunger-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Shrinehunger entry, line 1524"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Shrinehunger surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-redacted-grin-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Redacted Grin entry, line 1549"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Redacted Grin surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-spinal-loop-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Spinal Loop entry, line 1576"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Spinal Loop surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-cradle-exe-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Cradle.exe entry, line 1604"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Cradle.exe surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-foldhowl-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Foldhowl entry, line 1633"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Foldhowl surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-manifest-discord-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Manifest.Discord entry, line 1660"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Manifest.Discord surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-gloryfail-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Gloryfail entry, line 1688"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Gloryfail surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-viral-bastion-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Viral Bastion entry, line 1716"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Viral Bastion surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-mother-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "Mother entry, line 1759"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped Mother surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    },
+    {
+      "assetId": "proc-the-egg-v1",
+      "sourceFiles": [
+        "docs/drakken_compendium_full_blood_eclipse_visual_integrated.md"
+      ],
+      "sourceLocations": [
+        "The Egg entry, line 140"
+      ],
+      "sourceIds": [
+        "SRC-COMP-001"
+      ],
+      "processing": [
+        "Mapped The Egg surface, structure, internal, and functional record layers to local procedural geometry",
+        "Preserved confirmed, reconstructed, and unknown evidence labels from the specimen record",
+        "Retained normalized chamber presentation without asserting unverified canon scale"
+      ],
+      "runtimeOutput": "Generated at runtime through src/scene/SpecimenRouter.tsx and project-owned model modules",
+      "sourceHash": null,
+      "runtimeHash": null
+    }
+  ]
+}

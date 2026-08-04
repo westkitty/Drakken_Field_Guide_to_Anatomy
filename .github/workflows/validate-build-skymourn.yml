@@ -1,0 +1,50 @@
+name: Validate build-skymourn
+
+on:
+  push:
+    branches:
+      - build-skymourn
+  pull_request:
+    branches:
+      - build-skymourn
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22.13.0'
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Strict static audit
+        run: |
+          if [ -f scripts/audit-static.mjs ]; then
+            node scripts/audit-static.mjs --strict
+          else
+            echo "No static audit script present."
+          fi
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build

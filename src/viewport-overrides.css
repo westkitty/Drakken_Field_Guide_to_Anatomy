@@ -1,0 +1,421 @@
+/* Model-first examination layout.
+   This file intentionally loads after the archive's base stylesheet. */
+
+:root {
+  --bg: #111820;
+  --bg-subtle: #17212a;
+  --panel: rgba(24, 33, 42, 0.94);
+  --panel-solid: #1b2630;
+  --panel-accent: #263541;
+  --line: rgba(207, 222, 231, 0.22);
+  --line-strong: rgba(218, 233, 241, 0.42);
+  --line-glow: rgba(143, 224, 255, 0.55);
+  --text: #e7eef2;
+  --text-muted: #aebdc6;
+  --text-bright: #ffffff;
+  --cyan-frost: #91e2ff;
+  --moon-gold: #e0bd70;
+}
+
+body {
+  overflow: hidden;
+  background: #111820;
+}
+
+button {
+  background: rgba(38, 53, 65, 0.96);
+}
+
+button:hover {
+  background: #354957;
+}
+
+.archive-app {
+  height: 100vh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.archive-header {
+  min-height: 48px;
+  height: 48px;
+  padding: 0.35rem 0.8rem;
+  background: rgba(20, 29, 37, 0.98);
+}
+
+.archive-header .eyebrow,
+.header-status > span:not(.evidence-badge) {
+  display: none;
+}
+
+.archive-header h1 {
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  font-weight: 700;
+  letter-spacing: 0.075em;
+}
+
+.header-status {
+  flex-wrap: nowrap;
+  gap: 0.45rem;
+}
+
+.header-status button,
+.header-status .evidence-badge {
+  min-height: 30px;
+}
+
+.mobile-toolbar {
+  position: relative;
+  top: auto;
+  z-index: 30;
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+  background: rgba(24, 33, 42, 0.98);
+  backdrop-filter: blur(14px);
+}
+
+.mobile-toolbar button {
+  min-height: 30px;
+  padding: 0.28rem 0.7rem;
+}
+
+.archive-layout {
+  display: block;
+  flex: 1;
+  min-height: 0;
+}
+
+.examination-section {
+  position: relative;
+  height: calc(100vh - 88px);
+  min-height: 520px;
+  overflow: hidden;
+  background: #18232d;
+}
+
+.chamber-frame {
+  position: absolute;
+  inset: 0;
+  height: auto;
+  min-height: 0;
+  border: 0;
+}
+
+.chamber-canvas canvas {
+  filter: brightness(1.06) contrast(1.03) saturate(1.06);
+}
+
+.specimen-titlebar {
+  position: absolute;
+  z-index: 18;
+  top: 0.7rem;
+  left: 0.7rem;
+  right: 0.7rem;
+  min-height: 54px;
+  padding: 0.48rem 0.7rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 7px;
+  background: rgba(25, 35, 44, 0.84);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+}
+
+.specimen-titlebar h2 {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  letter-spacing: 0.035em;
+}
+
+.specimen-titlebar .eyebrow {
+  font-size: 0.57rem;
+}
+
+.specimen-titlebar > div > p:last-child {
+  font-size: 0.65rem;
+}
+
+.specimen-title-actions button {
+  min-height: 30px;
+  padding: 0.28rem 0.58rem;
+}
+
+.primary-tools {
+  position: absolute;
+  z-index: 18;
+  top: 4.55rem;
+  left: 0.7rem;
+  right: 0.7rem;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 0.32rem 0.42rem;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: rgba(25, 35, 44, 0.78);
+  backdrop-filter: blur(14px);
+  scrollbar-width: thin;
+}
+
+.tool-cluster {
+  flex-wrap: nowrap;
+  min-width: max-content;
+  padding-right: 0.55rem;
+}
+
+.tool-cluster button,
+.toggle-button {
+  min-height: 28px;
+  padding: 0.25rem 0.48rem;
+  font-size: 0.67rem;
+}
+
+.secondary-tools {
+  position: absolute;
+  z-index: 18;
+  left: 0.7rem;
+  right: 0.7rem;
+  bottom: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 0.45rem;
+  max-height: 154px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: transparent;
+  scrollbar-width: thin;
+}
+
+.tool-panel {
+  min-height: 0;
+  max-height: 154px;
+  overflow-y: auto;
+  padding: 0.48rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: rgba(25, 35, 44, 0.86);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.tool-panel-heading {
+  margin-bottom: 0.35rem;
+}
+
+.tool-panel h3,
+.annotation-section h3 {
+  font-size: 0.68rem;
+}
+
+.tool-panel label {
+  gap: 0.18rem;
+  font-size: 0.66rem;
+}
+
+.tool-panel input,
+.tool-panel select {
+  min-height: 29px;
+  padding: 0.25rem 0.42rem;
+}
+
+.layer-grid {
+  grid-template-columns: repeat(4, minmax(70px, 1fr));
+  gap: 0.25rem;
+}
+
+.layer-grid .toggle-button {
+  min-height: 34px;
+  padding: 0.28rem 0.38rem;
+  align-content: center;
+}
+
+.layer-grid .toggle-button small,
+.tool-note,
+.measurement-summary {
+  display: none;
+}
+
+.range-field,
+.button-row {
+  margin-top: 0.28rem;
+}
+
+.button-row {
+  gap: 0.3rem;
+}
+
+.button-row select {
+  min-width: 140px;
+}
+
+.chamber-crosshair {
+  opacity: 0.16;
+}
+
+.chamber-hud-bar,
+.chamber-scale-note {
+  display: none;
+}
+
+.registry-panel,
+.record-panel {
+  position: fixed;
+  top: 88px;
+  bottom: 0;
+  z-index: 70;
+  width: min(370px, 92vw);
+  max-height: none;
+  visibility: hidden;
+  pointer-events: none;
+  background: rgba(24, 33, 42, 0.985);
+  backdrop-filter: blur(20px);
+  transition: transform 180ms ease-out, visibility 0s linear 180ms;
+}
+
+.registry-panel {
+  left: 0;
+  right: auto;
+  transform: translateX(-104%);
+  border-right: 1px solid var(--line-strong);
+  box-shadow: 18px 0 50px rgba(0, 0, 0, 0.45);
+}
+
+.record-panel {
+  left: auto;
+  right: 0;
+  transform: translateX(104%);
+  border-left: 1px solid var(--line-strong);
+  box-shadow: -18px 0 50px rgba(0, 0, 0, 0.45);
+}
+
+.registry-panel.is-open,
+.record-panel.is-open {
+  transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.mobile-close {
+  display: inline-grid;
+  place-items: center;
+}
+
+.specimen-card {
+  background: #202d37;
+}
+
+.specimen-card:hover {
+  background: #2a3a46;
+}
+
+.specimen-card.is-active {
+  background: #2a4050;
+}
+
+.record-summary p,
+.record-article p,
+.civic-grid p,
+.source-list p,
+.annotation-detail p {
+  color: #dbe5ea;
+}
+
+.diagnostics-panel {
+  z-index: 90;
+  background: rgba(24, 33, 42, 0.98);
+}
+
+@media (max-width: 900px) {
+  .archive-header {
+    min-height: 44px;
+    height: 44px;
+    padding-inline: 0.6rem;
+  }
+
+  .archive-header h1 {
+    font-size: 0.82rem;
+  }
+
+  .header-status .evidence-badge {
+    display: none;
+  }
+
+  .mobile-toolbar {
+    min-height: 40px;
+  }
+
+  .examination-section {
+    height: calc(100vh - 84px);
+  }
+
+  .registry-panel,
+  .record-panel {
+    top: 84px;
+  }
+
+  .specimen-titlebar {
+    top: 0.45rem;
+    left: 0.45rem;
+    right: 0.45rem;
+  }
+
+  .primary-tools {
+    top: 4.25rem;
+    left: 0.45rem;
+    right: 0.45rem;
+  }
+
+  .secondary-tools {
+    left: 0.45rem;
+    right: 0.45rem;
+    bottom: 0.45rem;
+    grid-template-columns: repeat(4, minmax(205px, 1fr));
+    max-height: 146px;
+  }
+
+  .tool-panel {
+    max-height: 146px;
+  }
+}
+
+@media (max-width: 640px) {
+  .archive-header h1 {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+  }
+
+  .header-status button {
+    display: none;
+  }
+
+  .mobile-toolbar {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .specimen-titlebar {
+    min-height: 48px;
+  }
+
+  .specimen-title-actions button:first-child {
+    display: none;
+  }
+
+  .primary-tools {
+    top: 3.95rem;
+  }
+
+  .secondary-tools {
+    grid-template-columns: repeat(4, minmax(190px, 1fr));
+    max-height: 138px;
+  }
+
+  .tool-panel {
+    max-height: 138px;
+  }
+}

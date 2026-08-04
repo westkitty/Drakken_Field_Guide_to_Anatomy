@@ -1,0 +1,2426 @@
+{
+  "schemaVersion": 2,
+  "units": "normalized reconstruction units",
+  "calibrationStatus": "Visualization-height metadata is not a proven world-unit calibration.",
+  "assets": [
+    {
+      "assetId": "proc-skymourn-v1",
+      "runtimeUri": "procedural://skymourn/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry plus archival plate",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Steam, snow, frost shell, burning thermal seams, and blank facial mask.",
+        "Reconstructed looping load path and tension spine inferred from the visible infinity-form silhouette.",
+        "Reconstructed opposed thermal cores used only to explain the archive visualization.",
+        "Demonstration overlay for thermal polarization and cold data-lace trails; not a literal anatomical claim."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Melancholy Drift",
+        "Thermal Ripple Burst"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-gorevault-v1",
+      "runtimeUri": "procedural://gorevault/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Vault hull, extraction claws, sealed rib armor, reservoir sacs, ash vents, and barcode locks.",
+        "Reconstructed pressure frame and processional limb supports.",
+        "Reconstructed render crucible, storage chambers, and transfer conduits.",
+        "Demonstration flow from intake through separation and storage. Exact anatomy remains undocumented."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Processional Haul",
+        "Crucible Maw Intake"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-blood-ring-v1",
+      "runtimeUri": "procedural://blood-ring/procedural-1.0.0",
+      "sourceIdentity": "Working canon integrated summary",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Vitrified crimson shell with pitting, sealed fractures, translucent edges, and dark core bands.",
+        "Stabilization ribs, spin-alignment braces, and hardened macro-ribs.",
+        "Suspended ash, void pockets, clot-veins, and black-red rendered matter bands.",
+        "Reconstructed spin-shaping, pressure alignment, and orbital shackle fields. Exact defense behavior remains uncertain."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Spin-Shaping Reconstruction",
+        "Cooling-State Reconstruction"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canon dimensions: Planetary orbital scale; exact dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-magma-pleuron-v1",
+      "runtimeUri": "procedural://magma-pleuron/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Magnetized basalt plates, eruption mandibles, glowing magma channels, and barcode ribbons.",
+        "Segmented thermo-ferrous spine and burrowing limb articulators.",
+        "Subsurface magma core, pressure conduits, and magnetic repulsion node.",
+        "Seismic tunneling vector and lava basin seeding overlay."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Faultline Hyperburrow",
+        "Thermo-Magnetic Eruption"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-granithelion-v1",
+      "runtimeUri": "procedural://granithelion/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Sedimented granite hide, crystal ridges, and hardlight lattice seams.",
+        "Monolithic spinal lattice and tectonic brace pillars.",
+        "Geodesic harmonic core and crystal resonance nodes.",
+        "Tectonic stabilization field and anti-macro wave grid."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Harmonic Resonant Pulse",
+        "Monolithic Anchor Lock"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canon dimensions: Continent scale; exact dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-fault-tongue-v1",
+      "runtimeUri": "procedural://fault-tongue/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Metallic hide, sideways mouth plates, and barcode Chants.",
+        "Flexible acoustic spine and harmonic chamber ribs.",
+        "Resonant sound throat and seismic wave generator.",
+        "Acoustic directional pulse and bedrock fracture lines."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Seismic Pulse Roar",
+        "Gliding Bedrock Phase"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-obsidian-gul-v1",
+      "runtimeUri": "procedural://obsidian-gul/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Obsidian armor shards, molten joint seams, and glass tail blade.",
+        "Pyroclastic skeleton and razor-hinged limbs.",
+        "Volcanic core furnace and glass-melt reservoir.",
+        "Magma grid slicing vector and shard blade trajectory."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Blade Whirl Eruption",
+        "Surface Glass-Skate"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-tremorhound-v1",
+      "runtimeUri": "procedural://tremorhound/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Vibro-diffusive hide, blue echo claws, and crown seismic glyph.",
+        "Flexible wave-conduction spine and spring limbs.",
+        "Seismic pulse generator and acoustic sensor bulb.",
+        "Waveform propagation map and ground-phase trajectory."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Echo Pounce",
+        "Ground Phase Dash"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-glassspine-v1",
+      "runtimeUri": "procedural://glassspine/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Hollow glass lattice, prismatic filigree, and light-streaming nerves.",
+        "Fiber-optic spinal core and glass rib arches.",
+        "Refractive prism core and crystal breath condenser.",
+        "Optical macro-transmission lines and crystal fog field."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Light Spindle Burst",
+        "Refractive Skitter"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-quarrymind-v1",
+      "runtimeUri": "procedural://quarrymind/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Mineralized brainpan, dorsal quarry basin, and orbiting drones.",
+        "Excavator leg trusses and reinforced litho-frame.",
+        "Brainstone synthesis chamber and drone assembly core.",
+        "Litho-drone mining vectors and tectonic macro-etching field."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Hive Drill Barrage",
+        "Litho-Colony Excavation"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-aerokarst-v1",
+      "runtimeUri": "procedural://aerokarst/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Nested air spheres, detached hovering ribs, and vacuum core.",
+        "Orbital rib ring and vortex anchor axis.",
+        "Implosion lung chamber and atmospheric vortex engine.",
+        "Cyclonic lung crush field and radar-null zone."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Cyclonic Lung Crush",
+        "Hover Shear Jump"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-hydrostatic-renderer-v1",
+      "runtimeUri": "procedural://hydrostatic-renderer/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Translucent water sac hull, condenser spouts, and cloud harvesters.",
+        "Hydro-frame rib cage and downpour conduits.",
+        "Condensation engine core and saline filter sac.",
+        "Downpour column and hydrosphere remapping field."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Hydrostatic Condensation",
+        "Torrents Harvest"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-stratos-chorister-v1",
+      "runtimeUri": "procedural://stratos-chorister/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Winged serpentine hide, acoustic vocal bells, and resonance fins.",
+        "Acoustic airway spine and wing rib lattice.",
+        "Multi-chamber vocal bell engine and air frequency tuner.",
+        "Jet stream steering arc and sonic resonance wave."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Stratos Harmony Song",
+        "Jetstream Glide"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-balance-engine-v1",
+      "runtimeUri": "procedural://balance-engine/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Gyroscopic outer ring, gas intake vents, and thermal radiators.",
+        "Concentric gimbal frame and central core axis.",
+        "Atmospheric gas processor and thermal exchange unit.",
+        "Global climate stabilization grid and thermal radiator field."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Gyroscopic Rotation",
+        "Thermal Radiation Flush"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-stormmind-tactician-v1",
+      "runtimeUri": "procedural://stormmind-tactician/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Storm-cloud hide, lightning antlers, and electrical discharge nodes.",
+        "Ion-conducting spine and storm rib cage.",
+        "Lightning generator core and ion pulse storage.",
+        "Electrical discharge grid and storm front vector."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Lightning Antler Arc",
+        "Supercell Command Shift"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-toxic-veil-engine-v1",
+      "runtimeUri": "procedural://toxic-veil-engine/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Exhaust chimneys, corrosive sac armor, and smog vents.",
+        "Chambered furnace chassis and vent pipes.",
+        "Corrosive chemical synthesizer and gas scrubbing core.",
+        "Toxic shroud expansion field and atmospheric replacement map."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Smog Vent Eruption",
+        "Corrosive Scrubbing Pulse"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-macroflora-colossus-v1",
+      "runtimeUri": "procedural://macroflora-colossus/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Bark-like armored hide, bio-luminescent canopy, and root tendrils.",
+        "Lignin-iron trunk core and deep root anchors.",
+        "Spore sap reservoir and genetic code synthesizer.",
+        "Root network expansion map and spore dispersion field."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Bio-Forest Spore Bloom",
+        "Deep Root Anchoring"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-sporesphere-archivist-v1",
+      "runtimeUri": "procedural://sporesphere-archivist/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Translucent bulbous membrane, spore pod ring, and sensory cilia.",
+        "Internal sphere ribbing and pod tether stalks.",
+        "Genetic archive bank and spore sequencing core.",
+        "Spore pod sampling grid and DNA encoding wave."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Spore Pod Sampling",
+        "Gene Archive Pulse"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-neural-fungibinder-v1",
+      "runtimeUri": "procedural://neural-fungibinder/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Fungal cap armor, bio-luminescent tendrils, and mycelial roots.",
+        "Spongy fibrous spine and creeping stalk joints.",
+        "Neural relay node and spore cocktail core.",
+        "Mycelial web map and bio-telemetry pulse."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Mycelial Web Spreading",
+        "Neural Pulse Resonance"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-precipitation-synth-v1",
+      "runtimeUri": "procedural://precipitation-synth/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Translucent eel skin, bio-code fins, and moisture gill slits.",
+        "Flexible undulating spine and rib arches.",
+        "Nutrient synthesis sac and spore mist engine.",
+        "Rain synthesis stream and cloud swimming trajectory."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Cloud Swimming Glide",
+        "Nutrient Rain Release"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-soil-rewriter-v1",
+      "runtimeUri": "procedural://soil-rewriter/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Armored plow skull, sap injector tusk array, and treaded limbs.",
+        "Heavy plow frame and hydraulic leg trusses.",
+        "Mineral sap reservoir and topsoil processing chamber.",
+        "Topsoil re-encoding grid and sap injection depth map."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Terra-Plow Churn",
+        "Mineral Sap Injection"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-hive-floramother-v1",
+      "runtimeUri": "procedural://hive-floramother/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Petal armor plates, glowing ovary hive, and seed-drone pods.",
+        "Floral stalk column and tendon tension cables.",
+        "Ovary nursery engine and bio-code incubator.",
+        "Seed-drone flight paths and spore dispersal radius."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Ovary Hive Bloom",
+        "Seed-Drone Swarm Release"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-trench-sovereign-v1",
+      "runtimeUri": "procedural://trench-sovereign/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Abyssal plate armor, bio-luminescent rib lamps, and caudal fin scythe.",
+        "Hydro-pressure spine and swimming rib arches.",
+        "Pressure lung engine and deep-sea sonar core.",
+        "Oceanic pressure field and acoustic sonar web."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Abyssal Trench Swim",
+        "Sonar Pulse Surge"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-salinity-conductor-v1",
+      "runtimeUri": "procedural://salinity-conductor/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Metallic ray hide, salt-crystal fins, and ionic gill vents.",
+        "Flex-ray cartilage spine and wing rib struts.",
+        "Saline ion pump core and electrolyte storage sac.",
+        "Oceanic current steering vector and salt density field."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Saline Current Glide",
+        "Ion Polarization Pulse"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-gyre-tactician-v1",
+      "runtimeUri": "procedural://gyre-tactician/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Turbine shell, whirlpool intake fins, and bio-rotor tail.",
+        "Rotational spine axis and hydro-stabilizer ribs.",
+        "Gyre drive motor core and thermal current pump.",
+        "Whirlpool vortex field and shipping disruption vector."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Gyre Vortex Spin",
+        "Thermal Current Surge"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-littoral-reformer-v1",
+      "runtimeUri": "procedural://littoral-reformer/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Chitinous claw armor, coral-seeding vents, and breaker legs.",
+        "Reinforced carapace frame and leg joints.",
+        "Coral sap generator and stone-crushing gizzard.",
+        "Coastline carving path and breaker wall grid."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Littoral Coral Carve",
+        "Breaker Wall Stomp"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-cryofluid-engine-v1",
+      "runtimeUri": "procedural://cryofluid-engine/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Glacial crystal armor, frost vents, and ice fins.",
+        "Cryo-tempered spine and rib arches.",
+        "Thermal absorption core and liquid nitrogen exchanger.",
+        "Supercooling wave front and ice shelf expansion map."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Cryofluid Freezing Flash",
+        "Sub-Zero Oceanic Swim"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-nebular-stream-herder-v1",
+      "runtimeUri": "procedural://nebular-stream-herder/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Auroral plasma sails, magnetic antenna spires, and ion tail.",
+        "Magnetic field cage and plasma conduit spine.",
+        "Magnetospheric regulator core and cosmic ray trap.",
+        "Aurora shield grid and solar wind deflection cone."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Auroral Sail Flare",
+        "Solar Wind Herding"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-stellar-plasma-swimmer-v1",
+      "runtimeUri": "procedural://stellar-plasma-swimmer/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "White-hot plasma hide, solar corona fins, and ion crest.",
+        "Plasma containment rib loop.",
+        "Thermonuclear absorption core and heat sink organ.",
+        "Ionospheric heat dissipation grid."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Plasma Flare Dive",
+        "Thermonuclear Pulse Flare"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-orbital-extrusion-engine-v1",
+      "runtimeUri": "procedural://orbital-extrusion-engine/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Extrusion nozzle throat, magnetic guide rings, and feed hoppers.",
+        "Industrial gimbal chassis and thruster braces.",
+        "High-pressure matter compression furnace.",
+        "Ring extrusion path and orbital trajectory grid."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Orbital Ring Extrusion",
+        "Nozzle Thermal Vent"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-starbinder-core-v1",
+      "runtimeUri": "procedural://starbinder-core/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Crystalline wyrm scales, solar collector sails, and tether anchors.",
+        "Segmented gravity-link spine.",
+        "Stellar energy accumulator core.",
+        "Tether grid vector and energy distribution beam."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Starbinder Energy Sweep",
+        "Gravity Tether Anchor"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-gravity-impaler-v1",
+      "runtimeUri": "procedural://gravity-impaler/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Needle-sharp tungsten-carbide skull, stabilizer fins, and barcode rings.",
+        "Kinetic impact shaft and gravity coil ribs.",
+        "Graviton density core and impact dampener.",
+        "Gravity well distortion radius and crustal impact depth."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Orbital Drop Strike",
+        "Gravity Well Surge"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-deepsong-carrier-v1",
+      "runtimeUri": "procedural://deepsong-carrier/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Broadcast antenna crests, serpentine scales, and light-stripes.",
+        "Acoustic-radio wave conduction spine.",
+        "Deepsong transmitter engine and macro-code drum.",
+        "Global broadcast sphere and signal coverage grid."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Deepsong Broadcast Wave",
+        "Ionospheric Serpent Swim"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-radiant-scaffold-v1",
+      "runtimeUri": "procedural://radiant-scaffold/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Hardlight lattice body, emitter nodes, and alignment fins.",
+        "Lattice beam skeleton and projection axis.",
+        "Hardlight generator core and flux capacitor.",
+        "Scaffold projection grid and bridge vector."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Hardlight Scaffold Extend",
+        "Lattice Energy Pulse"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-phantom-occluder-v1",
+      "runtimeUri": "procedural://phantom-occluder/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Vantablack light-absorbing wings, shadow cowl, and sensor eye.",
+        "Wing spar lattice and tension cables.",
+        "Light absorption core and thermal null organ.",
+        "Solar occlusion footprint map and shadow zone."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Solar Eclipse Unfurl",
+        "Shadow Shield Drift"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-burnline-reaper-v1",
+      "runtimeUri": "procedural://burnline-reaper/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Mirror-lens maw, solar collector scales, and heat-sink fins.",
+        "Laser optical tube spine and stabilizer gimbals.",
+        "Solar focus crystal and thermal beam cavity.",
+        "Burnline sweep trajectory and ground scorch vector."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Solar Laser Beam Sweep",
+        "Thermal Lens Focus"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-data-core-unbinder-v1",
+      "runtimeUri": "procedural://data-core-unbinder/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Floating barcode rings, glowing data tendrils, and cyber-head.",
+        "Fiber-optic neural spine and ring magnets.",
+        "Code erasure matrix and database overwrite organ.",
+        "Data corruption field and memory wipe radius."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Barcode Unbind Pulse",
+        "Cybernetic Serpent Drift"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-foundry-cantor-v1",
+      "runtimeUri": "procedural://foundry-cantor/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Foundry furnace chest, casting molds, and molten spout claws.",
+        "Heavy foundry chassis and hydraulic legs.",
+        "Smelting furnace chamber and casting core.",
+        "Molten recast stream and macro-chant radius."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Furnace Smelt Eruption",
+        "Foundry Recast Chant"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-power-lattice-regulator-v1",
+      "runtimeUri": "procedural://power-lattice-regulator/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Transformer tower plating, high-voltage coils, and arc prongs.",
+        "Lattice tower frame and ground anchor spikes.",
+        "High-voltage converter core and energy storage capacitors.",
+        "Power hijacking grid map and voltage arc vector."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "High-Voltage Arc Flare",
+        "Power Lattice Anchor"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-skyline-moulter-v1",
+      "runtimeUri": "procedural://skyline-moulter/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Chitinous cocooning limbs, acid vents, and climbing claws.",
+        "Tower-scaling exoskeleton and hydraulic limbs.",
+        "Concrete dissolution organ and slurry pump.",
+        "Cocooning footprint map and acid spray cone."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Skyline Tower Scale",
+        "Concrete Slurry Vent"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-transit-impaler-v1",
+      "runtimeUri": "procedural://transit-impaler/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Spiked armor plates, impaling mandibles, and rail-slicing claws.",
+        "Flexible segmented burrowing spine.",
+        "Kinetic spike driver core.",
+        "Logistical interdiction map and impalement zone."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Rail Network Impale",
+        "Subterranean Transit Burrow"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-demographic-planner-v1",
+      "runtimeUri": "procedural://demographic-planner/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Multi-ocular scanner head, census limbs, and tally barcode screens.",
+        "Towering sensor stalk skeleton.",
+        "Demographic calculator brain and yield indexer.",
+        "Population scanning grid and harvest triage map."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Demographic Census Scan",
+        "Tally Screen Update"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-record-devourer-v1",
+      "runtimeUri": "procedural://record-devourer/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Vault-door jaws, paper-shredding gullet, and ash vents.",
+        "Heavy crusher chassis and hydraulic jaws.",
+        "Incinerator furnace core and document digest organ.",
+        "Archive purge trajectory and ash dispersal footprint."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Library Ingestion Crush",
+        "Historical Ash Vent"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-syntax-breaker-v1",
+      "runtimeUri": "procedural://syntax-breaker/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Glyph-ringed floating skull, linguistic antennae, and static veil.",
+        "Acoustic-neural spine lattice.",
+        "Syntax disruption core and logic scrambler.",
+        "Noospheric corruption grid and language breakdown field."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Syntax Scramble Pulse",
+        "Noospheric Glyph Drift"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-civic-time-rewriter-v1",
+      "runtimeUri": "procedural://civic-time-rewriter/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Sundial gnomon spine, temporal pendulum arms, and clockface plating.",
+        "Chrono-mechanical frame and pendulum pivot.",
+        "Temporal desync core and civic clock engine.",
+        "Time-desync field map and routine disruption vector."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Sundial Temporal Desync",
+        "Pendulum Chime Sweep"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-oneiric-ecologist-v1",
+      "runtimeUri": "procedural://oneiric-ecologist/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Translucent dream-manta wings, somnambulist tendrils, and mist crest.",
+        "Acoustic-dream cartilage ribs.",
+        "Subconscious projection engine and nightmare core.",
+        "Dreamscape footprint grid and sleep wave vector."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Dreamscape Manta Wave",
+        "Subconscious Mist Pulse"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-sovereignty-eater-v1",
+      "runtimeUri": "procedural://sovereignty-eater/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Shattered crown skull, royal scale armor, and authority-devouring maw.",
+        "Imperial serpentine spine and crest ribs.",
+        "Legitimacy dissolution organ and symbol digest core.",
+        "Authority erasure footprint map and panic vector."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Crown Maw Consumption",
+        "Sovereignty Dissolution Sweep"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-hymnlock-v1",
+      "runtimeUri": "procedural://hymnlock/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Bell-ribbed chest cavity, light chain tethers, and resonant bars.",
+        "Choral cage frame and acoustic chime spine.",
+        "Resonance mandate core and obedience frequency organ.",
+        "Compulsory chant radius and choral fixation map."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Bell-Rib Choral Resonate",
+        "Processional Hover Drift"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-memorialvein-v1",
+      "runtimeUri": "procedural://memorialvein/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Vein-latticed translucent hide, reliquary sacs, and elegy-writing tail.",
+        "Memory-conduction spine and vein struts.",
+        "Reliquary face core and grief reversal generator.",
+        "Grief reversal wave map and reliquary mist radius."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Reliquary Face Bloom",
+        "Funeral Light Drift"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-shrinehunger-v1",
+      "runtimeUri": "procedural://shrinehunger/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Sanctuary gate skull, votive cloth hide, and glowing waymark hooves.",
+        "Gaunt multi-legged rib cage and arch spine.",
+        "Pilgrimage fever core and devotion magnet organ.",
+        "Pilgrimage route convergence grid and relic veil cone."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Sanctuary Gate Stride",
+        "Pilgrimage Fever Wave"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-redacted-grin-v1",
+      "runtimeUri": "procedural://redacted-grin/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Pixelated grin mouth, error-log teeth, and static noise shroud.",
+        "Corrupted subroutine axis.",
+        "Forbidden null core.",
+        "Perceptual null zone and causality corruption field."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Error-Log Smile Pulse",
+        "Glitchstep Null Drift"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-spinal-loop-v1",
+      "runtimeUri": "procedural://spinal-loop/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Fused rock strata segments, Ouroboros jaws, and rewind seams.",
+        "Recursive loop spine.",
+        "Time-lag pulse engine.",
+        "Loopquake strike radius and temporal rewind frame."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Ouroboros Loop Devour",
+        "Flickerstride Time-Lag"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-cradle-exe-v1",
+      "runtimeUri": "procedural://cradle-exe/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Eternally split egg shell, holographic child constructs, and code lullaby vents.",
+        "Womb cage frame and shell hinges.",
+        "Regression membrane core and spawn incubator.",
+        "Recursive spawnstorm area and shelter simulation grid."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Eternally Hatching Bloom",
+        "Corrupted Lullaby Wave"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-foldhowl-v1",
+      "runtimeUri": "procedural://foldhowl/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Static-flicker fur, phase-snapping limbs, and codec howl jaws.",
+        "Phase-dislocated skeleton.",
+        "Audiowarp noise core.",
+        "Dislocation surge trajectory and spatial tear grid."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Phase Maul Strike",
+        "Dislocation Surge Teleport"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-manifest-discord-v1",
+      "runtimeUri": "procedural://manifest-discord/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Hollow mask core, orbiting paradox symbols, and detached limbs.",
+        "Memetic aura framework.",
+        "Semantic drift matrix.",
+        "Conceptual infection radius and viral jump vector."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Paradox Symbol Swarm",
+        "Conceptual Infection Jump"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-gloryfail-v1",
+      "runtimeUri": "procedural://gloryfail/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Shattered halo ring, glitching macro wings, and dual joy/horror face.",
+        "Broken angelic rib lattice.",
+        "Rerouted entropy core.",
+        "Macro reversal lance vector and denial aegis."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Shattered Halo Flare",
+        "Hoverloop Desync"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-viral-bastion-v1",
+      "runtimeUri": "procedural://viral-bastion/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Corrupted screen plating, burning flag, and firewall turrets.",
+        "Walk-fortress chassis and leg trusses.",
+        "Malware swarm core and redundant stack.",
+        "Overwrite salvo area and lockdown zone."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Fortress Trudge Stomp",
+        "Firewall Salvo Flare"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canonical dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-mother-v1",
+      "runtimeUri": "procedural://mother/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Bioluminescent data-veins, code-tree forests, and egg corona ring.",
+        "Planetary codematriarch mantle and core lattice.",
+        "Prime code nursery core and data-milk reservoir.",
+        "Codepulse genesis burst field and temporal aegis."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Codepulse Genesis Surge",
+        "Egg Corona Orbit"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canon dimensions: Planetary scale; exact dimensions unknown",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    },
+    {
+      "assetId": "proc-the-egg-v1",
+      "runtimeUri": "procedural://the-egg/procedural-1.0.0",
+      "sourceIdentity": "Working canon entry",
+      "version": "procedural-1.0.0",
+      "sha256": null,
+      "units": "normalized reconstruction units",
+      "orientation": "Y-up; presentation orientation defined by the dedicated procedural model",
+      "pivotPolicy": "Model-local origin; chamber presentation is normalized and record-specific",
+      "bounds": null,
+      "meshNames": [
+        "surface",
+        "structure",
+        "internal",
+        "functional"
+      ],
+      "materialInventory": [
+        "Geode glass shell, barcode light spiral, and breathing pulse seams.",
+        "Encrypted self-shielding layer.",
+        "Undifferentiated Drakken embryonic data core.",
+        "Terra-emergence trigger field."
+      ],
+      "textureInventory": [],
+      "animationNames": [
+        "Breathing Glass Convulsion",
+        "Barcode Spiral Pulse"
+      ],
+      "lodVariants": [
+        "procedural-standard",
+        "procedural-reduced-render-tier"
+      ],
+      "evidenceOrOwnershipState": "Project-owned procedural reconstruction from supplied canon",
+      "attributionRequirement": "Retain record source citations and working-canon status",
+      "decoderRequirements": [],
+      "disposalPolicy": "React Three Fiber disposes component-owned geometry and materials on keyed unmount",
+      "knownDefects": [
+        "Canon dimensions: 3 meters diameter",
+        "Procedural visualization is not a production GLB",
+        "Browser rendering and long-session resource stability require direct validation"
+      ]
+    }
+  ]
+}
