@@ -1,0 +1,261 @@
+/* Immersive examination shell. Loaded after styles.css. */
+
+html,
+body,
+#root,
+.archive-app,
+.archive-layout,
+.examination-section,
+.chamber-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+body,
+.archive-app,
+.archive-layout {
+  overflow: hidden;
+}
+
+.archive-layout,
+.examination-section,
+.chamber-frame {
+  position: fixed;
+  inset: 0;
+}
+
+.chamber-frame {
+  border: 0;
+}
+
+/* The specimen is the product. Persistent title, tool and help overlays stay out of sight. */
+.specimen-titlebar,
+.chamber-hud-bar,
+.chamber-scale-note {
+  display: none !important;
+}
+
+/* The former global HUD becomes five tiny deliberate reveal handles. */
+.global-hud {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: block;
+  width: 0;
+  height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  pointer-events: none;
+  transform: none;
+}
+
+.global-hud .hud-toggles {
+  display: contents;
+}
+
+.global-hud button {
+  position: fixed;
+  z-index: 121;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  min-height: 30px;
+  margin: 0;
+  padding: 0 !important;
+  overflow: hidden;
+  border: 1px solid rgba(190, 218, 231, 0.26) !important;
+  border-radius: 8px !important;
+  color: transparent !important;
+  background: rgba(12, 19, 25, 0.28) !important;
+  box-shadow: none;
+  opacity: 0.28;
+  pointer-events: auto;
+  transition: opacity 140ms ease, background 140ms ease, border-color 140ms ease, transform 140ms ease;
+}
+
+.global-hud button::after {
+  color: #dbeaf1;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.global-hud button:hover,
+.global-hud button:focus-visible,
+.global-hud button[aria-pressed="true"] {
+  opacity: 1;
+  border-color: rgba(145, 226, 255, 0.9) !important;
+  background: rgba(18, 31, 39, 0.92) !important;
+}
+
+.global-hud .hud-brand {
+  top: 10px;
+  left: 10px;
+}
+.global-hud .hud-brand strong {
+  display: none;
+}
+.global-hud .hud-brand::after {
+  content: "?";
+}
+
+.global-hud .hud-toggles button:nth-child(1) {
+  top: 50%;
+  left: 0;
+  border-left: 0 !important;
+  border-radius: 0 8px 8px 0 !important;
+  transform: translateY(-50%);
+}
+.global-hud .hud-toggles button:nth-child(1)::after { content: "R"; }
+
+.global-hud .hud-toggles button:nth-child(2) {
+  left: 50%;
+  bottom: 0;
+  border-bottom: 0 !important;
+  border-radius: 8px 8px 0 0 !important;
+  transform: translateX(-50%);
+}
+.global-hud .hud-toggles button:nth-child(2)::after { content: "T"; }
+
+.global-hud .hud-toggles button:nth-child(3) {
+  top: 50%;
+  right: 0;
+  border-right: 0 !important;
+  border-radius: 8px 0 0 8px !important;
+  transform: translateY(-50%);
+}
+.global-hud .hud-toggles button:nth-child(3)::after { content: "I"; }
+
+.global-hud .hud-toggles button:nth-child(4) {
+  top: 10px;
+  right: 10px;
+}
+.global-hud .hud-toggles button:nth-child(4)::after { content: "D"; }
+
+/* Drawers are fully removed from interaction until deliberately opened. */
+.registry-panel,
+.record-panel,
+.tools-panel {
+  position: fixed;
+  z-index: 100;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  background: rgba(14, 22, 28, 0.985);
+  backdrop-filter: blur(20px);
+  transition: transform 180ms ease-out, opacity 140ms ease, visibility 0s linear 180ms;
+}
+
+.registry-panel {
+  inset: 0 auto 0 0;
+  width: min(380px, 92vw);
+  transform: translateX(-104%);
+}
+
+.record-panel {
+  inset: 0 0 0 auto;
+  width: min(430px, 94vw);
+  transform: translateX(104%);
+}
+
+.tools-panel {
+  inset: auto 50% 0 auto;
+  width: min(760px, 96vw);
+  height: min(78vh, 720px);
+  transform: translate(50%, 104%);
+  border: 1px solid var(--line-strong);
+  border-bottom: 0;
+  border-radius: 12px 12px 0 0;
+}
+
+.registry-panel.is-open,
+.record-panel.is-open,
+.tools-panel.is-open {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.registry-panel.is-open,
+.record-panel.is-open {
+  transform: translateX(0);
+}
+
+.tools-panel.is-open {
+  transform: translate(50%, 0);
+}
+
+.tools-panel .primary-tools,
+.tools-panel .secondary-tools {
+  position: static;
+  display: grid;
+  width: 100%;
+  max-height: none;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.tools-panel .primary-tools {
+  gap: 0.65rem;
+  padding: 0.5rem 0;
+}
+
+.tools-panel .secondary-tools {
+  grid-template-columns: repeat(2, minmax(250px, 1fr));
+  gap: 0.6rem;
+}
+
+.tools-panel .tool-panel {
+  max-height: none;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+.diagnostics-panel:not(.is-open) {
+  display: none;
+}
+
+.diagnostics-panel.is-open {
+  z-index: 130;
+}
+
+/* The floor supports scale without competing with the reconstruction. */
+.chamber-crosshair {
+  opacity: 0.08;
+}
+
+@media (max-width: 720px) {
+  .global-hud button {
+    width: 32px;
+    height: 32px;
+  }
+
+  .tools-panel {
+    width: 100vw;
+    height: 82vh;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .tools-panel .secondary-tools {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .registry-panel,
+  .record-panel,
+  .tools-panel,
+  .global-hud button {
+    transition: none;
+  }
+}
