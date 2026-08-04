@@ -1,0 +1,200 @@
+/* Runtime repair prompted by direct user testing of the downloaded HTML. */
+
+.chamber-frame,
+.chamber-canvas,
+.chamber-canvas > div,
+.chamber-canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0;
+  min-height: 0;
+}
+
+.chamber-frame,
+.chamber-canvas {
+  pointer-events: auto;
+}
+
+/* The R3F wrapper may fill the viewport, but it must not become the pointer target. */
+.chamber-canvas > div {
+  position: absolute !important;
+  inset: 0;
+  display: block;
+  pointer-events: none !important;
+  touch-action: none !important;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.chamber-canvas canvas,
+.examination-webgl-canvas,
+.examination-webgl-canvas canvas {
+  position: absolute !important;
+  inset: 0;
+  display: block;
+  pointer-events: auto !important;
+  touch-action: none !important;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.chamber-vignette,
+.chamber-crosshair,
+.chamber-hud-bar,
+.chamber-scale-note,
+.chamber-interaction-hint,
+.active-mode-rail {
+  pointer-events: none !important;
+}
+
+/* A stale late-cascade rule was leaving React-open drawers invisible and off-canvas. */
+.registry-panel.is-open,
+.record-panel.is-open,
+.tools-panel.is-open,
+.diagnostics-panel.is-open {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+.chamber-interaction-hint {
+  position: fixed;
+  left: 50%;
+  bottom: max(2.6rem, calc(env(safe-area-inset-bottom) + 2.1rem));
+  z-index: 42;
+  max-width: calc(100vw - 8rem);
+  padding: 0.42rem 0.68rem;
+  border: 1px solid rgba(190, 225, 239, 0.28);
+  border-radius: 999px;
+  color: rgba(235, 247, 252, 0.88);
+  background: rgba(8, 15, 20, 0.8);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, 6px);
+  animation: chamber-interaction-guide 6.5s ease forwards 0.45s;
+}
+
+@keyframes chamber-interaction-guide {
+  0% { opacity: 0; transform: translate(-50%, 6px); }
+  10%, 68% { opacity: 0.92; transform: translate(-50%, 0); }
+  100% { opacity: 0; transform: translate(-50%, -3px); }
+}
+
+/* The handles remain small, but must be clearly discoverable and clickable. */
+.global-hud button {
+  opacity: 0.78;
+  border-color: rgba(190, 225, 239, 0.58) !important;
+  color: transparent !important;
+  background: rgba(10, 19, 25, 0.84) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.global-hud button::after {
+  color: #eefaff;
+  font-size: 0.7rem;
+  letter-spacing: 0.055em;
+  text-shadow: 0 1px 7px rgba(0, 0, 0, 0.95);
+}
+
+.global-hud button:hover,
+.global-hud button:focus-visible {
+  opacity: 1;
+  box-shadow: 0 0 0 3px rgba(145, 226, 255, 0.16), 0 9px 26px rgba(0, 0, 0, 0.42);
+}
+
+.global-hud .hud-brand {
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  min-height: 40px;
+}
+
+.global-hud .hud-brand::after {
+  content: "?";
+  font-size: 0.88rem;
+}
+
+.global-hud .hud-toggles button:nth-child(1) {
+  width: 32px;
+  min-width: 32px;
+  height: 92px;
+  min-height: 92px;
+}
+
+.global-hud .hud-toggles button:nth-child(1)::after {
+  content: "REGISTRY";
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.59rem;
+}
+
+.global-hud .hud-toggles button:nth-child(2) {
+  width: 92px;
+  min-width: 92px;
+  height: 32px;
+  min-height: 32px;
+}
+
+.global-hud .hud-toggles button:nth-child(2)::after {
+  content: "TOOLS";
+  font-size: 0.62rem;
+}
+
+.global-hud .hud-toggles button:nth-child(3) {
+  width: 32px;
+  min-width: 32px;
+  height: 82px;
+  min-height: 82px;
+}
+
+.global-hud .hud-toggles button:nth-child(3)::after {
+  content: "RECORD";
+  writing-mode: vertical-rl;
+  font-size: 0.59rem;
+}
+
+.global-hud .hud-toggles button:nth-child(4) {
+  width: 62px;
+  min-width: 62px;
+  height: 34px;
+  min-height: 34px;
+}
+
+.global-hud .hud-toggles button:nth-child(4)::after {
+  content: "DIAG";
+  font-size: 0.6rem;
+}
+
+@media (max-width: 640px) {
+  .chamber-interaction-hint {
+    max-width: calc(100vw - 5rem);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .global-hud .hud-brand,
+  .global-hud .hud-toggles button:nth-child(4) {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    min-height: 40px;
+  }
+
+  .global-hud .hud-toggles button:nth-child(4)::after { content: "D"; }
+  .global-hud .hud-toggles button:nth-child(1) { height: 76px; min-height: 76px; }
+  .global-hud .hud-toggles button:nth-child(2) { width: 76px; min-width: 76px; }
+  .global-hud .hud-toggles button:nth-child(3) { height: 70px; min-height: 70px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chamber-interaction-hint {
+    animation: none;
+    opacity: 0.72;
+    transform: translate(-50%, 0);
+  }
+}

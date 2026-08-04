@@ -1,0 +1,203 @@
+/* Adversarial repairs for product polish wave 2. */
+.record-panel {
+  padding-bottom: calc(1.1rem + env(safe-area-inset-bottom));
+}
+
+/* A visually separated footer is clearer than a floating footer that covers dossier content. */
+.export-row {
+  position: relative;
+  bottom: auto;
+  margin-bottom: calc(-1.1rem - env(safe-area-inset-bottom));
+}
+
+.toggle-button.is-active,
+button.is-active {
+  position: relative;
+  padding-right: 1.35rem;
+}
+
+.toggle-button.is-active::after,
+button.is-active::after {
+  position: absolute;
+  top: 50%;
+  right: 0.48rem;
+  margin: 0;
+  transform: translateY(-50%);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .specimen-card:hover {
+    box-shadow: var(--polish-shadow-card);
+    transform: none;
+  }
+
+  .mobile-close,
+  .orientation-close,
+  .clear-field {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 720px) {
+  .tools-panel .primary-tools {
+    overflow-x: visible;
+  }
+
+  .tools-panel .tool-cluster {
+    width: 100%;
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+
+  .tools-panel .secondary-tools {
+    overflow-x: hidden;
+  }
+
+  .tools-panel .tool-panel {
+    min-width: 0;
+  }
+
+  .tools-panel .layer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tools-panel .layer-grid .toggle-button {
+    min-width: 0;
+  }
+
+  .tools-panel .layer-grid strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 520px) {
+  .record-tabs {
+    position: relative;
+    top: auto;
+  }
+
+  .diagnostics-panel dl > div {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .diagnostics-panel dd {
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .specimen-card,
+  .tool-panel,
+  .filter-row button,
+  .mobile-close,
+  .orientation-close {
+    transition: none !important;
+  }
+
+  .specimen-card:hover {
+    transform: none;
+  }
+
+  .specimen-card.is-loading::after,
+  .loading-overlay::before,
+  .status-toast.is-visible::after {
+    animation: none !important;
+  }
+
+  .status-toast.is-visible::after {
+    transform: scaleX(1);
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .drawer-scrim {
+    backdrop-filter: none !important;
+    background: rgba(2, 5, 8, 0.82) !important;
+  }
+
+  .registry-panel,
+  .record-panel,
+  .tools-panel,
+  .diagnostics-panel,
+  .status-toast,
+  .loading-overlay,
+  .error-overlay {
+    background-color: #0e171f !important;
+    backdrop-filter: none !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .registry-panel,
+  .record-panel,
+  .tools-panel,
+  .diagnostics-panel,
+  .tool-panel,
+  .specimen-card,
+  .record-grid > div,
+  .record-article,
+  .civic-grid article,
+  .source-list article,
+  .annotation-row {
+    border-color: rgba(225, 241, 248, 0.5);
+  }
+
+  .text-muted,
+  .specimen-metadata,
+  .source-status,
+  .tool-note,
+  .measurement-summary {
+    color: #c5d5dd;
+  }
+}
+
+@media (forced-colors: active) {
+  ::selection {
+    color: HighlightText;
+    background: Highlight;
+  }
+
+  .registry-panel,
+  .record-panel,
+  .tools-panel,
+  .diagnostics-panel,
+  .specimen-card,
+  .tool-panel,
+  .record-grid > div,
+  .record-article,
+  .civic-grid article,
+  .source-list article,
+  .annotation-row,
+  .annotation-detail,
+  .empty-state,
+  .status-toast,
+  .loading-overlay,
+  .error-overlay {
+    border: 1px solid CanvasText;
+    background: Canvas;
+    box-shadow: none;
+  }
+
+  .specimen-card::before,
+  .annotation-detail::before,
+  .status-toast::before,
+  .error-overlay::before,
+  .loading-overlay::before,
+  .status-toast::after {
+    display: none;
+  }
+
+  select {
+    appearance: auto;
+    background-image: none;
+  }
+
+  input[type="range"] {
+    forced-color-adjust: auto;
+  }
+}

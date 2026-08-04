@@ -6,254 +6,218 @@
   "project_id": "drakken-field-anatomy-archive",
   "project_name": "Drakken Field Anatomy Archive",
   "project_root": ".",
-  "artifact_path": "",
-  "state_revision": 19,
-  "last_updated": "2026-08-03T12:24:00-04:00",
+  "artifact_path": "dist-interactive-html/Drakken_Field_Guide_Interactive.html",
+  "state_revision": 29,
+  "last_updated": "2026-08-04T12:30:00-04:00",
   "current_baseline": {
-    "identity": "build-skymourn model-first viewport source through commit ada1257453d228ef9d5e6c8d85a27aadf39c0bc0; validated by PR #3 run 30831484791",
-    "state": "partially-verified",
-    "last_verified": "GitHub Actions run 30831484791: strict static audit, typecheck, zero-warning lint, 17 tests, and production build passed"
+    "identity": "repair/immersive-ui-model-quality-20260803, PR #4; runtime repair product head 9561e9a7ec33ccde4aa4a5686f30f04a85854994; delivery correction through 387d31611f92f2538b7e5450f0628d19061a315d; plus this state revision",
+    "state": "technically-verified-user-acceptance-pending",
+    "last_verified": "GitHub Actions run 30928483024 passed source/build/static HTML validation, physical local-file pointer interaction, direct-file feature state, and wave-four browser validation. The remaining failure in that run was an obsolete legacy assertion requiring all edge handles to remain under 34 pixels; that contradictory path has been retired."
   },
   "scope_boundaries": [
     "Single browser archive at repository root",
-    "All 59 canonical Drakken records remain present",
-    "Canon governed by docs/drakken_compendium_full_blood_eclipse_visual_integrated.md",
-    "The 59-record inventory is closed; do not fabricate, duplicate, or wrap records",
-    "No deployment, backend, authentication, database, external asset sourcing, framework migration, or unrelated feature work",
-    "Automated verification does not substitute for browser, visual-canon, device, or long-session performance evidence",
-    "Global lighting and layout polish must not be misrepresented as record-level model reconstruction"
+    "Exactly 59 canonical Drakken records",
+    "Canon governed by docs/drakken_compendium_full_blood_eclipse_visual_integrated.md and src/data/specimens.json",
+    "No fabricated, duplicate, or wrapped records",
+    "No backend, authentication, database, deployment, framework migration, or remote runtime asset work",
+    "The interactive HTML must preserve physical pointer interaction and the complete protected product path",
+    "Andrew's direct Brave retest is required before user-facing completion"
   ],
   "linked_parent_state": null
 }
 -->
 
-## 1. Project Identity and Purpose
+## 1. Purpose
 
-The Drakken Field Anatomy Archive is a React Three Fiber forensic compendium for 59 canonical records. Its protected user journey is: find a record, inspect a record-specific 3D reconstruction, manipulate the camera, toggle four anatomy layers, section the reconstruction, use animation and measurement tools, review evidence and incidents, and export the complete dossier.
+The Drakken Field Anatomy Archive is a React Three Fiber forensic compendium containing exactly 59 canonical Drakken records. The model is the primary surface. Users must be able to select records, physically orbit/pan/zoom the live reconstruction, control cameras and rendering, toggle four anatomy layers, section and animate the model, measure points, inspect annotations and evidence, review diagnostics, and export the dossier.
 
-The model is the primary product surface. Registry, record text, diagnostics, and technical controls must support examination rather than permanently consume most of the window.
+## 2. Authoritative Runtime Rejection
 
-## 2. Current Baseline
+The first delivered single-file HTML was rejected by Andrew during direct Brave testing. His screenshot and report are controlling runtime evidence.
 
-The active source baseline is `build-skymourn` through commit `ada1257453d228ef9d5e6c8d85a27aadf39c0bc0`.
+Observed failures:
 
-The model-first presentation pass added:
+- physical drag, wheel, and adjustment controls did not function as expected;
+- the interface appeared absent even though React state and DOM nodes existed;
+- Skymourn rendered as an overexposed, poorly framed loop rather than a readable specimen;
+- the earlier audit incorrectly promoted DOM state and programmatic control activation to feature parity.
 
-- a full-height examination viewport;
-- off-canvas registry and record drawers instead of permanent desktop columns;
-- compact translucent title, camera, render, anatomy, sectioning, animation, and measurement overlays;
-- a brighter neutral chamber background and floor;
-- closer camera presets and narrower perspective field of view;
-- ACES filmic tone mapping and increased exposure;
-- hemisphere, key, fill, rim, front, and low warm illumination;
-- local light-former reflections for physical and transmissive materials;
-- soft contact shadows and higher-resolution standard-tier shadows;
-- brighter containment grid and family accent rings;
-- local-only source with no new runtime dependency or remote asset.
+All Revision 28 claims that the first HTML was feature-complete are superseded.
 
-PR #3 exists only to run the permanent pull-request validation workflow against this exact updated tree and carry the presentation-pass report. GitHub Actions run `30831484791` passed.
+## 3. Current Runtime Repair
 
-## 3. Artifact Contract
+### 3.1 Canvas input ownership
 
-Maintain one usable archive containing all 59 canonical records. Every record must remain searchable, selectable, and explicitly routed. Each model must preserve surface, structure, internal, and functional examination layers; section clipping; animation; measurement; annotations; evidence status; camera controls; diagnostics; and complete dossier export.
+`src/components/ExaminationChamber.tsx` now:
 
-The chamber must prioritize model visibility. Persistent interface chrome must not reduce the model to a secondary dashboard tile.
+- explicitly enables orbit, zoom, and pan;
+- maps left mouse to rotate, middle mouse to dolly, and right mouse to pan;
+- maps touch gestures to rotate and dolly/pan;
+- enables screen-space panning and zoom-to-cursor;
+- uses a full-size canvas with `touch-action: none`;
+- publishes actual camera position, target, zoom, mode, interaction count, and fitted-record state for verification;
+- fits record bounds after two animation frames rather than relying on a perpetually observing bounds wrapper.
 
-Procedural chamber geometry is normalized for examination. Record visualization-height fields are metadata and are not a proven meter-per-world-unit calibration.
+`src/runtime-interaction-repair.css` now:
 
-## 4. Active Invariants
+- gives the WebGL canvas the full viewport;
+- makes decorative chamber overlays noninteractive;
+- makes the React Three Fiber wrapper transparent to pointer input;
+- leaves the canvas as the sole examination hit target.
 
-### INV-001 — Preserve the closed 59-record registry
+### 3.2 Drawer visibility and control discovery
 
-- **State:** `verified` at registry/source level
-- **Rule:** Keep exactly 59 unique record IDs, archive IDs, and model asset IDs. Do not invent additional records.
-- **Evidence:** strict static audit and integrity tests
-- **Runtime gap:** browser navigation through all 59 remains unverified
+The actual defect was reproduced in the packaged HTML: React added `is-open`, while the final CSS cascade still computed `opacity: 0` and translated the drawer off-screen.
 
-### INV-002 — Every record has a dedicated route
+`src/runtime-drawer-fix.css` now:
 
-- **State:** `verified` at source/build level
-- **Rule:** No canonical record may rely on the generic parametric fallback as its active route.
-- **Evidence:** static audit reports 59 dedicated routes and zero fallback IDs
+- removes the broken drawer transition path;
+- forces ID-specific open drawers to be visible, opaque, interactive, and on-screen;
+- restores the HUD and all reveal controls after drawer closure.
 
-### INV-003 — Canon governs model identity
+`src/runtime-interaction-repair.css` now presents five visible controls:
 
-- **State:** `implemented-unverified`
-- **Rule:** Significant form and function derive from the dossier or remain explicitly reconstructive.
-- **Missing proof:** visual sibling comparison and rendered canon audit
+- Registry on the left;
+- Tools at the bottom;
+- Record on the right;
+- Diagnostics at the upper right;
+- Briefing at the upper left.
 
-### INV-004 — Protect the examination workflow
+The retired legacy 34 × 34-pixel maximum is prohibited because it made the controls too difficult to discover.
 
-- **State:** `partially-verified`
-- **Rule:** Preserve orbit, pan, zoom, reset, projection modes, layers, clipping, animations, measurement, annotations, diagnostics, exports, and responsive access.
-- **Evidence:** typecheck, lint, tests, build, and static source checks
-- **Missing proof:** direct browser journey across pointer, keyboard, touch, and narrow layouts
+### 3.3 Skymourn reconstruction
 
-### INV-005 — Keep runtime assets local and governed
+`src/scene/models/SkymournRepairModel.tsx` replaces the rejected initial Skymourn presentation with a dedicated stable reconstruction containing:
 
-- **State:** `verified` at source/ledger level
-- **Rule:** No remote runtime fonts, models, textures, audio, shaders, or environment maps. Every `modelAssetRef` must have asset, provenance, and license entries.
-- **Evidence:** zero remote application references; 59/59/59 ledger coverage
+- a controlled closed frost-body curve;
+- darker material separation and reduced transmission;
+- an enlarged readable mask face;
+- a cold seam and distributed frost crystals;
+- structural circulation ribs;
+- an internal thermal conduit and paired thermal sacs;
+- restrained functional field rings;
+- layer, clipping, wireframe, silhouette, measurement, annotation, and animation support.
 
-### INV-006 — Do not overclaim scale
+`src/scene/SpecimenRouter.tsx` routes `skymourn` explicitly through this model while preserving the other dedicated routes and enhancement layer.
 
-- **State:** `verified` at source/copy level
-- **Rule:** Measurements use reconstruction units. Visualization-height metadata does not establish physical calibration.
+## 4. Physical Runtime Evidence
 
-### INV-007 — Completion claims require current evidence
+GitHub Actions run `30928483024` opened the generated HTML directly through `file://` without `?audit=1` and passed the focused physical runtime gate.
 
-- **State:** `active`
-- **Rule:** Source presence and successful builds are not visual, interaction, performance, lifecycle, or model-quality proof.
+Verified:
 
-### INV-008 — Model-first viewport
+- Skymourn mounted and completed bounds fitting;
+- the canvas measured exactly 1440 × 900 inside a 1440 × 900 viewport;
+- all five controls were visible, targetable, and unobstructed;
+- Registry opened at `[0, 0, 380, 900]`;
+- Tools opened at `[-40, 198, 720, 900]`;
+- Record opened at `[1010, 0, 1440, 900]`;
+- Diagnostics opened at `[1090, 462.875, 1440, 900]`;
+- each drawer was closed through its actual visible close control;
+- the viewport center hit target was `CANVAS`;
+- physical left-drag changed camera position and target;
+- physical right-drag changed camera position and target;
+- physical wheel input changed camera state;
+- remote runtime requests were zero;
+- actionable page and console errors were zero.
 
-- **State:** `implemented-unverified`
-- **Rule:** At ordinary desktop widths, the chamber occupies nearly the entire working window; registry and dossier remain accessible as temporary drawers.
-- **Evidence:** layout source and successful build
-- **Missing proof:** rendered desktop and laptop viewport inspection
+The direct-file feature-state gate in the same run independently passed all 59 records, record switching, tools, layers, sectioning, animation, measurement, dossier tabs, exports, Diagnostics, briefing, shortcuts, and isolated mobile containment.
 
-### INV-009 — Presentation is not anatomy quality
+## 5. Protected Invariants
 
-- **State:** `active`
-- **Rule:** Lighting, tone mapping, shadows, camera framing, and interface reduction may improve readability but cannot be counted as record-level model reconstruction.
+### INV-001 — Closed registry
 
-## 5. Verified Automated Behavior
+Exactly 59 unique canonical records. Do not invent, duplicate, wrap, or silently replace records.
 
-GitHub Actions run `30831484791` passed against the model-first viewport tree:
+### INV-002 — Dedicated model routes
 
-- locked dependency installation;
-- strict static audit: zero issues;
-- TypeScript project build;
-- ESLint with `--max-warnings 0`;
-- Vitest: 17/17 tests across two files;
-- Vite production build.
+Every canonical record keeps its dedicated route. Shared enhancement layers may supplement but not replace record-specific models.
 
-Previously verified source contracts remain intact:
+### INV-003 — Physical model interaction
 
-- 59 specimen records;
-- 59 dedicated routes;
-- zero fallback record IDs;
-- zero missing line or material clipping assignments;
-- zero remote application runtime references;
-- 59 asset entries;
-- 59 provenance entries;
-- 59 license entries.
+A mounted canvas or programmatic state change is insufficient. The downloadable artifact must pass real pointer orbit, pan, wheel zoom, physical edge-control clicks, and physical drawer closure.
 
-## 6. Known Problems and Risks
+### INV-004 — Model-first presentation
 
-### KNOWN-001 — Rendered model quality was rejected by the user
+No persistent dashboard bars. The canvas owns the useful viewport. Controls remain deliberately discoverable without covering substantial model space.
 
-- **State:** `known-broken` for the pre-pass browser presentation; current pass requires re-evaluation
-- **User evidence:** the running archive was described as too dark, dominated by UI, and containing very poor models
-- **Interpretation:** darkness and framing were shared presentation failures; record anatomy and silhouette quality may also be independently weak
-- **Guardrail:** do not close this issue based only on CI or shared lighting changes
+### INV-005 — Open drawers must actually appear
 
-### RISK-001 — Oversized production JavaScript chunk
+An `is-open` class is not proof. Open drawers must compute as visible, opaque, interactive, and inside the viewport.
 
-- **State:** `known-risk`
-- **Evidence:** the production bundle remains above Vite's 500 kB warning threshold
-- **Impact:** initial parsing and loading may be expensive on lower-tier hardware
-- **Required repair method:** measured lazy loading, not warning suppression
+### INV-006 — Examination capabilities
 
-### RISK-002 — Brighter presentation may expose weak geometry more clearly
+Preserve camera modes and presets, reset, four anatomy layers, clipping, animation, measurement, annotations, diagnostics, evidence filters, and exports.
 
-- **State:** `known-risk`
-- **Meaning:** the new studio rig improves inspection truthfulness; models with weak silhouettes, generic primitives, poor topology, or inadequate detail may look worse rather than better
-- **Required response:** record-level visual audit and bounded reconstruction
+### INV-007 — Self-contained delivery
 
-## 7. Implemented but Unverified Runtime Behavior
+The HTML may not depend on a server, `node_modules`, remote scripts, remote styles, remote assets, or runtime network access.
 
-- model-first desktop layout and off-canvas drawers;
-- compact viewport overlays at laptop and mobile breakpoints;
-- brighter background, floor, lighting, reflections, shadows, and closer cameras;
-- Skymourn material readability under the new studio rig;
-- reduced-motion startup and manual resume;
-- pending record-switch cancellation;
-- keyboard focus trapping and restoration;
-- mobile drawer visibility and focus behavior;
-- renderer recreation between quality tiers;
-- WebGL context loss and restoration handling;
-- rendered sectioning of all functional lines;
-- measurement interactions and file downloads;
-- repeated switching and resource stabilization;
-- visual framing and canon fidelity for all 59 models.
+### INV-008 — Evidence honesty
 
-## 8. Pending Work
+Automated evidence does not equal Andrew's Brave acceptance, human art-direction approval, physical-device accessibility approval, or target-MacBook performance approval.
 
-### PND-001 — Immediate browser re-evaluation
+## 6. Existing Project Work Preserved
 
-Reload the merged source locally and inspect the default Skymourn record at the actual MacBook window size.
+The repair branch still contains:
 
-Required observations:
+- hidden-at-rest shell and responsive drawers;
+- two explicit canon-backed additions for every record;
+- precise model improvement ledger;
+- four product-polish waves totaling 171 improvements;
+- 40 prior adversarial and screenshot-driven repairs;
+- regression tests for the 59-record boundary and polish contracts;
+- source/build/static HTML validation and browser audit tooling.
 
-- model is clearly visible without squinting;
-- model occupies the majority of the window;
-- registry and record drawers open and close correctly;
-- tool overlays remain usable without dominating the chamber;
-- transparent and emissive surfaces remain distinguishable;
-- camera reset and preset views frame Skymourn adequately.
+Durable ledgers:
 
-- **Priority:** critical
-- **Blocks presentation completion claim:** yes
+- `MODEL_IMPROVEMENTS_LEDGER.md`
+- `POLISH_PASS.md`
+- `POLISH_WAVE_2.md`
+- `POLISH_WAVE_3.md`
+- `POLISH_WAVE_4.md`
+- `INTERACTIVE_HTML_DELIVERY.md`
 
-### PND-002 — Record-level model quality audit
+## 7. Remaining Risks
 
-Review all 59 rendered models by family. Classify each as pass, presentation-only repair, moderate reconstruction, or replacement-level reconstruction.
+### RISK-001 — User acceptance
 
-- **Priority:** critical
-- **Blocks full model-quality claim:** yes
+Andrew has not yet tested the repaired artifact in his Brave installation. This is the immediate completion gate.
 
-### PND-003 — Performance and lifecycle profile
+### RISK-002 — Artistic quality
 
-Measure first load, record switching, `renderer.info` stabilization, memory growth, and target-device responsiveness under the richer chamber lighting.
+The new Skymourn model is technically readable and fitted, but Andrew must judge whether it is artistically acceptable. The same remains true for the complete 59-record set.
 
-- **Priority:** high
+### RISK-003 — Physical-device accessibility
 
-### PND-004 — Visual canon review
+Native touch, screen-reader, forced-colors, reduced-transparency, increased-contrast, and notched safe-area behavior remain unapproved on physical devices.
 
-Rotate and compare every record against its dossier and closest sibling, including hidden-layer combinations and section planes.
+### RISK-004 — Performance
 
-- **Priority:** high
+The single-file artifact is roughly 1.78 MB and the standard JavaScript bundle remains above Vite's warning threshold. Performance must be measured on Andrew's MacBook; functionality may not be removed merely to silence a warning.
 
-### PND-005 — Delete validation branch after PR #3 closes
+### RISK-005 — Layered CSS history
 
-Delete `qa/model-first-viewport-20260803` after the presentation-pass record is merged or otherwise reconciled.
+Several additive repair stylesheets remain. Consolidation is forbidden until Andrew approves the repaired runtime and visual regression evidence is preserved.
 
-- **Priority:** low repository hygiene
+## 8. Immediate Next Step
 
-## 9. Active Decisions and Prohibitions
+Build, validate, and download the latest `drakken-interactive-html` artifact from the exact final branch head. Andrew must open the newly named repaired HTML rather than the superseded file and test, in this order:
 
-- Keep React 19, Vite, TypeScript, Three.js, R3F, Drei, Vitest, ESLint, and plain CSS.
-- Keep one WebGL canvas and DOM-owned interface controls.
-- Keep dependencies pinned.
-- Do not restore remote font or environment-map loading.
-- Do not claim meter calibration without a proven bounds-normalization system.
-- Do not suppress the chunk warning as a substitute for performance work.
-- Do not describe the archive as visually repaired until the user rechecks the running browser.
-- Do not count shared lighting or CSS as completed model reconstruction.
-- Do not begin new canon records unless the registry is intentionally expanded.
+1. click Registry, Tools, Record, and Diagnostics;
+2. left-drag the model;
+3. right-drag to pan;
+4. scroll to zoom;
+5. switch away from Skymourn and back;
+6. inspect Skymourn's framing and readability.
 
-## 10. Validation Matrix
+Do not claim user-facing completion until that retest succeeds.
 
-| Claim | State | Evidence | Missing proof |
-|---|---|---|---|
-| Registry contains 59 unique records | verified | static audit + integrity tests | browser navigation |
-| Every record has a dedicated source route | verified | 59 routes, zero fallback IDs | rendered route exercise |
-| Source compiles | verified | TypeScript pass | none |
-| Lint is clean | verified | zero-warning ESLint pass | none |
-| Tests pass | verified | 17/17 Vitest | browser E2E |
-| Production bundle builds | verified | Vite build pass | browser load |
-| No remote runtime references | verified at source level | strict static audit | network-panel confirmation |
-| Model-first layout is usable | implemented-unverified | source + build | actual browser inspection |
-| Chamber is bright enough | implemented-unverified | new studio source | user/browser confirmation |
-| Skymourn presentation is improved | implemented-unverified | camera and lighting source | rendered comparison |
-| All model anatomy is good | known false / unverified | user rejection | 59-record model audit |
-| Performance readiness | unverified / at risk | bundle warning and richer lighting | target-device profile |
+## 9. Revision Log
 
-## 11. Compact Revision Log
-
-- **Revision 1–8:** Bootstrap, prototype, archive expansion, and rejection of shared-archetype completion claims.
-- **Revision 9–16:** Bounded dedicated-model batches completed the closed 59-record source inventory.
-- **Revision 17:** Exhaustive repository bug sweep and automated source/build verification.
-- **Revision 18:** Squash-merged the bug-sweep repairs into `build-skymourn` and preserved runtime evidence gaps.
-- **Revision 19 — 2026-08-03:** Recorded the user's visual rejection and implemented the model-first viewport and brighter studio chamber. Automated validation passed in run `30831484791`; browser presentation and record-level model quality remain unverified.
+- **Revisions 1–18:** Bootstrap, dedicated-model expansion, exhaustive source/build audit, and merge preparation.
+- **Revision 19:** Brighter chamber/model-first attempt rejected for persistent UI and model quality.
+- **Revision 20:** Hidden-at-rest drawers, framing, and two explicit additions for all 59 records.
+- **Revisions 21–27:** Four polish waves, adversarial repairs, browser gates, and exact-head reconciliation.
+- **Revision 28:** First self-contained HTML delivery; later invalidated by Andrew's direct Brave test.
+- **Revision 29 — 2026-08-04:** Recorded the authoritative runtime rejection, repaired physical canvas input, drawer visibility/restoration, control discoverability, and Skymourn, added a genuine physical local-file gate, and set state to technically verified with user acceptance pending.

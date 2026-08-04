@@ -1,0 +1,734 @@
+/* Product polish wave 4: control precision, hierarchy, and responsive finishing. */
+:root {
+  --wave4-space-1: 0.25rem;
+  --wave4-space-2: 0.5rem;
+  --wave4-space-3: 0.75rem;
+  --wave4-space-4: 1rem;
+  --wave4-control-height: 2.25rem;
+  --wave4-focus-ring: 0 0 0 3px rgba(183, 236, 255, 0.12);
+  --wave4-inset-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.055);
+  --wave4-transition: 140ms ease;
+}
+
+/* W4-01 — predictable transition rhythm for interactive controls. */
+:where(
+  .mobile-close,
+  .orientation-close,
+  .panel-reset,
+  .filter-row button,
+  .registry-summary button,
+  .layer-presets button,
+  .button-row button,
+  .axis-row button,
+  .annotation-actions button,
+  .annotation-export-toggle,
+  .export-row button,
+  .toggle-button
+) {
+  transition:
+    color var(--wave4-transition),
+    border-color var(--wave4-transition),
+    background-color var(--wave4-transition),
+    box-shadow var(--wave4-transition),
+    transform 90ms ease;
+}
+
+/* W4-02 — tactile pressed feedback without moving surrounding layout. */
+:where(
+  .mobile-close,
+  .orientation-close,
+  .panel-reset,
+  .filter-row button,
+  .registry-summary button,
+  .layer-presets button,
+  .button-row button,
+  .axis-row button,
+  .annotation-actions button,
+  .annotation-export-toggle,
+  .export-row button,
+  .toggle-button
+):not(:disabled):active {
+  transform: translateY(1px);
+}
+
+/* W4-03 — honest disabled pointer and text treatment. */
+:where(button, input, select):disabled {
+  cursor: not-allowed;
+}
+
+/* W4-04 — enabled interactive controls always advertise interactivity. */
+:where(button, select, input[type="range"]):not(:disabled) {
+  cursor: pointer;
+}
+
+/* W4-05 — component focus states keep a consistent halo. */
+:where(
+  .mobile-close,
+  .orientation-close,
+  .panel-reset,
+  .registry-summary button,
+  .annotation-export-toggle,
+  .export-row button
+):focus-visible {
+  box-shadow: var(--wave4-focus-ring), var(--wave4-inset-highlight);
+}
+
+/* W4-06 — skip link becomes a clear, production-quality escape route. */
+.skip-link {
+  top: max(0.5rem, env(safe-area-inset-top));
+  left: max(0.5rem, env(safe-area-inset-left));
+  z-index: 1000;
+  padding: 0.62rem 0.82rem;
+  border: 1px solid rgba(183, 236, 255, 0.72);
+  border-radius: 8px;
+  color: #f4fbff;
+  background: #101b23;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.42);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.035em;
+}
+
+/* W4-07 — scrim clearly behaves as a dismiss surface. */
+.drawer-scrim {
+  cursor: pointer;
+  transition: background-color 160ms ease, backdrop-filter 160ms ease;
+}
+
+/* W4-08 — close controls share geometry across every modal surface. */
+.mobile-close,
+.orientation-close {
+  display: inline-grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  min-width: 2.25rem;
+  min-height: 2.25rem;
+  place-items: center;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+/* W4-09 — panel heading actions no longer crowd headings. */
+.panel-heading-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.48rem;
+  min-width: max-content;
+}
+
+/* W4-10 — drawer headings gain a restrained lower highlight. */
+.panel-heading {
+  border-bottom-color: rgba(205, 226, 236, 0.13);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent);
+}
+
+/* W4-11 — Registry field labels read as actual control labels. */
+.search-field > label,
+.filter-block > span {
+  color: #bfd0d8;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+/* W4-12 — search placeholder remains visible without competing with entered text. */
+.search-control input::placeholder {
+  color: rgba(194, 214, 223, 0.54);
+  opacity: 1;
+}
+
+/* W4-13 — search field gets a calm idle border distinct from focus. */
+.search-control input {
+  border-color: rgba(205, 226, 236, 0.16);
+}
+
+/* W4-14 — clear-search control gains a reliable compact hit area. */
+.clear-field {
+  width: 1.85rem;
+  height: 1.85rem;
+  min-width: 1.85rem;
+  min-height: 1.85rem;
+  border-radius: 50%;
+}
+
+/* W4-15 — filter rows use consistent wrap rhythm. */
+.filter-row {
+  align-items: center;
+  gap: 0.38rem;
+  row-gap: 0.42rem;
+}
+
+/* W4-16 — filter chips gain stable height and balanced padding. */
+.filter-row button {
+  min-height: 2rem;
+  padding: 0.36rem 0.62rem;
+  line-height: 1.15;
+}
+
+/* W4-17 — active filters read as selected even without color. */
+.filter-row button.is-active {
+  border-width: 1px;
+  box-shadow:
+    inset 0 0 0 1px rgba(183, 236, 255, 0.18),
+    0 5px 14px rgba(0, 0, 0, 0.16);
+  font-weight: 700;
+}
+
+/* W4-18 — Registry summary separates result count from reset action. */
+.registry-summary {
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 2.4rem;
+}
+
+.registry-summary button {
+  min-height: 1.9rem;
+  padding: 0.28rem 0.54rem;
+  border-color: rgba(183, 236, 255, 0.22);
+  border-radius: 999px;
+  color: #d9edf5;
+  background: rgba(145, 226, 255, 0.055);
+}
+
+/* W4-19 — specimen cards get more deliberate internal rhythm. */
+.specimen-card {
+  gap: 0.42rem;
+  padding: 0.82rem 0.88rem;
+}
+
+/* W4-20 — active specimen card gains a quiet inner frame. */
+.specimen-card[aria-current="true"] {
+  box-shadow:
+    inset 0 0 0 1px rgba(183, 236, 255, 0.09),
+    0 12px 28px rgba(0, 0, 0, 0.26);
+}
+
+/* W4-21 — card topline separates designation from archive ID. */
+.specimen-card-topline {
+  align-items: baseline;
+  gap: 0.55rem;
+  padding-bottom: 0.28rem;
+  border-bottom: 1px solid rgba(205, 226, 236, 0.07);
+}
+
+/* W4-22 — archive IDs become compact technical capsules. */
+.specimen-card-topline small {
+  flex: 0 0 auto;
+  padding: 0.12rem 0.3rem;
+  border: 1px solid rgba(205, 226, 236, 0.1);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+/* W4-23 — metadata rows scan as aligned pairs. */
+.specimen-metadata {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(5.5rem, auto);
+  gap: 0.65rem;
+}
+
+/* W4-24 — threat and availability values retain readable emphasis. */
+.specimen-metadata span:last-child {
+  color: #c7dce5;
+  font-weight: 650;
+}
+
+/* W4-25 — evidence and source lines stop visually colliding. */
+.specimen-card .evidence-badge {
+  margin-top: 0.12rem;
+}
+
+.source-status {
+  padding-top: 0.34rem;
+  border-top: 1px dashed rgba(205, 226, 236, 0.09);
+}
+
+/* W4-26 — empty-state action becomes the clear recovery path. */
+.empty-state button {
+  min-height: 2.2rem;
+  padding: 0.45rem 0.72rem;
+  border-color: rgba(183, 236, 255, 0.38);
+  border-radius: 7px;
+  color: #eefaff;
+  background: rgba(145, 226, 255, 0.09);
+}
+
+/* W4-27 — Tools reset is visually secondary but unmistakable. */
+.panel-reset {
+  min-height: 2rem;
+  padding: 0.34rem 0.62rem;
+  border-radius: 999px;
+  color: #cce0e8;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+/* W4-28 — primary tool groups use a deliberate responsive grid. */
+.primary-tools {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(13rem, 0.85fr);
+  align-items: stretch;
+}
+
+/* W4-29 — tool cluster headings gain a small technical rail. */
+.tool-cluster > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  min-height: 1.6rem;
+}
+
+.tool-cluster > span::before {
+  content: "";
+  width: 3px;
+  height: 1rem;
+  border-radius: 999px;
+  background: rgba(224, 189, 112, 0.72);
+}
+
+/* W4-30 — tool buttons retain stable, readable height. */
+.tool-cluster button,
+.layer-presets button,
+.axis-row button,
+.button-row button {
+  min-height: var(--wave4-control-height);
+}
+
+/* W4-31 — pressed toggles look physically engaged. */
+.toggle-button.is-active,
+button.is-active {
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.38),
+    inset 0 0 0 1px rgba(183, 236, 255, 0.14);
+}
+
+/* W4-32 — axis controls read as a compact segmented group. */
+.axis-row {
+  align-items: stretch;
+  gap: 0.25rem;
+}
+
+.axis-row button {
+  border-radius: 6px;
+}
+
+/* W4-33 — layer buttons behave as complete anatomy cards. */
+.layer-grid .toggle-button {
+  align-content: start;
+  min-height: 4.7rem;
+  padding: 0.68rem;
+  text-align: left;
+}
+
+/* W4-34 — secondary layer descriptions remain readable. */
+.layer-grid .toggle-button small {
+  display: -webkit-box;
+  overflow: hidden;
+  color: #a9bec8;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* W4-35 — active anatomy cards receive a left state rail. */
+.layer-grid .toggle-button.is-active {
+  border-left-color: var(--cyan-frost);
+  border-left-width: 3px;
+  background: linear-gradient(90deg, rgba(145, 226, 255, 0.095), rgba(145, 226, 255, 0.025));
+}
+
+/* W4-36 — range labels and outputs align cleanly. */
+.range-field > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+/* W4-37 — slider hover and focus communicate direct manipulation. */
+@media (hover: hover) and (pointer: fine) {
+  input[type="range"]:not(:disabled):hover::-webkit-slider-thumb {
+    transform: scale(1.08);
+  }
+
+  input[type="range"]:not(:disabled):hover::-moz-range-thumb {
+    transform: scale(1.08);
+  }
+}
+
+/* W4-38 — select focus is visually consistent with the Registry search. */
+select:focus-visible {
+  border-color: rgba(183, 236, 255, 0.72);
+  box-shadow: var(--wave4-focus-ring), inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+/* W4-39 — action rows wrap predictably instead of compressing labels. */
+.button-row,
+.layer-presets,
+.annotation-actions,
+.export-row {
+  align-items: center;
+  gap: 0.42rem;
+  row-gap: 0.48rem;
+}
+
+/* W4-40 — measurement summaries become a clear technical readout. */
+.measurement-summary,
+.tool-note {
+  padding: 0.62rem 0.7rem;
+  border: 1px solid rgba(205, 226, 236, 0.1);
+  border-radius: 7px;
+  color: #b9ced7;
+  background: rgba(255, 255, 255, 0.02);
+  line-height: 1.45;
+}
+
+/* W4-41 — active mode rail remains readable without becoming a second toolbar. */
+.active-mode-rail {
+  gap: 0.35rem;
+  padding: 0.35rem;
+  border: 1px solid rgba(205, 226, 236, 0.1);
+  border-radius: 10px;
+  background: rgba(7, 13, 18, 0.72);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+}
+
+/* W4-42 — record summary separates evidence from prose. */
+.record-summary {
+  display: grid;
+  gap: 0.72rem;
+  padding-bottom: 0.88rem;
+  border-bottom: 1px solid rgba(205, 226, 236, 0.09);
+}
+
+/* W4-43 — selected record tabs have a stronger text hierarchy. */
+.record-tabs button {
+  min-height: 2.15rem;
+  padding-inline: 0.62rem;
+}
+
+.record-tabs button[aria-selected="true"] {
+  color: #f0fbff;
+  font-weight: 700;
+}
+
+/* W4-44 — record body begins with reliable breathing room. */
+.record-content {
+  min-width: 0;
+  padding-top: 0.9rem;
+}
+
+/* W4-45 — term/value cards gain consistent internal alignment. */
+.record-grid > div {
+  min-height: 3.1rem;
+  padding: 0.68rem 0.72rem;
+}
+
+/* W4-46 — record values distinguish themselves from labels. */
+.record-grid dd {
+  color: #edf6fa;
+  font-weight: 560;
+}
+
+/* W4-47 — articles use consistent heading rhythm. */
+.record-article h3,
+.civic-grid h3,
+.source-list h3,
+.annotation-detail h3 {
+  margin-top: 0;
+  margin-bottom: 0.58rem;
+  line-height: 1.18;
+}
+
+.record-article > :last-child,
+.civic-grid article > :last-child,
+.source-list article > :last-child,
+.annotation-detail > :last-child {
+  margin-bottom: 0;
+}
+
+/* W4-48 — civic cards receive a restrained section accent. */
+.civic-grid article {
+  position: relative;
+  padding-top: 0.9rem;
+}
+
+.civic-grid article::before {
+  content: "";
+  position: absolute;
+  inset: 0.45rem auto 0.45rem 0;
+  width: 2px;
+  border-radius: 999px;
+  background: rgba(224, 189, 112, 0.52);
+}
+
+/* W4-49 — source cards number themselves for scan order. */
+.source-list {
+  counter-reset: source-card;
+}
+
+.source-list article {
+  position: relative;
+  counter-increment: source-card;
+}
+
+.source-list article::after {
+  content: counter(source-card, decimal-leading-zero);
+  position: absolute;
+  top: 0.62rem;
+  right: 0.68rem;
+  color: rgba(183, 236, 255, 0.26);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+}
+
+/* W4-50 — annotation section receives a clear upper boundary. */
+.annotation-section {
+  padding-top: 0.92rem;
+  border-top: 1px solid rgba(205, 226, 236, 0.1);
+}
+
+/* W4-51 — annotation utility actions remain compact and legible. */
+.annotation-actions button {
+  min-height: 2rem;
+  padding: 0.34rem 0.58rem;
+  border-radius: 999px;
+}
+
+/* W4-52 — annotation inclusion state becomes unambiguous. */
+.annotation-export-toggle[aria-pressed="true"] {
+  border-color: rgba(183, 236, 255, 0.58);
+  color: #f0fbff;
+  background: rgba(145, 226, 255, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(183, 236, 255, 0.12);
+}
+
+/* W4-53 — annotation metadata forms a readable grid. */
+.annotation-detail dl {
+  display: grid;
+  gap: 0.42rem;
+  margin-top: 0.8rem;
+}
+
+.annotation-detail dl > div {
+  display: grid;
+  grid-template-columns: minmax(7.4rem, 0.72fr) minmax(0, 1.28fr);
+  gap: 0.72rem;
+  padding: 0.42rem 0;
+  border-top: 1px solid rgba(205, 226, 236, 0.07);
+}
+
+/* W4-54 — export actions read as a final dossier action group. */
+.export-row {
+  padding-top: 0.78rem;
+  border-top: 1px solid rgba(205, 226, 236, 0.13);
+}
+
+.export-row button {
+  min-height: 2.45rem;
+  padding: 0.52rem 0.72rem;
+  border-radius: 7px;
+}
+
+.export-row button small {
+  display: inline-grid;
+  min-width: 1.45rem;
+  height: 1.45rem;
+  place-items: center;
+  margin-left: 0.35rem;
+  border-radius: 999px;
+  color: #071015;
+  background: var(--cyan-frost);
+}
+
+/* W4-55 — Diagnostics rows alternate softly for rapid scanning. */
+.diagnostics-panel dl > div:nth-child(even) {
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.diagnostics-panel dl > div {
+  padding-inline: 0.45rem;
+  border-radius: 5px;
+}
+
+/* W4-56 — briefing receives a restrained classified-document accent. */
+.orientation-card {
+  border-top: 3px solid rgba(224, 189, 112, 0.72);
+}
+
+/* W4-57 — briefing acknowledgment becomes the unmistakable completion action. */
+.orientation-card > button:last-child {
+  min-height: 2.7rem;
+  border-color: rgba(183, 236, 255, 0.54);
+  color: #f3fbff;
+  background: linear-gradient(180deg, rgba(145, 226, 255, 0.15), rgba(145, 226, 255, 0.07));
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25), var(--wave4-inset-highlight);
+}
+
+/* W4-58 — loading and error overlays keep clear action hierarchy. */
+.loading-overlay,
+.error-overlay {
+  gap: 0.6rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(205, 226, 236, 0.15);
+  border-radius: 10px;
+}
+
+.overlay-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+/* W4-59 — status toast respects safe areas and never touches the viewport edge. */
+.status-toast {
+  right: max(0.75rem, env(safe-area-inset-right));
+  bottom: max(0.75rem, env(safe-area-inset-bottom));
+  padding: 0.66rem 0.78rem;
+  border-radius: 8px;
+}
+
+/* W4-60 — drawer and control behavior remains polished across constrained devices and preferences. */
+@media (max-width: 980px) {
+  .primary-tools {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .registry-panel,
+  .record-panel,
+  .diagnostics-panel {
+    padding-inline: max(0.78rem, env(safe-area-inset-left));
+  }
+
+  .annotation-detail dl > div {
+    grid-template-columns: 1fr;
+    gap: 0.18rem;
+  }
+
+  .export-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .specimen-metadata {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .specimen-metadata span:last-child {
+    text-align: left;
+  }
+
+  .annotation-actions,
+  .export-row {
+    grid-template-columns: 1fr;
+  }
+
+  .annotation-actions button,
+  .export-row button {
+    width: 100%;
+  }
+}
+
+@media (max-height: 640px) and (min-width: 641px) {
+  .tool-panel,
+  .record-article,
+  .civic-grid article,
+  .source-list article {
+    padding-block: 0.62rem;
+  }
+
+  .tools-content {
+    gap: 0.6rem;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  :where(
+    .filter-row button,
+    .registry-summary button,
+    .layer-presets button,
+    .button-row button,
+    .axis-row button,
+    .annotation-actions button,
+    .annotation-export-toggle,
+    .export-row button,
+    .toggle-button
+  ) {
+    min-height: 44px;
+  }
+
+  input[type="range"] {
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(
+    .mobile-close,
+    .orientation-close,
+    .panel-reset,
+    .filter-row button,
+    .registry-summary button,
+    .layer-presets button,
+    .button-row button,
+    .axis-row button,
+    .annotation-actions button,
+    .annotation-export-toggle,
+    .export-row button,
+    .toggle-button,
+    .drawer-scrim
+  ) {
+    transition: none !important;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .active-mode-rail,
+  .status-toast,
+  .loading-overlay,
+  .error-overlay {
+    background: #0b151c !important;
+    backdrop-filter: none !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .filter-row button.is-active,
+  .toggle-button.is-active,
+  button.is-active,
+  .annotation-export-toggle[aria-pressed="true"] {
+    border-color: currentColor;
+  }
+
+  .record-grid dt,
+  .source-status,
+  .tool-note,
+  .measurement-summary {
+    color: #d2e2e9;
+  }
+}
+
+@media (forced-colors: active) {
+  .tool-cluster > span::before,
+  .civic-grid article::before,
+  .source-list article::after {
+    display: none;
+  }
+
+  .export-row button small {
+    color: ButtonText;
+    background: ButtonFace;
+    border: 1px solid ButtonText;
+  }
+}

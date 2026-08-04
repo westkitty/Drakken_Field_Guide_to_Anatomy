@@ -9,13 +9,17 @@ on:
       - build-skymourn
   workflow_dispatch:
 
+concurrency:
+  group: validate-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 18
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -30,12 +34,7 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Strict static audit
-        run: |
-          if [ -f scripts/audit-static.mjs ]; then
-            node scripts/audit-static.mjs --strict
-          else
-            echo "No static audit script present."
-          fi
+        run: node scripts/audit-static.mjs --strict
 
       - name: Typecheck
         run: npm run typecheck
@@ -48,3 +47,95 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Build downloadable interactive HTML
+        run: npm run build:html
+
+      - name: Validate downloadable interactive HTML
+        run: npm run validate:html
+
+      - name: Upload downloadable interactive HTML
+        uses: actions/upload-artifact@v4
+        with:
+          name: drakken-interactive-html
+          path: dist-interactive-html/Drakken_Field_Guide_Interactive.html
+          if-no-files-found: error
+          compression-level: 0
+
+  polish-browser-audit:
+    if: github.event_name == 'pull_request' && github.head_ref == 'repair/immersive-ui-model-quality-20260803'
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22.13.0'
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Build downloadable interactive HTML
+        run: npm run build:html
+
+      - name: Validate downloadable interactive HTML
+        run: npm run validate:html
+
+      - name: Install ephemeral browser harness
+        run: |
+          mkdir -p /tmp/drakken-polish-audit
+          cp scripts/polish-wave3-browser-audit.mjs /tmp/drakken-polish-audit/wave3-audit.mjs
+          cp scripts/polish-wave4-browser-audit.mjs /tmp/drakken-polish-audit/wave4-audit.mjs
+          cp scripts/interactive-html-parity-v2.mjs /tmp/drakken-polish-audit/interactive-html-audit.mjs
+          cp scripts/interactive-html-physical-runtime-fast.mjs /tmp/drakken-polish-audit/physical-runtime-audit.mjs
+          cd /tmp/drakken-polish-audit
+          npm init -y >/dev/null
+          PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache npm install puppeteer@24.16.0 --no-save --no-package-lock
+
+      - name: Audit physical local HTML runtime
+        run: |
+          cd /tmp/drakken-polish-audit
+          PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache \
+          DRAKKEN_INTERACTIVE_HTML=dist-interactive-html/Drakken_Field_Guide_Interactive.html \
+          DRAKKEN_AUDIT_OUTPUT=polish-browser-audit-output \
+          node physical-runtime-audit.mjs
+
+      - name: Audit direct local HTML feature state
+        run: |
+          cd /tmp/drakken-polish-audit
+          PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache \
+          DRAKKEN_INTERACTIVE_HTML=dist-interactive-html/Drakken_Field_Guide_Interactive.html \
+          DRAKKEN_AUDIT_OUTPUT=polish-browser-audit-output \
+          node interactive-html-audit.mjs
+
+      - name: Run current polish audits
+        run: |
+          npm run dev -- --host 127.0.0.1 --port 4173 > /tmp/drakken-vite.log 2>&1 &
+          VITE_PID=$!
+          trap 'kill ${VITE_PID} 2>/dev/null || true' EXIT
+          for attempt in {1..60}; do
+            if curl -fsS http://127.0.0.1:4173 >/dev/null; then break; fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:4173 >/dev/null
+          cd /tmp/drakken-polish-audit
+          PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache \
+          DRAKKEN_AUDIT_URL=http://127.0.0.1:4173 \
+          DRAKKEN_AUDIT_OUTPUT=${GITHUB_WORKSPACE}/polish-browser-audit-output \
+          node wave4-audit.mjs
+          PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache \
+          DRAKKEN_AUDIT_URL=http://127.0.0.1:4173 \
+          DRAKKEN_AUDIT_OUTPUT=${GITHUB_WORKSPACE}/polish-browser-audit-output \
+          node wave3-audit.mjs
+
+      - name: Upload polish and HTML parity evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: drakken-polish-browser-audit
+          path: polish-browser-audit-output
+          if-no-files-found: warn

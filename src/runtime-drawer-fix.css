@@ -1,0 +1,26 @@
+/* Final runtime repair for physically opened modal drawers. */
+#registry-drawer.registry-panel,
+#record-drawer.record-panel,
+#tools-drawer.tools-panel,
+#diagnostics-drawer.diagnostics-panel {
+  transition: none !important;
+}
+
+#registry-drawer.registry-panel.is-open,
+#record-drawer.record-panel.is-open,
+#tools-drawer.tools-panel.is-open,
+#diagnostics-drawer.diagnostics-panel.is-open {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+/* Closing a modal surface must synchronously restore every reveal control. */
+.archive-layout:not(:has(#registry-drawer.is-open)):not(:has(#record-drawer.is-open)):not(:has(#tools-drawer.is-open)):not(:has(#diagnostics-drawer.is-open)):not(:has(.orientation-overlay)) .global-hud,
+.archive-layout:not(:has(#registry-drawer.is-open)):not(:has(#record-drawer.is-open)):not(:has(#tools-drawer.is-open)):not(:has(#diagnostics-drawer.is-open)):not(:has(.orientation-overlay)) .global-hud button {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: none !important;
+}

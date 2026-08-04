@@ -1,0 +1,75 @@
+/* Adversarial repairs for product polish wave 3. */
+
+/* W3-A01: modal surfaces own the screen; edge handles return after closure. */
+.archive-app:has(.registry-panel.is-open, .record-panel.is-open, .tools-panel.is-open, .diagnostics-panel.is-open, .orientation-overlay) .global-hud {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* W3-A02: record tabs already use a selected underline; the generic active dot is noise. */
+.record-tabs button.is-active::after,
+.record-tabs button[aria-selected="true"]::after {
+  content: none;
+}
+
+/* W3-A03: prevent narrow dossier copy from producing distracting dictionary hyphens. */
+.record-summary p,
+.record-article p,
+.civic-grid p,
+.annotation-detail p,
+.source-list p {
+  hyphens: none;
+  overflow-wrap: break-word;
+}
+
+/* W3-A04: avoid stacking the global focus outline over component-owned focus treatments. */
+.search-control input:focus-visible {
+  outline: none;
+}
+
+:where(select, textarea, input:not([type="range"]):not(#registry-search)):focus-visible {
+  outline: 2px solid var(--wave3-focus);
+  outline-offset: 1px;
+}
+
+input[type="range"]:focus-visible {
+  outline: 2px solid var(--wave3-focus);
+  outline-offset: 3px;
+}
+
+/* W3-A05: permanent edge masking softened tabs even when every label fit. */
+.record-tabs {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+/* W3-A06: compact mobile records scan better as stacked term/value pairs. */
+@media (max-width: 520px) {
+  .record-grid > div {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .record-grid dt {
+    padding-bottom: 0.12rem;
+  }
+}
+
+/* W3-A07: orientation numbering must not steal copy width on the smallest screens. */
+@media (max-width: 360px) {
+  .orientation-item {
+    padding-left: 0.82rem;
+  }
+
+  .orientation-item::before {
+    content: none;
+  }
+}
+
+/* W3-A08: preserve explicit focus treatment when high contrast removes soft shadows. */
+@media (prefers-contrast: more), (forced-colors: active) {
+  :where(button, input, select, textarea, [role="tab"], [tabindex]):focus-visible {
+    outline-width: 3px;
+  }
+}

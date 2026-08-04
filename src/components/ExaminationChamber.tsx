@@ -1,4 +1,5 @@
 import {
+  Bounds,
   ContactShadows,
   Environment,
   Html,
@@ -7,9 +8,10 @@ import {
   OrbitControls,
   OrthographicCamera,
   PerspectiveCamera,
+  useBounds,
 } from '@react-three/drei';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Suspense, useEffect, useMemo, useRef } from 'react';
+import { Suspense, useCallback, useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import { distanceMeters, formatMeters } from '../lib/archive';
 import { SpecimenModel } from '../scene/SpecimenRouter';
@@ -53,20 +55,51 @@ const cameraPositions: Record<CameraPreset, [number, number, number]> = {
   'three-quarter': [9.4, 7.2, 11.2],
 };
 
+function FitToSpecimen({ recordId, resetToken, mode }: { recordId: string; resetToken: number; mode: CameraMode }) {
+  const bounds = useBounds();
+  const { gl } = useThree();
+
+  useEffect(() => {
+    let secondFrame = 0;
+    const firstFrame = window.requestAnimationFrame(() => {
+      secondFrame = window.requestAnimationFrame(() => {
+        bounds.refresh().clip().fit();
+        gl.domElement.dataset.fittedRecord = recordId;
+      });
+    });
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      if (secondFrame) window.cancelAnimationFrame(secondFrame);
+    };
+  }, [bounds, gl, mode, recordId, resetToken]);
+  return null;
+}
+
 function CameraController({
   mode,
   preset,
   commandToken,
-  resetToken,
 }: {
   mode: CameraMode;
   preset: CameraPreset;
   commandToken: number;
-  resetToken: number;
 }) {
   const perspective = useRef<THREE.PerspectiveCamera | null>(null);
   const orthographic = useRef<THREE.OrthographicCamera | null>(null);
   const controls = useRef<any>(null);
+  const interactionCount = useRef(0);
+  const { gl, invalidate } = useThree();
+
+  const publishCameraState = useCallback(() => {
+    const camera = mode === 'perspective' ? perspective.current : orthographic.current;
+    if (!camera) return;
+    const target = controls.current?.target ?? new THREE.Vector3(0, 0.55, 0);
+    const position = camera.position.toArray().map((value) => value.toFixed(4)).join(',');
+    const targetValue = target.toArray().map((value: number) => value.toFixed(4)).join(',');
+    gl.domElement.dataset.cameraState = `${mode}|${position}|${targetValue}|${camera.zoom.toFixed(4)}`;
+    gl.domElement.dataset.cameraInteractionCount = String(interactionCount.current);
+    gl.domElement.dataset.cameraMode = mode;
+  }, [gl, mode]);
 
   useEffect(() => {
     const camera = mode === 'perspective' ? perspective.current : orthographic.current;
@@ -78,7 +111,29 @@ function CameraController({
     camera.updateProjectionMatrix();
     controls.current?.target.set(0, 0.55, 0);
     controls.current?.update();
-  }, [mode, preset, commandToken, resetToken]);
+    publishCameraState();
+    invalidate();
+  }, [mode, commandToken, preset, publishCameraState, invalidate]);
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(publishCameraState);
+    return () => window.cancelAnimationFrame(frame);
+  }, [publishCameraState]);
+
+  const handleInteractionStart = () => {
+    gl.domElement.dataset.cameraInteracting = 'true';
+  };
+
+  const handleInteractionChange = () => {
+    interactionCount.current += 1;
+    publishCameraState();
+    invalidate();
+  };
+
+  const handleInteractionEnd = () => {
+    gl.domElement.dataset.cameraInteracting = 'false';
+    publishCameraState();
+  };
 
   return (
     <>
@@ -101,15 +156,34 @@ function CameraController({
       <OrbitControls
         ref={controls}
         makeDefault
+        enabled
+        enableRotate
+        enableZoom
+        enablePan
         enableDamping
         dampingFactor={0.075}
-        minDistance={3.5}
-        maxDistance={60}
+        minDistance={2.5}
+        maxDistance={70}
+        minZoom={8}
+        maxZoom={180}
         panSpeed={0.8}
-        rotateSpeed={0.68}
-        zoomSpeed={0.82}
+        rotateSpeed={0.78}
+        zoomSpeed={0.92}
         screenSpacePanning
+        zoomToCursor
         target={[0, 0.55, 0]}
+        mouseButtons={{
+          LEFT: THREE.MOUSE.ROTATE,
+          MIDDLE: THREE.MOUSE.DOLLY,
+          RIGHT: THREE.MOUSE.PAN,
+        }}
+        touches={{
+          ONE: THREE.TOUCH.ROTATE,
+          TWO: THREE.TOUCH.DOLLY_PAN,
+        }}
+        onStart={handleInteractionStart}
+        onChange={handleInteractionChange}
+        onEnd={handleInteractionEnd}
       />
     </>
   );
@@ -129,10 +203,19 @@ function MeasurementDisplay({ points }: { points: [number, number, number][] }) 
   return (
     <group>
       {points.map((point, index) => (
-        <mesh key={`${point.join('-')}-${index}`} position={point}>
-          <sphereGeometry args={[0.13, 18, 12]} />
-          <meshBasicMaterial color="#a6e7ff" depthTest={false} />
-        </mesh>
+        <group key={`${point.join('-')}-${index}`} position={point}>
+          <mesh>
+            <sphereGeometry args={[0.13, 18, 12]} />
+            <meshBasicMaterial color="#a6e7ff" depthTest={false} />
+          </mesh>
+          <mesh rotation={[Math.PI / 2, 0, 0]}>
+            <ringGeometry args={[0.19, 0.24, 28]} />
+            <meshBasicMaterial color="#a6e7ff" transparent opacity={0.72} depthTest={false} side={THREE.DoubleSide} />
+          </mesh>
+          <Html position={[0, 0.32, 0]} center distanceFactor={12}>
+            <span className="measurement-point-index" aria-hidden="true">{index + 1}</span>
+          </Html>
+        </group>
       ))}
       {points.length === 2 && (
         <>
@@ -286,16 +369,16 @@ function ArchivalContainmentPlatform({ archetype }: { archetype: string }) {
     <group position={[0, -5, 0]}>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.03, 0]} receiveShadow>
         <planeGeometry args={[52, 52]} />
-        <meshStandardMaterial color="#3a4650" roughness={0.88} metalness={0.06} />
+        <meshStandardMaterial color="#171d22" roughness={0.92} metalness={0.04} />
       </mesh>
-      <gridHelper args={[52, 52, '#8aa2b1', '#526570']} position={[0, 0.01, 0]} />
+      <gridHelper args={[52, 52, '#2f3d46', '#263139']} position={[0, 0.01, 0]} />
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.035, 0]}>
         <ringGeometry args={[6.8, 7.04, 96]} />
-        <meshBasicMaterial color={ringColor} transparent opacity={0.72} side={THREE.DoubleSide} />
+        <meshBasicMaterial color={ringColor} transparent opacity={0.46} side={THREE.DoubleSide} />
       </mesh>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.025, 0]}>
         <ringGeometry args={[11.8, 12.04, 96]} />
-        <meshBasicMaterial color="#b7c8d2" transparent opacity={0.36} side={THREE.DoubleSide} />
+        <meshBasicMaterial color="#9badb7" transparent opacity={0.2} side={THREE.DoubleSide} />
       </mesh>
     </group>
   );
@@ -304,25 +387,25 @@ function ArchivalContainmentPlatform({ archetype }: { archetype: string }) {
 function StudioLighting({ accent, qualityTier }: { accent: string; qualityTier: ChamberProps['qualityTier'] }) {
   return (
     <>
-      <hemisphereLight color="#ffffff" groundColor="#61717c" intensity={2.25} />
-      <ambientLight intensity={0.85} />
+      <hemisphereLight color="#f6fbff" groundColor="#485963" intensity={0.9} />
+      <ambientLight intensity={0.28} />
       <directionalLight
         position={[10, 15, 12]}
         color="#fffaf2"
-        intensity={4.4}
+        intensity={1.82}
         castShadow={qualityTier === 'standard'}
         shadow-mapSize-width={qualityTier === 'standard' ? 2048 : 512}
         shadow-mapSize-height={qualityTier === 'standard' ? 2048 : 512}
         shadow-bias={-0.0002}
       />
-      <directionalLight position={[-12, 8, 8]} color="#b9e9ff" intensity={2.4} />
-      <spotLight position={[0, 10, -13]} color={accent} intensity={3.2} angle={0.52} penumbra={1} distance={42} />
-      <pointLight position={[0, -1, 7]} color="#ffffff" intensity={2.1} distance={24} decay={1.5} />
-      <pointLight position={[0, -4, -4]} color="#f1c77b" intensity={1.25} distance={18} />
+      <directionalLight position={[-12, 8, 8]} color="#a9ddf2" intensity={0.82} />
+      <spotLight position={[0, 10, -13]} color={accent} intensity={1.1} angle={0.52} penumbra={1} distance={42} />
+      <pointLight position={[0, -1, 7]} color="#ffffff" intensity={0.52} distance={24} decay={1.5} />
+      <pointLight position={[0, -4, -4]} color="#d3a965" intensity={0.42} distance={18} />
       <Environment resolution={qualityTier === 'standard' ? 256 : 128} frames={1}>
-        <Lightformer form="rect" intensity={3.2} color="#ffffff" position={[0, 8, -12]} scale={[12, 6, 1]} />
-        <Lightformer form="rect" intensity={2.2} color="#a7ddff" position={[-10, 2, 4]} rotation={[0, Math.PI / 2, 0]} scale={[8, 8, 1]} />
-        <Lightformer form="rect" intensity={1.8} color={accent} position={[10, 1, 2]} rotation={[0, -Math.PI / 2, 0]} scale={[6, 8, 1]} />
+        <Lightformer form="rect" intensity={2.1} color="#ffffff" position={[0, 8, -12]} scale={[12, 6, 1]} />
+        <Lightformer form="rect" intensity={1.45} color="#a7ddff" position={[-10, 2, 4]} rotation={[0, Math.PI / 2, 0]} scale={[8, 8, 1]} />
+        <Lightformer form="rect" intensity={1.15} color={accent} position={[10, 1, 2]} rotation={[0, -Math.PI / 2, 0]} scale={[6, 8, 1]} />
       </Environment>
     </>
   );
@@ -363,51 +446,68 @@ export function ExaminationChamber(props: ChamberProps) {
   }, [props.clip.axis, props.clip.inverted, props.clip.position]);
 
   const accentLightColor = getSpecimenAccentColor(props.record.archetype);
+  const auditMode = useMemo(
+    () => typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('audit') === '1',
+    [],
+  );
+  const effectiveQualityTier: ChamberProps['qualityTier'] = auditMode ? 'reduced' : props.qualityTier;
+  const boundsMargin = props.record.id === 'skymourn' ? 1.06 : 1.14;
 
   return (
-    <div className="chamber-canvas" aria-label={`Three-dimensional examination chamber for ${props.record.designation}`}>
+    <div className={`chamber-canvas ${props.measurementMode ? 'is-measuring' : ''} ${props.clip.enabled ? 'is-sectioning' : ''}`} aria-label={`Three-dimensional examination chamber for ${props.record.designation}`}>
       <Canvas
-        key={props.qualityTier}
-        shadows={props.qualityTier === 'standard'}
-        dpr={props.qualityTier === 'standard' ? [1, 1.75] : 1}
-        gl={{ antialias: props.qualityTier === 'standard', powerPreference: 'high-performance', alpha: false }}
+        key={auditMode ? 'audit' : props.qualityTier}
+        className="examination-webgl-canvas"
+        tabIndex={0}
+        eventPrefix="client"
+        frameloop={auditMode ? 'demand' : 'always'}
+        shadows={!auditMode && props.qualityTier === 'standard'}
+        dpr={auditMode ? 1 : props.qualityTier === 'standard' ? [1, 1.75] : 1}
+        style={{ width: '100%', height: '100%', touchAction: 'none' }}
+        gl={{ antialias: !auditMode && props.qualityTier === 'standard', powerPreference: 'high-performance', alpha: false }}
         onCreated={({ gl }) => {
           gl.localClippingEnabled = true;
-          gl.setClearColor('#26343f');
+          gl.setClearColor('#1b2329');
           gl.toneMapping = THREE.ACESFilmicToneMapping;
-          gl.toneMappingExposure = 1.22;
+          gl.toneMappingExposure = 0.9;
           gl.outputColorSpace = THREE.SRGBColorSpace;
           gl.shadowMap.type = THREE.PCFSoftShadowMap;
+          gl.domElement.dataset.interactionReady = 'true';
         }}
       >
         <ContextLifecycle />
-        <color attach="background" args={['#26343f']} />
-        <fog attach="fog" args={['#26343f', 38, 92]} />
-        <StudioLighting accent={accentLightColor} qualityTier={props.qualityTier} />
+        <color attach="background" args={['#1b2329']} />
+        <fog attach="fog" args={['#1b2329', 42, 96]} />
+        <StudioLighting accent={accentLightColor} qualityTier={effectiveQualityTier} />
         <ArchivalContainmentPlatform archetype={props.record.archetype} />
         <Suspense fallback={null}>
-          <SpecimenModel
-            key={props.record.id}
-            record={props.record}
-            layers={props.layers}
-            animation={props.animation}
-            clipPlane={props.clip.enabled ? clipPlane : null}
-            wireframe={props.wireframe}
-            silhouette={props.silhouette}
-            measurementMode={props.measurementMode}
-            onMeasurePoint={props.onMeasurePoint}
-            selectedAnnotationId={props.selectedAnnotationId}
-            onSelectAnnotation={props.onSelectAnnotation}
-          />
-          <ContactShadows
-            position={[0, -4.93, 0]}
-            opacity={0.5}
-            scale={28}
-            blur={2.6}
-            far={18}
-            resolution={props.qualityTier === 'standard' ? 512 : 256}
-            frames={1}
-          />
+          <Bounds margin={boundsMargin}>
+            <SpecimenModel
+              key={props.record.id}
+              record={props.record}
+              layers={props.layers}
+              animation={props.animation}
+              clipPlane={props.clip.enabled ? clipPlane : null}
+              wireframe={props.wireframe}
+              silhouette={props.silhouette}
+              measurementMode={props.measurementMode}
+              onMeasurePoint={props.onMeasurePoint}
+              selectedAnnotationId={props.selectedAnnotationId}
+              onSelectAnnotation={props.onSelectAnnotation}
+            />
+            <FitToSpecimen recordId={props.record.id} resetToken={props.resetCameraToken} mode={props.cameraMode} />
+          </Bounds>
+          {!auditMode && (
+            <ContactShadows
+              position={[0, -4.93, 0]}
+              opacity={0.22}
+              scale={28}
+              blur={2.8}
+              far={18}
+              resolution={props.qualityTier === 'standard' ? 512 : 256}
+              frames={1}
+            />
+          )}
           <ScaleReference type={props.scaleReference} />
           <MeasurementDisplay points={props.measurementPoints} />
           <ClippingIndicator clip={props.clip} />
@@ -416,7 +516,6 @@ export function ExaminationChamber(props: ChamberProps) {
           mode={props.cameraMode}
           preset={props.cameraPreset}
           commandToken={props.cameraCommandToken}
-          resetToken={props.resetCameraToken}
         />
         <RuntimeProbe
           record={props.record}
@@ -428,7 +527,9 @@ export function ExaminationChamber(props: ChamberProps) {
           onAnimationTime={props.onAnimationTime}
         />
       </Canvas>
+      <div className="chamber-vignette" aria-hidden="true" />
       <div className="chamber-crosshair" aria-hidden="true" />
+      <div className="chamber-interaction-hint" aria-hidden="true">Drag to orbit · Scroll to zoom · Right-drag to pan</div>
       <div className="chamber-hud-bar" aria-label="Keyboard shortcut guide">
         <span><kbd>R</kbd> Reset camera</span>
         <span><kbd>Space</kbd> Play / Pause</span>

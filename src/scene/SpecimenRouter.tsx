@@ -1,5 +1,7 @@
 import { SpecimenModel as LegacySpecimenModel } from './Specimens';
 import type { SpecimenModelProps } from './SpecimenCommon';
+import { RecordEnhancementLayer } from './RecordEnhancementLayer';
+import { SkymournRepairModel } from './models/SkymournRepairModel';
 import {
   AerokarstModel,
   BalanceEngineModel,
@@ -77,8 +79,10 @@ import {
   SporesphereArchivistModel,
 } from './models/SeedcarrierCanonModels';
 
-export function SpecimenModel(props: SpecimenModelProps) {
+function ResolvedSpecimenModel(props: SpecimenModelProps) {
   switch (props.record.id) {
+    case 'skymourn':
+      return <SkymournRepairModel {...props} />;
     case 'aerokarst':
       return <AerokarstModel {...props} />;
     case 'hydrostatic-renderer':
@@ -185,3 +189,14 @@ export function SpecimenModel(props: SpecimenModelProps) {
       return <LegacySpecimenModel {...props} />;
   }
 }
+
+function EnhancedSpecimenModel(props: SpecimenModelProps) {
+  return (
+    <group>
+      <ResolvedSpecimenModel {...props} />
+      <RecordEnhancementLayer {...props} />
+    </group>
+  );
+}
+
+export { EnhancedSpecimenModel as SpecimenModel };

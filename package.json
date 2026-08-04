@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:html": "tsc -b && vite build --config vite.interactive-html.config.ts && node scripts/package-interactive-html.mjs",
+    "validate:html": "node scripts/validate-interactive-html.mjs",
     "typecheck": "tsc -b --pretty false",
     "lint": "eslint . --max-warnings 0",
     "test": "vitest run",
