@@ -4,6 +4,7 @@ import App from './App';
 import './viewport-overrides.css';
 import './immersive-shell.css';
 import './polish.css';
+import './polish-mobile.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
