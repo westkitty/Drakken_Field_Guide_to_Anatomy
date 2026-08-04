@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate:
@@ -23,9 +23,6 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
-        with:
-          ref: ${{ github.head_ref || github.ref_name }}
-          fetch-depth: 0
 
       - name: Set up Node
         uses: actions/setup-node@v7
@@ -35,18 +32,6 @@ jobs:
 
       - name: Install locked dependencies
         run: npm ci --ignore-scripts
-
-      - name: Apply bounded audit render mode
-        if: github.event_name == 'pull_request' && github.head_ref == 'repair/immersive-ui-model-quality-20260803'
-        run: |
-          node scripts/apply-browser-audit-mode.mjs
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add src/components/ExaminationChamber.tsx scripts/immersive-browser-audit.mjs
-            git commit -m "test: add on-demand browser audit rendering"
-            git push origin HEAD:${GITHUB_HEAD_REF}
-          fi
 
       - name: Strict static audit
         run: node scripts/audit-static.mjs --strict
@@ -70,7 +55,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        start: [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
+        start: [0, 20, 40]
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -106,7 +91,7 @@ jobs:
           PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache \
           DRAKKEN_AUDIT_URL=http://127.0.0.1:4173 \
           DRAKKEN_AUDIT_START=${{ matrix.start }} \
-          DRAKKEN_AUDIT_COUNT=5 \
+          DRAKKEN_AUDIT_COUNT=20 \
           DRAKKEN_AUDIT_OUTPUT=${GITHUB_WORKSPACE}/browser-audit-output-${{ matrix.start }} \
           node audit.mjs
 
