@@ -9,6 +9,7 @@ import './polish-legibility.css';
 import './polish-wave2.css';
 import './polish-wave2-repairs.css';
 import './polish-wave3.css';
+import './polish-wave3-repairs.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
