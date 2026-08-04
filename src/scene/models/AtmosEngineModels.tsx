@@ -523,3 +523,108 @@ export function StormmindTacticianModel(props: SpecimenModelProps) {
     </group>
   );
 }
+
+export function ToxicVeilEngineModel(props: SpecimenModelProps) {
+  const root = useRef<THREE.Group>(null);
+  const veilCore = useRef<THREE.Mesh>(null);
+  const outerRings = useRef<THREE.Group>(null);
+  const elapsed = useAnimationClock(props.animation);
+  const clippingPlanes = useMemo(() => clipArray(props.clipPlane), [props.clipPlane]);
+
+  useFrame(() => {
+    const t = elapsed.current;
+    if (!root.current) return;
+    root.current.position.y = Math.sin(t * 0.4) * 0.2;
+    if (outerRings.current) {
+      outerRings.current.rotation.x = t * 0.2;
+      outerRings.current.rotation.y = t * 0.15;
+    }
+    if (veilCore.current) {
+      veilCore.current.rotation.y = -t * 0.3;
+      veilCore.current.scale.setScalar(1 + Math.sin(t * 2) * 0.05);
+    }
+  });
+
+  return (
+    <group ref={root} onPointerDown={measurementHandler(props)}>
+      {props.layers.surface && (
+        <group>
+          {[-1, 1].map((side) => (
+            <mesh key={side} position={[side * 3, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+              <capsuleGeometry args={[0.8, 3, 16, 16]} />
+              <meshStandardMaterial
+                color={materialColor('#425749', props.silhouette)}
+                roughness={0.6}
+                metalness={0.2}
+                wireframe={props.wireframe}
+                clippingPlanes={clippingPlanes}
+              />
+            </mesh>
+          ))}
+          <group ref={outerRings}>
+            {[1, 2, 3].map((index) => (
+              <mesh key={index} rotation={[index * Math.PI / 3, index * Math.PI / 4, 0]}>
+                <torusGeometry args={[4.5, 0.15, 12, 48]} />
+                <meshStandardMaterial
+                  color={materialColor('#5a7a63', props.silhouette)}
+                  metalness={0.4}
+                  roughness={0.4}
+                  wireframe={props.wireframe}
+                  clippingPlanes={clippingPlanes}
+                />
+              </mesh>
+            ))}
+          </group>
+        </group>
+      )}
+      {props.layers.structure && (
+        <mesh position={[0, 0, 0]}>
+          <cylinderGeometry args={[1.5, 1.5, 5.5, 16]} />
+          <meshStandardMaterial
+            color={materialColor('#2d3b31', props.silhouette)}
+            roughness={0.7}
+            metalness={0.3}
+            wireframe={props.wireframe}
+            clippingPlanes={clippingPlanes}
+          />
+        </mesh>
+      )}
+      {props.layers.internal && (
+        <mesh ref={veilCore} position={[0, 0, 0]}>
+          <sphereGeometry args={[2.5, 32, 32]} />
+          <meshPhysicalMaterial
+            color={materialColor('#7ecf97', props.silhouette)}
+            emissive={props.silhouette ? '#000000' : '#286a3d'}
+            emissiveIntensity={1.2}
+            transmission={props.silhouette ? 0 : 0.6}
+            transparent
+            opacity={0.8}
+            roughness={0.2}
+            wireframe={props.wireframe}
+            clippingPlanes={clippingPlanes}
+          />
+        </mesh>
+      )}
+      {props.layers.functional && (
+        <group>
+          {[0, 1, 2, 3, 4, 5].map((index) => {
+            const angle = (index / 6) * Math.PI * 2;
+            return (
+              <mesh key={index} position={[Math.cos(angle) * 3, Math.sin(angle) * 3, 0]}>
+                <sphereGeometry args={[0.8, 16, 16]} />
+                <meshBasicMaterial
+                  color={props.silhouette ? '#000000' : '#45f577'}
+                  transparent
+                  opacity={0.3}
+                  wireframe={props.wireframe}
+                  clippingPlanes={clippingPlanes}
+                />
+              </mesh>
+            );
+          })}
+        </group>
+      )}
+      <Markers {...props} />
+    </group>
+  );
+}

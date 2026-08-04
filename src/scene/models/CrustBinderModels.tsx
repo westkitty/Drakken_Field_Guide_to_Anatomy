@@ -699,3 +699,166 @@ export function GranithelionModel(props: SpecimenModelProps) {
     </group>
   );
 }
+
+
+export function GlassspineModel(props: SpecimenModelProps) {
+  const rootRef = useRef<THREE.Group>(null);
+  const elapsed = useAnimationClock(props.animation);
+  const clippingPlanes = useMemo(() => clipArray(props.clipPlane), [props.clipPlane]);
+
+  useFrame(() => {
+    if (!rootRef.current) return;
+    const t = elapsed.current;
+    rootRef.current.rotation.y = t * 0.1;
+    rootRef.current.position.y = Math.sin(t * 1.5) * 0.2;
+  });
+
+  return (
+    <group ref={rootRef} onPointerDown={(e) => { if (props.measurementMode) { e.stopPropagation(); props.onMeasurePoint?.([e.point.x, e.point.y, e.point.z]); } }}>
+      {/* SURFACE LAYER: Hollow glass lattice and prismatic filigree */}
+      {props.layers.surface && (
+        <group>
+          {[-1.5, 0, 1.5].map((z, i) => (
+            <mesh key={z} position={[0, 1.2 + i * 0.2, z]} rotation={[Math.PI/2, 0, 0]} scale={[1.8, 1, 2.5]}>
+              <torusGeometry args={[1, 0.15, 16, 32]} />
+              <meshPhysicalMaterial 
+                color={materialColor('#ffffff', props.silhouette)} 
+                transmission={props.silhouette ? 0 : 0.9} 
+                opacity={props.silhouette ? 1 : 1}
+                transparent
+                roughness={0.05} 
+                ior={1.5} 
+                thickness={0.5} 
+                wireframe={props.wireframe} 
+                clippingPlanes={clippingPlanes} 
+              />
+            </mesh>
+          ))}
+          <mesh position={[0, 2.2, 3]} scale={[0.5, 2.5, 0.5]} rotation={[0.4, 0, 0]}>
+            <octahedronGeometry args={[1, 0]} />
+            <meshPhysicalMaterial color={materialColor('#ffffff', props.silhouette)} transmission={props.silhouette ? 0 : 0.8} transparent roughness={0.1} wireframe={props.wireframe} clippingPlanes={clippingPlanes} />
+          </mesh>
+        </group>
+      )}
+
+      {/* STRUCTURE LAYER: Fiber-optic spinal core */}
+      {props.layers.structure && (
+        <mesh position={[0, 1, 0]} scale={[0.4, 0.4, 5.0]}>
+          <cylinderGeometry args={[1, 1, 1, 8, 1, false]} />
+          <meshStandardMaterial color={materialColor('#2c3e50', props.silhouette)} wireframe clippingPlanes={clippingPlanes} />
+        </mesh>
+      )}
+
+      {/* INTERNAL LAYER: Refractive prism core */}
+      {props.layers.internal && (
+        <mesh position={[0, 1.2, 0]}>
+          <dodecahedronGeometry args={[1.2, 1]} />
+          <meshStandardMaterial color={materialColor('#00ffff', props.silhouette)} emissive={props.silhouette ? '#000' : '#00aaff'} emissiveIntensity={1.5} wireframe={props.wireframe} clippingPlanes={clippingPlanes} />
+        </mesh>
+      )}
+
+      {/* FUNCTIONAL LAYER: Optical macro-transmission trails */}
+      {props.layers.functional && (
+        <mesh position={[0, 1, 3.5]} rotation={[Math.PI / 2, 0, 0]}>
+          <coneGeometry args={[1.5, 4, 16, 1, true]} />
+          <meshBasicMaterial color={props.silhouette ? '#000' : '#00ffff'} transparent opacity={0.3} wireframe clippingPlanes={clippingPlanes} />
+        </mesh>
+      )}
+
+      <AnnotationMarkers record={props.record} layers={props.layers} selectedAnnotationId={props.selectedAnnotationId} onSelectAnnotation={props.onSelectAnnotation} />
+    </group>
+  );
+}
+
+export function QuarrymindModel(props: SpecimenModelProps) {
+  const rootRef = useRef<THREE.Group>(null);
+  const drone1Ref = useRef<THREE.Group>(null);
+  const drone2Ref = useRef<THREE.Group>(null);
+  const drone3Ref = useRef<THREE.Group>(null);
+  const elapsed = useAnimationClock(props.animation);
+  const clippingPlanes = useMemo(() => clipArray(props.clipPlane), [props.clipPlane]);
+
+  useFrame(() => {
+    if (!rootRef.current) return;
+    const t = elapsed.current;
+    rootRef.current.rotation.y = t * 0.05;
+    
+    // Orbiting drones
+    if (drone1Ref.current) {
+      drone1Ref.current.position.set(Math.cos(t*1.5)*3, 3 + Math.sin(t*2), Math.sin(t*1.5)*3);
+      drone1Ref.current.rotation.x = t;
+    }
+    if (drone2Ref.current) {
+      drone2Ref.current.position.set(Math.cos(t*1.2 + 2)*3.5, 2.5 + Math.sin(t*1.8 + 1), Math.sin(t*1.2 + 2)*3.5);
+      drone2Ref.current.rotation.y = t*1.2;
+    }
+    if (drone3Ref.current) {
+      drone3Ref.current.position.set(Math.cos(t*1.8 + 4)*2.5, 3.5 + Math.sin(t*2.2 + 2), Math.sin(t*1.8 + 4)*2.5);
+      drone3Ref.current.rotation.z = t*1.5;
+    }
+  });
+
+  return (
+    <group ref={rootRef} onPointerDown={(e) => { if (props.measurementMode) { e.stopPropagation(); props.onMeasurePoint?.([e.point.x, e.point.y, e.point.z]); } }}>
+      {/* SURFACE LAYER: Mineralized Brainpan & Dorsal Quarry */}
+      {props.layers.surface && (
+        <group>
+          <mesh position={[0, 1.2, 0]} scale={[2.8, 1.5, 3.8]} castShadow>
+            <boxGeometry args={[1, 1, 1]} />
+            <meshStandardMaterial color={materialColor('#2a2826', props.silhouette)} roughness={0.9} wireframe={props.wireframe} clippingPlanes={clippingPlanes} />
+          </mesh>
+          <mesh position={[0, 2.2, 1.5]} scale={[3.2, 0.8, 2.8]} rotation={[-0.1, 0, 0]} castShadow>
+            <dodecahedronGeometry args={[1, 0]} />
+            <meshStandardMaterial color={materialColor('#423c38', props.silhouette)} roughness={1.0} wireframe={props.wireframe} clippingPlanes={clippingPlanes} />
+          </mesh>
+          
+          {/* Quarry Basin */}
+          <mesh position={[0, 2.2, -1.0]} scale={[1.8, 0.4, 1.8]} rotation={[Math.PI, 0, 0]}>
+            <coneGeometry args={[1, 1, 6]} />
+            <meshStandardMaterial color={materialColor('#1a1816', props.silhouette)} roughness={1.0} wireframe={props.wireframe} clippingPlanes={clippingPlanes} />
+          </mesh>
+          
+          {/* 4 Legs */}
+          {[[2, 1.5], [-2, 1.5], [2, -1.5], [-2, -1.5]].map(([x, z], i) => (
+             <mesh key={i} position={[x, -0.5, z]} rotation={[0, 0, x > 0 ? -0.2 : 0.2]}>
+               <cylinderGeometry args={[0.5, 0.3, 2.8, 6]} />
+               <meshStandardMaterial color={materialColor('#2a2826', props.silhouette)} roughness={0.9} wireframe={props.wireframe} clippingPlanes={clippingPlanes} />
+             </mesh>
+          ))}
+        </group>
+      )}
+
+      {/* STRUCTURE LAYER: Excavator trusses */}
+      {props.layers.structure && (
+        <mesh position={[0, 1.0, 0]} scale={[3.0, 2.0, 4.0]}>
+          <boxGeometry args={[1, 1, 1]} />
+          <meshStandardMaterial color={materialColor('#5e5349', props.silhouette)} wireframe clippingPlanes={clippingPlanes} />
+        </mesh>
+      )}
+
+      {/* INTERNAL LAYER: Synthesis Chamber */}
+      {props.layers.internal && (
+        <mesh position={[0, 1.2, 1.5]}>
+          <sphereGeometry args={[1.2, 16, 16]} />
+          <meshStandardMaterial color={materialColor('#ffaa00', props.silhouette)} emissive={props.silhouette ? '#000' : '#cc6600'} emissiveIntensity={1.5} wireframe={props.wireframe} clippingPlanes={clippingPlanes} />
+        </mesh>
+      )}
+
+      {/* FUNCTIONAL LAYER: Litho-drones */}
+      {props.layers.functional && (
+        <group>
+          {[drone1Ref, drone2Ref, drone3Ref].map((ref, i) => (
+            <group key={i} ref={ref}>
+              <mesh>
+                <octahedronGeometry args={[0.4, 0]} />
+                <meshStandardMaterial color={materialColor('#423c38', props.silhouette)} emissive={props.silhouette ? '#000' : '#ffaa00'} emissiveIntensity={0.8} wireframe={props.wireframe} clippingPlanes={clippingPlanes} />
+              </mesh>
+            </group>
+          ))}
+        </group>
+      )}
+
+      <AnnotationMarkers record={props.record} layers={props.layers} selectedAnnotationId={props.selectedAnnotationId} onSelectAnnotation={props.onSelectAnnotation} />
+    </group>
+  );
+}

@@ -1051,7 +1051,87 @@ import {
   TremorhoundModel,
   MagmaPleuronModel,
   GranithelionModel,
+  GlassspineModel,
+  QuarrymindModel,
 } from './models/CrustBinderModels';
+
+import {
+  AerokarstModel,
+  HydrostaticRendererModel,
+  StratosChoristerModel,
+  BalanceEngineModel,
+  StormmindTacticianModel,
+  ToxicVeilEngineModel,
+} from './models/AtmosEngineModels';
+
+import {
+  MacrofloraColossusModel,
+  SporesphereArchivistModel,
+  NeuralFungibinderModel,
+  PrecipitationSynthModel,
+  SoilRewriterModel,
+} from './models/SeedcarrierModels';
+
+import { HiveFloramotherModel } from './models/RemainingCanonicalModels';
+import { 
+  TrenchSovereignModel,
+  SalinityConductorModel,
+  GyreTacticianModel,
+  LittoralReformerModel,
+  CryofluidEngineModel,
+} from './models/FluxborneModels';
+import { 
+  NebularStreamHerderModel,
+  StellarPlasmaSwimmerModel,
+  OrbitalExtrusionEngineModel,
+} from './models/CosmicFluxborneModels';
+import {
+  StarbinderCoreModel,
+  GravityImpalerModel,
+  DeepsongCarrierModel,
+  RadiantScaffoldModel,
+} from './models/OrbitalWyrmModelsA';
+import {
+  PhantomOccluderModel,
+  BurnlineReaperModel,
+  DataCoreUnbinderModel,
+} from './models/OrbitalWyrmModelsB';
+import { 
+  FoundryCantorModel,
+  PowerLatticeRegulatorModel,
+  SkylineMoulterModel,
+} from './models/CiviformerIndustrialModels';
+import {
+  TransitImpalerModel,
+  DemographicPlannerModel,
+  RecordDevourerModel,
+} from './models/CiviformerOccupationModels';
+import {
+  SyntaxBreakerModel,
+  CivicTimeRewriterModel,
+  OneiricEcologistModel,
+  SovereigntyEaterModel,
+} from './models/NoosphereBatchModels';
+import { 
+  HymnlockModel,
+  MemorialveinModel,
+  ShrinehungerModel,
+} from './models/NoosphereRitualModels';
+import {
+  RedactedGrinModel,
+  SpinalLoopModel,
+  CradleExeModel,
+  FoldhowlModel,
+} from './models/GlitchEmbodiedModels';
+import {
+  ManifestDiscordModel,
+  GloryfailModel,
+  ViralBastionModel,
+} from './models/GlitchSemanticModels';
+import {
+  MotherModel,
+  TheEggModel,
+} from './models/OriginModels';
 
 export function SpecimenModel(props: SpecimenModelProps) {
   if (props.record.id === 'skymourn') return <SkymournModel {...props} />;
@@ -1063,6 +1143,68 @@ export function SpecimenModel(props: SpecimenModelProps) {
   if (props.record.id === 'fault-tongue') return <FaultTongueModel {...props} />;
   if (props.record.id === 'obsidian-gul') return <ObsidianGulModel {...props} />;
   if (props.record.id === 'tremorhound') return <TremorhoundModel {...props} />;
+
+  if (props.record.id === 'glassspine') return <GlassspineModel {...props} />;
+  if (props.record.id === 'quarrymind') return <QuarrymindModel {...props} />;
+  if (props.record.id === 'aerokarst') return <AerokarstModel {...props} />;
+  if (props.record.id === 'hydrostatic-renderer') return <HydrostaticRendererModel {...props} />;
+  if (props.record.id === 'stratos-chorister') return <StratosChoristerModel {...props} />;
+
+  if (props.record.id === 'balance-engine') return <BalanceEngineModel {...props} />;
+  if (props.record.id === 'stormmind-tactician') return <StormmindTacticianModel {...props} />;
+  if (props.record.id === 'toxic-veil-engine') return <ToxicVeilEngineModel {...props} />;
+  
+  if (props.record.id === 'macroflora-colossus') return <MacrofloraColossusModel {...props} />;
+  if (props.record.id === 'sporesphere-archivist') return <SporesphereArchivistModel {...props} />;
+  if (props.record.id === 'neural-fungibinder') return <NeuralFungibinderModel {...props} />;
+  if (props.record.id === 'precipitation-synth') return <PrecipitationSynthModel {...props} />;
+  if (props.record.id === 'soil-rewriter') return <SoilRewriterModel {...props} />;
+  if (props.record.id === 'hive-floramother') return <HiveFloramotherModel {...props} />;
+  if (props.record.id === 'trench-sovereign') return <TrenchSovereignModel {...props} />;
+
+  if (props.record.id === 'salinity-conductor') return <SalinityConductorModel {...props} />;
+  if (props.record.id === 'gyre-tactician') return <GyreTacticianModel {...props} />;
+  if (props.record.id === 'littoral-reformer') return <LittoralReformerModel {...props} />;
+  if (props.record.id === 'cryofluid-engine') return <CryofluidEngineModel {...props} />;
+  if (props.record.id === 'nebular-stream-herder') return <NebularStreamHerderModel {...props} />;
+
+  if (props.record.id === 'stellar-plasma-swimmer') return <StellarPlasmaSwimmerModel {...props} />;
+  if (props.record.id === 'orbital-extrusion-engine') return <OrbitalExtrusionEngineModel {...props} />;
+  if (props.record.id === 'starbinder-core') return <StarbinderCoreModel {...props} />;
+  if (props.record.id === 'gravity-impaler') return <GravityImpalerModel {...props} />;
+  if (props.record.id === 'deepsong-carrier') return <DeepsongCarrierModel {...props} />;
+
+  if (props.record.id === 'radiant-scaffold') return <RadiantScaffoldModel {...props} />;
+  if (props.record.id === 'phantom-occluder') return <PhantomOccluderModel {...props} />;
+  if (props.record.id === 'burnline-reaper') return <BurnlineReaperModel {...props} />;
+  if (props.record.id === 'data-core-unbinder') return <DataCoreUnbinderModel {...props} />;
+  if (props.record.id === 'foundry-cantor') return <FoundryCantorModel {...props} />;
+
+  if (props.record.id === 'power-lattice-regulator') return <PowerLatticeRegulatorModel {...props} />;
+  if (props.record.id === 'skyline-moulter') return <SkylineMoulterModel {...props} />;
+  if (props.record.id === 'transit-impaler') return <TransitImpalerModel {...props} />;
+  if (props.record.id === 'demographic-planner') return <DemographicPlannerModel {...props} />;
+  if (props.record.id === 'record-devourer') return <RecordDevourerModel {...props} />;
+
+  if (props.record.id === 'syntax-breaker') return <SyntaxBreakerModel {...props} />;
+  if (props.record.id === 'civic-time-rewriter') return <CivicTimeRewriterModel {...props} />;
+  if (props.record.id === 'oneiric-ecologist') return <OneiricEcologistModel {...props} />;
+  if (props.record.id === 'sovereignty-eater') return <SovereigntyEaterModel {...props} />;
+  if (props.record.id === 'hymnlock') return <HymnlockModel {...props} />;
+
+  if (props.record.id === 'memorialvein') return <MemorialveinModel {...props} />;
+  if (props.record.id === 'shrinehunger') return <ShrinehungerModel {...props} />;
+  if (props.record.id === 'redacted-grin') return <RedactedGrinModel {...props} />;
+  if (props.record.id === 'spinal-loop') return <SpinalLoopModel {...props} />;
+  if (props.record.id === 'cradle-exe') return <CradleExeModel {...props} />;
+  if (props.record.id === 'foldhowl') return <FoldhowlModel {...props} />;
+  
+  if (props.record.id === 'manifest-discord') return <ManifestDiscordModel {...props} />;
+  if (props.record.id === 'gloryfail') return <GloryfailModel {...props} />;
+  if (props.record.id === 'viral-bastion') return <ViralBastionModel {...props} />;
+  
+  if (props.record.id === 'mother') return <MotherModel {...props} />;
+  if (props.record.id === 'the-egg') return <TheEggModel {...props} />;
 
   return <RecordParametricModel {...props} />;
 }
