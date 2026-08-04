@@ -11,31 +11,29 @@ import {
   type SpecimenModelProps,
 } from '../SpecimenCommon';
 
-class SkymournBodyCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
-    const theta = t * Math.PI * 2;
-    const x = 3.45 * Math.sin(theta * 2) * (1 + 0.1 * Math.cos(theta * 3));
-    const y = 5.45 * Math.cos(theta) + 0.55 * Math.sin(theta * 2);
-    const z = 1.25 * Math.cos(theta * 2) + 0.42 * Math.sin(theta * 4);
-    return target.set(x, y, z);
-  }
-}
-
-class SkymournThermalCurve extends THREE.Curve<THREE.Vector3> {
-  getPoint(t: number, target = new THREE.Vector3()): THREE.Vector3 {
-    const theta = t * Math.PI * 2;
-    return target.set(
-      3.08 * Math.sin(theta * 2 + 0.32),
-      5.05 * Math.cos(theta + 0.16),
-      0.94 * Math.cos(theta * 2 - 0.24),
-    );
-  }
-}
-
 interface CrystalDetail {
   position: [number, number, number];
   quaternion: [number, number, number, number];
   scale: [number, number, number];
+}
+
+function buildSkymournCurve(thermal = false): THREE.CatmullRomCurve3 {
+  const points = Array.from({ length: 96 }, (_, index) => {
+    const theta = (index / 96) * Math.PI * 2;
+    if (thermal) {
+      return new THREE.Vector3(
+        3.08 * Math.sin(theta * 2 + 0.32),
+        5.05 * Math.cos(theta + 0.16),
+        0.94 * Math.cos(theta * 2 - 0.24),
+      );
+    }
+    return new THREE.Vector3(
+      3.45 * Math.sin(theta * 2) * (1 + 0.1 * Math.cos(theta * 3)),
+      5.45 * Math.cos(theta) + 0.55 * Math.sin(theta * 2),
+      1.25 * Math.cos(theta * 2) + 0.42 * Math.sin(theta * 4),
+    );
+  });
+  return new THREE.CatmullRomCurve3(points, true, 'centripetal', 0.5);
 }
 
 export function SkymournRepairModel(props: SpecimenModelProps) {
@@ -47,8 +45,8 @@ export function SkymournRepairModel(props: SpecimenModelProps) {
   const particles = useRef<THREE.Points>(null);
   const elapsed = useAnimationClock(props.animation);
   const clippingPlanes = useMemo(() => clipArray(props.clipPlane), [props.clipPlane]);
-  const curve = useMemo(() => new SkymournBodyCurve(), []);
-  const thermalCurve = useMemo(() => new SkymournThermalCurve(), []);
+  const curve = useMemo(() => buildSkymournCurve(false), []);
+  const thermalCurve = useMemo(() => buildSkymournCurve(true), []);
 
   const shellGeometry = useMemo(() => new THREE.TubeGeometry(curve, 240, 0.62, 20, true), [curve]);
   const seamGeometry = useMemo(() => new THREE.TubeGeometry(curve, 220, 0.16, 10, true), [curve]);
@@ -58,16 +56,14 @@ export function SkymournRepairModel(props: SpecimenModelProps) {
   const crystals = useMemo<CrystalDetail[]>(() => {
     const up = new THREE.Vector3(0, 1, 0);
     return Array.from({ length: 30 }, (_, index) => {
-      const t = (index + 0.5) / 30;
-      const point = curve.getPoint(t);
+      const point = curve.getPoint((index + 0.5) / 30);
       const normal = new THREE.Vector3(point.x * 0.7, point.y * 0.12, point.z || 0.2).normalize();
       const position = point.clone().addScaledVector(normal, 0.72);
       const quaternion = new THREE.Quaternion().setFromUnitVectors(up, normal);
-      const height = 0.34 + (index % 5) * 0.055;
       return {
         position: [position.x, position.y, position.z],
         quaternion: [quaternion.x, quaternion.y, quaternion.z, quaternion.w],
-        scale: [0.16, height, 0.16],
+        scale: [0.16, 0.34 + (index % 5) * 0.055, 0.16],
       };
     });
   }, [curve]);
@@ -92,16 +88,14 @@ export function SkymournRepairModel(props: SpecimenModelProps) {
     return { positions, colors };
   }, [curve]);
 
-  const circulationRibs = useMemo(() => {
-    return Array.from({ length: 9 }, (_, index) => {
-      const point = curve.getPoint((index + 0.25) / 9);
-      return {
-        position: [point.x, point.y, point.z] as [number, number, number],
-        rotation: [Math.PI / 2, index * 0.42, index * 0.2] as [number, number, number],
-        scale: 0.52 + (index % 3) * 0.1,
-      };
-    });
-  }, [curve]);
+  const circulationRibs = useMemo(() => Array.from({ length: 9 }, (_, index) => {
+    const point = curve.getPoint((index + 0.25) / 9);
+    return {
+      position: [point.x, point.y, point.z] as [number, number, number],
+      rotation: [Math.PI / 2, index * 0.42, index * 0.2] as [number, number, number],
+      scale: 0.52 + (index % 3) * 0.1,
+    };
+  }), [curve]);
 
   useFrame(() => {
     const time = elapsed.current;
@@ -175,16 +169,7 @@ export function SkymournRepairModel(props: SpecimenModelProps) {
             </mesh>
             <mesh scale={[1.16, 1.42, 0.46]} castShadow>
               <sphereGeometry args={[1, 48, 34]} />
-              <meshPhysicalMaterial
-                color={materialColor('#d7e4ea', props.silhouette)}
-                roughness={0.48}
-                metalness={0.04}
-                transmission={props.silhouette ? 0 : 0.04}
-                transparent
-                opacity={0.98}
-                wireframe={props.wireframe}
-                clippingPlanes={clippingPlanes}
-              />
+              <meshPhysicalMaterial color={materialColor('#d7e4ea', props.silhouette)} roughness={0.48} metalness={0.04} transmission={props.silhouette ? 0 : 0.04} transparent opacity={0.98} wireframe={props.wireframe} clippingPlanes={clippingPlanes} />
             </mesh>
             <mesh position={[0, 0, 0.43]} scale={[0.96, 1.27, 0.13]}>
               <sphereGeometry args={[1, 40, 28]} />
@@ -197,17 +182,7 @@ export function SkymournRepairModel(props: SpecimenModelProps) {
           {crystals.map((crystal, index) => (
             <mesh key={index} position={crystal.position} quaternion={crystal.quaternion} scale={crystal.scale}>
               <octahedronGeometry args={[1, 0]} />
-              <meshPhysicalMaterial
-                color={materialColor('#c8e7f3', props.silhouette)}
-                emissive={props.silhouette ? '#000000' : '#477d94'}
-                emissiveIntensity={props.silhouette ? 0 : 0.22}
-                transmission={props.silhouette ? 0 : 0.12}
-                transparent
-                opacity={0.92}
-                roughness={0.3}
-                wireframe={props.wireframe}
-                clippingPlanes={clippingPlanes}
-              />
+              <meshPhysicalMaterial color={materialColor('#c8e7f3', props.silhouette)} emissive={props.silhouette ? '#000000' : '#477d94'} emissiveIntensity={props.silhouette ? 0 : 0.22} transmission={props.silhouette ? 0 : 0.12} transparent opacity={0.92} roughness={0.3} wireframe={props.wireframe} clippingPlanes={clippingPlanes} />
             </mesh>
           ))}
 
@@ -241,22 +216,10 @@ export function SkymournRepairModel(props: SpecimenModelProps) {
             <meshStandardMaterial color={materialColor('#d95b35', props.silhouette)} emissive={props.silhouette ? '#000000' : '#b83b1c'} emissiveIntensity={1.2} roughness={0.36} wireframe={props.wireframe} clippingPlanes={clippingPlanes} side={THREE.DoubleSide} />
           </mesh>
           {[-1, 1].map((side) => (
-            <group key={side} position={[side * 1.05, 1.05, 0.25]}>
-              <mesh scale={[0.66, 1.08, 0.66]}>
-                <sphereGeometry args={[1, 28, 20]} />
-                <meshPhysicalMaterial
-                  color={materialColor(side < 0 ? '#6bb9d5' : '#d8663f', props.silhouette)}
-                  emissive={props.silhouette ? '#000000' : side < 0 ? '#287da0' : '#a83a1f'}
-                  emissiveIntensity={0.9}
-                  transmission={props.silhouette ? 0 : 0.12}
-                  transparent
-                  opacity={0.88}
-                  roughness={0.32}
-                  wireframe={props.wireframe}
-                  clippingPlanes={clippingPlanes}
-                />
-              </mesh>
-            </group>
+            <mesh key={side} position={[side * 1.05, 1.05, 0.25]} scale={[0.66, 1.08, 0.66]}>
+              <sphereGeometry args={[1, 28, 20]} />
+              <meshPhysicalMaterial color={materialColor(side < 0 ? '#6bb9d5' : '#d8663f', props.silhouette)} emissive={props.silhouette ? '#000000' : side < 0 ? '#287da0' : '#a83a1f'} emissiveIntensity={0.9} transmission={props.silhouette ? 0 : 0.12} transparent opacity={0.88} roughness={0.32} wireframe={props.wireframe} clippingPlanes={clippingPlanes} />
+            </mesh>
           ))}
         </group>
       )}
