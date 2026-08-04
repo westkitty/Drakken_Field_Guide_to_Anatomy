@@ -7,12 +7,12 @@
   "project_name": "Drakken Field Anatomy Archive",
   "project_root": ".",
   "artifact_path": "",
-  "state_revision": 26,
-  "last_updated": "2026-08-04T02:32:00-04:00",
+  "state_revision": 27,
+  "last_updated": "2026-08-04T02:36:00-04:00",
   "current_baseline": {
-    "identity": "repair/immersive-ui-model-quality-20260803, PR #4; exact application, repair, tests, audits, ledgers, and state through f98dc2b58eeb346e06fa26dcbc0c3f66fd957d6b; plus this final validation reconciliation",
+    "identity": "repair/immersive-ui-model-quality-20260803, PR #4; exact application, repair, tests, audits, ledgers, and state through 2c9c879445ed814ec1a9c7c67ea2df4e6818b9e8; plus this pointer-only reconciliation",
     "state": "technically-verified-human-review-pending",
-    "last_verified": "GitHub Actions run 30884135982 passed strict static audit, typecheck, zero-warning lint, tests, production build, the established desktop/mobile audit, the dedicated wave-three audit, and the dedicated wave-four audit on exact documentation head f98dc2b58eeb346e06fa26dcbc0c3f66fd957d6b"
+    "last_verified": "GitHub Actions run 30884250123 passed strict static audit, typecheck, zero-warning lint, tests, production build, the established desktop/mobile audit, the dedicated wave-three audit, and the dedicated wave-four audit on exact head 2c9c879445ed814ec1a9c7c67ea2df4e6818b9e8"
   },
   "scope_boundaries": [
     "Single browser archive at repository root",
@@ -236,7 +236,7 @@ Wave 4 adversarial and screenshot review produced 10 repairs:
 
 ### Source and build
 
-GitHub Actions run `30884135982` passed on exact documentation head `f98dc2b58eeb346e06fa26dcbc0c3f66fd957d6b`:
+GitHub Actions run `30884250123` passed on exact head `2c9c879445ed814ec1a9c7c67ea2df4e6818b9e8`:
 
 - locked dependency installation;
 - strict static audit;
@@ -256,7 +256,7 @@ Previously verified source contracts remain intact:
 
 ### Established product-polish browser audit
 
-Run `30884135982` passed the permanent established browser audit at desktop and mobile sizes. It reverified:
+Run `30884250123` passed the permanent established browser audit at desktop and mobile sizes. It reverified:
 
 - closed-at-rest presentation and five compact reveal handles;
 - active loading of the governing polish layers;
@@ -277,7 +277,7 @@ Run `30884135982` passed the permanent established browser audit at desktop and 
 
 ### Dedicated wave-three browser audit
 
-Run `30884135982` passed `scripts/polish-wave3-browser-audit.mjs`, re-verifying:
+Run `30884250123` passed `scripts/polish-wave3-browser-audit.mjs`, re-verifying:
 
 - `polish-wave3.css` and `polish-wave3-repairs.css` active in the live cascade;
 - dark native-control color scheme and refined keycap treatment;
@@ -292,7 +292,7 @@ Run `30884135982` passed `scripts/polish-wave3-browser-audit.mjs`, re-verifying:
 
 ### Dedicated wave-four browser audit
 
-Run `30884135982` passed `scripts/polish-wave4-browser-audit.mjs`. It verified:
+Run `30884250123` passed `scripts/polish-wave4-browser-audit.mjs`. It verified:
 
 - `polish-wave4.css` and `polish-wave4-repairs.css` active in the live cascade;
 - skip link off-screen at rest and immediately visible on keyboard focus;
@@ -411,10 +411,10 @@ After human visual approval, evaluate whether the additive polish cascade should
 | Third 8 adversarial repairs | verified | wave-3 critique, source, tests, dedicated browser audit, screenshots | preference/device review |
 | Fourth 60 polish improvements | verified | wave-4 manifest, source, tests, established and dedicated browser audits | physical-device review |
 | Fourth 10 adversarial repairs | verified | wave-4 critique, source, tests, measurement, dedicated browser audit, screenshots | preference/device review |
-| Source compiles | verified | run `30884135982` | none |
-| Lint is clean | verified | run `30884135982` | none |
-| Tests pass | verified | run `30884135982` | none |
-| Production build succeeds | verified | run `30884135982` | deployment/browser load |
+| Source compiles | verified | run `30884250123` | none |
+| Lint is clean | verified | run `30884250123` | none |
+| Tests pass | verified | run `30884250123` | none |
+| Production build succeeds | verified | run `30884250123` | deployment/browser load |
 | UI is hidden at rest | verified | browser audits and screenshots | physical-device confirmation |
 | Global handles hide above modal surfaces | verified | wave-three browser audit and screenshots | cross-browser physical-device confirmation |
 | Skip link hidden at rest and immediate on focus | verified | wave-four browser geometry and focus assertion | screen-reader/physical-device confirmation |
@@ -447,3 +447,4 @@ After human visual approval, evaluate whether the additive polish cascade should
 - **Revision 24 — 2026-08-04:** Revalidated the exact final documentation head `d763c1bfbc8efd47d0a4bc7b8524173e21013379` through the complete source/build and dual-browser gate in run `30882103387`; no new implementation or visual defect was introduced.
 - **Revision 25 — 2026-08-04:** Implemented 60 additional polish improvements, conducted source, measured layout, browser, and screenshot adversarial review, implemented 10 resulting repairs, corrected skip-link visibility, tool-cluster collision, narrow Record overflow, coarse-pointer target regression, specimen metadata pressure, toast safe-area clearance, and mobile action layout, added a dedicated wave-four browser gate, and passed source/build plus all three browser audits in run `30883838602`. Human art direction, native preference modes, physical-device behavior, and performance approval remain pending.
 - **Revision 26 — 2026-08-04:** Revalidated the exact fourth-wave documentation head `f98dc2b58eeb346e06fa26dcbc0c3f66fd957d6b` through the complete source/build and three-browser gate in run `30884135982`; no new implementation or documentation defect was introduced.
+- **Revision 27 — 2026-08-04:** Promoted exact final branch head `2c9c879445ed814ec1a9c7c67ea2df4e6818b9e8` and run `30884250123` as the current verified baseline; this was a pointer-only reconciliation with no application change.
