@@ -74,19 +74,51 @@ The initial wave passed the existing static, build, test, and browser gates on c
 - **W2-A10** — Replace the overlapping sticky export footer with an in-flow footer.
 - **W2-A11** — Wrap mobile tool groups and use a two-column anatomy layer grid.
 
-## Validation contract
+## Validation evidence
 
-The permanent browser audit must prove:
+Application source through `51fb122fef485e97f22744e377f39c95a67cd8f5` passed GitHub Actions run `30880875699`:
 
-- the wave-two, repair, and legibility stylesheets are active;
-- the drawer content surface is opaque and has no backdrop blur;
-- the registry search focus surface has a visible emphasis treatment;
-- record tabs retain their desktop navigation treatment;
-- the export footer remains in normal document flow and does not overlap the annotation detail;
-- the mobile Tools sheet remains inside the viewport;
-- mobile camera/render groups and the anatomy layer grid do not clip horizontally;
-- narrow/mobile record tabs release sticky positioning;
-- reduced-motion disables the new decorative transitions;
-- no actionable page or console error is introduced.
+- locked dependency installation;
+- strict static audit;
+- TypeScript;
+- zero-warning ESLint;
+- Vitest, including the 39-improvement and 11-repair contract;
+- production build;
+- expanded desktop/mobile product-polish browser audit.
 
-Human art direction, physical-device accessibility, and target-device performance remain separate approvals.
+The expanded browser audit verified:
+
+- all wave-two, repair, and legibility stylesheets are active;
+- the interface remains hidden at rest with five compact reveal handles;
+- Registry and Tools surfaces are sharp, opaque, contained, and free of horizontal overflow;
+- Registry search focus, specimen-card depth, focus trapping, and trigger restoration remain intact;
+- custom range, select, panel, and diagnostics treatments are active;
+- record-tab keyboard behavior remains intact;
+- the export footer is in normal document flow with **zero annotation overlap**;
+- the 390 × 844 Tools sheet remains inside the viewport;
+- camera/render groups have no internal horizontal overflow;
+- the anatomy layer grid uses two contained mobile columns;
+- narrow record chrome uses normal flow;
+- decorative transitions shut down under reduced motion;
+- actionable page and console errors are zero.
+
+The headless runner emitted twenty instances of its known exact SwiftShader WebGL-context warning. Those are recorded and excluded only from this DOM/CSS audit; separate renderer/model evidence remains governing for WebGL behavior.
+
+## Screenshot review
+
+The final evidence screenshots were inspected after the automated checks. They show:
+
+- a sharp Registry surface with focused search, segmented filters, and elevated record cards;
+- a contained desktop Tools sheet with clear control grouping and custom ranges;
+- a Record drawer where the complete annotation detail is visible before the in-flow export footer, with no overlay;
+- a 390-pixel mobile Tools sheet where camera controls wrap, render controls remain visible, and all four anatomy controls fit in a two-column grid.
+
+No further screenshot-discovered polish defect was found in this bounded pass.
+
+## Remaining limits
+
+This technical polish pass does not establish:
+
+- human art-direction approval for all 59 models;
+- physical-device touch, screen-reader, reduced-transparency, increased-contrast, or forced-colors approval;
+- target-MacBook load, memory, GPU, or thermal readiness.
