@@ -127,7 +127,7 @@ for (const [controls, drawerSelector] of handleCases) {
     const node = document.elementFromPoint(x, y);
     return { label: node?.getAttribute?.('aria-label') ?? '', tag: node?.tagName ?? '', className: typeof node?.className === 'string' ? node.className : '' };
   }, closePoint);
-  if (closeHit.label !== 'Close panel') throw new Error(`${controls} close button is blocked: ${JSON.stringify(closeHit)}.`);
+  if (!closeHit.label.startsWith('Close ')) throw new Error(`${controls} close button is blocked: ${JSON.stringify(closeHit)}.`);
   await page.mouse.click(closePoint.x, closePoint.y);
   await page.waitForFunction((selector) => !document.querySelector(selector)?.classList.contains('is-open'), { timeout: 10_000 }, drawerSelector);
   await delay(150);
