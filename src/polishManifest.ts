@@ -1,201 +1,56 @@
 export const POLISH_IMPROVEMENTS = [
-  {
-    "id": "P01",
-    "title": "Correct registry handle mnemonic"
-  },
-  {
-    "id": "P02",
-    "title": "Expand invisible edge-handle targets"
-  },
-  {
-    "id": "P03",
-    "title": "Respect display safe areas"
-  },
-  {
-    "id": "P04",
-    "title": "Clarify open handle state"
-  },
-  {
-    "id": "P05",
-    "title": "Connect triggers and drawers semantically"
-  },
-  {
-    "id": "P06",
-    "title": "Make diagnostics mutually exclusive"
-  },
-  {
-    "id": "P07",
-    "title": "Include diagnostics in dismissal behavior"
-  },
-  {
-    "id": "P08",
-    "title": "Use sticky drawer headings"
-  },
-  {
-    "id": "P09",
-    "title": "Contain and polish drawer scrolling"
-  },
-  {
-    "id": "P10",
-    "title": "Use typographic close controls"
-  },
-  {
-    "id": "P11",
-    "title": "Show live registry result totals"
-  },
-  {
-    "id": "P12",
-    "title": "Provide one-click search clearing"
-  },
-  {
-    "id": "P13",
-    "title": "Provide one-click filter reset"
-  },
-  {
-    "id": "P14",
-    "title": "Expose active and loading record states"
-  },
-  {
-    "id": "P15",
-    "title": "Provide recoverable registry empty state"
-  },
-  {
-    "id": "P16",
-    "title": "Expose chamber loading state"
-  },
-  {
-    "id": "P17",
-    "title": "Polish reconstruction loading feedback"
-  },
-  {
-    "id": "P18",
-    "title": "Provide retryable load failure feedback"
-  },
-  {
-    "id": "P19",
-    "title": "Surface non-default examination modes"
-  },
-  {
-    "id": "P20",
-    "title": "Confirm completed actions with live feedback"
-  },
-  {
-    "id": "P21",
-    "title": "Reset all examination tools"
-  },
-  {
-    "id": "P22",
-    "title": "Add anatomy visibility presets"
-  },
-  {
-    "id": "P23",
-    "title": "Show visible anatomy layer count"
-  },
-  {
-    "id": "P24",
-    "title": "Disable unavailable section controls"
-  },
-  {
-    "id": "P25",
-    "title": "Describe range values accessibly"
-  },
-  {
-    "id": "P26",
-    "title": "Disable unavailable measurement clearing"
-  },
-  {
-    "id": "P27",
-    "title": "Number measurement points and improve guidance"
-  },
-  {
-    "id": "P28",
-    "title": "Add bulk annotation export controls"
-  },
-  {
-    "id": "P29",
-    "title": "Use semantic record tabs"
-  },
-  {
-    "id": "P30",
-    "title": "Expose annotation counts during export"
-  },
-  {
-    "id": "P31",
-    "title": "Allow explicit and backdrop briefing dismissal"
-  },
-  {
-    "id": "P32",
-    "title": "Expand shortcut and motion guidance"
-  },
-  {
-    "id": "P33",
-    "title": "Describe chamber controls to assistive technology"
-  },
-  {
-    "id": "P34",
-    "title": "Use context-sensitive viewport cursors"
-  },
-  {
-    "id": "P35",
-    "title": "Add restrained viewport depth treatment"
-  },
-  {
-    "id": "P36",
-    "title": "Polish mobile tools sheet handling"
-  },
-  {
-    "id": "P37",
-    "title": "Normalize finish tokens and interaction states"
-  },
-  {
-    "id": "P38",
-    "title": "Provide coarse-pointer action targets"
-  },
-  {
-    "id": "P39",
-    "title": "Respect reduced-motion preferences"
-  },
-  {
-    "id": "P40",
-    "title": "Add durable polish regression coverage"
-  }
+  { "id": "P01", "title": "Correct registry handle mnemonic" },
+  { "id": "P02", "title": "Expand invisible edge-handle targets" },
+  { "id": "P03", "title": "Respect display safe areas" },
+  { "id": "P04", "title": "Clarify open handle state" },
+  { "id": "P05", "title": "Connect triggers and drawers semantically" },
+  { "id": "P06", "title": "Make diagnostics mutually exclusive" },
+  { "id": "P07", "title": "Include diagnostics in dismissal behavior" },
+  { "id": "P08", "title": "Use sticky drawer headings" },
+  { "id": "P09", "title": "Contain and polish drawer scrolling" },
+  { "id": "P10", "title": "Use typographic close controls" },
+  { "id": "P11", "title": "Show live registry result totals" },
+  { "id": "P12", "title": "Provide one-click search clearing" },
+  { "id": "P13", "title": "Provide one-click filter reset" },
+  { "id": "P14", "title": "Expose active and loading record states" },
+  { "id": "P15", "title": "Provide recoverable registry empty state" },
+  { "id": "P16", "title": "Expose chamber loading state" },
+  { "id": "P17", "title": "Polish reconstruction loading feedback" },
+  { "id": "P18", "title": "Provide retryable load failure feedback" },
+  { "id": "P19", "title": "Surface non-default examination modes" },
+  { "id": "P20", "title": "Confirm completed actions with live feedback" },
+  { "id": "P21", "title": "Reset all examination tools" },
+  { "id": "P22", "title": "Add anatomy visibility presets" },
+  { "id": "P23", "title": "Show visible anatomy layer count" },
+  { "id": "P24", "title": "Disable unavailable section controls" },
+  { "id": "P25", "title": "Describe range values accessibly" },
+  { "id": "P26", "title": "Disable unavailable measurement clearing" },
+  { "id": "P27", "title": "Number measurement points and improve guidance" },
+  { "id": "P28", "title": "Add bulk annotation export controls" },
+  { "id": "P29", "title": "Use semantic record tabs" },
+  { "id": "P30", "title": "Expose annotation counts during export" },
+  { "id": "P31", "title": "Allow explicit and backdrop briefing dismissal" },
+  { "id": "P32", "title": "Expand shortcut and motion guidance" },
+  { "id": "P33", "title": "Describe chamber controls to assistive technology" },
+  { "id": "P34", "title": "Use context-sensitive viewport cursors" },
+  { "id": "P35", "title": "Add restrained viewport depth treatment" },
+  { "id": "P36", "title": "Polish mobile tools sheet handling" },
+  { "id": "P37", "title": "Normalize finish tokens and interaction states" },
+  { "id": "P38", "title": "Provide coarse-pointer action targets" },
+  { "id": "P39", "title": "Respect reduced-motion preferences" },
+  { "id": "P40", "title": "Add durable polish regression coverage" }
 ] as const;
 
 export const ADVERSARIAL_REPAIRS = [
-  {
-    "id": "A01",
-    "title": "Remove Node-only APIs from browser-project tests"
-  },
-  {
-    "id": "A02",
-    "title": "Trap keyboard focus inside every open drawer"
-  },
-  {
-    "id": "A03",
-    "title": "Restore trigger focus from every drawer close action"
-  },
-  {
-    "id": "A04",
-    "title": "Make diagnostics use the same drawer language as the rest of the interface"
-  },
-  {
-    "id": "A05",
-    "title": "Separate search labelling from its clear action"
-  },
-  {
-    "id": "A06",
-    "title": "Complete arrow, Home, and End keyboard behavior for record tabs"
-  },
-  {
-    "id": "A07",
-    "title": "Stabilize tool reset dependencies"
-  },
-  {
-    "id": "A08",
-    "title": "Make retry behavior deterministic for current and alternate records"
-  },
-  {
-    "id": "A09",
-    "title": "Separate annotation inspection from export inclusion"
-  }
+  { "id": "A01", "title": "Remove Node-only APIs from browser-project tests" },
+  { "id": "A02", "title": "Trap keyboard focus inside every open drawer" },
+  { "id": "A03", "title": "Restore trigger focus from every drawer close action" },
+  { "id": "A04", "title": "Make diagnostics use the same drawer language as the rest of the interface" },
+  { "id": "A05", "title": "Separate search labelling from its clear action" },
+  { "id": "A06", "title": "Complete arrow, Home, and End keyboard behavior for record tabs" },
+  { "id": "A07", "title": "Stabilize tool reset dependencies" },
+  { "id": "A08", "title": "Make retry behavior deterministic for current and alternate records" },
+  { "id": "A09", "title": "Separate annotation inspection from export inclusion" },
+  { "id": "A10", "title": "Constrain the mobile tools sheet to measured viewport bounds" },
+  { "id": "A11", "title": "Keep modal scrim blur behind drawer content across nested stacking contexts" }
 ] as const;
