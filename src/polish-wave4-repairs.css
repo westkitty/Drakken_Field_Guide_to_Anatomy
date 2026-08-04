@@ -1,0 +1,134 @@
+/* Adversarial repairs for product polish wave 4. */
+
+/* W4-A01 — the skip link must remain off-screen until it receives keyboard focus. */
+.skip-link {
+  top: -5rem;
+  right: auto;
+  bottom: auto;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: max(0.5rem, env(safe-area-inset-top));
+}
+
+/* W4-A02 — primary tool clusters may wrap, but may never collide. */
+.primary-tools {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.tool-cluster {
+  min-width: 0 !important;
+  flex-wrap: wrap !important;
+  align-content: flex-start;
+}
+
+.tool-cluster > span {
+  flex: 0 0 100%;
+}
+
+/* W4-A03 — narrow Record tabs fit inside the drawer instead of widening it. */
+.record-panel {
+  overflow-x: hidden;
+}
+
+@media (max-width: 520px) {
+  .record-tabs {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  .record-tabs button {
+    min-width: 0;
+    padding-inline: 0.26rem;
+    font-size: 0.62rem;
+    white-space: nowrap;
+  }
+}
+
+/* W4-A04 — late cascade rules must not shrink coarse-pointer close targets. */
+@media (hover: none), (pointer: coarse) {
+  .mobile-close,
+  .orientation-close {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* W4-A05 — the specimen card already has an active rail and frame; the generic dot is noise. */
+.specimen-card[aria-current="true"]::after {
+  content: none;
+}
+
+/* W4-A06 — long paired metadata values stay inside their card. */
+.specimen-metadata {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.specimen-metadata span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 420px) {
+  .specimen-metadata span {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+  }
+}
+
+/* W4-A07 — the toast uses one anchor system, not simultaneous top/left and bottom/right anchors. */
+.status-toast {
+  top: auto;
+  left: auto;
+  right: max(0.75rem, env(safe-area-inset-right));
+  bottom: max(0.75rem, env(safe-area-inset-bottom));
+  transform: translateY(8px);
+}
+
+.status-toast.is-visible {
+  transform: translateY(0);
+}
+
+/* W4-A08 — physical safe areas are directional, not copied from the left edge. */
+@media (max-width: 640px) {
+  .registry-panel,
+  .record-panel,
+  .diagnostics-panel {
+    padding-left: max(0.78rem, env(safe-area-inset-left));
+    padding-right: max(0.78rem, env(safe-area-inset-right));
+  }
+}
+
+/* W4-A09 — ultra-narrow annotation actions use an actual grid rather than inert grid declarations. */
+@media (max-width: 420px) {
+  .annotation-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .annotation-actions button {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 340px) {
+  .annotation-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* W4-A10 — completion actions may shrink within the drawer without forcing overflow. */
+.export-row > *,
+.export-row button {
+  min-width: 0;
+}
