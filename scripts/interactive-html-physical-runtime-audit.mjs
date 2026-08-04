@@ -91,21 +91,41 @@ for (const [controls, drawerSelector] of handleCases) {
     const node = document.elementFromPoint(x, y);
     return { controls: node?.getAttribute?.('aria-controls') ?? '', label: node?.getAttribute?.('aria-label') ?? '', tag: node?.tagName ?? '' };
   }, point);
+  console.log(`HANDLE_START ${controls} ${JSON.stringify({ point, hit })}`);
   if (hit.controls !== controls) throw new Error(`${controls} is blocked: ${JSON.stringify(hit)}.`);
   await page.mouse.click(point.x, point.y);
-  await page.waitForFunction((selector) => {
-    const drawer = document.querySelector(selector);
-    if (!(drawer instanceof HTMLElement) || !drawer.classList.contains('is-open')) return false;
-    const style = getComputedStyle(drawer);
-    const rect = drawer.getBoundingClientRect();
-    return style.opacity === '1' && style.visibility === 'visible' && style.pointerEvents === 'auto'
-      && rect.right > 0 && rect.left < window.innerWidth && rect.bottom > 0 && rect.top < window.innerHeight;
-  }, { timeout: 12_000 }, drawerSelector);
+  await delay(1000);
   const opened = await page.evaluate((selector) => {
     const drawer = document.querySelector(selector);
     const rect = drawer.getBoundingClientRect();
-    return { className: drawer.className, rect: [rect.left, rect.top, rect.right, rect.bottom] };
+    const style = getComputedStyle(drawer);
+    return {
+      className: drawer.className,
+      ariaHidden: drawer.getAttribute('aria-hidden'),
+      inert: drawer.hasAttribute('inert'),
+      opacity: style.opacity,
+      visibility: style.visibility,
+      pointerEvents: style.pointerEvents,
+      transform: style.transform,
+      zIndex: style.zIndex,
+      rect: [rect.left, rect.top, rect.right, rect.bottom],
+      activeTag: document.activeElement?.tagName ?? '',
+      activeClass: typeof document.activeElement?.className === 'string' ? document.activeElement.className : '',
+    };
   }, drawerSelector);
+  console.log(`HANDLE_STATE ${controls} ${JSON.stringify(opened)}`);
+  const [left, top, right, bottom] = opened.rect;
+  const visible = opened.className.includes('is-open')
+    && opened.ariaHidden === 'false'
+    && !opened.inert
+    && opened.opacity === '1'
+    && opened.visibility === 'visible'
+    && opened.pointerEvents === 'auto'
+    && right > 0
+    && left < initial.viewport[0]
+    && bottom > 0
+    && top < initial.viewport[1];
+  if (!visible) throw new Error(`${controls} failed physical opening: ${JSON.stringify(opened)}.`);
   handleResults.push({ controls, hit, opened });
   if (controls === 'registry-drawer' || controls === 'record-drawer') await page.screenshot({ path: path.join(outputRoot, `physical-${controls}.png`), fullPage: true });
 }
