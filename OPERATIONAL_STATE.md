@@ -7,12 +7,12 @@
   "project_name": "Drakken Field Anatomy Archive",
   "project_root": ".",
   "artifact_path": "",
-  "state_revision": 24,
-  "last_updated": "2026-08-04T01:58:00-04:00",
+  "state_revision": 25,
+  "last_updated": "2026-08-04T02:25:00-04:00",
   "current_baseline": {
-    "identity": "repair/immersive-ui-model-quality-20260803, PR #4; application, repair, tests, permanent audits, ledgers, and state through d763c1bfbc8efd47d0a4bc7b8524173e21013379",
+    "identity": "repair/immersive-ui-model-quality-20260803, PR #4; fourth-wave application and repair source through a49bc91cb6f389edff562389e4b1951087419078; durable ledger through 318ac6baf658ec7717cc48d772d96e00313f6311; plus this state revision",
     "state": "technically-verified-human-review-pending",
-    "last_verified": "GitHub Actions run 30882103387 passed strict static audit, typecheck, zero-warning lint, tests, production build, the established desktop/mobile product-polish audit, and the dedicated wave-three audit on exact head d763c1bfbc8efd47d0a4bc7b8524173e21013379"
+    "last_verified": "GitHub Actions run 30883838602 passed strict static audit, typecheck, zero-warning lint, tests, production build, the established desktop/mobile audit, the dedicated wave-three audit, and the dedicated wave-four audit on application head a49bc91cb6f389edff562389e4b1951087419078"
   },
   "scope_boundaries": [
     "Single browser archive at repository root",
@@ -32,13 +32,14 @@ The Drakken Field Anatomy Archive is a React Three Fiber forensic compendium for
 
 ## 2. Current Baseline
 
-PR #4 now contains five bounded bodies of work:
+PR #4 now contains six bounded bodies of work:
 
 1. a hidden-at-rest model-first interface;
 2. two explicit canon-backed additions for every one of the 59 records;
 3. the first verified product-polish pass: 40 improvements plus 11 adversarial repairs;
 4. the second verified product-polish pass: 39 new improvements plus 11 adversarial and screenshot-driven repairs;
-5. the third verified product-polish pass: 32 new improvements plus 8 adversarial and screenshot-driven repairs.
+5. the third verified product-polish pass: 32 new improvements plus 8 adversarial and screenshot-driven repairs;
+6. the fourth verified product-polish pass: 60 new improvements plus 10 adversarial, measured, and screenshot-driven repairs.
 
 ### Model-first interface
 
@@ -131,6 +132,30 @@ Wave 3 adversarial and screenshot review produced 8 repairs:
 - remove briefing numbering below 360 pixels;
 - preserve explicit focus outlines in increased-contrast and forced-colors modes.
 
+### Product polish wave 4
+
+The fourth durable ledger is `POLISH_WAVE_4.md`; its machine-readable contract is `src/polishWave4Manifest.ts`.
+
+Wave 4 implemented 60 additional improvements across:
+
+- transition and pressed-state rhythm, disabled/enabled affordances, focus halos, skip-link behavior, scrim dismissal, close controls, and heading actions;
+- Registry labels, search, filters, result summary, specimen-card hierarchy, technical identifiers, metadata, evidence, source status, and empty-state recovery;
+- Tools reset, tool-cluster layout, technical heading rails, stable controls, pressed toggles, axis segmentation, anatomy cards, range/select treatment, measurement guidance, and active-mode containment;
+- dossier summary, Record tabs, term/value cards, article rhythm, civic accents, numbered sources, annotation controls and metadata, exports, Diagnostics, briefing, loading/error surfaces, toast safe areas, constrained devices, and accessibility preferences.
+
+Wave 4 adversarial and screenshot review produced 10 repairs:
+
+- keep the skip link off-screen at rest and reveal it immediately on keyboard focus;
+- prevent desktop Camera and Render tool clusters from colliding;
+- remove measured five-pixel narrow Record overflow from headings and export actions;
+- restore 44-pixel coarse-pointer close targets after the complete cascade;
+- remove the redundant generic active specimen-card marker;
+- constrain long paired specimen metadata values;
+- use one toast anchor system and preserve safe-area clearance through entrance motion;
+- apply mobile safe-area padding directionally;
+- activate the intended ultra-narrow annotation action grid;
+- permit export actions to shrink without widening the drawer.
+
 ## 3. Active Invariants
 
 ### INV-001 — Closed registry
@@ -199,17 +224,25 @@ Wave 3 adversarial and screenshot review produced 8 repairs:
 - Dossier prose must not use automatic hyphenation in narrow drawers.
 - Component-owned focus states may not be doubled by global focus decoration.
 
+### INV-012 — Precision controls and constrained-layout containment
+
+- The skip link must remain off-screen until keyboard focus and appear immediately when focused.
+- Primary tool clusters may wrap but may not collide or create horizontal overflow.
+- Narrow Record headings, tabs, metadata, annotation actions, and exports must remain inside the drawer.
+- Coarse-pointer close controls must remain at least 44 × 44 pixels after the complete cascade.
+- Status feedback must retain lower-right safe-area clearance in hidden and visible states.
+
 ## 4. Verified Evidence
 
 ### Source and build
 
-GitHub Actions run `30882103387` passed on exact head `d763c1bfbc8efd47d0a4bc7b8524173e21013379`:
+GitHub Actions run `30883838602` passed on application head `a49bc91cb6f389edff562389e4b1951087419078`:
 
 - locked dependency installation;
 - strict static audit;
 - TypeScript;
 - ESLint with zero warnings;
-- Vitest, including exact 59-record enhancement coverage, the first 40-improvement/11-repair contract, the second 39-improvement/11-repair contract, and the third 32-improvement/8-repair contract;
+- Vitest, including exact 59-record enhancement coverage and all four polish contracts: 40/11, 39/11, 32/8, and 60/10;
 - production build.
 
 Previously verified source contracts remain intact:
@@ -223,10 +256,10 @@ Previously verified source contracts remain intact:
 
 ### Established product-polish browser audit
 
-Run `30882103387` passed the permanent established browser audit at desktop and mobile sizes. It reverified:
+Run `30883838602` passed the permanent established browser audit at desktop and mobile sizes. It reverified:
 
 - closed-at-rest presentation and five compact reveal handles;
-- active loading of `polish-legibility.css`, `polish-wave2.css`, and `polish-wave2-repairs.css`;
+- active loading of the governing polish layers;
 - sharp, opaque drawer surfaces with no content-level backdrop blur;
 - Registry count, labelled search, visible search focus, card depth, focus trapping, and focus restoration;
 - Tools reset, anatomy presets, custom range treatment, custom select treatment, and panel depth;
@@ -244,31 +277,46 @@ Run `30882103387` passed the permanent established browser audit at desktop and 
 
 ### Dedicated wave-three browser audit
 
-Run `30882103387` also passed `scripts/polish-wave3-browser-audit.mjs`. It verified:
+Run `30883838602` passed `scripts/polish-wave3-browser-audit.mjs`, re-verifying:
 
-- `polish-wave3.css` and `polish-wave3-repairs.css` are active in the live cascade;
+- `polish-wave3.css` and `polish-wave3-repairs.css` active in the live cascade;
 - dark native-control color scheme and refined keycap treatment;
 - edge handles hidden over Registry, Record, Tools, Diagnostics, and briefing modal states;
-- Registry search retains its focus-within treatment without a doubled outline;
-- evidence badges include non-color markers;
-- selected Record tabs exclude the generic active-state marker;
-- dossier copy does not use automatic hyphenation;
-- mobile Record term/value pairs stack into one column;
-- mobile Record content has no horizontal overflow;
+- Registry search focus without a doubled outline;
+- evidence badges with non-color markers;
+- selected Record tabs without generic active dots;
+- dossier copy without automatic hyphenation;
+- mobile Record term/value pairs stacked into one column;
+- mobile Record content without horizontal overflow;
+- zero actionable page or console errors.
+
+### Dedicated wave-four browser audit
+
+Run `30883838602` passed `scripts/polish-wave4-browser-audit.mjs`. It verified:
+
+- `polish-wave4.css` and `polish-wave4-repairs.css` active in the live cascade;
+- skip link off-screen at rest and immediately visible on keyboard focus;
+- status toast inside the lower-right viewport safe area;
+- active Registry card and paired metadata containment;
+- redundant active-card marker absent;
+- desktop primary tool clusters free of collision and overflow;
+- narrow Record drawer and five-tab strip free of horizontal overflow;
+- coarse-pointer close target at least 44 × 44 pixels when emulated;
+- ultra-narrow annotation action grid active;
 - zero actionable page or console errors.
 
 The browser jobs record only their exact known SwiftShader `THREE.WebGLRenderer: Error creating WebGL context.` environment warning. That warning is excluded only from the DOM/CSS gates and does not replace separate renderer/model evidence.
 
 ### Visual screenshot review
 
-The wave-three screenshots were inspected after automated validation. They show:
+The wave-four screenshots were inspected after automated validation. They show:
 
-- a clean Registry drawer with no edge handles crossing filters or record cards;
-- a Record drawer with a stable selected tab, unsplit prose, and clear term/value hierarchy;
-- a 390-pixel Record drawer with stacked field cards and no visible global handles;
-- preserved hidden-at-rest model-first behavior when all drawers are closed.
+- a contained Registry with stronger labels, filter hierarchy, technical ID capsules, and no active-card marker noise;
+- a desktop Tools sheet with non-colliding Camera and Render groups, stable control geometry, anatomy cards, and clearer readouts;
+- a 390-pixel Record drawer with contained tabs, full-width term/value cards, readable long values, and no horizontal leak;
+- no visible skip link at rest and no controls or feedback surfaces touching viewport edges.
 
-No additional screenshot-discovered defect remained within the bounded third-wave scope.
+No additional screenshot-discovered defect remained within the bounded fourth-wave scope.
 
 ### 59-record browser evidence
 
@@ -284,7 +332,7 @@ The following remain outside automated approval:
 - final material balance on Andrew's MacBook display;
 - animation quality and functional readability for every record;
 - physical-device touch and screen-reader behavior;
-- manual reduced-data, reduced-transparency, increased-contrast, and forced-colors review;
+- manual reduced-data, reduced-transparency, increased-contrast, forced-colors, and safe-area review;
 - sub-360-pixel physical-device review;
 - long-session thermal and GPU behavior.
 
@@ -304,11 +352,11 @@ Continuous animation, physical materials, and shadows make exhaustive headless W
 
 ### RISK-004 — Preference emulation coverage
 
-Reduced motion is automated. Reduced data, reduced transparency, increased contrast, and forced colors are implemented at source level but still require physical or native-browser manual review because Chromium automation support is incomplete for those modes.
+Reduced motion is automated. Reduced data, reduced transparency, increased contrast, forced colors, and physical safe areas are implemented at source level but still require physical or native-browser manual review because Chromium automation support is incomplete for those modes.
 
 ### RISK-005 — Layered polish cascade
 
-The application now intentionally loads several additive polish stylesheets. Their order is covered by browser assertions, but future consolidation must preserve visual behavior and may not occur as an unaudited cleanup.
+The application intentionally loads several additive polish stylesheets. Their order is covered by browser assertions, but future consolidation must preserve visual behavior and may not occur as an unaudited cleanup.
 
 ## 7. Pending Work
 
@@ -333,6 +381,10 @@ After human visual approval, evaluate whether the additive polish cascade should
 - Do not restore persistent dashboard chrome.
 - Do not reveal controls on ordinary pointer movement.
 - Do not show global edge handles above an open modal drawer or briefing.
+- Do not show the skip link without keyboard focus.
+- Do not permit primary tool clusters to overlap or depend on clipped horizontal scrolling.
+- Do not restore narrow Record negative-edge overflow.
+- Do not reduce coarse-pointer close targets below 44 × 44 pixels.
 - Do not replace precise ledger entries with generic PASS wording.
 - Do not describe automated mounting as human canon or art approval.
 - Do not suppress the bundle warning instead of measuring performance.
@@ -341,7 +393,7 @@ After human visual approval, evaluate whether the additive polish cascade should
 - Do not place visual effects above drawer content.
 - Do not allow mobile sheets or internal tool groups to exceed viewport bounds.
 - Do not pin action surfaces over dossier or annotation content.
-- Do not restore automatic dossier hyphenation or generic active dots on Record tabs.
+- Do not restore automatic dossier hyphenation or generic active dots on Record tabs or specimen cards.
 - Do not consolidate polish stylesheets without screenshot and browser regression evidence.
 
 ## 9. Validation Matrix
@@ -357,14 +409,21 @@ After human visual approval, evaluate whether the additive polish cascade should
 | Second 11 adversarial repairs | verified | wave-2 critique, source, tests, browser audit, screenshots | preference/device review |
 | Third 32 polish improvements | verified | wave-3 manifest, source, tests, established and dedicated browser audits | physical-device review |
 | Third 8 adversarial repairs | verified | wave-3 critique, source, tests, dedicated browser audit, screenshots | preference/device review |
-| Source compiles | verified | run `30882103387` | none |
-| Lint is clean | verified | run `30882103387` | none |
-| Tests pass | verified | run `30882103387` | none |
-| Production build succeeds | verified | run `30882103387` | deployment/browser load |
+| Fourth 60 polish improvements | verified | wave-4 manifest, source, tests, established and dedicated browser audits | physical-device review |
+| Fourth 10 adversarial repairs | verified | wave-4 critique, source, tests, measurement, dedicated browser audit, screenshots | preference/device review |
+| Source compiles | verified | run `30883838602` | none |
+| Lint is clean | verified | run `30883838602` | none |
+| Tests pass | verified | run `30883838602` | none |
+| Production build succeeds | verified | run `30883838602` | deployment/browser load |
 | UI is hidden at rest | verified | browser audits and screenshots | physical-device confirmation |
-| Global handles hide above modal surfaces | verified | dedicated wave-three browser audit and screenshots | cross-browser physical-device confirmation |
+| Global handles hide above modal surfaces | verified | wave-three browser audit and screenshots | cross-browser physical-device confirmation |
+| Skip link hidden at rest and immediate on focus | verified | wave-four browser geometry and focus assertion | screen-reader/physical-device confirmation |
 | Drawer focus and keyboard tabs | verified | established browser audit | screen-reader/physical-device confirmation |
-| Desktop/mobile containment and overflow | verified | both browser audits | additional real-device sizes |
+| Desktop/mobile containment and overflow | verified | all three browser audits | additional real-device sizes |
+| Primary Tools clusters do not collide | verified | wave-four rectangle intersection and overflow assertions | physical-device confirmation |
+| Narrow Record chrome does not overflow | verified | established and wave-four geometry assertions | additional real-device widths |
+| Coarse-pointer close target is 44 × 44 pixels | verified under emulation | wave-four browser audit | physical touch-device confirmation |
+| Status toast retains safe-area clearance | verified at browser geometry level | wave-four browser audit | notched-device confirmation |
 | Dossier prose avoids automatic hyphenation | verified | computed style and screenshot review | cross-browser typography review |
 | Mobile record fields stack cleanly | verified | computed grid style, overflow check, screenshot | physical-device touch check |
 | Export footer does not cover annotation content | verified | zero-overlap geometry and screenshot | cross-browser human check |
@@ -386,3 +445,4 @@ After human visual approval, evaluate whether the additive polish cascade should
 - **Revision 22 — 2026-08-04:** Implemented 39 additional polish improvements, conducted source, accessibility-preference, and screenshot adversarial review, implemented 11 resulting repairs, activated the orphaned legibility layer, eliminated export-content overlap and mobile tool clipping, expanded the permanent browser audit, and passed source/build/browser validation. Human art direction, native preference modes, physical-device behavior, and performance approval remain pending.
 - **Revision 23 — 2026-08-04:** Implemented 32 additional polish improvements, conducted source and screenshot adversarial review, implemented 8 resulting repairs, hid global handles over modal surfaces, removed tab-marker and hyphenation noise, added a dedicated wave-three browser gate, and passed source/build/browser validation. Human art direction, native preference modes, physical-device behavior, and performance approval remain pending.
 - **Revision 24 — 2026-08-04:** Revalidated the exact final documentation head `d763c1bfbc8efd47d0a4bc7b8524173e21013379` through the complete source/build and dual-browser gate in run `30882103387`; no new implementation or visual defect was introduced.
+- **Revision 25 — 2026-08-04:** Implemented 60 additional polish improvements, conducted source, measured layout, browser, and screenshot adversarial review, implemented 10 resulting repairs, corrected skip-link visibility, tool-cluster collision, narrow Record overflow, coarse-pointer target regression, specimen metadata pressure, toast safe-area clearance, and mobile action layout, added a dedicated wave-four browser gate, and passed source/build plus all three browser audits in run `30883838602`. Human art direction, native preference modes, physical-device behavior, and performance approval remain pending.
