@@ -47,9 +47,9 @@ This pass is bounded to presentation, interaction finish, accessibility, respons
 
 ## Adversarial critique
 
-The initial result was deliberately reviewed as if it were a hostile release candidate rather than accepted because it looked more finished. The review found:
+The initial result was reviewed as a hostile release candidate rather than accepted because it looked more finished. The review found:
 
-1. **Blocker:** the new test imported Node's file system module even though this browser project does not install Node type declarations. TypeScript correctly rejected it.
+1. **Blocker:** the first regression test imported Node's file system module even though this browser project does not install Node type declarations. TypeScript correctly rejected it.
 2. **Major:** drawers transferred focus on open but did not contain it, allowing keyboard navigation behind the modal scrim. Diagnostics was excluded from even the initial focus transfer.
 3. **Major:** direct drawer close buttons hid their focused container without restoring focus to the trigger.
 4. **Major:** Diagnostics had both an edge trigger and a second internal toggle, making it feel like a leftover widget rather than part of the drawer system.
@@ -58,6 +58,8 @@ The initial result was deliberately reviewed as if it were a hostile release can
 7. **Minor:** the full tool reset callback depended on an animation array rather than a stable primitive.
 8. **Minor:** retrying a failure for the already active record could no-op at the existing early-return guard.
 9. **Major:** selecting an annotation for inspection also silently changed export membership, conflating two independent user intentions.
+10. **Major:** the mobile tools sheet inherited conflicting edge, width, height, and transform constraints. A responsive browser audit exposed viewport escape during the opening transition; measured geometry and explicit four-edge constraints were required.
+11. **Major:** screenshots exposed the modal scrim composited above drawer content because nested fixed wrappers created stacking contexts. The DOM mechanics passed, but the interface was visibly blurred and therefore not actually polished.
 
 ## Implemented adversarial repairs
 
@@ -66,13 +68,26 @@ The initial result was deliberately reviewed as if it were a hostile release can
 - **A03** — Restore trigger focus from every drawer close action
 - **A04** — Make diagnostics use the same drawer language as the rest of the interface
 - **A05** — Separate search labelling from its clear action
-- **A06** — Complete arrow, Home, and End keyboard behavior for record tabs
+- **A06** — Complete Arrow, Home, and End keyboard behavior for record tabs
 - **A07** — Stabilize tool reset dependencies
 - **A08** — Make retry behavior deterministic for current and alternate records
 - **A09** — Separate annotation inspection from export inclusion
+- **A10** — Constrain the mobile tools sheet to measured viewport bounds
+- **A11** — Keep modal scrim blur behind drawer content across nested stacking contexts
 
-## Evidence status
+## Evidence
 
-- Source/build validation: pending exact repaired head.
-- Browser interaction and responsive polish: pending targeted browser audit.
-- Human art-direction approval: remains outside this polish pass.
+Application source through `a21d0b02d580776fb9a6f8092d282e8facbb062b` passed GitHub Actions run `30878758406`:
+
+- strict static audit
+- TypeScript
+- zero-warning lint
+- tests
+- production build
+- targeted desktop/mobile polish browser audit
+
+The browser audit verified hidden-at-rest behavior, five compact handles, drawer focus entry/trapping/restoration, semantic registry search, tools reset and layer presets, record tab keyboard navigation, annotation intent separation, diagnostics consistency, no desktop/mobile horizontal overflow, and mobile tools-sheet containment.
+
+Final screenshots were inspected after the mechanical audit. That visual review found and then verified the stacking-context repair: Registry, Tools, and mobile Tools surfaces are sharp, contained, and placed above the blurred background scrim.
+
+The headless runner emitted its known SwiftShader WebGL-context warnings. The targeted DOM/CSS polish audit records and excludes only that exact environment warning; separate renderer/model evidence remains governing for WebGL behavior. Human art-direction approval remains outside this technical polish pass.
