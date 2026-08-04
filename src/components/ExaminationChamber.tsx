@@ -55,12 +55,12 @@ const cameraPositions: Record<CameraPreset, [number, number, number]> = {
   'three-quarter': [9.4, 7.2, 11.2],
 };
 
-function FitToSpecimen({ recordId, resetToken }: { recordId: string; resetToken: number }) {
+function FitToSpecimen({ recordId, resetToken, mode }: { recordId: string; resetToken: number; mode: CameraMode }) {
   const bounds = useBounds();
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => bounds.refresh().clip().fit());
     return () => window.cancelAnimationFrame(frame);
-  }, [bounds, recordId, resetToken]);
+  }, [bounds, mode, recordId, resetToken]);
   return null;
 }
 
@@ -78,6 +78,7 @@ function CameraController({
   const controls = useRef<any>(null);
 
   useEffect(() => {
+    if (commandToken === 0) return;
     const camera = mode === 'perspective' ? perspective.current : orthographic.current;
     if (!camera) return;
     const position = cameraPositions[preset];
@@ -395,7 +396,7 @@ export function ExaminationChamber(props: ChamberProps) {
         <StudioLighting accent={accentLightColor} qualityTier={props.qualityTier} />
         <ArchivalContainmentPlatform archetype={props.record.archetype} />
         <Suspense fallback={null}>
-          <Bounds fit clip observe margin={1.38}>
+          <Bounds fit clip observe margin={1.32}>
           <SpecimenModel
             key={props.record.id}
             record={props.record}
@@ -409,7 +410,7 @@ export function ExaminationChamber(props: ChamberProps) {
             selectedAnnotationId={props.selectedAnnotationId}
             onSelectAnnotation={props.onSelectAnnotation}
           />
-          <FitToSpecimen recordId={props.record.id} resetToken={props.resetCameraToken} />
+          <FitToSpecimen recordId={props.record.id} resetToken={props.resetCameraToken} mode={props.cameraMode} />
           </Bounds>
           <ContactShadows
             position={[0, -4.93, 0]}
