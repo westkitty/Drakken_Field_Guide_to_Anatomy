@@ -5,6 +5,7 @@ import './viewport-overrides.css';
 import './immersive-shell.css';
 import './polish.css';
 import './polish-mobile.css';
+import './polish-wave2.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
