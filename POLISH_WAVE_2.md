@@ -35,7 +35,7 @@ This second pass is additive. It does not repeat the first 40-item polish ledger
 29. Segmented record-tab navigator.
 30. Card surfaces for record content.
 31. Stronger annotation row and detail hierarchy.
-32. Sticky export footer.
+32. Clearly separated dossier export footer.
 33. Aligned diagnostics values.
 34. Status-toast lifetime indicator.
 35. Loading shimmer and error severity accent.
@@ -46,10 +46,10 @@ This second pass is additive. It does not repeat the first 40-item polish ledger
 
 ## Adversarial critique
 
-The initial wave passed the existing static, build, test, and browser gates on commit `5d394a2c26cdcf640dff864d222ac626c1364f9c`. It was then reviewed against the actual stylesheet cascade and narrow/mobile/accessibility conditions rather than accepted on those passes alone. The review found nine actionable problems:
+The initial wave passed the existing static, build, test, and browser gates on commit `5d394a2c26cdcf640dff864d222ac626c1364f9c`. It was then reviewed against the actual stylesheet cascade, narrow/mobile/accessibility conditions, and generated screenshots rather than accepted on those passes alone. The review found eleven actionable problems:
 
 1. **Blocker:** `polish-legibility.css` existed and contained the verified scrim/drawer stacking repair, but `main.tsx` did not load it at the current PR head. The repository narrative therefore outran the active cascade.
-2. **Major:** the new sticky export footer could cover the final annotation content because the record drawer did not reserve footer space.
+2. **Major:** the first sticky export footer could cover final annotation content because the record drawer did not reserve footer space.
 3. **Major:** active-state marker dots participated in inline layout and could change button width when toggled.
 4. **Major:** hover elevation was inappropriate on coarse pointers and the smallest close/search controls remained too small for direct touch.
 5. **Major:** sticky record tabs and a sticky export footer consumed too much vertical space on very narrow screens.
@@ -57,11 +57,13 @@ The initial wave passed the existing static, build, test, and browser gates on c
 7. **Major:** translucent surfaces and backdrop blur needed an opaque reduced-transparency path.
 8. **Moderate:** borders and muted copy remained too soft for users requesting increased contrast.
 9. **Major:** custom gradients, select arrows, pseudo-elements, and shadows needed a forced-colors fallback rather than fighting system colors.
+10. **Major, screenshot-discovered:** even with reserved space, the sticky export footer visibly covered the annotation-detail surface in the captured record drawer. The approach itself was wrong and had to be revised rather than padded further.
+11. **Major, screenshot-discovered:** the mobile Tools sheet clipped camera controls and the functional anatomy control at the right edge. Internal horizontal scrolling technically existed but did not produce a polished or discoverable result.
 
 ## Implemented adversarial repairs
 
 - **W2-A01** — Load the orphaned legibility layer.
-- **W2-A02** — Reserve record content space beneath the export footer.
+- **W2-A02** — Reserve content space beneath the initial sticky export footer.
 - **W2-A03** — Absolutely anchor active-state dots.
 - **W2-A04** — Remove hover lift and enlarge micro-controls on coarse pointers.
 - **W2-A05** — Release sticky record chrome below 520 px.
@@ -69,6 +71,8 @@ The initial wave passed the existing static, build, test, and browser gates on c
 - **W2-A07** — Provide opaque reduced-transparency surfaces.
 - **W2-A08** — Increase border and muted-text contrast when requested.
 - **W2-A09** — Restore native system presentation in forced-colors mode.
+- **W2-A10** — Replace the overlapping sticky export footer with an in-flow footer.
+- **W2-A11** — Wrap mobile tool groups and use a two-column anatomy layer grid.
 
 ## Validation contract
 
@@ -77,9 +81,11 @@ The permanent browser audit must prove:
 - the wave-two, repair, and legibility stylesheets are active;
 - the drawer content surface is opaque and has no backdrop blur;
 - the registry search focus surface has a visible emphasis treatment;
-- record tabs and the export footer have the intended desktop positioning;
-- the mobile tools sheet remains inside the viewport;
-- narrow/mobile record chrome releases sticky positioning;
+- record tabs retain their desktop navigation treatment;
+- the export footer remains in normal document flow and does not overlap the annotation detail;
+- the mobile Tools sheet remains inside the viewport;
+- mobile camera/render groups and the anatomy layer grid do not clip horizontally;
+- narrow/mobile record tabs release sticky positioning;
 - reduced-motion disables the new decorative transitions;
 - no actionable page or console error is introduced.
 
