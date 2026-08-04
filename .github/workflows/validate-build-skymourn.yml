@@ -89,15 +89,15 @@ jobs:
           PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache \
           DRAKKEN_AUDIT_URL=http://127.0.0.1:4173 \
           DRAKKEN_AUDIT_OUTPUT=${GITHUB_WORKSPACE}/polish-browser-audit-output \
+          node wave4-audit.mjs
+          PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache \
+          DRAKKEN_AUDIT_URL=http://127.0.0.1:4173 \
+          DRAKKEN_AUDIT_OUTPUT=${GITHUB_WORKSPACE}/polish-browser-audit-output \
           node audit.mjs
           PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache \
           DRAKKEN_AUDIT_URL=http://127.0.0.1:4173 \
           DRAKKEN_AUDIT_OUTPUT=${GITHUB_WORKSPACE}/polish-browser-audit-output \
           node wave3-audit.mjs
-          PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache \
-          DRAKKEN_AUDIT_URL=http://127.0.0.1:4173 \
-          DRAKKEN_AUDIT_OUTPUT=${GITHUB_WORKSPACE}/polish-browser-audit-output \
-          node wave4-audit.mjs
 
       - name: Upload polish evidence
         if: always()
