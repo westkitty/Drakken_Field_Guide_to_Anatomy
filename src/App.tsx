@@ -66,7 +66,6 @@ export default function App() {
   const [pendingSpecimenId, setPendingSpecimenId] = useState<string | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
   const loadGate = useRef({ requestId: 0, activeId: 'skymourn' });
-  const briefingTriggerRef = useRef<HTMLButtonElement>(null);
   const briefingCloseRef = useRef<HTMLButtonElement>(null);
   const orientationPreviousFocus = useRef<HTMLElement | null>(null);
   const activeRecord = findSpecimen(activeSpecimenId);
@@ -105,6 +104,7 @@ export default function App() {
   const [diagnosticsOpen, setDiagnosticsOpen] = useState(false);
   const [registryOpen, setRegistryOpen] = useState(false);
   const [recordOpen, setRecordOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
   const [orientationOpen, setOrientationOpen] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [diagnostics, setDiagnostics] = useState<DiagnosticsSnapshot>({
@@ -193,6 +193,7 @@ export default function App() {
         setSelectedAnnotationIds(record.annotations[0] ? [record.annotations[0].id] : []);
         setPendingSpecimenId(null);
         setRegistryOpen(false);
+        setToolsOpen(false);
       } catch (error) {
         setLoadError(error instanceof Error ? error.message : 'Specimen failed to load.');
         setPendingSpecimenId(null);
@@ -235,6 +236,7 @@ export default function App() {
         setMeasurementMode(false);
         setRegistryOpen(false);
         setRecordOpen(false);
+        setToolsOpen(false);
         setDiagnosticsOpen(false);
         setOrientationOpen(false);
         return;
@@ -270,24 +272,18 @@ export default function App() {
   return (
     <div className={`archive-app ${reducedMotion ? 'reduced-motion' : ''}`}>
       <a className="skip-link" href="#examination-chamber">Skip to examination chamber</a>
-      <header className="archive-header">
-        <div>
-          <p className="eyebrow">Zentrum Vault 9 / Recovered intelligence interface</p>
-          <h1>Drakken Field Anatomy Archive</h1>
+      
+      <nav className="global-hud" aria-label="Global controls">
+        <button type="button" className="hud-brand" onClick={() => setOrientationOpen(true)}>
+          <strong>Drakken Archive</strong>
+        </button>
+        <div className="hud-toggles">
+          <button type="button" aria-pressed={registryOpen} onClick={() => { setRegistryOpen((v) => !v); setRecordOpen(false); setToolsOpen(false); }}>Registry</button>
+          <button type="button" aria-pressed={toolsOpen} onClick={() => { setToolsOpen((v) => !v); setRegistryOpen(false); setRecordOpen(false); }}>Tools</button>
+          <button type="button" aria-pressed={recordOpen} onClick={() => { setRecordOpen((v) => !v); setRegistryOpen(false); setToolsOpen(false); }}>Record</button>
+          <button type="button" aria-pressed={diagnosticsOpen} onClick={() => setDiagnosticsOpen((v) => !v)}>Diag</button>
         </div>
-        <div className="header-status">
-          <button ref={briefingTriggerRef} type="button" onClick={() => setOrientationOpen(true)}>Briefing</button>
-          <span>{specimens.length} records</span>
-          <span>Normalized reconstruction geometry</span>
-          <EvidenceBadge state={activeRecord.evidenceStatus} />
-        </div>
-      </header>
-
-      <div className="mobile-toolbar">
-        <button type="button" onClick={() => setRegistryOpen(true)}>Registry</button>
-        <button type="button" onClick={() => setRecordOpen(true)}>Record</button>
-        <button type="button" onClick={() => setDiagnosticsOpen((value) => !value)}>Diagnostics</button>
-      </div>
+      </nav>
 
       <main className="archive-layout">
         <aside className={`registry-panel ${registryOpen ? 'is-open' : ''}`} aria-label="Specimen registry">
@@ -374,33 +370,6 @@ export default function App() {
             </div>
           </div>
 
-          <div className="primary-tools" aria-label="Primary chamber tools">
-            <div className="tool-cluster">
-              <span>Camera</span>
-              <ToggleButton active={cameraMode === 'perspective'} onClick={() => setCameraMode('perspective')}>Perspective</ToggleButton>
-              <ToggleButton active={cameraMode === 'orthographic'} onClick={() => setCameraMode('orthographic')}>Orthographic</ToggleButton>
-              {cameraPresets.map((preset) => (
-                <button
-                  type="button"
-                  key={preset}
-                  className={cameraPreset === preset ? 'is-active' : ''}
-                  onClick={() => {
-                    setCameraPreset(preset);
-                    setCameraCommandToken((value) => value + 1);
-                  }}
-                >
-                  {preset}
-                </button>
-              ))}
-            </div>
-            <div className="tool-cluster">
-              <span>Render</span>
-              <ToggleButton active={silhouette} onClick={() => setSilhouette((value) => !value)}>Silhouette</ToggleButton>
-              <ToggleButton active={wireframe} onClick={() => setWireframe((value) => !value)}>Wireframe</ToggleButton>
-              <ToggleButton active={qualityTier === 'reduced'} onClick={() => setQualityTier((value) => value === 'standard' ? 'reduced' : 'standard')}>Reduced quality</ToggleButton>
-            </div>
-          </div>
-
           <div className="chamber-frame">
             <ExaminationChamber
               record={activeRecord}
@@ -427,7 +396,44 @@ export default function App() {
             {loadError && <div className="error-overlay" role="alert">{loadError}</div>}
           </div>
 
-          <div className="secondary-tools">
+          <aside className={`tools-panel ${toolsOpen ? 'is-open' : ''}`} aria-label="Examination tools">
+            <div className="panel-heading">
+              <div>
+                <p className="eyebrow">Controls</p>
+                <h2>Examination Tools</h2>
+              </div>
+              <button className="mobile-close" type="button" onClick={() => setToolsOpen(false)} aria-label="Close tools">X</button>
+            </div>
+            
+            <div className="tools-content">
+              <div className="primary-tools" aria-label="Primary chamber tools">
+                <div className="tool-cluster">
+                  <span>Camera</span>
+                  <ToggleButton active={cameraMode === 'perspective'} onClick={() => setCameraMode('perspective')}>Perspective</ToggleButton>
+                  <ToggleButton active={cameraMode === 'orthographic'} onClick={() => setCameraMode('orthographic')}>Orthographic</ToggleButton>
+                  {cameraPresets.map((preset) => (
+                    <button
+                      type="button"
+                      key={preset}
+                      className={cameraPreset === preset ? 'is-active' : ''}
+                      onClick={() => {
+                        setCameraPreset(preset);
+                        setCameraCommandToken((value) => value + 1);
+                      }}
+                    >
+                      {preset}
+                    </button>
+                  ))}
+                </div>
+                <div className="tool-cluster">
+                  <span>Render</span>
+                  <ToggleButton active={silhouette} onClick={() => setSilhouette((value) => !value)}>Silhouette</ToggleButton>
+                  <ToggleButton active={wireframe} onClick={() => setWireframe((value) => !value)}>Wireframe</ToggleButton>
+                  <ToggleButton active={qualityTier === 'reduced'} onClick={() => setQualityTier((value) => value === 'standard' ? 'reduced' : 'standard')}>Reduced quality</ToggleButton>
+                </div>
+              </div>
+
+              <div className="secondary-tools">
             <section className="tool-panel" aria-labelledby="layers-heading">
               <div className="tool-panel-heading">
                 <h3 id="layers-heading">Anatomy layers</h3>
@@ -532,6 +538,8 @@ export default function App() {
               </p>
             </section>
           </div>
+          </div>
+        </aside>
         </section>
 
         <aside className={`record-panel ${recordOpen ? 'is-open' : ''}`} aria-label="Specimen record">
