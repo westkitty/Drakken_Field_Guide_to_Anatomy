@@ -32,3 +32,14 @@ export const POLISH_WAVE_3_IMPROVEMENTS = [
   { id: 'W3-31', title: 'Protect ultra-narrow mobile controls from horizontal clipping' },
   { id: 'W3-32', title: 'Reduce decorative surface cost when the device requests reduced data' },
 ] as const;
+
+export const POLISH_WAVE_3_REPAIRS = [
+  { id: 'W3-A01', title: 'Hide every edge handle while a modal drawer or briefing is open' },
+  { id: 'W3-A02', title: 'Remove the generic active-state dot from selected record tabs' },
+  { id: 'W3-A03', title: 'Disable distracting automatic hyphenation in dossier copy' },
+  { id: 'W3-A04', title: 'Prevent doubled focus rings on component-owned input treatments' },
+  { id: 'W3-A05', title: 'Remove permanent record-tab masking when labels fit normally' },
+  { id: 'W3-A06', title: 'Stack mobile record terms and values for readable scanning' },
+  { id: 'W3-A07', title: 'Remove orientation numbering when it steals ultra-narrow copy width' },
+  { id: 'W3-A08', title: 'Preserve explicit focus outlines in high-contrast system modes' },
+] as const;
