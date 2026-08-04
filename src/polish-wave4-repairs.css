@@ -5,6 +5,7 @@
   top: -5rem;
   right: auto;
   bottom: auto;
+  transition: none;
 }
 
 .skip-link:focus,
