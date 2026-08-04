@@ -93,9 +93,17 @@ jobs:
           cp scripts/polish-wave4-browser-audit.mjs /tmp/drakken-polish-audit/wave4-audit.mjs
           cp scripts/interactive-html-parity-v2.mjs /tmp/drakken-polish-audit/interactive-html-audit.mjs
           cp scripts/interactive-html-physical-input-v2.mjs /tmp/drakken-polish-audit/physical-input-audit.mjs
+          cp scripts/interactive-html-drawer-probe.mjs /tmp/drakken-polish-audit/drawer-probe.mjs
           cd /tmp/drakken-polish-audit
           npm init -y >/dev/null
           PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache npm install puppeteer@24.16.0 --no-save --no-package-lock
+
+      - name: Probe physical drawer activation
+        run: |
+          cd /tmp/drakken-polish-audit
+          PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache \
+          DRAKKEN_INTERACTIVE_HTML=dist-interactive-html/Drakken_Field_Guide_Interactive.html \
+          node drawer-probe.mjs
 
       - name: Audit physical local HTML interaction
         run: |
@@ -128,7 +136,7 @@ jobs:
           DRAKKEN_AUDIT_URL=http://127.0.0.1:4173 \
           DRAKKEN_AUDIT_OUTPUT=${GITHUB_WORKSPACE}/polish-browser-audit-output \
           node wave4-audit.mjs
-          PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache \
+          PUPETEER_CACHE_DIR=/tmp/puppeteer-cache \
           DRAKKEN_AUDIT_URL=http://127.0.0.1:4173 \
           DRAKKEN_AUDIT_OUTPUT=${GITHUB_WORKSPACE}/polish-browser-audit-output \
           node audit.mjs
