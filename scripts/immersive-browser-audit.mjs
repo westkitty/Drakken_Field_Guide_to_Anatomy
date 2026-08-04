@@ -4,6 +4,8 @@ import puppeteer from 'puppeteer';
 
 const baseUrl = process.env.DRAKKEN_AUDIT_URL ?? 'http://127.0.0.1:4173';
 const outputRoot = process.env.DRAKKEN_AUDIT_OUTPUT ?? path.resolve('browser-audit-output');
+const startIndex = Number(process.env.DRAKKEN_AUDIT_START ?? 0);
+const count = Number(process.env.DRAKKEN_AUDIT_COUNT ?? 10);
 const screenshots = path.join(outputRoot, 'screenshots');
 fs.mkdirSync(screenshots, { recursive: true });
 
@@ -11,31 +13,26 @@ const browser = await puppeteer.launch({
   headless: true,
   args: ['--no-sandbox', '--disable-setuid-sandbox', '--enable-precise-memory-info'],
 });
-
 const page = await browser.newPage();
+page.setDefaultTimeout(15_000);
 const consoleErrors = [];
 const pageErrors = [];
 page.on('console', (message) => {
   if (message.type() === 'error') consoleErrors.push(message.text());
 });
 page.on('pageerror', (error) => pageErrors.push(error.message));
-
 const delay = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
-const click = async (selector) => {
-  const element = await page.waitForSelector(selector, { visible: true, timeout: 10_000 });
-  if (!element) throw new Error(`Missing visible control: ${selector}`);
-  await element.click();
-};
 
 await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 1 });
 await page.goto(baseUrl, { waitUntil: 'domcontentloaded', timeout: 30_000 });
 await page.waitForSelector('canvas', { visible: true, timeout: 30_000 });
-await delay(500);
+await delay(400);
 
 const restState = await page.evaluate(() => {
   const title = document.querySelector('.specimen-titlebar');
   const panels = [...document.querySelectorAll('.registry-panel, .record-panel, .tools-panel')];
   const handles = [...document.querySelectorAll('.global-hud button')];
+  const canvas = document.querySelector('canvas')?.getBoundingClientRect();
   return {
     titleDisplay: title ? getComputedStyle(title).display : 'missing',
     openPanels: panels.filter((panel) => panel.classList.contains('is-open')).length,
@@ -43,29 +40,26 @@ const restState = await page.evaluate(() => {
       const rect = handle.getBoundingClientRect();
       return { width: rect.width, height: rect.height, opacity: Number(getComputedStyle(handle).opacity) };
     }),
-    canvas: (() => {
-      const canvas = document.querySelector('canvas');
-      const rect = canvas?.getBoundingClientRect();
-      return rect ? { width: rect.width, height: rect.height } : null;
-    })(),
+    canvas: canvas ? { width: canvas.width, height: canvas.height } : null,
   };
 });
-
 if (restState.titleDisplay !== 'none') throw new Error(`Specimen title remains visible at rest: ${restState.titleDisplay}`);
 if (restState.openPanels !== 0) throw new Error(`Expected no open drawers at rest, found ${restState.openPanels}.`);
 if (restState.handleBoxes.length !== 5) throw new Error(`Expected five deliberate handles, found ${restState.handleBoxes.length}.`);
-if (restState.handleBoxes.some((box) => box.width > 34 || box.height > 34)) throw new Error(`One or more reveal handles exceed 34px: ${JSON.stringify(restState.handleBoxes)}`);
-if (!restState.canvas || restState.canvas.width < 1350 || restState.canvas.height < 820) throw new Error(`Canvas does not dominate 1440x900 viewport: ${JSON.stringify(restState.canvas)}`);
+if (restState.handleBoxes.some((box) => box.width > 34 || box.height > 34)) throw new Error(`Reveal handle exceeds 34px: ${JSON.stringify(restState.handleBoxes)}`);
+if (!restState.canvas || restState.canvas.width < 1350 || restState.canvas.height < 820) throw new Error(`Canvas does not dominate 1440x900: ${JSON.stringify(restState.canvas)}`);
 
-await page.screenshot({ path: path.join(screenshots, 'viewport-1440x900.png'), fullPage: false });
-await page.setViewport({ width: 1280, height: 800, deviceScaleFactor: 1 });
-await delay(250);
-await page.screenshot({ path: path.join(screenshots, 'viewport-1280x800.png'), fullPage: false });
-await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
-await delay(250);
-await page.screenshot({ path: path.join(screenshots, 'viewport-390x844.png'), fullPage: false });
-await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 1 });
-await delay(250);
+if (startIndex === 0) {
+  await page.screenshot({ path: path.join(screenshots, 'viewport-1440x900.png') });
+  await page.setViewport({ width: 1280, height: 800, deviceScaleFactor: 1 });
+  await delay(150);
+  await page.screenshot({ path: path.join(screenshots, 'viewport-1280x800.png') });
+  await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
+  await delay(150);
+  await page.screenshot({ path: path.join(screenshots, 'viewport-390x844.png') });
+  await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 1 });
+  await delay(150);
+}
 
 await page.keyboard.press('g');
 await page.waitForSelector('.registry-panel.is-open', { visible: true });
@@ -75,32 +69,40 @@ const records = await page.$$eval('.registry-panel .specimen-card', (cards) => c
 })));
 if (records.length !== 59) throw new Error(`Expected 59 registry cards, found ${records.length}.`);
 await page.keyboard.press('Escape');
-await delay(100);
 
-const samples = new Set([0, 9, 19, 29, 39, 49, 58]);
+// Use reduced renderer quality for exhaustive software-rendered CI without changing application defaults.
+await page.keyboard.press('t');
+await page.waitForSelector('.tools-panel.is-open', { visible: true });
+await page.$$eval('.tools-panel button', (buttons) => {
+  const reduced = buttons.find((button) => button.textContent?.includes('Reduced quality'));
+  if (reduced?.getAttribute('aria-pressed') !== 'true') reduced?.click();
+});
+await page.keyboard.press('Escape');
+await delay(120);
+
+const endIndex = Math.min(records.length, startIndex + count);
 const results = [];
 const startHeap = await page.evaluate(() => performance.memory?.usedJSHeapSize ?? null);
 
-for (let index = 0; index < records.length; index += 1) {
+for (let index = startIndex; index < endIndex; index += 1) {
+  const record = records[index];
+  console.log(`Auditing ${index + 1}/59 ${record.designation}`);
   await page.keyboard.press('g');
   await page.waitForSelector('.registry-panel.is-open', { visible: true });
-  const cards = await page.$$('.registry-panel .specimen-card');
-  if (!cards[index]) throw new Error(`Registry card ${index} disappeared.`);
-  await cards[index].click();
-  await delay(260);
+  await page.$$eval('.registry-panel .specimen-card', (cards, targetIndex) => cards[targetIndex]?.click(), index);
+  await page.waitForFunction(
+    (designation) => document.querySelector('.specimen-titlebar h2')?.textContent?.trim() === designation && !document.querySelector('.loading-overlay'),
+    { timeout: 15_000 },
+    record.designation,
+  );
+  await delay(100);
 
-  const state = await page.evaluate(() => ({
+  const mounted = await page.evaluate(() => ({
     error: document.querySelector('.error-overlay')?.textContent?.trim() ?? null,
-    activeName: document.querySelector('.specimen-titlebar h2')?.textContent?.trim() ?? null,
-    canvasVisible: (() => {
-      const canvas = document.querySelector('canvas');
-      if (!canvas) return false;
-      const rect = canvas.getBoundingClientRect();
-      return rect.width > 0 && rect.height > 0;
-    })(),
+    canvasCount: document.querySelectorAll('canvas').length,
   }));
-  if (state.error) throw new Error(`${records[index].designation} reported: ${state.error}`);
-  if (!state.canvasVisible) throw new Error(`${records[index].designation} lost the WebGL canvas.`);
+  if (mounted.error) throw new Error(`${record.designation} reported: ${mounted.error}`);
+  if (mounted.canvasCount !== 1) throw new Error(`${record.designation} has ${mounted.canvasCount} canvases.`);
 
   await page.keyboard.press('t');
   await page.waitForSelector('.tools-panel.is-open', { visible: true });
@@ -110,17 +112,15 @@ for (let index = 0; index < records.length; index += 1) {
     }
     return buttons.length;
   });
-  if (layerCount !== 4) throw new Error(`${records[index].designation} exposed ${layerCount} anatomy layer controls.`);
-  await delay(80);
+  if (layerCount !== 4) throw new Error(`${record.designation} exposed ${layerCount} layer controls.`);
+  await delay(120);
   await page.keyboard.press('Escape');
-  await delay(80);
 
-  if (samples.has(index)) {
-    const safeName = records[index].designation.replaceAll(/[^a-z0-9]+/gi, '-').replaceAll(/^-|-$/g, '').toLowerCase();
-    await page.screenshot({ path: path.join(screenshots, `${String(index + 1).padStart(2, '0')}-${safeName}.png`), fullPage: false });
+  if (index === startIndex || index === endIndex - 1) {
+    const safeName = record.designation.replaceAll(/[^a-z0-9]+/gi, '-').replaceAll(/^-|-$/g, '').toLowerCase();
+    await page.screenshot({ path: path.join(screenshots, `${String(index + 1).padStart(2, '0')}-${safeName}.png`) });
   }
-
-  results.push({ index: index + 1, ...records[index], mounted: true, layersEnabled: true });
+  results.push({ index: index + 1, ...record, mounted: true, fourLayersEnabled: true });
 }
 
 const endHeap = await page.evaluate(() => performance.memory?.usedJSHeapSize ?? null);
@@ -128,19 +128,18 @@ const finalState = await page.evaluate(() => ({
   openPanels: [...document.querySelectorAll('.registry-panel, .record-panel, .tools-panel')].filter((panel) => panel.classList.contains('is-open')).length,
   canvasCount: document.querySelectorAll('canvas').length,
 }));
-
 await browser.close();
 
 const ignoredConsolePatterns = [/THREE\.WebGLRenderer/i, /DevTools/i];
 const actionableConsoleErrors = consoleErrors.filter((message) => !ignoredConsolePatterns.some((pattern) => pattern.test(message)));
-if (pageErrors.length > 0 || actionableConsoleErrors.length > 0) {
-  throw new Error(`Browser errors detected. Page errors: ${JSON.stringify(pageErrors)} Console errors: ${JSON.stringify(actionableConsoleErrors)}`);
-}
-if (finalState.openPanels !== 0) throw new Error(`A drawer remained open after the sweep.`);
+if (pageErrors.length > 0 || actionableConsoleErrors.length > 0) throw new Error(`Browser errors: ${JSON.stringify({ pageErrors, actionableConsoleErrors })}`);
+if (finalState.openPanels !== 0) throw new Error('A drawer remained open after the shard.');
 if (finalState.canvasCount !== 1) throw new Error(`Expected one WebGL canvas, found ${finalState.canvasCount}.`);
 
 const report = {
   baseUrl,
+  startIndex,
+  endIndex,
   recordsTested: results.length,
   restState,
   startHeap,
@@ -152,19 +151,18 @@ const report = {
 };
 fs.writeFileSync(path.join(outputRoot, 'browser-audit-report.json'), JSON.stringify(report, null, 2));
 fs.writeFileSync(path.join(outputRoot, 'browser-audit-report.md'), [
-  '# Drakken Immersive Browser Audit',
+  '# Drakken Immersive Browser Audit Shard',
   '',
-  `- Records mounted: ${results.length}/59`,
+  `- Registry range: ${startIndex + 1}-${endIndex} of 59`,
+  `- Records mounted with all four layers: ${results.length}`,
   `- Closed-at-rest title: ${restState.titleDisplay === 'none' ? 'PASS' : 'FAIL'}`,
   `- Closed-at-rest drawers: ${restState.openPanels === 0 ? 'PASS' : 'FAIL'}`,
-  `- Reveal handle size: ${restState.handleBoxes.every((box) => box.width <= 34 && box.height <= 34) ? 'PASS' : 'FAIL'}`,
-  `- Canvas at 1440x900: ${restState.canvas?.width ?? 0} x ${restState.canvas?.height ?? 0}`,
+  `- Reveal handles <=34px: ${restState.handleBoxes.every((box) => box.width <= 34 && box.height <= 34) ? 'PASS' : 'FAIL'}`,
   `- Browser page errors: ${pageErrors.length}`,
   `- Browser console errors: ${actionableConsoleErrors.length}`,
   `- Heap growth: ${report.heapGrowth ?? 'unavailable'} bytes`,
   '',
-  'Automated mounting and layout checks are not human canon or art-direction approval.',
+  'Automated mount/layer checks are not human canon or art-direction approval.',
   '',
 ].join('\n'));
-
-console.log(`Browser audit passed for ${results.length} records.`);
+console.log(`Browser audit shard passed for records ${startIndex + 1}-${endIndex}.`);
