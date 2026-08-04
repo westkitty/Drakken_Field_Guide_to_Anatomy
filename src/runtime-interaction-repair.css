@@ -15,7 +15,17 @@
   pointer-events: auto;
 }
 
-.chamber-canvas > div,
+/* The R3F wrapper may fill the viewport, but it must not become the pointer target. */
+.chamber-canvas > div {
+  position: absolute !important;
+  inset: 0;
+  display: block;
+  pointer-events: none !important;
+  touch-action: none !important;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
 .chamber-canvas canvas,
 .examination-webgl-canvas,
 .examination-webgl-canvas canvas {
