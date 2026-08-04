@@ -1,6 +1,13 @@
 /* Adversarial repairs for product polish wave 2. */
 .record-panel {
-  padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  padding-bottom: calc(1.1rem + env(safe-area-inset-bottom));
+}
+
+/* A visually separated footer is clearer than a floating footer that covers dossier content. */
+.export-row {
+  position: relative;
+  bottom: auto;
+  margin-bottom: calc(-1.1rem - env(safe-area-inset-bottom));
 }
 
 .toggle-button.is-active,
@@ -32,20 +39,44 @@ button.is-active::after {
   }
 }
 
+@media (max-width: 720px) {
+  .tools-panel .primary-tools {
+    overflow-x: visible;
+  }
+
+  .tools-panel .tool-cluster {
+    width: 100%;
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+
+  .tools-panel .secondary-tools {
+    overflow-x: hidden;
+  }
+
+  .tools-panel .tool-panel {
+    min-width: 0;
+  }
+
+  .tools-panel .layer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tools-panel .layer-grid .toggle-button {
+    min-width: 0;
+  }
+
+  .tools-panel .layer-grid strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
 @media (max-width: 520px) {
   .record-tabs {
     position: relative;
     top: auto;
-  }
-
-  .export-row {
-    position: relative;
-    bottom: auto;
-    margin-bottom: calc(-1.1rem - env(safe-area-inset-bottom));
-  }
-
-  .record-panel {
-    padding-bottom: calc(1.1rem + env(safe-area-inset-bottom));
   }
 
   .diagnostics-panel dl > div {
