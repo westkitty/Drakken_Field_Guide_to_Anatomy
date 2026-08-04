@@ -7,12 +7,12 @@
   "project_name": "Drakken Field Anatomy Archive",
   "project_root": ".",
   "artifact_path": "",
-  "state_revision": 27,
-  "last_updated": "2026-08-04T02:36:00-04:00",
+  "state_revision": 28,
+  "last_updated": "2026-08-04T02:50:00-04:00",
   "current_baseline": {
-    "identity": "repair/immersive-ui-model-quality-20260803, PR #4; exact application, repair, tests, audits, ledgers, and state through 2c9c879445ed814ec1a9c7c67ea2df4e6818b9e8; plus this pointer-only reconciliation",
+    "identity": "repair/immersive-ui-model-quality-20260803, PR #4; application, model, polish, interactive HTML delivery, tests, audits, and documentation through 5c1c62e8317ec0c73cc4e23873c4a49951cc4dd6; plus this state revision",
     "state": "technically-verified-human-review-pending",
-    "last_verified": "GitHub Actions run 30884250123 passed strict static audit, typecheck, zero-warning lint, tests, production build, the established desktop/mobile audit, the dedicated wave-three audit, and the dedicated wave-four audit on exact head 2c9c879445ed814ec1a9c7c67ea2df4e6818b9e8"
+    "last_verified": "GitHub Actions run 30886808883 passed strict static audit, typecheck, zero-warning lint, tests, production build, self-contained HTML build/static validation, direct-file feature parity, and all established desktop/mobile polish audits on head 5c1c62e8317ec0c73cc4e23873c4a49951cc4dd6"
   },
   "scope_boundaries": [
     "Single browser archive at repository root",
@@ -20,7 +20,8 @@
     "Canon governed by docs/drakken_compendium_full_blood_eclipse_visual_integrated.md and src/data/specimens.json",
     "No fabricated, duplicate, or wrapped records",
     "No backend, authentication, database, deployment, framework migration, or remote runtime asset work",
-    "Automated source, browser, and screenshot evidence does not equal human art-direction, physical-device, or canon approval"
+    "The engageable HTML delivery must preserve the complete protected product path rather than substitute a static or reduced-function artifact",
+    "Automated source, browser, screenshot, and direct-file evidence does not equal human art-direction, physical-device, or canon approval"
   ],
   "linked_parent_state": null
 }
@@ -32,14 +33,15 @@ The Drakken Field Anatomy Archive is a React Three Fiber forensic compendium for
 
 ## 2. Current Baseline
 
-PR #4 now contains six bounded bodies of work:
+PR #4 now contains seven bounded bodies of work:
 
 1. a hidden-at-rest model-first interface;
 2. two explicit canon-backed additions for every one of the 59 records;
 3. the first verified product-polish pass: 40 improvements plus 11 adversarial repairs;
 4. the second verified product-polish pass: 39 new improvements plus 11 adversarial and screenshot-driven repairs;
 5. the third verified product-polish pass: 32 new improvements plus 8 adversarial and screenshot-driven repairs;
-6. the fourth verified product-polish pass: 60 new improvements plus 10 adversarial, measured, and screenshot-driven repairs.
+6. the fourth verified product-polish pass: 60 new improvements plus 10 adversarial, measured, and screenshot-driven repairs;
+7. a verified self-contained interactive HTML delivery preserving the complete protected product path.
 
 ### Model-first interface
 
@@ -156,6 +158,20 @@ Wave 4 adversarial and screenshot review produced 10 repairs:
 - activate the intended ultra-narrow annotation action grid;
 - permit export actions to shrink without widening the drawer.
 
+### Self-contained interactive HTML delivery
+
+The durable delivery contract is `INTERACTIVE_HTML_DELIVERY.md`.
+
+- `npm run build:html` builds a production bundle and packages it into one HTML file;
+- `npm run validate:html` rejects unresolved or external runtime dependencies;
+- output path: `dist-interactive-html/Drakken_Field_Guide_Interactive.html`;
+- JavaScript, CSS, and referenced local build assets are inlined;
+- the file opens directly through `file://` without Vite, `node_modules`, or a network connection;
+- CI uploads the file as the `drakken-interactive-html` artifact;
+- `scripts/interactive-html-parity-v2.mjs` verifies the complete protected product path on the actual generated file;
+- desktop and mobile parity are tested on isolated pages so one viewport or WebGL state cannot contaminate the other;
+- no application feature was intentionally removed, replaced by screenshots, or reduced to a static demonstration.
+
 ## 3. Active Invariants
 
 ### INV-001 — Closed registry
@@ -232,18 +248,31 @@ Wave 4 adversarial and screenshot review produced 10 repairs:
 - Coarse-pointer close controls must remain at least 44 × 44 pixels after the complete cascade.
 - Status feedback must retain lower-right safe-area clearance in hidden and visible states.
 
+### INV-013 — Feature-complete engageable HTML delivery
+
+- The downloadable HTML must contain the actual application, not screenshots, a report, or a reduced-function viewer.
+- It must preserve all 59 records, the live R3F canvas, record switching, camera modes and presets, rendering controls, all four anatomy layers, clipping, animation, measurement, scale, annotations, dossier tabs, exports, diagnostics, briefing, keyboard controls, and responsive containment.
+- It must open directly from the local filesystem without a development server.
+- It must make zero remote runtime requests after download.
+- A delivery that loses or simulates any protected feature is failed even when its HTML, screenshot, or build output looks correct.
+
 ## 4. Verified Evidence
 
-### Source and build
+### Source, production build, and HTML package
 
-GitHub Actions run `30884250123` passed on exact head `2c9c879445ed814ec1a9c7c67ea2df4e6818b9e8`:
+GitHub Actions run `30886808883` passed on head `5c1c62e8317ec0c73cc4e23873c4a49951cc4dd6`:
 
 - locked dependency installation;
 - strict static audit;
 - TypeScript;
 - ESLint with zero warnings;
 - Vitest, including exact 59-record enhancement coverage and all four polish contracts: 40/11, 39/11, 32/8, and 60/10;
-- production build.
+- standard production build;
+- single-file interactive HTML production build;
+- static HTML validation;
+- artifact upload.
+
+The generated HTML was approximately 1.77 MB and contained one inline application script and one inline stylesheet, with no external script source, stylesheet link, module preload, unresolved Vite asset path, source-map dependency, or remote runtime URL.
 
 Previously verified source contracts remain intact:
 
@@ -254,9 +283,33 @@ Previously verified source contracts remain intact:
 - no remote application runtime references;
 - complete asset, provenance, and license ledgers.
 
+### Direct-file feature-parity audit
+
+Run `30886808883` passed `scripts/interactive-html-parity-v2.mjs` against the generated artifact opened directly through a local `file://` URL.
+
+It verified:
+
+- one live React Three Fiber canvas;
+- orbit and zoom input;
+- all 59 records and first/last record switching while retaining one canvas;
+- G/T/I/D, Escape, Space, and R shortcuts;
+- perspective and orthographic cameras plus presets and reset;
+- silhouette, wireframe, and standard/reduced quality controls;
+- all four anatomy layers and presets;
+- section enablement, axis, inversion, and plane position;
+- animation selection, play/pause, restart, loop, and speed;
+- measurement mode and scale references;
+- reset-all behavior;
+- all five dossier tabs and annotation controls;
+- Markdown and JSON exports created from the direct-file application;
+- Diagnostics and Examiner Orientation Briefing;
+- fresh-page 390 × 844 mobile drawer containment;
+- zero remote runtime requests;
+- zero actionable browser errors.
+
 ### Established product-polish browser audit
 
-Run `30884250123` passed the permanent established browser audit at desktop and mobile sizes. It reverified:
+Run `30886808883` passed the permanent established browser audit at desktop and mobile sizes. It reverified:
 
 - closed-at-rest presentation and five compact reveal handles;
 - active loading of the governing polish layers;
@@ -277,7 +330,7 @@ Run `30884250123` passed the permanent established browser audit at desktop and 
 
 ### Dedicated wave-three browser audit
 
-Run `30884250123` passed `scripts/polish-wave3-browser-audit.mjs`, re-verifying:
+Run `30886808883` passed `scripts/polish-wave3-browser-audit.mjs`, re-verifying:
 
 - `polish-wave3.css` and `polish-wave3-repairs.css` active in the live cascade;
 - dark native-control color scheme and refined keycap treatment;
@@ -292,7 +345,7 @@ Run `30884250123` passed `scripts/polish-wave3-browser-audit.mjs`, re-verifying:
 
 ### Dedicated wave-four browser audit
 
-Run `30884250123` passed `scripts/polish-wave4-browser-audit.mjs`. It verified:
+Run `30886808883` passed `scripts/polish-wave4-browser-audit.mjs`. It verified:
 
 - `polish-wave4.css` and `polish-wave4-repairs.css` active in the live cascade;
 - skip link off-screen at rest and immediately visible on keyboard focus;
@@ -305,7 +358,7 @@ Run `30884250123` passed `scripts/polish-wave4-browser-audit.mjs`. It verified:
 - ultra-narrow annotation action grid active;
 - zero actionable page or console errors.
 
-The browser jobs record only their exact known SwiftShader `THREE.WebGLRenderer: Error creating WebGL context.` environment warning. That warning is excluded only from the DOM/CSS gates and does not replace separate renderer/model evidence.
+The browser jobs record only their exact known SwiftShader `THREE.WebGLRenderer: Error creating WebGL context.` environment warning where encountered. That warning is excluded only from DOM/CSS gates and does not replace separate renderer/model or direct-file evidence.
 
 ### Visual screenshot review
 
@@ -333,6 +386,7 @@ The following remain outside automated approval:
 - animation quality and functional readability for every record;
 - physical-device touch and screen-reader behavior;
 - manual reduced-data, reduced-transparency, increased-contrast, forced-colors, and safe-area review;
+- direct opening and prolonged use of the downloadable HTML on Andrew's actual MacBook and preferred browser;
 - sub-360-pixel physical-device review;
 - long-session thermal and GPU behavior.
 
@@ -358,6 +412,10 @@ Reduced motion is automated. Reduced data, reduced transparency, increased contr
 
 The application intentionally loads several additive polish stylesheets. Their order is covered by browser assertions, but future consolidation must preserve visual behavior and may not occur as an unaudited cleanup.
 
+### RISK-006 — Complete single-file payload size
+
+The engageable HTML is approximately 1.77 MB because it contains React, Three.js, the complete archive data, all 59 procedural routes, and the application styles. Size optimization may not remove protected functionality. Any future reduction requires measured startup/performance evidence and the complete direct-file parity gate.
+
 ## 7. Pending Work
 
 ### PND-001 — Human 59-record art-direction review
@@ -366,15 +424,15 @@ Review every record in the running application and mark it accepted, moderate-re
 
 ### PND-002 — Physical-device interaction review
 
-Verify pointer, keyboard, touch, screen-reader output, drawer focus, clipping, measurement, exports, responsive behavior, and accessibility preference modes on target devices.
+Verify pointer, keyboard, touch, screen-reader output, drawer focus, clipping, measurement, exports, responsive behavior, and accessibility preference modes on target devices, including the downloaded HTML on Andrew's MacBook.
 
 ### PND-003 — Performance profile
 
-Measure first load, record switching, memory stabilization, GPU load, and thermals on the MacBook. Compare any code-splitting candidate against the measured baseline.
+Measure first load, record switching, memory stabilization, GPU load, and thermals on the MacBook for both the development build and downloaded HTML. Compare any code-splitting or packaging candidate against the measured baseline.
 
 ### PND-004 — Conditional stylesheet consolidation
 
-After human visual approval, evaluate whether the additive polish cascade should be consolidated. Do not perform consolidation without visual regression screenshots and the full browser audit.
+After human visual approval, evaluate whether the additive polish cascade should be consolidated. Do not perform consolidation without visual regression screenshots and the full browser and direct-file audits.
 
 ## 8. Prohibitions
 
@@ -395,6 +453,9 @@ After human visual approval, evaluate whether the additive polish cascade should
 - Do not pin action surfaces over dossier or annotation content.
 - Do not restore automatic dossier hyphenation or generic active dots on Record tabs or specimen cards.
 - Do not consolidate polish stylesheets without screenshot and browser regression evidence.
+- Do not deliver screenshots, a static report, a reduced viewer, or a server-dependent shell in place of the feature-complete interactive HTML.
+- Do not remove protected features to reduce the HTML file size.
+- Do not introduce runtime network requirements into the downloadable HTML.
 
 ## 9. Validation Matrix
 
@@ -411,15 +472,20 @@ After human visual approval, evaluate whether the additive polish cascade should
 | Third 8 adversarial repairs | verified | wave-3 critique, source, tests, dedicated browser audit, screenshots | preference/device review |
 | Fourth 60 polish improvements | verified | wave-4 manifest, source, tests, established and dedicated browser audits | physical-device review |
 | Fourth 10 adversarial repairs | verified | wave-4 critique, source, tests, measurement, dedicated browser audit, screenshots | preference/device review |
-| Source compiles | verified | run `30884250123` | none |
-| Lint is clean | verified | run `30884250123` | none |
-| Tests pass | verified | run `30884250123` | none |
-| Production build succeeds | verified | run `30884250123` | deployment/browser load |
+| Source compiles | verified | run `30886808883` | none |
+| Lint is clean | verified | run `30886808883` | none |
+| Tests pass | verified | run `30886808883` | none |
+| Standard production build succeeds | verified | run `30886808883` | deployment/browser load |
+| Single-file HTML builds and passes static dependency validation | verified | run `30886808883`; `build:html`, `validate:html` | none |
+| HTML opens directly from `file://` | verified | direct-file parity audit in run `30886808883` | target-MacBook confirmation |
+| HTML preserves the complete protected feature matrix | verified under automated direct-file interaction | `interactive-html-parity-v2.mjs`, run `30886808883` | physical-device and human interaction review |
+| HTML makes zero remote runtime requests | verified | direct-file request capture in run `30886808883` | cross-browser confirmation |
+| HTML produces Markdown and JSON exports | verified | direct-file download assertions in run `30886808883` | target-browser confirmation |
 | UI is hidden at rest | verified | browser audits and screenshots | physical-device confirmation |
 | Global handles hide above modal surfaces | verified | wave-three browser audit and screenshots | cross-browser physical-device confirmation |
 | Skip link hidden at rest and immediate on focus | verified | wave-four browser geometry and focus assertion | screen-reader/physical-device confirmation |
 | Drawer focus and keyboard tabs | verified | established browser audit | screen-reader/physical-device confirmation |
-| Desktop/mobile containment and overflow | verified | all three browser audits | additional real-device sizes |
+| Desktop/mobile containment and overflow | verified | all browser audits plus isolated direct-file mobile page | additional real-device sizes |
 | Primary Tools clusters do not collide | verified | wave-four rectangle intersection and overflow assertions | physical-device confirmation |
 | Narrow Record chrome does not overflow | verified | established and wave-four geometry assertions | additional real-device widths |
 | Coarse-pointer close target is 44 × 44 pixels | verified under emulation | wave-four browser audit | physical touch-device confirmation |
@@ -427,12 +493,12 @@ After human visual approval, evaluate whether the additive polish cascade should
 | Dossier prose avoids automatic hyphenation | verified | computed style and screenshot review | cross-browser typography review |
 | Mobile record fields stack cleanly | verified | computed grid style, overflow check, screenshot | physical-device touch check |
 | Export footer does not cover annotation content | verified | zero-overlap geometry and screenshot | cross-browser human check |
-| Mobile Tools controls do not clip | verified | internal overflow checks and screenshot | physical-device touch check |
+| Mobile Tools controls do not clip | verified | internal overflow checks and direct-file mobile containment | physical-device touch check |
 | Reduced-motion fallback | verified | media emulation and computed styles | physical-device confirmation |
 | Reduced-data/transparency/contrast/forced-colors fallbacks | implemented, partially verified | source inspection and focused assertions | native preference review |
 | All 59 records mount and expose four layers | verified by completed shard loops | run `30875253098` logs/artifacts | human interaction review |
 | All 59 models are artistically final | unverified | not established | full human review |
-| Performance readiness | at risk / unverified | bundle warning | target-device profile |
+| Performance readiness | at risk / unverified | bundle and single-file size warnings | target-device profile |
 
 ## 10. Revision Log
 
@@ -448,3 +514,4 @@ After human visual approval, evaluate whether the additive polish cascade should
 - **Revision 25 — 2026-08-04:** Implemented 60 additional polish improvements, conducted source, measured layout, browser, and screenshot adversarial review, implemented 10 resulting repairs, corrected skip-link visibility, tool-cluster collision, narrow Record overflow, coarse-pointer target regression, specimen metadata pressure, toast safe-area clearance, and mobile action layout, added a dedicated wave-four browser gate, and passed source/build plus all three browser audits in run `30883838602`. Human art direction, native preference modes, physical-device behavior, and performance approval remain pending.
 - **Revision 26 — 2026-08-04:** Revalidated the exact fourth-wave documentation head `f98dc2b58eeb346e06fa26dcbc0c3f66fd957d6b` through the complete source/build and three-browser gate in run `30884135982`; no new implementation or documentation defect was introduced.
 - **Revision 27 — 2026-08-04:** Promoted exact final branch head `2c9c879445ed814ec1a9c7c67ea2df4e6818b9e8` and run `30884250123` as the current verified baseline; this was a pointer-only reconciliation with no application change.
+- **Revision 28 — 2026-08-04:** Added a deterministic self-contained interactive HTML build and static validator, established a no-feature-loss delivery invariant, added an isolated desktop/mobile direct-file parity audit covering the complete protected product path, documented delivery and validation commands, removed superseded audit harnesses, and passed standard build, HTML build, direct-file parity, and all existing browser gates in run `30886808883`. Human art direction, physical-device behavior, and target-MacBook performance remain pending.
