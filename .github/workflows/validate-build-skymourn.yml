@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate:
@@ -19,6 +19,9 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
 
       - name: Set up Node
         uses: actions/setup-node@v7
@@ -28,6 +31,18 @@ jobs:
 
       - name: Install locked dependencies
         run: npm ci --ignore-scripts
+
+      - name: Apply bounded repair
+        if: github.event_name == 'pull_request' && github.head_ref == 'repair/immersive-ui-model-quality-20260803'
+        run: |
+          node scripts/apply-immersive-model-repair.mjs
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/App.tsx src/components/ExaminationChamber.tsx src/scene/SpecimenRouter.tsx src/immersive-shell.css
+            git commit -m "feat: apply immersive UI and model enhancement integration"
+            git push origin HEAD:${GITHUB_HEAD_REF}
+          fi
 
       - name: Strict static audit
         run: |
