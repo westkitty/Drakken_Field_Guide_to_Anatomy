@@ -1,4 +1,11 @@
-/* Final specificity repair for physically opened modal drawers. */
+/* Final runtime repair for physically opened modal drawers. */
+#registry-drawer.registry-panel,
+#record-drawer.record-panel,
+#tools-drawer.tools-panel,
+#diagnostics-drawer.diagnostics-panel {
+  transition: none !important;
+}
+
 #registry-drawer.registry-panel.is-open,
 #record-drawer.record-panel.is-open,
 #tools-drawer.tools-panel.is-open,
