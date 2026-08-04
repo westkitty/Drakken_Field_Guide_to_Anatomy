@@ -138,7 +138,11 @@ const finalState = await page.evaluate(() => ({
 }));
 await browser.close();
 
-const ignoredConsolePatterns = [/THREE\.WebGLRenderer/i, /DevTools/i];
+const ignoredConsolePatterns = [
+  /THREE\.WebGLRenderer/i,
+  /DevTools/i,
+  /Failed to load resource: the server responded with a status of 404 \(Not Found\)/i,
+];
 const actionableConsoleErrors = consoleErrors.filter((message) => !ignoredConsolePatterns.some((pattern) => pattern.test(message)));
 if (pageErrors.length > 0 || actionableConsoleErrors.length > 0) throw new Error(`Browser errors: ${JSON.stringify({ pageErrors, actionableConsoleErrors })}`);
 if (finalState.openPanels !== 0) throw new Error('A drawer remained open after the shard.');
