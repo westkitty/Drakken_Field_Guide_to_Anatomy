@@ -16,7 +16,6 @@ const browser = await puppeteer.launch({
 const page = await browser.newPage();
 await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 1 });
 
-const fileUrl = pathToFileURL(htmlFile).toString();
 const remoteRequests = [];
 const pageErrors = [];
 const consoleErrors = [];
@@ -25,25 +24,14 @@ page.on('pageerror', (error) => pageErrors.push(error.message));
 page.on('console', (message) => { if (message.type() === 'error') consoleErrors.push(message.text()); });
 
 const delay = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
+await page.goto(pathToFileURL(htmlFile).toString(), { waitUntil: 'load', timeout: 45_000 });
+await page.waitForSelector('canvas[data-interaction-ready="true"]', { visible: true, timeout: 30_000 });
+await page.waitForFunction(() => {
+  const canvas = document.querySelector('canvas');
+  return Boolean(canvas?.dataset.cameraState && canvas.dataset.fittedRecord === 'skymourn');
+}, { timeout: 30_000 });
+await delay(900);
 
-async function loadReady() {
-  await page.goto(fileUrl, { waitUntil: 'load', timeout: 45_000 });
-  await page.waitForSelector('canvas[data-interaction-ready="true"]', { visible: true, timeout: 30_000 });
-  await page.waitForFunction(() => {
-    const canvas = document.querySelector('canvas');
-    return Boolean(canvas?.dataset.cameraState && canvas.dataset.fittedRecord === 'skymourn');
-  }, { timeout: 30_000 });
-  await delay(700);
-}
-
-async function cameraState() {
-  return page.evaluate(() => ({
-    state: document.querySelector('canvas')?.dataset.cameraState ?? '',
-    count: Number(document.querySelector('canvas')?.dataset.cameraInteractionCount ?? '0'),
-  }));
-}
-
-await loadReady();
 const initial = await page.evaluate(() => {
   const canvas = document.querySelector('canvas');
   const canvasRect = canvas.getBoundingClientRect();
@@ -82,7 +70,12 @@ const handleCases = [
 ];
 const handleResults = [];
 for (const [controls, drawerSelector] of handleCases) {
-  await loadReady();
+  await page.waitForFunction((value) => {
+    const button = document.querySelector(`[aria-controls="${value}"]`);
+    if (!(button instanceof HTMLElement)) return false;
+    const style = getComputedStyle(button);
+    return style.visibility === 'visible' && style.pointerEvents === 'auto' && Number.parseFloat(style.opacity) >= 0.65;
+  }, { timeout: 10_000 }, controls);
   const handle = await page.$(`[aria-controls="${controls}"]`);
   const box = await handle?.boundingBox();
   if (!box) throw new Error(`No physical box for ${controls}.`);
@@ -94,7 +87,7 @@ for (const [controls, drawerSelector] of handleCases) {
   console.log(`HANDLE_START ${controls} ${JSON.stringify({ point, hit })}`);
   if (hit.controls !== controls) throw new Error(`${controls} is blocked: ${JSON.stringify(hit)}.`);
   await page.mouse.click(point.x, point.y);
-  await delay(1000);
+  await delay(350);
   const opened = await page.evaluate((selector) => {
     const drawer = document.querySelector(selector);
     const rect = drawer.getBoundingClientRect();
@@ -107,10 +100,7 @@ for (const [controls, drawerSelector] of handleCases) {
       visibility: style.visibility,
       pointerEvents: style.pointerEvents,
       transform: style.transform,
-      zIndex: style.zIndex,
       rect: [rect.left, rect.top, rect.right, rect.bottom],
-      activeTag: document.activeElement?.tagName ?? '',
-      activeClass: typeof document.activeElement?.className === 'string' ? document.activeElement.className : '',
     };
   }, drawerSelector);
   console.log(`HANDLE_STATE ${controls} ${JSON.stringify(opened)}`);
@@ -128,22 +118,28 @@ for (const [controls, drawerSelector] of handleCases) {
   if (!visible) throw new Error(`${controls} failed physical opening: ${JSON.stringify(opened)}.`);
   handleResults.push({ controls, hit, opened });
   if (controls === 'registry-drawer' || controls === 'record-drawer') await page.screenshot({ path: path.join(outputRoot, `physical-${controls}.png`), fullPage: true });
+  await page.keyboard.press('Escape');
+  await page.waitForFunction((selector) => !document.querySelector(selector)?.classList.contains('is-open'), { timeout: 10_000 }, drawerSelector);
+  await delay(150);
 }
 
-await loadReady();
 const canvas = await page.$('canvas');
 const canvasBox = await canvas?.boundingBox();
 if (!canvasBox) throw new Error('Canvas has no physical box.');
 const x = canvasBox.x + canvasBox.width * 0.52;
 const y = canvasBox.y + canvasBox.height * 0.48;
+const readCamera = () => page.evaluate(() => ({
+  state: document.querySelector('canvas')?.dataset.cameraState ?? '',
+  count: Number(document.querySelector('canvas')?.dataset.cameraInteractionCount ?? '0'),
+}));
 
-const beforeOrbit = await cameraState();
+const beforeOrbit = await readCamera();
 await page.mouse.move(x, y);
 await page.mouse.down({ button: 'left' });
 await page.mouse.move(x + 260, y + 95, { steps: 18 });
 await page.mouse.up({ button: 'left' });
 await delay(900);
-const afterOrbit = await cameraState();
+const afterOrbit = await readCamera();
 if (afterOrbit.state === beforeOrbit.state || afterOrbit.count <= beforeOrbit.count) throw new Error(`Left-drag did not orbit: ${JSON.stringify({ beforeOrbit, afterOrbit })}.`);
 
 const beforePan = afterOrbit;
@@ -152,26 +148,25 @@ await page.mouse.down({ button: 'right' });
 await page.mouse.move(x - 150, y + 80, { steps: 14 });
 await page.mouse.up({ button: 'right' });
 await delay(900);
-const afterPan = await cameraState();
+const afterPan = await readCamera();
 if (afterPan.state === beforePan.state || afterPan.count <= beforePan.count) throw new Error(`Right-drag did not pan: ${JSON.stringify({ beforePan, afterPan })}.`);
 
 const beforeWheel = afterPan;
 await page.mouse.move(x, y);
 await page.mouse.wheel({ deltaY: 480 });
 await delay(1000);
-let afterWheel = await cameraState();
+let afterWheel = await readCamera();
 let wheelDirection = 'out';
 if (afterWheel.state === beforeWheel.state || afterWheel.count <= beforeWheel.count) {
   await page.mouse.wheel({ deltaY: -960 });
   await delay(1000);
-  afterWheel = await cameraState();
+  afterWheel = await readCamera();
   wheelDirection = 'in';
 }
 if (afterWheel.state === beforeWheel.state || afterWheel.count <= beforeWheel.count) throw new Error(`Neither physical wheel direction changed the camera: ${JSON.stringify({ beforeWheel, afterWheel })}.`);
 
 await page.screenshot({ path: path.join(outputRoot, 'physical-camera-after-input.png'), fullPage: true });
 await browser.close();
-
 if (remoteRequests.length) throw new Error(`Direct HTML made remote requests: ${JSON.stringify(remoteRequests)}.`);
 if (pageErrors.length || consoleErrors.length) throw new Error(`Direct HTML raised runtime errors: ${JSON.stringify({ pageErrors, consoleErrors })}.`);
 
@@ -183,6 +178,7 @@ fs.writeFileSync(path.join(outputRoot, 'interactive-html-physical-runtime.md'), 
   '- Normal local file launch and Skymourn bounds fit: PASS',
   '- Five visible edge controls: PASS',
   '- Registry, Tools, Record, and Diagnostics opened through real pointer clicks: PASS',
+  '- Each drawer closed and restored the next physical handle: PASS',
   '- Left-drag orbit changed camera state: PASS',
   '- Right-drag pan changed camera state: PASS',
   `- Physical wheel zoom changed camera state (${wheelDirection}): PASS`,
@@ -190,4 +186,4 @@ fs.writeFileSync(path.join(outputRoot, 'interactive-html-physical-runtime.md'), 
   '- Actionable browser errors: 0',
   '',
 ].join('\n'));
-console.log('Interactive HTML physical runtime audit passed.');
+console.log('Interactive HTML one-session physical runtime audit passed.');
