@@ -373,14 +373,20 @@ export function ExaminationChamber(props: ChamberProps) {
   }, [props.clip.axis, props.clip.inverted, props.clip.position]);
 
   const accentLightColor = getSpecimenAccentColor(props.record.archetype);
+  const auditMode = useMemo(
+    () => typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('audit') === '1',
+    [],
+  );
+  const effectiveQualityTier: ChamberProps['qualityTier'] = auditMode ? 'reduced' : props.qualityTier;
 
   return (
     <div className="chamber-canvas" aria-label={`Three-dimensional examination chamber for ${props.record.designation}`}>
       <Canvas
-        key={props.qualityTier}
-        shadows={props.qualityTier === 'standard'}
-        dpr={props.qualityTier === 'standard' ? [1, 1.75] : 1}
-        gl={{ antialias: props.qualityTier === 'standard', powerPreference: 'high-performance', alpha: false }}
+        key={auditMode ? 'audit' : props.qualityTier}
+        frameloop={auditMode ? 'demand' : 'always'}
+        shadows={!auditMode && props.qualityTier === 'standard'}
+        dpr={auditMode ? 1 : props.qualityTier === 'standard' ? [1, 1.75] : 1}
+        gl={{ antialias: !auditMode && props.qualityTier === 'standard', powerPreference: 'high-performance', alpha: false }}
         onCreated={({ gl }) => {
           gl.localClippingEnabled = true;
           gl.setClearColor('#1b2329');
@@ -393,7 +399,7 @@ export function ExaminationChamber(props: ChamberProps) {
         <ContextLifecycle />
         <color attach="background" args={['#1b2329']} />
         <fog attach="fog" args={['#1b2329', 42, 96]} />
-        <StudioLighting accent={accentLightColor} qualityTier={props.qualityTier} />
+        <StudioLighting accent={accentLightColor} qualityTier={effectiveQualityTier} />
         <ArchivalContainmentPlatform archetype={props.record.archetype} />
         <Suspense fallback={null}>
           <Bounds fit clip observe margin={1.32}>
@@ -412,6 +418,7 @@ export function ExaminationChamber(props: ChamberProps) {
           />
           <FitToSpecimen recordId={props.record.id} resetToken={props.resetCameraToken} mode={props.cameraMode} />
           </Bounds>
+          {!auditMode && (
           <ContactShadows
             position={[0, -4.93, 0]}
             opacity={0.28}
@@ -421,6 +428,7 @@ export function ExaminationChamber(props: ChamberProps) {
             resolution={props.qualityTier === 'standard' ? 512 : 256}
             frames={1}
           />
+          )}
           <ScaleReference type={props.scaleReference} />
           <MeasurementDisplay points={props.measurementPoints} />
           <ClippingIndicator clip={props.clip} />

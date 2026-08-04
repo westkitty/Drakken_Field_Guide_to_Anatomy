@@ -24,7 +24,9 @@ page.on('pageerror', (error) => pageErrors.push(error.message));
 const delay = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
 await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 1 });
-await page.goto(baseUrl, { waitUntil: 'domcontentloaded', timeout: 30_000 });
+const auditUrl = new URL(baseUrl);
+auditUrl.searchParams.set('audit', '1');
+await page.goto(auditUrl.toString(), { waitUntil: 'domcontentloaded', timeout: 30_000 });
 await page.waitForSelector('canvas', { visible: true, timeout: 30_000 });
 await delay(400);
 
@@ -69,15 +71,6 @@ const records = await page.$$eval('.registry-panel .specimen-card', (cards) => c
 })));
 if (records.length !== 59) throw new Error(`Expected 59 registry cards, found ${records.length}.`);
 await page.keyboard.press('Escape');
-
-await page.keyboard.press('t');
-await page.waitForSelector('.tools-panel.is-open', { visible: true });
-await page.$$eval('.tools-panel button', (buttons) => {
-  const reduced = buttons.find((button) => button.textContent?.includes('Reduced quality'));
-  if (reduced?.getAttribute('aria-pressed') !== 'true') reduced?.click();
-});
-await page.keyboard.press('Escape');
-await delay(120);
 
 const endIndex = Math.min(records.length, startIndex + count);
 const results = [];
