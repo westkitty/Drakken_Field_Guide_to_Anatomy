@@ -139,10 +139,19 @@ function MeasurementDisplay({ points }: { points: [number, number, number][] }) 
   return (
     <group>
       {points.map((point, index) => (
-        <mesh key={`${point.join('-')}-${index}`} position={point}>
-          <sphereGeometry args={[0.13, 18, 12]} />
-          <meshBasicMaterial color="#a6e7ff" depthTest={false} />
-        </mesh>
+        <group key={`${point.join('-')}-${index}`} position={point}>
+          <mesh>
+            <sphereGeometry args={[0.13, 18, 12]} />
+            <meshBasicMaterial color="#a6e7ff" depthTest={false} />
+          </mesh>
+          <mesh rotation={[Math.PI / 2, 0, 0]}>
+            <ringGeometry args={[0.19, 0.24, 28]} />
+            <meshBasicMaterial color="#a6e7ff" transparent opacity={0.72} depthTest={false} side={THREE.DoubleSide} />
+          </mesh>
+          <Html position={[0, 0.32, 0]} center distanceFactor={12}>
+            <span className="measurement-point-index" aria-hidden="true">{index + 1}</span>
+          </Html>
+        </group>
       ))}
       {points.length === 2 && (
         <>
@@ -380,7 +389,7 @@ export function ExaminationChamber(props: ChamberProps) {
   const effectiveQualityTier: ChamberProps['qualityTier'] = auditMode ? 'reduced' : props.qualityTier;
 
   return (
-    <div className="chamber-canvas" aria-label={`Three-dimensional examination chamber for ${props.record.designation}`}>
+    <div className={`chamber-canvas ${props.measurementMode ? 'is-measuring' : ''} ${props.clip.enabled ? 'is-sectioning' : ''}`} aria-label={`Three-dimensional examination chamber for ${props.record.designation}`}>
       <Canvas
         key={auditMode ? 'audit' : props.qualityTier}
         frameloop={auditMode ? 'demand' : 'always'}
@@ -448,6 +457,7 @@ export function ExaminationChamber(props: ChamberProps) {
           onAnimationTime={props.onAnimationTime}
         />
       </Canvas>
+      <div className="chamber-vignette" aria-hidden="true" />
       <div className="chamber-crosshair" aria-hidden="true" />
       <div className="chamber-hud-bar" aria-label="Keyboard shortcut guide">
         <span><kbd>R</kbd> Reset camera</span>
