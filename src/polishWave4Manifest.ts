@@ -61,4 +61,15 @@ export const POLISH_WAVE_4_IMPROVEMENTS = [
   { id: 'W4-60', title: 'Protect constrained devices and accessibility preferences' },
 ] as const;
 
-export const POLISH_WAVE_4_REPAIRS: ReadonlyArray<{ id: string; title: string }> = [];
+export const POLISH_WAVE_4_REPAIRS = [
+  { id: 'W4-A01', title: 'Keep the skip link hidden until keyboard focus' },
+  { id: 'W4-A02', title: 'Prevent primary tool clusters from colliding' },
+  { id: 'W4-A03', title: 'Contain narrow Record tabs inside the drawer' },
+  { id: 'W4-A04', title: 'Restore forty-four-pixel coarse-pointer close targets' },
+  { id: 'W4-A05', title: 'Remove the redundant active specimen-card marker' },
+  { id: 'W4-A06', title: 'Constrain long paired specimen metadata values' },
+  { id: 'W4-A07', title: 'Use one safe-area anchor system for status toasts' },
+  { id: 'W4-A08', title: 'Apply directional mobile safe-area padding' },
+  { id: 'W4-A09', title: 'Make ultra-narrow annotation actions use a real grid' },
+  { id: 'W4-A10', title: 'Allow export actions to shrink without drawer overflow' },
+] as const;
