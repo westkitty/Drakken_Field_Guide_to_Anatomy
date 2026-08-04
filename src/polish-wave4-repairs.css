@@ -93,12 +93,12 @@
   }
 }
 
-/* W4-A07 — the toast uses one anchor system, not simultaneous top/left and bottom/right anchors. */
+/* W4-A07 — the toast uses one anchor system and preserves safe-area clearance through entrance motion. */
 .status-toast {
   top: auto;
   left: auto;
-  right: max(0.75rem, env(safe-area-inset-right));
-  bottom: max(0.75rem, env(safe-area-inset-bottom));
+  right: max(1.25rem, env(safe-area-inset-right));
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
   transform: translateY(8px);
 }
 
