@@ -51,7 +51,7 @@ jobs:
   polish-browser-audit:
     if: github.event_name == 'pull_request' && github.head_ref == 'repair/immersive-ui-model-quality-20260803'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 18
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -70,6 +70,7 @@ jobs:
           mkdir -p /tmp/drakken-polish-audit
           cp scripts/polish-browser-audit.mjs /tmp/drakken-polish-audit/audit.mjs
           cp scripts/polish-wave3-browser-audit.mjs /tmp/drakken-polish-audit/wave3-audit.mjs
+          cp scripts/polish-wave4-browser-audit.mjs /tmp/drakken-polish-audit/wave4-audit.mjs
           cd /tmp/drakken-polish-audit
           npm init -y >/dev/null
           PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache npm install puppeteer@24.16.0 --no-save --no-package-lock
@@ -93,6 +94,10 @@ jobs:
           DRAKKEN_AUDIT_URL=http://127.0.0.1:4173 \
           DRAKKEN_AUDIT_OUTPUT=${GITHUB_WORKSPACE}/polish-browser-audit-output \
           node wave3-audit.mjs
+          PUPPETEER_CACHE_DIR=/tmp/puppeteer-cache \
+          DRAKKEN_AUDIT_URL=http://127.0.0.1:4173 \
+          DRAKKEN_AUDIT_OUTPUT=${GITHUB_WORKSPACE}/polish-browser-audit-output \
+          node wave4-audit.mjs
 
       - name: Upload polish evidence
         if: always()
