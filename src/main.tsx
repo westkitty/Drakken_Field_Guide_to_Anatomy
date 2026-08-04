@@ -13,6 +13,7 @@ import './polish-wave3-repairs.css';
 import './polish-wave4.css';
 import './polish-wave4-repairs.css';
 import './runtime-interaction-repair.css';
+import './runtime-drawer-fix.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
