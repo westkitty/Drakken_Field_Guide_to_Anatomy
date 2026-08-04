@@ -28,7 +28,7 @@ const click = async (selector) => {
 };
 
 await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 1 });
-await page.goto(baseUrl, { waitUntil: 'networkidle0', timeout: 60_000 });
+await page.goto(baseUrl, { waitUntil: 'domcontentloaded', timeout: 30_000 });
 await page.waitForSelector('canvas', { visible: true, timeout: 30_000 });
 await delay(500);
 
