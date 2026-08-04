@@ -76,7 +76,7 @@ Application and repair source through `51844ee6d54741206dd01f8dc11a7bf9d914c0c3`
 - the established desktop/mobile browser audit;
 - a new dedicated wave-three browser audit.
 
-The exact current branch head `14c009bfa1a7b9281f29c13bd51cd5289fbe2fe5`, including the final ledger and Operational State update, passed the same complete gate in GitHub Actions run `30882190842`.
+The exact current branch head `f96f17207075e818b99c76fcb6dbce631c6f8dbd`, including the final ledger and Operational State updates, passed the same complete gate in GitHub Actions run `30882253880`.
 
 The dedicated browser audit verifies:
 
