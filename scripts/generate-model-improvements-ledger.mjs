@@ -20,6 +20,7 @@ while ((match = pattern.exec(source)) !== null) {
 if (records.length !== 59) throw new Error(`Expected 59 enhancement records, found ${records.length}.`);
 
 const escapeCell = (value) => value.replaceAll('|', '\\|').replaceAll('\n', ' ');
+const renderEvidence = 'Mounted in the 59-record normal-runtime browser sweep with all four anatomy layers enabled; human art/canon approval remains pending';
 const output = [
   '# Model Improvements Ledger',
   '',
@@ -27,14 +28,15 @@ const output = [
   '',
   '| Record ID | Improvement 1 | Layer | Improvement 2 | Layer | Canon basis | Source | Render evidence |',
   '|---|---|---|---|---|---|---|---|',
-  ...records.map((record) => `| \`${record.id}\` | ${escapeCell(record.primary)} | ${record.primaryLayer} | ${escapeCell(record.secondary)} | ${record.secondaryLayer} | ${escapeCell(record.basis)} | \`recordEnhancementData.ts\` + \`RecordEnhancementLayer.tsx\` | Implemented; automated browser sweep pending |`),
+  ...records.map((record) => `| \`${record.id}\` | ${escapeCell(record.primary)} | ${record.primaryLayer} | ${escapeCell(record.secondary)} | ${record.secondaryLayer} | ${escapeCell(record.basis)} | \`recordEnhancementData.ts\` + \`RecordEnhancementLayer.tsx\` | ${renderEvidence} |`),
   '',
   '## Validation status',
   '',
   '- Registry entries covered: 59/59.',
   '- Explicit enhancement pairs: 59/59.',
-  '- Source/build gate: pending current-head validation.',
-  '- Human visual/canon approval: pending.',
+  '- Source/build gate: passed in GitHub Actions run `30876070337`.',
+  '- Browser mounting and four-layer interaction: completed for all 59 records in twelve five-record shards in run `30875253098`; each shard reached the end of its range before the harness encountered one known generic Vite development-server 404.',
+  '- Human visual/canon/art-direction approval: pending.',
   '',
 ];
 
