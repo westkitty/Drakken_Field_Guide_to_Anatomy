@@ -1,0 +1,34 @@
+name: Apply bounded polish pass
+
+on:
+  push:
+    branches:
+      - repair/immersive-ui-model-quality-20260803
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repair branch
+        uses: actions/checkout@v7
+        with:
+          ref: repair/immersive-ui-model-quality-20260803
+          fetch-depth: 0
+
+      - name: Apply idempotent polish pass
+        run: node scripts/apply-polish-pass.mjs
+
+      - name: Commit generated implementation
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/App.tsx src/components/ExaminationChamber.tsx src/main.tsx src/polish.css src/polish.test.ts POLISH_PASS.md
+            git commit -m "feat: implement forty product polish improvements"
+            git push origin HEAD:repair/immersive-ui-model-quality-20260803
+          fi
