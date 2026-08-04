@@ -247,38 +247,6 @@ export default function App() {
     return () => window.cancelAnimationFrame(frame);
   }, [recordOpen, registryOpen, toolsOpen]);
 
-  useEffect(() => {
-    const selector = registryOpen
-      ? '.registry-panel.is-open'
-      : toolsOpen
-        ? '.tools-panel.is-open'
-        : recordOpen
-          ? '.record-panel.is-open'
-          : null;
-    if (!selector) return;
-    const frame = window.requestAnimationFrame(() => {
-      const panel = document.querySelector<HTMLElement>(selector);
-      panel?.querySelector<HTMLElement>('input, button, select, [href], [tabindex]:not([tabindex="-1"])')?.focus();
-    });
-    return () => window.cancelAnimationFrame(frame);
-  }, [recordOpen, registryOpen, toolsOpen]);
-
-  useEffect(() => {
-    const selector = registryOpen
-      ? '.registry-panel.is-open'
-      : toolsOpen
-        ? '.tools-panel.is-open'
-        : recordOpen
-          ? '.record-panel.is-open'
-          : null;
-    if (!selector) return;
-    const frame = window.requestAnimationFrame(() => {
-      const panel = document.querySelector<HTMLElement>(selector);
-      panel?.querySelector<HTMLElement>('input, button, select, [href], [tabindex]:not([tabindex="-1"])')?.focus();
-    });
-    return () => window.cancelAnimationFrame(frame);
-  }, [recordOpen, registryOpen, toolsOpen]);
-
   const addMeasurementPoint = useCallback((point: [number, number, number]) => {
     setMeasurementPoints((current) => (current.length >= 2 ? [point] : [...current, point]));
   }, []);
