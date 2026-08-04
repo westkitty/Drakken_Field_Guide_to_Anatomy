@@ -122,8 +122,32 @@ const mobileRecordState = await page.evaluate(() => {
   const close = drawer.querySelector('.mobile-close');
   const closeRect = close.getBoundingClientRect();
   const annotationActions = document.querySelector('.annotation-actions');
+  const drawerRect = drawer.getBoundingClientRect();
+  const offenders = [...drawer.querySelectorAll('*')]
+    .map((element) => {
+      const rect = element.getBoundingClientRect();
+      return {
+        tag: element.tagName.toLowerCase(),
+        id: element.id,
+        className: typeof element.className === 'string' ? element.className : '',
+        left: Number(rect.left.toFixed(2)),
+        right: Number(rect.right.toFixed(2)),
+        width: Number(rect.width.toFixed(2)),
+        clientWidth: element.clientWidth,
+        scrollWidth: element.scrollWidth,
+      };
+    })
+    .filter((item) => item.right > drawerRect.right + 1 || item.left < drawerRect.left - 1 || item.scrollWidth > item.clientWidth + 1)
+    .slice(0, 20);
   return {
     pointerCoarse: matchMedia('(pointer: coarse)').matches,
+    drawerClientWidth: drawer.clientWidth,
+    drawerScrollWidth: drawer.scrollWidth,
+    drawerRect: {
+      left: Number(drawerRect.left.toFixed(2)),
+      right: Number(drawerRect.right.toFixed(2)),
+      width: Number(drawerRect.width.toFixed(2)),
+    },
     drawerOverflow: drawer.scrollWidth > drawer.clientWidth + 1,
     tabsOverflow: tabs.scrollWidth > tabs.clientWidth + 1,
     tabColumns: getComputedStyle(tabs).gridTemplateColumns,
@@ -131,6 +155,7 @@ const mobileRecordState = await page.evaluate(() => {
     closeHeight: closeRect.height,
     annotationDisplay: getComputedStyle(annotationActions).display,
     annotationColumns: getComputedStyle(annotationActions).gridTemplateColumns,
+    offenders,
   };
 });
 if (mobileRecordState.drawerOverflow || mobileRecordState.tabsOverflow) throw new Error(`Narrow Record layout overflows: ${JSON.stringify(mobileRecordState)}.`);
