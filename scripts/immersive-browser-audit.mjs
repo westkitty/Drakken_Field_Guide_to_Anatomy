@@ -67,7 +67,7 @@ await page.screenshot({ path: path.join(screenshots, 'viewport-390x844.png'), fu
 await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 1 });
 await delay(250);
 
-await click('button[aria-label="Open specimen registry"]');
+await page.keyboard.press('g');
 await page.waitForSelector('.registry-panel.is-open', { visible: true });
 const records = await page.$$eval('.registry-panel .specimen-card', (cards) => cards.map((card) => ({
   designation: card.querySelector('strong')?.textContent?.trim() ?? 'Unknown',
@@ -82,7 +82,7 @@ const results = [];
 const startHeap = await page.evaluate(() => performance.memory?.usedJSHeapSize ?? null);
 
 for (let index = 0; index < records.length; index += 1) {
-  await click('button[aria-label="Open specimen registry"]');
+  await page.keyboard.press('g');
   await page.waitForSelector('.registry-panel.is-open', { visible: true });
   const cards = await page.$$('.registry-panel .specimen-card');
   if (!cards[index]) throw new Error(`Registry card ${index} disappeared.`);
@@ -102,7 +102,7 @@ for (let index = 0; index < records.length; index += 1) {
   if (state.error) throw new Error(`${records[index].designation} reported: ${state.error}`);
   if (!state.canvasVisible) throw new Error(`${records[index].designation} lost the WebGL canvas.`);
 
-  await click('button[aria-label="Open examination tools"]');
+  await page.keyboard.press('t');
   await page.waitForSelector('.tools-panel.is-open', { visible: true });
   const layerCount = await page.$$eval('.tools-panel .layer-grid .toggle-button', (buttons) => {
     for (const button of buttons) {

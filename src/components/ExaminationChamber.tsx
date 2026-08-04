@@ -68,12 +68,10 @@ function CameraController({
   mode,
   preset,
   commandToken,
-  resetToken,
 }: {
   mode: CameraMode;
   preset: CameraPreset;
   commandToken: number;
-  resetToken: number;
 }) {
   const perspective = useRef<THREE.PerspectiveCamera | null>(null);
   const orthographic = useRef<THREE.OrthographicCamera | null>(null);
@@ -89,7 +87,7 @@ function CameraController({
     camera.updateProjectionMatrix();
     controls.current?.target.set(0, 0.55, 0);
     controls.current?.update();
-  }, [mode, preset, commandToken, resetToken]);
+  }, [mode, commandToken, preset]);
 
   return (
     <>
@@ -397,7 +395,7 @@ export function ExaminationChamber(props: ChamberProps) {
         <StudioLighting accent={accentLightColor} qualityTier={props.qualityTier} />
         <ArchivalContainmentPlatform archetype={props.record.archetype} />
         <Suspense fallback={null}>
-          <Bounds fit clip observe margin={1.14}>
+          <Bounds fit clip observe margin={1.38}>
           <SpecimenModel
             key={props.record.id}
             record={props.record}
@@ -430,7 +428,6 @@ export function ExaminationChamber(props: ChamberProps) {
           mode={props.cameraMode}
           preset={props.cameraPreset}
           commandToken={props.cameraCommandToken}
-          resetToken={props.resetCameraToken}
         />
         <RuntimeProbe
           record={props.record}
